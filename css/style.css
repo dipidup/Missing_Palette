@@ -25,6 +25,7 @@
 		- Blog Page
 		- Contact Page
 	9. Responsive
+	10. Miscellaneous addition
 -------------------------------------------------------------------*/
 
 
@@ -34,7 +35,7 @@
 /*----------------------------------------*/
 
 @font-face {
-	font-family: "BickhamScriptPro-Regular";
+	font-family: " ";
 	src: url("../fonts/BickhamScriptPro-Regular.woff") format("woff"), url("../fonts/BickhamScriptPro-Regular.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
@@ -173,6 +174,7 @@ ol {
 	cursor: pointer;
 	text-align: center;
 	position: relative;
+	hover:
 }
 
 .site-btn:after,
@@ -247,7 +249,6 @@ ol {
 	border-bottom: 2px solid #000;
 	border-right: 2px solid #000;
 }
-
 /* Preloder */
 
 #preloder {
@@ -399,10 +400,19 @@ ol {
 .header-social a {
 	display: inline-block;
 	color: #fff;
-	margin-left: 35px;
+	margin-left: 30px;
 	padding: 9px 0;
 }
+.header-social2 {
+	float: left;
+}
 
+.header-social2 a {
+	display: inline-block;
+	color: #fff;
+	margin-left: 5px;
+	padding: 9px 0;
+}
 .nav-switch {
 	display: none;
 }
@@ -458,11 +468,13 @@ ol {
 	font-family: "BickhamScriptPro-Regular";
 	font-weight: 400;
 	line-height: 0.1;
+	
 }
 
 .hs-item h2 {
 	font-size: 60px;
 	margin-bottom: 40px;
+	text-shadow: 2px 2px #2b2a2a;
 }
 
 .hero-slider.owl-carousel .owl-nav {
@@ -538,7 +550,7 @@ ol {
 ---------------------*/
 
 .about-section {
-	padding-left: 227px;
+	padding-left: 150px;
 }
 
 .about-content-warp {
@@ -556,7 +568,9 @@ ol {
 }
 
 .about-content-warp.text-white p {
-	opacity: 0.5;
+	font-size: 18px;
+	font-weight: 500;
+	opacity: 1;
 }
 
 /* ----------------
@@ -574,13 +588,12 @@ ol {
 	font-size: 30px;
 	font-weight: 500;
 	color: #fff;
-	text-transform: uppercase;
 	letter-spacing: 2px;
 	border-bottom: 1px solid #fff;
 }
 
 .footer-section {
-	padding: 116px 0 130px;
+	padding: 50px 0 50px;
 }
 
 .footer-about {
@@ -601,7 +614,7 @@ ol {
 ---------------------*/
 
 .footer-info {
-	padding-top: 27px;
+	padding-top: 5px;	
 }
 
 .footer-info h6 {
@@ -618,10 +631,9 @@ ol {
 
 .footer-info ul li {
 	color: #fff;
-	opacity: 0.25;
+	opacity: 0.65;
 	font-size: 14px;
-	text-transform: uppercase;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 }
 
 /* ----------------
@@ -646,12 +658,15 @@ ol {
 	font-size: 60px;
 	font-weight: 600;
 	margin-bottom: 40px;
+	text-shadow: 0.8px 0.8px #2b2a2a;
 }
 
 .hero-content p {
-	font-weight: 500;
-	font-size: 14px;
-	opacity: 0.5;
+	font-weight: 600;
+	font-size: 12px;
+	opacity: 1;
+	display: flex;
+    justify-content:center;
 	margin-bottom: 55px;
 }
 
