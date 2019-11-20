@@ -578,7 +578,7 @@ ol {
 ---------------------*/
 
 .banner-section {
-	padding: 111px 0;
+	padding: 300px 0;
 }
 
 .banner-section h2 {
@@ -1088,7 +1088,7 @@ ol {
 .contact-text ul li {
 	font-size: 15px;
 	font-weight: 500;
-	margin-bottom: 18px;
+	margin-bottom: 5px;
 }
 
 .contact-text ul li h6 {
@@ -1240,7 +1240,7 @@ ol {
 		padding-top: 50px;
 	}
 	.contact-page {
-		padding: 230px 80px 120px;
+		padding: 30px 20px 20px;
 	}
 	.contact-form {
 		padding-top: 80px;
