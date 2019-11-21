@@ -578,7 +578,7 @@ ol {
 ---------------------*/
 
 .banner-section {
-	padding: 300px 0;
+	padding: 30px 30px 20px;
 }
 
 .banner-section h2 {
@@ -679,7 +679,8 @@ ol {
 .testimonial-content h2 {
 	font-size: 48px;
 	font-weight: 500;
-	margin-bottom: 55px;
+	margin-top: 20px;
+	margin-bottom: 75px;
 }
 
 .testimonial-content p {
@@ -687,7 +688,7 @@ ol {
 	color: #000;
 	opacity: 0.5;
 	font-style: italic;
-	margin-bottom: 50px;
+	margin-bottom: 55px;
 }
 
 .testimonial-content .testi-avatar {
@@ -701,7 +702,7 @@ ol {
 	font-size: 14px;
 	font-style: italic;
 	color: #000;
-	margin-bottom: 100px;
+	margin-bottom: 20px;
 }
 
 .testimonial-content h6 span {
@@ -734,14 +735,14 @@ ol {
 }
 
 .fact-item h2 {
-	font-size: 72px;
+	font-size: 64px;
 	font-weight: 500;
 	color: #fff;
 }
 
 .fact-item p {
-	font-size: 24px;
-	color: #fff;
+	font-size: 18px;
+	color: rgb(9, 12, 14);
 	line-height: normal;
 }
 
