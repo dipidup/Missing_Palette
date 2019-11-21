@@ -1410,3 +1410,11 @@ m5{
 	color: white;
 	text-shadow: 2px 2px 4px #000000;
   }
+
+navbg {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px 0px;
+	height: 90px;
+	transition: all 0.5s;
+	z-index: 997;
+}
