@@ -503,6 +503,21 @@ ol {
 	z-index: 99;
 	text-align: center;
 }
+.down-sign2 {
+	width: 60px;
+	position: fixed;
+	bottom: 10px;
+	left: calc(100% - 100px);
+	z-index: 99;
+	text-align: center;
+}
+.down-sign2 h6 {
+	font-size: 10px;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: #fff;
+	margin-bottom: 0px;
+}
 
 .down-sign h6 {
 	font-size: 10px;
@@ -675,8 +690,23 @@ ol {
 	text-align: center;
 	padding: 80px 15px;
 }
+.testimonial-content_f {
+	text-align: center;
+	padding: 40px 15px;
+}
 
 .testimonial-content h2 {
+	font-size: 48px;
+	font-weight: 500;
+	margin-top: 20px;
+	margin-bottom: 75px;
+}
+.testimonial-content2 {
+	text-align: center;
+	padding: 30px 15px;
+}
+
+.testimonial-content2 h2 {
 	font-size: 48px;
 	font-weight: 500;
 	margin-top: 20px;
@@ -1418,3 +1448,25 @@ navbg {
 	transition: all 0.5s;
 	z-index: 997;
 }
+
+/*services css*/
+.duplicatable-content .feature {
+	margin-bottom: 0px;
+  }
+  .feature-selector ul {
+	list-style: none;
+	padding: 0;
+  }
+  .feature-icon-large .pull-left {
+	width: 25%;
+	padding-bottom: 75px;
+  }
+  .feature-icon-large .pull-right {
+	width: 75%;
+  }
+  .feature-icon-large .pull-left .icon {
+	border: none;
+	width: auto;
+	font-size: 48px;
+	padding-top: 0px;
+  }
