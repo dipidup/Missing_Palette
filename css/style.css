@@ -727,6 +727,12 @@ ol {
 	border-radius: 50%;
 	margin-bottom: 30px;
 }
+.testimonial-content_f h6 {
+	font-size: 14px;
+	font-style: italic;
+	color: #000;
+	margin-bottom: 20px;
+}
 
 .testimonial-content h6 {
 	font-size: 14px;
