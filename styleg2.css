@@ -208,9 +208,9 @@
         z-index: 100;
         margin-left: -150px;                /*added left margin in negative to addjust the box*/
         width: 300px;                       /*had to fix the length to cover the whole box*/
-        height: auto;
+        height: auto    ;
         border-radius: 0%;                   /*this is for the circular background*/
-        background-color: #fc6060;
+        background-color: #0000006e;
         text-align: center;
         line-height: 50px;
         font-size: 14px;
