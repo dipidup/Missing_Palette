@@ -1,2 +1,4 @@
 Preloader- taken from bootstratp
 style1.css- from bitotsav19 CSS
+
+Gallery css are ow...2 and bootstrap2
