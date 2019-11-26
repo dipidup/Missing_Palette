@@ -206,10 +206,10 @@
         margin-top: 0;
         margin-right: 0;
         z-index: 100;
-        display: inline-flex;
-        width: auto;
+        margin-left: -150px;                /*added left margin in negative to addjust the box*/
+        width: 300px;                       /*had to fix the length to cover the whole box*/
         height: auto;
-        border-radius: 50%;                   /*this is for the circular background*/
+        border-radius: 0%;                   /*this is for the circular background*/
         background-color: #fc6060;
         text-align: center;
         line-height: 50px;
