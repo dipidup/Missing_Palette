@@ -539,6 +539,23 @@ ol {
 	font-weight: 500;
 	color: #fff;
 	margin-bottom: 0px;
+	
+}
+
+.down-sign3a {
+	width: 500px;
+	position: absolute;
+	bottom: -100px;
+	left: calc(100%);
+	z-index: 99;
+	text-align: center;
+}
+.down-sign3a h6 {
+	font-size: 10px;
+	font-weight: 500;
+	color: #fff;
+	margin-bottom: 0px;
+	
 }
 .down-sign4 {
 width: 100px;
@@ -1507,8 +1524,7 @@ m5{
 	text-shadow: 2px 2px 4px #000000;
   }
   m6{
-	color: black;
-	text-shadow: 2px 2px 4px #ffffff;
+	opacity: 0.6;
   }
 
 navbg {
