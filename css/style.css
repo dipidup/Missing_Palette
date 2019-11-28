@@ -506,7 +506,7 @@ ol {
 .down-sign2 {
 	width: 60px;
 	position: fixed;
-	bottom: 10px;
+	bottom: 20px;
 	left: calc(100% - 100px);
 	z-index: 99;
 	text-align: center;
@@ -526,6 +526,22 @@ ol {
 	color: #fff;
 	margin-bottom: 10px;
 }
+.down-sign3 {
+	width: auto;
+	position: absolute;
+	bottom: -100px;
+	left: calc(10px);
+	z-index: 99;
+	text-align: center;
+}
+.down-sign3 h6 {
+	font-size: 10px;
+	font-weight: 500;
+	color: #fff;
+	margin-bottom: 0px;
+}
+
+
 
 .contact-link {
 	position: absolute;
@@ -1114,9 +1130,10 @@ ol {
 }
 
 .contact-text p {
-	opacity: 0.5;
+	opacity: 0.6;
 	margin-bottom: 50px;
 }
+
 
 .contact-text ul {
 	list-style: none;
