@@ -92,7 +92,7 @@
     cursor: pointer;
     align-content: center;
 
-    border: 2px solid #fc6060;
+    border: 2px solid #043666ef;
     -webkit-transition-duration: 500ms;
     -o-transition-duration: 500ms;
     transition-duration: 500ms; }
@@ -104,7 +104,7 @@
       font-weight: 500;
       -webkit-box-shadow: 0 2px 40px 8px rgba(15, 15, 15, 0.15);
       box-shadow: 0 2px 40px 8px rgba(15, 15, 15, 0.15);
-      background-color: #fc6060;
+      background-color: #043666ef;
       color: #ffffff; }
 
 /* :: 15.0 Gallery CSS */
@@ -164,7 +164,7 @@
         position: absolute;
         width: 0%;
         height: 3px;
-        background-color: #fc6060;
+        background-color: #043666ef;
         content: '';
         bottom: -5px;
         left: 0;
