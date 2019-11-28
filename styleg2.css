@@ -182,7 +182,8 @@
     transition-duration: 500ms;
     overflow: hidden; }
     .single-portfolio-content img {
-      width: 100%;
+      width: 300px;
+      height: 300px;                          /*image size in the gallery*/
       -webkit-transition-duration: 500ms;
       -o-transition-duration: 500ms;
       transition-duration: 500ms; }
