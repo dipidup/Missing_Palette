@@ -543,7 +543,7 @@ ol {
 }
 
 .down-sign3a {
-	width: 500px;
+	width: 460px;
 	position: absolute;
 	bottom: -96px;
 	left: calc(100%);
@@ -1312,11 +1312,12 @@ width: 100px;
 	}
 	.down-sign3 {
 		bottom: -520px;
-		left: 520px
+		left: 516px
 	}
 	.down-sign3a {
+		width: 380px;
 		bottom: -546px;
-		left: 295px
+		left: 385px
 	}
 	
 	.site-logo {
@@ -1381,7 +1382,7 @@ width: 100px;
 	}
 	.down-sign3a {
 		bottom: -652px;
-		left: -50px
+		left: -81px
 	}
 	.down-sign4 {
 		left: 420px
