@@ -557,6 +557,7 @@ ol {
 	margin-bottom: 0px;
 	
 }
+
 .down-sign4 {
 width: 100px;
 	position: fixed;
@@ -576,6 +577,24 @@ width: 100px;
 	text-transform: uppercase;
 	
 }
+
+.down-sign4a {
+	width: 100px;
+		position: fixed;
+		bottom: 20px;
+		left: calc(100% - 120px);
+		z-index: 99;
+		text-align: center;
+	}
+	.down-sign4a h6 {
+		font-size: 11px;
+		font-weight: 500;
+		color: #fff;
+		box-shadow: #fff;
+		margin-bottom: 0px;
+		text-transform: uppercase;
+		
+	}
 .down-sign5 {
 	width: 100%;
 	height: auto;
@@ -1384,8 +1403,12 @@ width: 100px;
 		bottom: -652px;
 		left: -81px
 	}
+
 	.down-sign4 {
 		left: 420px
+	}
+	.down-sign4a {
+		left: 380px
 	}
 	.site-logo {
 		float: none;
