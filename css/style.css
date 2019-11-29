@@ -529,7 +529,7 @@ ol {
 .down-sign3 {
 	width: auto;
 	position: absolute;
-	bottom: -100px;
+	bottom: -85px;
 	left: calc(10px);
 	z-index: 99;
 	text-align: center;
@@ -538,14 +538,14 @@ ol {
 	font-size: 10px;
 	font-weight: 500;
 	color: #fff;
-	margin-bottom: 0px;
+	margin-bottom: -1000px;
 	
 }
 
 .down-sign3a {
 	width: 500px;
 	position: absolute;
-	bottom: -100px;
+	bottom: -96px;
 	left: calc(100%);
 	z-index: 99;
 	text-align: center;
@@ -1310,6 +1310,15 @@ width: 100px;
 	.header-warp {
 		text-align: center;
 	}
+	.down-sign3 {
+		bottom: -520px;
+		left: 520px
+	}
+	.down-sign3a {
+		bottom: -546px;
+		left: 295px
+	}
+	
 	.site-logo {
 		float: none;
 		display: inline-block;
@@ -1366,6 +1375,16 @@ width: 100px;
 @media only screen and (max-width: 767px) {
 	.header-warp {
 		text-align: center;
+	}
+	.down-sign3 {
+		bottom: -620px;
+	}
+	.down-sign3a {
+		bottom: -652px;
+		left: -50px
+	}
+	.down-sign4 {
+		left: 420px
 	}
 	.site-logo {
 		float: none;
