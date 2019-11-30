@@ -499,9 +499,11 @@ ol {
 	width: 60px;
 	position: absolute;
 	bottom: 37px;
+	color: #FFF;
 	left: calc(50% - 30px);
 	z-index: 99;
 	text-align: center;
+	
 }
 .down-sign2 {
 	width: 60px;
@@ -1589,6 +1591,7 @@ navbg {
   .feature-icon-large .pull-left {
 	width: 25%;
 	padding-bottom: 75px;
+	padding-right: 10px;
   }
   .feature-icon-large .pull-right {
 	width: 75%;
