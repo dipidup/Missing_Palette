@@ -83,6 +83,24 @@ $(window).on('load', function() {
     	$("#snh-1").html("<span> "+ (1 > b ? b + a : b > a ? b - a : b) + "</span>/<span>" + a + "</span>");
 	});
 	
+	var hero_s = $(".hero-slider2");
+    hero_s.owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: true,
+        items: 1,
+        dots: false,
+        animateOut: 'fadeOut',
+    	animateIn: 'fadeIn',
+        navText: ['', ''],
+        smartSpeed: 1200,
+        autoHeight: false,
+		autoplay: true,
+		autoplayTimeout:3000,
+		autoplayHoverPause:true,
+        
+    });
+	
 
 	/*------------------
 		Portfolio Slider
