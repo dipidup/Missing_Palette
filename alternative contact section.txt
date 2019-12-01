@@ -1,0 +1,65 @@
+	<!-- Contact Section -->
+
+	<div id="Contact">
+	<section class="contact-page set-bg" data-setbg="./img/section-bg/4.jpg">
+		<div class="sp-container">
+			
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="contact-text text-white">
+						<h2>Get in touch</h2>
+						<h6>I’m shy, please come say hi 😬</h6><br>
+						<p>Do you want to buy my paintings, place a custom order or learn to paint? Feel free to reach out to me. 
+							I would love to hear from you.<p>
+
+						<ul>
+								<li>+91-7870760367</li>
+								<li>agrawal.ankit1295@gmail.com</li>
+								<li>Feel free to copy and use | Best wishes from
+								<a href="https://fb.com/akaankit" target="_blank"><font color="red">Ankit</font></a></li>
+					</div>
+					
+					<div class="header-social2 a">
+							<a href="https://www.instagram.com/imankit_art" target="_blank"><i class="fa fa-instagram"></i></a>
+							<a href="https://www.fb.com/missingpalette" target="_blank"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.youtube.com/missingpalette" target="_blank"><i class="fa fa-youtube"></i></a>
+							<a href="https://www.linkedin.com/in/akaankit" target="_blank"><i class="fa fa-linkedin"></i></a><br>
+							<div class="fb-like" data-href="https://www.facebook.com/missingpalette" data-width="10" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+						</div>
+						<div class="down-sign3">
+								
+								<h6><font color="#fff">Want to hire me?</font><b>
+									<a href="Ankit K Agrawal_Resume.pdf" download target="_blank"><font color="#fff">DOWNLOAD MY CV</font></a></b></h6>
+							</div>
+							
+							<div class="down-sign3a">
+									<h6><font color="#fff">Images under © | Created by</font><b>
+										<a href="https://www.linkedin.com/in/akaankit" target="_blank"><font color="#fff">Ankit Agrawal 🙃</font></a></b></h6>
+								</div>
+									 
+						
+				</div>
+				<div class="col-lg-7 offset-lg-1">
+					<form class="contact-form">
+						<div class="row">
+							<div class="col-md-6">
+								<input type="text" placeholder="Your Name">
+							</div>
+							<div class="col-md-6">
+								<input type="text" placeholder="Your E-mail">
+							</div>
+							<div class="col-md-12">
+								<input type="text" placeholder="Subject">
+								<textarea placeholder="Message"></textarea>
+								<button class="site-btn"><span>send</span></button>
+							</div> 
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</div>
+
+	<!-- Contact Section end -->

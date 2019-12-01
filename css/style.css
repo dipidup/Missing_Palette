@@ -415,7 +415,7 @@ ol {
 .header-social2 a {
 	display: inline-block;
 	color: #fff;
-	margin-left: 5px;
+	margin-left: 0px;
 	padding: 9px 0;
 }
 .nav-switch {
@@ -582,7 +582,7 @@ ol {
 	width: 
 	;
 	position: absolute;
-	bottom: -85px;
+	bottom: -65px;
 	left: calc(10px);
 	z-index: 99;
 	text-align: center;
@@ -598,7 +598,7 @@ ol {
 .down-sign3a {
 	width: 435px;
 	position: absolute;
-	bottom: -96px;
+	bottom: -76px;
 	left: calc(100%);
 	z-index: 99;
 	text-align: center;
@@ -608,6 +608,7 @@ ol {
 	font-weight: 500;
 	color: #fff;
 	margin-bottom: 0px;
+	margin-left: -125px;
 	
 }
 
@@ -628,6 +629,7 @@ width: 100px;
 	box-shadow: #fff;
 	margin-bottom: 0px;
 	text-transform: uppercase;
+	text-shadow:0.5px 0.5px rgba(255, 255, 255, 0.685);
 	
 }
 
@@ -1327,6 +1329,43 @@ width: 100px;
 	width: 83px;
 }
 
+.contact-page2 {
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 110px;
+	padding-bottom: 100px;
+}
+
+.contact-text2 h2 {
+	font-size: 48px;
+	font-weight: 400;
+	margin-bottom: 60px;
+}
+
+.contact-text2 p {
+	opacity: 0.6;
+	margin-bottom: 0px;
+}
+
+
+.contact-text2 ul {
+	list-style: none;
+}
+
+.contact-text2 ul li {
+	opacity: 0.6;
+	font-size: 15px;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+
+.contact-text2 ul li h6 {
+	font-size: 15px;
+	font-weight: 500;
+	display: inline-block;
+	width: 83px;
+}
+
 .contact-form input,
 .contact-form textarea {
 	width: 100%;
@@ -1426,13 +1465,13 @@ width: 100px;
 		text-align: center;
 	}
 	.down-sign3 {
-		bottom: -520px;
-		left: 516px
+		bottom: -528px;
+		left: 480px
 	}
 	.down-sign3a {
-		width: 380px;
-		bottom: -546px;
-		left: 385px
+		width: 300px;
+		bottom: -500px;
+		left: 480px
 	}
 	
 	.site-logo {
@@ -1482,6 +1521,9 @@ width: 100px;
 	.contact-page {
 		padding: 30px 20px 20px;
 	}
+	.contact-page2 {
+		padding: 30px 20px 20px;
+	}
 	.contact-form {
 		padding-top: 80px;
 	}
@@ -1494,11 +1536,11 @@ width: 100px;
 		text-align: center;
 	}
 	.down-sign3 {
-		bottom: -620px;
+		bottom: -590px;
 	}
 	.down-sign3a {
-		bottom: -652px;
-		left: -87px
+		bottom: -620px;
+		left: -7px
 	}
 
 	.down-sign4 {
@@ -1681,6 +1723,11 @@ width: 100px;
 		border: none;
 	}
 	.contact-text h2,
+	.portfolio-intro h2 {
+    font-size: 35px;
+		font-size: 30px;	
+	}
+	.contact-text2 h2,
 	.portfolio-intro h2 {
     font-size: 35px;
 		font-size: 30px;	
