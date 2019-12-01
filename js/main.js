@@ -92,7 +92,7 @@ $(window).on('load', function() {
         dots: false,
         animateOut: 'fadeOut',
     	animateIn: 'fadeIn',
-        navText: ['', ''],
+        navText: ['', '<img src="img/icons/arrow-up2.png" alt="">'],
         smartSpeed: 1200,
         autoHeight: false,
 		autoplay: true,
