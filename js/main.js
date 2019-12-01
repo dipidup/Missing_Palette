@@ -96,7 +96,7 @@ $(window).on('load', function() {
         smartSpeed: 1200,
         autoHeight: false,
 		autoplay: true,
-		autoplayTimeout:3000,
+		autoplayTimeout:4000,
 		autoplayHoverPause:true,
         
     });
