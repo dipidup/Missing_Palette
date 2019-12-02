@@ -1563,6 +1563,11 @@ width: 100px;
 	.down-sign3 {
 		bottom: -590px;
 	}
+
+	.hero-content p {
+		height: 720px;
+		margin-bottom: 20px;
+	}
 	.down-sign3a {
 		bottom: -620px;
 		left: -7px
