@@ -1438,6 +1438,31 @@ width: 100px;
 	}
 }
 
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 2560px) {
+	.hs-item {
+		height: 1000px;}
+
+	.main-menu li a {
+		margin-right: 25px;
+	}
+	.header-social a {
+		margin-left: 20px;
+	}
+	.banner-section h2 {
+		font-size: 27px;
+	}
+	.about-section {
+		padding-left: 150px;
+	}
+	.sp-about-section .sp-about-content h2 {
+		font-size: 30px;
+	}
+
+}
+
 /* Medium screen : 992px. */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
