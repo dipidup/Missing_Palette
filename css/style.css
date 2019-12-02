@@ -1568,11 +1568,11 @@ width: 100px;
 		left: calc(100% - 150px);}
 
 	.hero-content p {
-		max-height: 750px;
+		max-height: 650px;
 		margin: 0;
 		padding: 5px 5px 5px 5px;
 		max-width: 340px;
-		font-size: 11px;
+		font-size: 10px;
 	}
 	.down-sign3a {
 		bottom: -620px;
