@@ -1563,12 +1563,15 @@ width: 100px;
 	.down-sign3 {
 		bottom: -590px;
 	}
+	.down-sign2 {
+		
+		left: calc(100% - 150px);}
 
 	.hero-content p {
 		max-height: 750px;
-		margin: 0 auto;
+		margin: 0;
 		padding: 5px 5px 5px 5px;
-		max-width: 380px;
+		max-width: 340px;
 		font-size: 11px;
 	}
 	.down-sign3a {
