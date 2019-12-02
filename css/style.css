@@ -596,7 +596,7 @@ ol {
 }
 
 .down-sign3a {
-	width: 435px;
+	width: 410px;
 	position: absolute;
 	bottom: -76px;
 	left: calc(100%);
@@ -1556,10 +1556,15 @@ width: 100px;
 
 /* Large Mobile :480px. */
 
+
 @media only screen and (max-width: 767px) {
+
 	.header-warp {
 		text-align: center;
 	}
+
+
+
 	.down-sign3 {
 		bottom: -590px;
 	}
@@ -1573,10 +1578,16 @@ width: 100px;
 		padding: 5px 5px 5px 5px;
 		max-width: 340px;
 		font-size: 10px;
+		overflow-x:hidden;
 	}
 	.down-sign3a {
 		bottom: -620px;
-		left: -7px
+		font-size: 7px;
+		left: 4px;
+		overflow-x:hidden;
+		padding-right: 0px;
+		word-break: all;
+		width: 360px;
 	}
 
 	.down-sign4 {
@@ -1621,6 +1632,7 @@ width: 100px;
 	}
 	.testimonial-content2 .testi-avatar2 {
 		margin-left: 40%;
+		overflow-x:hidden;
 	}
 	.main-menu {
 		display: none;
@@ -1739,6 +1751,7 @@ width: 100px;
 	.portfilio-single .portfolio-single-content h2 {
 		font-size: 35px;
 	}
+	
 }
 
 /* Small Mobile :320px. */
