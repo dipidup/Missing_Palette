@@ -1562,9 +1562,6 @@ width: 100px;
 	.header-warp {
 		text-align: center;
 	}
-
-
-
 	.down-sign3 {
 		bottom: -590px;
 	}
@@ -1591,7 +1588,7 @@ width: 100px;
 	}
 
 	.down-sign4 {
-		left: 420px
+		left: 500px
 	}
 	.down-sign4a {
 		left: 380px
@@ -1751,6 +1748,7 @@ width: 100px;
 	.portfilio-single .portfolio-single-content h2 {
 		font-size: 35px;
 	}
+	.xx{min-width: 160px;}
 	
 }
 
@@ -1759,6 +1757,9 @@ width: 100px;
 @media only screen and (max-width: 479px) {
 	.portfolio-intro {
 		padding: 0 15px 80px;
+	}
+	.down-sign4 {
+		left: 360px
 	}
 	.portfolio-item {
 		width: 100%;
