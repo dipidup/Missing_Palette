@@ -74,7 +74,8 @@ $(window).on('load', function() {
         navText: ['', '<img src="img/icons/arrow-right.png" alt="">'],
         smartSpeed: 1200,
         autoHeight: false,
-        autoplay: false,
+		autoplay: true,
+		autoplayTimeout:4000,
         onInitialized: function() {
         	var a = this.items().length;
             $("#snh-1").html("<span>1</span>/<span>" + a + "</span>");
