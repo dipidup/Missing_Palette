@@ -75,7 +75,7 @@ $(window).on('load', function() {
         smartSpeed: 1200,
         autoHeight: false,
 		autoplay: true,
-		autoplayTimeout:4000,
+		autoplayTimeout:6000,
         onInitialized: function() {
         	var a = this.items().length;
             $("#snh-1").html("<span>1</span>/<span>" + a + "</span>");
@@ -98,7 +98,7 @@ $(window).on('load', function() {
         smartSpeed: 1200,
         autoHeight: false,
 		autoplay: true,
-		autoplayTimeout:4000,
+		autoplayTimeout:5000,
 		autoplayHoverPause:true,
         
     });
