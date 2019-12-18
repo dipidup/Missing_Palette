@@ -1775,6 +1775,16 @@ width: 100px;
 	.portfolio-intro {
 		padding: 0 15px 80px;
 	}
+	.testimonial-content2 p {
+		font-size: 14px;
+	}
+	.testimonial-content2 h6 {
+		font-size: 14px;
+	}
+	.down-sign2 {
+		
+		left: calc(100% - 115px);}
+	m6 {max-width: 280px;}
 	.down-sign4 {
 		left: 360px
 	}
