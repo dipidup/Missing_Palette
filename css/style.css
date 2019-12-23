@@ -1360,7 +1360,7 @@ width: 100px;
 }
 
 .contact-text2 p {
-	opacity: 0.6;
+	opacity: 0.8;
 	margin-bottom: 0px;
 }
 
@@ -1370,9 +1370,9 @@ width: 100px;
 }
 
 .contact-text2 ul li {
-	opacity: 0.6;
-	font-size: 15px;
-	font-weight: 500;
+	opacity: 0.8;
+	font-size: 14px;
+	font-weight: 400;
 	margin-bottom: 5px;
 }
 
