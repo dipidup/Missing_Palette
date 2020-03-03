@@ -30,7 +30,7 @@
  * # imports 
  *
  * ------------------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700|Nunito+Sans:300,400,400i,600,600i,700,700i,800");
+@import url("../fonts/BickhamScriptPro-Regular.woff") format("woff"), url("../fonts/BickhamScriptPro-Regular.woff2") format("woff2");
 @import url("font-awesome/css/fontawesome-all.css");
 
 
@@ -40,9 +40,17 @@
  * github.com/necolas/normalize.css
  *
  * ------------------------------------------------------------------- */
+
+
+
+
 html {
-  font-family: sans-serif;
-  line-height: 1.15;
+    font-family: " ";
+	src: url("../fonts/BickhamScriptPro-Regular.woff") format("woff"), url("../fonts/BickhamScriptPro-Regular.woff2") format("woff2");
+	font-weight: normal;
+    font-style: normal;
+    color: #000000;
+    text-rendering: optimizeLegibility;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -51,6 +59,8 @@ body {
   margin: 0;
 }
 
+
+/*
 article, aside, footer, header, nav, section {
   display: block;
 }
@@ -75,7 +85,7 @@ hr {
 }
 
 pre {
-  font-family: monospace, monospace;
+    font-family: "Montserrat", sans-serif;
   font-size: 1em;
 }
 
@@ -103,7 +113,7 @@ b, strong {
 }
 
 code, kbd, samp {
-  font-family: monospace, monospace;
+    font-family: "Montserrat", sans-serif;
   font-size: 1em;
 }
 
@@ -153,7 +163,7 @@ svg:not(:root) {
 }
 
 button, input, optgroup, select, textarea {
-  font-family: sans-serif;
+    font-family: "Montserrat", sans-serif;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
@@ -247,6 +257,77 @@ template {
   display: none;
 }
 
+*/
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	color: #111111;
+	font-weight: 100;
+}
+
+h1 {
+	font-size: 70px;
+}
+
+h2 {
+    font-size: 38px;
+    width: auto;
+}
+
+h3 {
+	font-size: 30px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 18px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+p {
+	font-size: 14px;
+	color: #585858;
+	line-height: 2;
+}
+
+img {
+	max-width: 100%;
+}
+img2 {
+	max-width: 58px;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+ul,
+ol {
+	padding: 0;
+	margin: 0;
+}
+
 
 /* ===================================================================
  * # basic/base setup styles
@@ -285,7 +366,7 @@ img, video {
 
 /* ------------------------------------------------------------------- 
  * ## Typography resets 
- * ------------------------------------------------------------------- */
+ * ------------------------------------------------------------------- 
 div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
   margin: 0;
   padding: 0;
@@ -321,15 +402,9 @@ ol, ul {
 
 li {
   display: block;
-}
+}*/
 
-/* ------------------------------------------------------------------- 
- * ## links
- * ------------------------------------------------------------------- */
-a {
-  text-decoration: none;
-  line-height: inherit;
-}
+
 
 a img {
   border: none;
