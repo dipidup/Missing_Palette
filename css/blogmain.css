@@ -144,7 +144,8 @@ h1 {
 h2 {
     width: auto;
     min-width: 150px;
-	font-size: 32px;
+    font-size: 32px;
+    text-align: center;
 }
 
 h3 {
@@ -754,7 +755,16 @@ width: 100px;
 	.testimonial-content2 .testi-avatar2 {
 		margin-left: 40%;
 		overflow-x:hidden;
-	}
+    }
+    
+    h2 {
+        width: auto;
+        min-width: 150px;
+        font-size: 32px;
+        margin-left: -30px;
+        text-align: justify;
+        
+    }
 	.main-menu {
 		display: none;
 		background: #fff;
@@ -872,7 +882,7 @@ width: 100px;
 	.portfilio-single .portfolio-single-content h2 {
 		font-size: 35px;
 	}
-	.xx{min-width: 160px;}
+    .xx{min-width: 160px;}
 	
 }
 
