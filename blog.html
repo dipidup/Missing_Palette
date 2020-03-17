@@ -45,43 +45,19 @@ html{scroll-behavior: smooth;}
 
 
 
-<!-- Header Section --
-<header class="header-section">
-        <div class="header-warp">
-            <!-- logo --
-            <a href="index.html" class="site-logo">
-                    <font size="2" align="align-items-center" color="#fff"><akafont><b>HOME</b></akafont></font>
-            </a>
-            <!--Go to top link--
-	<div class="down-sign4">
-           <!--<a href="#landing"><h6><b><font color="black" text-shadow="#fff">Back to Top</font></b></h6></a>--
-            <a href="#landing"><img src="img/icons/btp.png"></a>
-        </div>    
-    <!--Go to top link ends--
-    
-            <div class="header-social">
-                <a href="https://www.instagram.com/imankit_art" target="_blank"><i class="fa fa-instagram"></i></a>
-				<a href="https://www.fb.com/missingpalette" target="_blank"><i class="fa fa-facebook"></i></a>
-				<a href="https://www.youtube.com/missingpalette" target="_blank"><i class="fa fa-youtube"></i></a>
-				<a href="https://www.linkedin.com/in/akaankit" target="_blank"><i class="fa fa-linkedin"></i></a>
-				<a href="https://www.github.com/dipidup" target="_blank"><i class="fa fa-github"></i></a>
-            </div>
-            <div class="nav-switch">
-                <i class="fa fa-bars"></i>
-            </div>
-
-        </div>
-    </header>
-    <!-- Header Section end-->
 
 
     <!-- Header Section -->
 	<header class="header-section">
 		<div class="header-warp">
 			<!-- logo -->
-			<a href="index.html" class="site-logo">
+			<!--<a href="index.html" class="site-logo">
 				<img src="img/logo.png" style= "width: 100px;height:auto;" alt="">
-			</a>
+            </a>-->
+             <!-- logo -->
+             <a href="index.html" class="site-logo">
+                <font size="2" color="#fff"><akafont><b>HOME</b></akafont></font>
+        </a>
 			<div class="header-social">
 				<a href="https://www.instagram.com/imankit_art" target="_blank"><i class="fa fa-instagram"></i></a>
 				<a href="https://www.fb.com/missingpalette" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -92,20 +68,22 @@ html{scroll-behavior: smooth;}
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>
 			</div>
-			<!-- menu -->
+			<!-- menu --> 
 			<ul class="main-menu">
-				<li><a href="#About">About Me</a></li>
-				<li><a href="gallery.html">Gallery</a></li>
-				<li><a href="#YouTube">YouTube</a></li>
-				<li><a href="#testimonial">Testimonials</a></li>
+                <!--<li><a href="index.html">Home</a></li>-->
+                <li><a href="index.html#About">About Me</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="index.html#YouTube">YouTube</a></li>
+                <li><a href="index.html#testimonial">Testimonials</a></li>
 				<li><a href="#Contact">Contact</a></li>
-			</ul>
+            </ul>
+        
 		</div>
 	</header>
     <!-- Header Section end-->
     	<!--Go to top link-->
 	<div class="down-sign4">
-		<a href="#fullpage"><img src="img/icons/home.png"></a>
+		<a href="index.html"><img src="img/icons/home.png"></a>
 			<!--<a href="#fullpage"><h6><b>HOME</b></h6></a>-->
 		</div>      
 	<!--Go to top link ends--> 
@@ -114,19 +92,16 @@ html{scroll-behavior: smooth;}
         
 <!-- Hero section -->
 <div id="landing">
-		<div class="section fp-auto-height" id="hero-section">
-				<div class="hero-section-3 d-flex align-items-center set-bg" data-setbg="/img/gallery/chintan.jpg">
+		<div class="section fp-auto-height" id="hero-section" >
+				<div class="hero-section-3 d-flex align-items-center set-bg" style= "background-image: url(./img/section-bg/1.jpg)";>
 					<div class="container text-white">
-                            <!--<h2><a href="#gallery">BLOG</a></h2>
-                            <div class="xx"><font face= "Calibri">Scroll down to see my artworks</font> </div>-->
-                                <!--<font face= "Calibri"><b>I am just an art enthusiast, proceed if you are one too!</b></font><br>-->
-                                <h2>BLOG</h2>
+                                <h2>BLOG<h2>
                     </div>
                    
                 </div>
                 
                 <div class="down-sign">
-                    <h6><b><a href="#About"><font color="#fff">DISCOVER</font></a></b></h6>
+                    <h6><b><a href="#blog   "><font color="#fff">Read</font></a></b></h6>
                     <img src="img/icons/arrow-down.png" alt="">
                 </div>
                 <div class="contact-link">
@@ -143,7 +118,7 @@ html{scroll-behavior: smooth;}
     
 
     <!-- featured================================================== -->
-<div>
+<div id="blog">
     <section class="s-featured">
         <div class="row">
             <div class="col-full">
@@ -153,20 +128,20 @@ html{scroll-behavior: smooth;}
                     <div class="featured__slide">
                         <div class="entry">
 
-                            <div class="entry__background" style="background-image:url('img/slider/1.jpg');"></div>
+                            <div class="entry__background" style="background-image:url('img/blog/blog3.jpg');"></div>
                             
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Music</a></span>
+                                <span class="entry__category"><a href="#0">Art</a></span>
 
-                                <h1><a href="#0" title="">What Your Music Preference Says About You and Your Personality.</a></h1>
+                                <h1><a href="#0" title="">-Missing Palette - All about my Art-</a></h1>
 
                                 <div class="entry__info">
-                                    <a href="#0" class="entry__profile-pic">
+                                   <!-- <a href="#0" class="entry__profile-pic">
                                         <img class="avatar" src="img/slider/1.jpg" alt="">
-                                    </a>
+                                    </a>-->
                                     <ul class="entry__meta">
-                                        <li><a href="#0">Jonathan Smith</a></li>
-                                        <li>June 02, 2018</li>
+                                        <li><a href="https://www.linkedin.com/in/akaankit" target="_blank">Ankit Agrawal</a></li>
+                                        <li>March, 2020</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
@@ -181,18 +156,18 @@ html{scroll-behavior: smooth;}
                             <div class="entry__background" style="background-image:url('img/slider/2.jpg');"></div>
                             
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Management</a></span>
+                                <span class="entry__category"><a href="#0">Art</a></span>
 
-                                <h1><a href="#0" title="">The Pomodoro Technique Really Works.</a></h1>
+                                <h1><a href="#0" title="">-All about my art materials-</a></h1>
 
                                 <div class="entry__info">
-                                    <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="img/slider/2.jpg" alt="">
-                                    </a>
+                                    <!-- <a href="#0" class="entry__profile-pic">
+                                        <img class="avatar" src="img/slider/1.jpg" alt="">
+                                    </a>-->
 
                                     <ul class="entry__meta">
-                                        <li><a href="#0">John Doe</a></li>
-                                        <li>June 13, 2018</li>
+                                        <li><a href="https://www.linkedin.com/in/akaankit" target="_blank">Ankit Agrawal</a></li>
+                                        <li>March, 2020</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
@@ -208,18 +183,18 @@ html{scroll-behavior: smooth;}
                             <div class="entry__background" style="background-image:url('img/slider/3.jpg');"></div>
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#0">LifeStyle</a></span>
+                                <span class="entry__category"><a href="#0">Lifestyle/ Experience</a></span>
 
-                                <h1><a href="#0" title="">The difference between Classics, Vintage & Antique Cars.</a></h1>
+                                <h1><a href="#0" title="">-This is who I am-</a></h1>
 
                                 <div class="entry__info">
-                                    <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="img/slider/3.jpg" alt="">
-                                    </a>
+                                    <!-- <a href="#0" class="entry__profile-pic">
+                                        <img class="avatar" src="img/slider/1.jpg" alt="">
+                                    </a>-->
 
                                     <ul class="entry__meta">
-                                        <li><a href="#0">John Doe</a></li>
-                                        <li>June 12, 2018</li>
+                                        <li><a href="https://www.linkedin.com/in/akaankit" target="_blank">Ankit Agrawal</a></li>
+                                        <li>March, 2020</li>
                                     </ul>
                                 </div>
                             </div> <!-- end entry__content -->
@@ -246,21 +221,21 @@ html{scroll-behavior: smooth;}
                     
                     <div class="item-entry" data-aos="zoom-in">
                         <div class="item-entry__thumb">
-                            <a href="single-standard.html" class="item-entry__thumb-link">
-                                <img src="img/blog/1.jpg" 
-                                     srcset="img/blog/1.jpg 2x" alt="">
+                            <a href="blog.html" class="item-entry__thumb-link">
+                                <img src="img/gallery/ws (11).jpg" 
+                                     srcset="img/gallery/ws (11).jpg 2x" alt="">
                             </a>
                         </div>
         
                         <div class="item-entry__text">    
                             <div class="item-entry__cat">
-                                <a href="category.html">Design</a> 
+                                        <font color="#225" size="2"><b>ART</font></b>
                             </div>
-    
-                            <h1 class="item-entry__title"><a href="single-standard.html">3 Benefits of Minimalism In Interior Design.</a></h1>
+
+                            <h1 class="item-entry__title"><a href="blog.html">My first Art Workshop</a></h1>
                                 
                             <div class="item-entry__date">
-                                <a href="single-standard.html">June 15, 2018</a>
+                                June 14, 2018
                             </div>
                         </div>
                     </div> <!-- item-entry -->
@@ -271,51 +246,50 @@ html{scroll-behavior: smooth;}
                     
                     <div class="item-entry" data-aos="zoom-in">
                         <div class="item-entry__thumb">
-                            <a href="single-standard.html" class="item-entry__thumb-link">
-                                <img src="img/blog/1.jpg" 
-                                     srcset="img/blog/1.jpg 1x, img/blog/1.jpg 2x" alt="">
+                            <a href="blog.html" class="item-entry__thumb-link">
+                                <img src="img/gallery/ws (11).jpg" 
+                                     srcset="img/gallery/ws (11).jpg 2x" alt="">
                             </a>
                         </div>
         
-                        <div class="item-entry__text">
+                        <div class="item-entry__text">    
                             <div class="item-entry__cat">
-                                <a href="category.html">Health</a>
+                                        <font color="#225" size="2"><b>LIFESTYLE/ EXPERIENCE</font></b>
                             </div>
-    
-                            <h1 class="item-entry__title"><a href="single-standard.html">10 Interesting Facts About Caffeine.</a></h1>
+                            
+                            <h1 class="item-entry__title"><a href="blog.html">A Random Train Journey</a></h1>
                                 
                             <div class="item-entry__date">
-                                <a href="single-standard.html">June 14, 2018</a>
+                                June 14, 2018
                             </div>
                         </div>
                     </div> <!-- item-entry -->
-    
+
                 </article> <!-- end article -->
 
                 <article class="col-block">
                     
                     <div class="item-entry" data-aos="zoom-in">
                         <div class="item-entry__thumb">
-                            <a href="single-standard.html" class="item-entry__thumb-link">
-                                <img src="img/blog/1.jpg" 
-                                     srcset="img/blog/1.jpg 1x, img/blog/1.jpg 2x" alt="">
+                            <a href="blog.html" class="item-entry__thumb-link">
+                                <img src="img/gallery/ws (11).jpg" 
+                                     srcset="img/gallery/ws (11).jpg 2x" alt="">
                             </a>
                         </div>
         
-                        <div class="item-entry__text">
+                        <div class="item-entry__text">    
                             <div class="item-entry__cat">
-                                <a href="category.html">Health</a>
+                                        <font color="#225" size="2"><b>TECHNOLOGY</font></b>
                             </div>
-    
-                            <h1 class="item-entry__title"><a href="single-standard.html">The Power of Music to Reduce Stress.</a></h1>
+                            
+                            <h1 class="item-entry__title"><a href="blog.html">Hack-A-BIT Experience</a></h1>
                                 
                             <div class="item-entry__date">
-                                <a href="single-standard.html">June 14, 2018</a>
+                                June 14, 2018
                             </div>
                         </div>
                     </div> <!-- item-entry -->
-                    
-    
+
                 </article> <!-- end article -->
 
             </div> <!-- end entries -->
@@ -330,16 +304,16 @@ html{scroll-behavior: smooth;}
     <!---------------------------------------------------->
 
       
-       	<!-- Contact Section2 --
+       	<!-- Contact Section2 -->
 
 	<div id="Contact">
-        <section class="contact-page3 set-bg" data-setbg="./img/section-bg/4.jpg">
+        <section class="contact-page3 set-bg" style= "background-image: url(./img/section-bg/4.jpg)" data-setbg="./img/section-bg/4.jpg">
             <div class="sp-container">
                 
                 <div class="row">
                             <div class="col-lg-4">
                                     <div class="contact-text2 text-white">
-                                        <h2>Get in touch</font></h2>
+                                        <h2>Get in touch</h2>
                                         <h6>I’m shy, please come say hi 😬</h6><br>
                                         <p>Do you want to buy my paintings, place a custom order or learn to paint?
                                             <br>You can reach out to me anytime.<br> I would love to hear from you.
