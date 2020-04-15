@@ -1,7 +1,6 @@
 /* ======================================
 -----------------------------------------
-	Porto - Photo Gallery HTML Template
-	Version: 1.0
+MISSING PALETTE
  ---------------------------------------
  =======================================*/
 
@@ -23,6 +22,7 @@ $(window).on('load', function() {
 			percentPosition: true
 		});
 	}
+
 
 	/*------------------
 		Mixitup js
@@ -74,7 +74,8 @@ $(window).on('load', function() {
         navText: ['', '<img src="img/icons/arrow-right.png" alt="">'],
         smartSpeed: 1200,
         autoHeight: false,
-        autoplay: false,
+		autoplay: true,
+		autoplayTimeout:6000,
         onInitialized: function() {
         	var a = this.items().length;
             $("#snh-1").html("<span>1</span>/<span>" + a + "</span>");
@@ -83,6 +84,24 @@ $(window).on('load', function() {
         var b = --a.item.index, a = a.item.count;
     	$("#snh-1").html("<span> "+ (1 > b ? b + a : b > a ? b - a : b) + "</span>/<span>" + a + "</span>");
 	});
+	
+	var hero_s = $(".hero-slider2");
+    hero_s.owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: true,
+        items: 1,
+        dots: false,
+        animateOut: 'fadeOut',
+    	animateIn: 'fadeIn',
+        navText: ['', '<img src="img/icons/arrow-up2.png" alt="">'],
+        smartSpeed: 1200,
+        autoHeight: false,
+		autoplay: true,
+		autoplayTimeout:5000,
+		autoplayHoverPause:true,
+        
+    });
 	
 
 	/*------------------

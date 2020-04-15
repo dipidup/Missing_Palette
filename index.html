@@ -1,13 +1,30 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 <head>
+	 <!-----------------------------------------------------------------------------------------
+    --------------------------------------------------------------------------------------------->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153713080-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153713080-1');
+</script>
+ <!-----------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------------->
+
 	<title>Missing Palette- Ankit Agrawal</title>
 	<meta charset="UTF-8">
-	<meta name="description" content="Personal Art Webiste">
-	<meta name="keywords" content="art, ankit, html">
+	<meta name="description" content="Personal Art Website- Do you want a painting, portrait or some special Art to decorate or gift someone. How about learn painting? Missing Palette is your one stop art solution">
+	<meta name="keywords" content="Missing Palette, missingpalette, missing palette, missing palette website, art, ankit, portrait, watercolor, artist, artist in pune, artist in ranchi, art class in pune, painting, drawing">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:image" content="https://missingpalette.com/thumb.jpg">
+	<meta property="og:image" content="https://missingpalette.com/thumb.png">
+	<meta property="og:image" content="http://missingpalette.com/thumb.jpg">
 	<!-- Favicon -->
-	<link href="img/icon.jpg" rel="shortcut icon"/>
+	<link href="img/icon.png" rel="shortcut icon"/>
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -21,19 +38,30 @@
 	<link rel="stylesheet" href="css/preloader.css"/>
 	<!-- Main Stylesheets -->
 	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/styleg2.css"/>
 
+	<!-- To add the scrolling effect to the page -->
+	<style> html { scroll-behavior: smooth; } </style>
 
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-
+ 
 </head>
 <body class="home-page">
+
+
+
+<!-- fb likes -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
-	</div>
+    </div>
+    
 	<!-- Header Section -->
 	<header class="header-section">
 		<div class="header-warp">
@@ -42,62 +70,87 @@
 				<img src="img/logo.png" style= "width: 100px;height:auto;" alt="">
 			</a>
 			<div class="header-social">
-				<a href="https://www.instagram.com/imankit_art"><i class="fa fa-instagram"></i></a>
-				<a href="https://www.fb.com/akaankit"><i class="fa fa-facebook"></i></a>
-				<a href="https://www.youtube.com/missingpalette"><i class="fa fa-youtube"></i></a>
-				<a href="https://www.linkedin.com/in/akaankit"><i class="fa fa-linkedin"></i></a>
+				<a href="https://www.instagram.com/imankit_art" target="_blank"><i class="fa fa-instagram"></i></a>
+				<a href="https://www.fb.com/missingpalette" target="_blank"><i class="fa fa-facebook"></i></a>
+				<a href="https://www.youtube.com/missingpalette" target="_blank"><i class="fa fa-youtube"></i></a>
+				<a href="https://www.linkedin.com/in/akaankit" target="_blank"><i class="fa fa-linkedin"></i></a>
+				<a href="https://www.github.com/dipidup" target="_blank"><i class="fa fa-github"></i></a>
 			</div>
 			<div class="nav-switch">
 				<i class="fa fa-bars"></i>
 			</div>
 			<!-- menu -->
 			<ul class="main-menu">
-				<li><a href="index.html">Home</a></li>
 				<li><a href="#About">About Me</a></li>
-				<li><a href="portfolio.html">Gallery</a></li>
-				<li><a href="blog.html">News & Blog</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="#YouTube">YouTube</a></li>
+                <li><a href="#testimonial">Testimonials</a></li>
 				<li><a href="#Contact">Contact</a></li>
 			</ul>
 		</div>
 	</header>
 	<!-- Header Section end-->
+
+<!--popup on top of the page
+<div id="popupmain">
+	<div id="popuphead">
+		<div class="col-12 col-sm-12 col-lg-3 single_gallery_item sketch mb-30 wow fadeInUp" data-wow-delay="100ms">
+			<div class="single-portfolio-content">
+				<img src="img/gallery/sketch (1).jpg" alt="wait a sec..">
+				<div class="hover-content">
+					<a href="img/gallery/sketch (1).jpg" class="portfolio-img">LEADER</a>
+				</div>
+				</div>
+
+		
+			</div>
+</div>
+</div>
+popup on top of the page ends-->
+
+			
 	<!--Go to top link-->
-	<div class="down-sign2">
-			<a href="#fullpage"><h6><b>HOME</b></h6></a>
+	<div class="down-sign4">
+		<a href="#fullpage"><img src="img/icons/home.png"></a>
+			<!--<a href="#fullpage"><h6><b>HOME</b></h6></a>-->
 		</div>      
-	<!--Go to top link ends-->                    
+	<!--Go to top link ends-->  
+	                  
 	<div id="fullpage">
 		<!-- Hero section -->
 		<div class="section fp-auto-height" id="hero-section">
 			<div class="hero-slider owl-carousel">
-				<div class="hs-item set-bg" data-setbg="./img/slider/1a.jpg">
+				<div class="hs-item set-bg" data-setbg="./img/slider/1.jpg">
 					<div class="container text-white">
 						<font face= "Calibri"><b>I am just an art enthusiast, proceed if you are one too!</b></font>
 						<h2>MISSING PALETTE</h2>
-						<div class="site-btn"><a href="#Contact"><span><h5><m5>Tea or a Coffee?</m5></h5></span></a></div>
-					</div>
-				</div>
-				<div class="hs-item set-bg" data-setbg="./img/slider/5.jpg">
-					<div class="container text-white">
-						<h2>Do you love colors?</h2>
-						<div class="site-btn"><a href="#Contact"><span><h5><m5>Tea or a Coffee?</m5></h5></span></a></div>
+						<div class="site-btn"><a href="gallery.html"><span><h5><m5>Gallery</m5></h5></span></a></div>
 					</div>
 				</div>
 				<div class="hs-item set-bg" data-setbg="./img/slider/4.jpg">
 					<div class="container text-white">
-							<font face= "Calibri" color="fffffff"><b>Let us discuss together</b></font>
-						<h2>Aren't they peaceful?</h2>
-						<div class="site-btn"><a href="#Contact"><span><h5><m5>Tea or a Coffee?</m5></h5></span></a></div>
+							<font face= "Calibri"><b>Yeah! This is my color palette</b></font>
+						<h2>Do you love colors?</h2>
+						<div class="site-btn"><a href="gallery.html"><span><h5><m5>Gallery</m5></h5></span></a></div>
+					</div>
+				</div>
+				<div class="hs-item set-bg" data-setbg="./img/slider/3.jpg">
+					<div class="container text-white">
+							<font face= "Calibri" color="fffffff"><b>Let's discuss together</b></font>
+						<h2>Peaceful! Aren't they?</h2>
+						<div class="site-btn"><a href="gallery.html"><span><h5><m5>Gallery</m5></h5></span></a></div>
 					</div>
 				</div>
 			</div>
 			<div class="slide-num-holder" id="snh-1"></div>
 			<div class="down-sign">
-				<h6><b>DISCOVER</b></h6>
+				<h6><b><a href="#About"><font color="#fff">DISCOVER</font></a></b></h6>
 				<img src="img/icons/arrow-down.png" alt="">
 			</div>
 			<div class="contact-link">
+				<a href="#Contact">
 				<p>Contact me</p>
+			</a>
 				<a href="#Contact"><img src="img/contact.jpg" alt=""></a>
 			</div>
 		</div>
@@ -106,23 +159,28 @@
 		<!-- About me section -->
 	<div id="About">
 		<div class="section fp-auto-height" id="hero-section">
-				<div class="hero-section-2 d-flex align-items-center set-bg" data-setbg="./img/section-bg/2bw.jpg">
+				<div class="hero-section-2 d-flex align-items-center set-bg" data-setbg="./img/section-bg/1.jpg">
 					<div class="sp-container">
 						<div class="hero-content text-white">
-							<span><br><br><br><br>Creative, Dumb and Short</span>
+							<span><br><br><br><br>Dumb, Short and Creative</span>
 							<h2>I’m Ankit Agrawal</font></h2>
-							<p style="background-color: rgba(255, 255, 255, 0.408)"><font color="black">Hey! I am Ankit. An engineer by profession and an artist by heart. 
-								I completed my formal education from BIT Mesra, Ranchi as a Civil Engineer. Currently I am based in Pune, India.
-								Here I work for an MNC as a Decision Analytics Associate in a Business Consulting space. 
-								My passion for art developed during the school days and it turned into my 'Go to Place'. During my engineering days
-								I was fortunate enough to collaborate with various artists and art groups which helped me strengthen my love for 
-								colors. During th initial days of my Engineering I started conducting art workshops in and around the town, and till
-								date I have conducted more than 15 art workshops. <br>
-								Art has always been my 'Go to Place' and whenever I get time I love to spend a part of it with a canvas and colors.
-								Although I love working with all the mediums but watercolor is something which I love handeling the most. I always keep
-								a travel sketchbook along with a set of watercolors whenever I travel or visit any place which is worth painting.<br>
-								I have a few exhibitions and art projects under my hood and I love spending my free time on various commisioned work as well.
-								I do take orders for customised art works and realistic portraits. Looking forward to hearing from you!
+							<p style="background-color: rgba(255, 255, 255, 0.608)"><font color="black">
+								<b>Hey! That creepy face, there on the right isn't real :p</b>
+								<br>I am Ankit and I own very little. Apart from my Engineering degree from BIT Mesra-Ranchi, I own a few sets of colors,
+								stationery & gadgets. Long trips, books, old music, and desi chai are a few things that fascinate me. 
+								With some guidance and a lot of practice, I developed a little artist inside me who is trying to learn in every possible way.
+								My passion for art developed during the school days and it turned into my 'Go to Place'. During my engineering days,
+								I was fortunate enough to collaborate with a few artists who helped me strengthen my love for 
+								colors.<br>
+								I have conducted more than 15 art workshops across the nation and whenever I get time, 
+								I love to spend a part of it with a canvas and some colors.
+								Although I like working with all the mediums but watercolor is something which I love handling the most. I always try to keep
+								a travel sketchbook and a set of watercolors whenever I travel.<br>
+								I have a few exhibitions and art projects under my hood and love to explore various angles of Art.
+								<br>
+								Yes, I am a techie & am currently a part of RnD space at an MNC. I spend a good amount of my time
+								learning new technology every day. Ping me, if you know about an old song or
+								a place that serves some decent tea. Looking forward to a few good days.<br>
 								 </font></p>
 						</div>
 					</div>
@@ -131,157 +189,70 @@
 			</div>
 			<!-- About me end -->
 			<!-- About one Section -->
-		<div class="section about-section about-one set-bg" data-setbg="./img/section-bg/1-1.jpg">
+		<div class="section about-section about-one set-bg" data-setbg="./img/section-bg/2.jpg">
 			<div class="about-content-warp text-white">
 				<h2>Missing Palette?</h2>
-				<p>Well, I used to have a lovely small color palette which I used for a few of my initial oil paintings. But unfortunately I did not use it well and ruined the palette by letting the colors dry over it.<br> Also, 'Ankit' is such a common name in India that every person knows at least one Ankit :p<br> Do you know one?</p>
+				<p>Well, I used to have a lovely small color palette which I used for a few of my initial oil paintings. Unfortunately, I am dumb and 
+					obviously ruined the palette by letting the colors dry over it.<br> 
+					Also, 'Ankit' is such a common name that I had to rename myself :p<br> Do you know one?</p>
 			</div>
 		</div>
 		<!-- About one Section end-->  
-<!--
-		<!-- About two Section 
-		<div class="section about-section about-two set-bg" data-setbg="./img/section-bg/2.jpg">
-			<div class="about-content-warp">
-				<h2>Artistic Portraits</h2>
-				<p>Maecenas facilisis facilisis consequat. Curabitur fringilla pellen-tesque neque, imperdiet efficitur urna gravida vel. Cras augue diam, sollicitudin sit amet felis ut, eleifend faucibus dui. Proin euis-mod suscipit lacus, et scelerisque nisi aliquam a. Nunc feugiat mattis quam, ut luctus enim ultrices at.</p>
-				<div class="site-btn"><span><a href="about.html"><font color="black">Read More</font></a></span></div>
-			</div>
-		</div>
-		<!-- About two Section end -->
-
-		<!-- About three Section
-		<div class="section about-section about-three set-bg" data-setbg="./img/section-bg/3.jpg">
-			<div class="about-content-warp text-white">
-				<h2>Artistic Portraits</h2>
-				<p>Maecenas facilisis facilisis consequat. Curabitur fringilla pellen-tesque neque, imperdiet efficitur urna gravida vel. Cras augue diam, sollicitudin sit amet felis ut, eleifend faucibus dui. Proin euis-mod suscipit lacus, et scelerisque nisi aliquam a. Nunc feugiat mattis quam, ut luctus enim ultrices at.</p>
-				<div class="site-btn"><span>Read More</span></div>
-			</div>
-		</div>
-		<!-- About three Section end-->
-	
-
-	<!-- Get in touch section- self addition as per the need
-</section>
-<section id="knowmore" class="wow fadeIn" data-setbg="./img/banner-bg.jpg">
-	class="wow fadeIn"
-	<div class="container text-center">
-		<h3>Know more about us</h3>
-		<p>One of the largest cultural festivals in Eastern India, Bitotsav has always strived to become bigger
-			and better. With a footfall of over 15000 and 100+ participating colleges Bitotsav has always been
-			a confluence of the best mind in the country. To know more about us browse through our brochure.</p>
-		<a class="cta-btn" href="./docs/brochure.pdf">Download Brochure</a>
-	</div>
-</section>
-	Get in touch section ends -->
-		<!-- Testimonial section--not being used currently
-		<div class="section testimonial-section set-bg" data-setbg="./img/section-bg/4.jpg">
-			<div class="container">
-				<div class="testimonial-content">
-					<h2>Clients Testimonials</h2>
-					<p>Maecenas facilisis facilisis consequat. Curabitur fringilla pellentesque neque, imperdiet efficitur urna gravida vel. Cras augue diam, sollicitudin sit amet felis ut, eleifend faucibus dui. Proin euismod suscipit lacus, et scelerisque nisi aliquam a. Nunc feugiat mattis quam, ut luctus enim ultrices at.</p>
-					<img src="img/testi-avatar.jpg" class="testi-avatar" alt="">
-					<h6>Maria Smith, <span>Bride</span></h6>
-					<div class="site-btn sb-dark"><span>See all testimonials</span></div>
-				</div>
-			</div>
-		</div>
-		<!-- Testimonial section end-->
-
-	<!-- Banner Section- making it hidden for a while now
-	<section class="banner-section set-bg" data-setbg="./img/banner-bg.jpg">
+<!--......Services section..................................-->
+		
+<section id="services" class="duplicatable-content">
+		<div class="section testimonial-section set-bg" data-setbg="./img/section-bg/5.jpg">
 		<div class="container">
+				<div class="testimonial-content2" >
+						<h2>Things I do</h2>
+					</div>
 			<div class="row">
-				<div class="col-lg-9">
-					<h2>Interested in my work?</h2>
-				</div>
-				<div class="col-lg-3 text-lg-right text-left">
-					<div class="site-btn"><span>Read More</span></div>
-				</div>
-			</div>
-		</div>
-	</section>
-	Banner Section end -->
+			</div><!--end of row-->
 
-		<!-- YouTube Section Starts -->
-		<div class="section testimonial-section set-bg" data-setbg="./img/section-bg/4-1.jpg">
-			<div class="container">
-				<div class="testimonial-content">
-					<h2>How do I paint these?</h2>
-					<div class="row">
-					<div class="col-lg-3 col-md-6">
-							<!--inserting i-frame-->
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Bu6TEJfrau4"
-							frameborder="05"
-							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen></iframe>
-			</div>
-			<div class="col-lg-3 col-md-6">
-					<!--inserting i-frame-->
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/fauNqbTTviU"
-								frameborder="05"
-								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen></iframe>
-			</div>
-				<div class="col-lg-3 col-md-6">
-						<!--inserting i-frame-->
-								<iframe width="100%" height="100%" src="https://www.youtube.com/embed/kxbI5BnA9Is"
-									frameborder="05"
-									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-									allowfullscreen></iframe>
-				</div>
-				<div class="col-lg-3 col-md-6">
-						<!--inserting i-frame-->
-								<iframe width="100%" height="100%" src="https://www.youtube.com/embed/eG2okcGRTjQ	"
-									frameborder="05"
-									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-									allowfullscreen></iframe>
-				</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="feature feature-icon-large">
+						<div class="pull-left">
+							<img src="img/icons/portrait.png" style= "height: 100px;width:auto;" alt="">
+							
 						</div>
-						<div class="row">
-								<div class="col-md-3 col-6 fact-item">
-									<h4><br><br><br>37.4k</h4>
-									<p>Total YouTube Views</p>
-								</div>
-								<div class="col-md-3 col-6 fact-item">
-									<h4><br><br><br>298</h4>
-									<p>Total Watch hours</p>
-								</div>
-								<div class="col-md-3 col-6 fact-item">
-									<h4><br><br><br>22</h4>
-									<p>Happy Cliets</p>
-								</div>
-								<div class="col-md-3 col-6 fact-item">
-									<h4><br><br><br>300+</h4>
-									<p>Sheets Painted</p>
-								</div>
-							</div>
-					<h6>How about you visit my YouTube Channel? <span><a href="www.youtube.com/missingpalette"><font color='red'>Missing Palette</a></font></span></h6>
-				</div>
-			</div>
-		</div>
-		<!-- YouTube Sections ends-->
-
-		<!--......Services section..................................-->
-
-	<section id="services" class="duplicatable-content">
-			<div class="container">
-					<div class="testimonial-content2">
-							<h2>Things I do</h2>
+						<div class="pull-right">
+							<hh5><i><font color="rgb(0,0,0)"><b>Custom Portraits</b></font></i></hh5>
+							<p>
+								Hmmm, a portrait for someone you like? Wouldn't that be a decent gift?
+								Yeah, I do take orders for Custom Portraits. Check out the gallery section for 
+								images.
+							</p>
 						</div>
-				<div class="row">
-				</div><!--end of row-->
-	
-				<div class="row">
-					<div class="col-sm-6">
+					</div>
+				</div><!--end 6 col-->
+				
+				<div class="col-sm-6">
+					<div class="feature feature-icon-large">
+						<div class="pull-left">
+							<img src="img/icons/class.png" style= "height: 100px;width:auto;" alt="">
+						</div>
+						<div class="pull-right">
+								<hh5><i><font color="rgb(0,0,0)"><b>Art Classes & Workshops</b></font></i></hh5>
+							<p>
+								Want to learn painting? Or want to have a painting workshop/ session
+								for your employees/ friends? May be a painting party is a good idea. Sounds cool? Scroll down to contact me.
+							</p>	
+						</div>
+					</div>
+				</div><!--end 6 col-->
+				<div class="col-sm-6">
 						<div class="feature feature-icon-large">
 							<div class="pull-left">
-								<img src="img/logo.png" style= "height: 100px;width:auto;" alt="">
+								<img src="img/icons/painting2.png" style= "height: 100px;width:auto;" alt="">
 								
 							</div>
 							<div class="pull-right">
-								<h5>Distinct Visual Style</h5>
+								<hh5><i><font color="rgb(0,0,0)"><b>Custom Paintings</b></font></i></hh5>
 								<p>
-									......................aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>........................................................................................................
+									May be the wall behind you is pretty empty. Look again. How about decorating
+									it with a little (or may be big) painting of mine? You can further gift it to
+									someone as well :p Contact? Yup! SCROLL DOWN
 								</p>
 							</div>
 						</div>
@@ -290,150 +261,253 @@
 					<div class="col-sm-6">
 						<div class="feature feature-icon-large">
 							<div class="pull-left">
-								<img src="img/logo.png" style= "height: 100px;width:auto;" alt="">
+								<img src="img/icons/painting.png" style= "height: 100px;width:auto;" alt="">
 							</div>
 							<div class="pull-right">
-								<h5>Multiple Demos</h5>
+									<hh5><i><font color="rgb(0,0,0)"><b>Outdoor Painting</b></font></i></hh5>
 								<p>
-									.......................aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>.......................................................................................................
+									Do you like painting outside? That's my favourite. Let me know if
+									you plan to have a quick plein air outdoor painting session. Ping me
+									if you want to join me in a short painting tour. Sounds fun.
+									Always available :)
 								</p>
 							</div>
 						</div>
 					</div><!--end 6 col-->
-					<div class="col-sm-6">
-							<div class="feature feature-icon-large">
-								<div class="pull-left">
-									<img src="img/logo.png" style= "height: 100px;width:auto;" alt="">
-									
-								</div>
-								<div class="pull-right">
-									<h5>Distinct Visual Style</h5>
-									<p>
-										......................aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaa<br>........................................................................................................
-									</p>
-								</div>
-							</div>
-						</div><!--end 6 col-->
-						
-						<div class="col-sm-6">
-							<div class="feature feature-icon-large">
-								<div class="pull-left">
-									<img src="img/logo.png" style= "height: 100px;width:auto;" alt="">
-								</div>
-								<div class="pull-right">
-									<h5>Multiple Demos</h5>
-									<p>
-										.......................aaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaa<br>.......................................................................................................
-									</p>
-								</div>
-							</div>
-						</div><!--end 6 col-->
-				</div><!--end of row-->
+			</div><!--end of row-->
+		</div>
+		<div class="testimonial-content_f">
+<h6><i>Want to sponsor my artworks, buy or collaborate? Shoot a mail at <font color='red'> ankit@missingpalette.com</font></span></h6>
+</i>
+<h6><i><a href="https://www.patreon.com/bePatron?u=15378539" target="_blank"><img src="img/icons/patreon.png" style= "width: 125px;height:auto; opacity:10;" alt=""></a></span></h6>
+</i>
+</div></div>
+</div>
+	</section>
+	<!--Services Section ends-->
+		<!-- YouTube Section Starts -->
+	<div id="YouTube">
+		<div class="section testimonial-section set-bg" data-setbg="./img/section-bg/3.jpg">
+			<div class="container">
+				<div class="testimonial-content">
+					<h2>How do I paint these?</h2>
+					<div class="row">
+					<div class="col-lg-3 col-md-6">
+							<!--inserting i-frame-->
+							<iframe width="90%" height="90%" data-src="https://www.youtube.com/embed/Bu6TEJfrau4"
+							frameborder="05"
+							allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
 			</div>
-					<div class="testimonial-content_f">
-			<h6><i>How about you visit my YouTube Channel? <span><a href="www.youtube.com/missingpalette"><font color='red'>Missing Palette</a></font></span></h6>
-			</i></div></div>
-		</section>
-		<!--Services Section ends-->
-
-	<!--.........................................Not required now.........................................................-->
-	<!-- Footer Section -->
-	<!--
-	<footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6">
-					<!--inserting i-frame.......................................................................................
-							<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Bu6TEJfrau4"
+			<div class="col-lg-3 col-md-6">
+					<!--inserting i-frame-->
+							<iframe width="90%" height="90%" data-src="https://www.youtube.com/embed/fauNqbTTviU"
 								frameborder="05"
 								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 								allowfullscreen></iframe>
-				</div>
+			</div>
 				<div class="col-lg-3 col-md-6">
-						<!--inserting i-frame.......................................................................................
-								<iframe width="100%" height="100%" src="https://www.youtube.com/embed/fauNqbTTviU"
+						<!--inserting i-frame-->
+								<iframe width="90%" height="90%" data-src="https://www.youtube.com/embed/kxbI5BnA9Is"
 									frameborder="05"
 									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 									allowfullscreen></iframe>
 				</div>
-					<div class="col-lg-3 col-md-6">
-							<!--inserting i-frame.......................................................................................
-									<iframe width="100%" height="100%" src="https://www.youtube.com/embed/kxbI5BnA9Is"
-										frameborder="05"
-										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-										allowfullscreen></iframe>
-					</div>
 				<div class="col-lg-3 col-md-6">
-					<div class="footer-info"> 	
-							<ul>
-							<h6>I GUESS IT'S TEA </h6>
-							<li>+91-7870760367</li>
-							<li>agrawal.ankit1295@gmail.com</li>
-							<li>Feel free to copy and use | Best wishes from
-							<a href="https://fb.com/akaankit" target="_blank">Ankit</a></li></ul>
-							
-						<div class="header-social2 a">
-							<a href="https://www.instagram.com/imankit_art"><i class="fa fa-instagram"></i></a>
-							<a href="https://www.fb.com/akaankit"><i class="fa fa-facebook"></i></a>
-							<a href="https://www.youtube.com/missingpalette"><i class="fa fa-youtube"></i></a>
-							<a href="https://www.linkedin.com/in/akaankit"><i class="fa fa-linkedin"></i></a>
-						</div>
-						
-						</div>
-						</div>
-					</div>
-				</div>-->
-				<!-- Contact Section -->
-				<div id="Contact">
-	<section class="contact-page set-bg" data-setbg="img/contact-bg.jpg">
-		<div class="sp-container">
-			<div class="row">
-				<div class="col-lg-4">
-					<div class="contact-text text-white">
-						<h2>Get in touch</h2>
-						<h6>Want to buy or exhibit my work? </h6><br>
-						<p>Do you want to buy my paintings, place a custom order or learn to paint? Feel free to reach out to me. I would love to hear from you. Looking forward to collaborate, learn and exhibit my art works.</p>
-						<ul>
-								<li>+91-7870760367</li>
-								<li>agrawal.ankit1295@gmail.com</li>
-								<li>Feel free to copy and use | Best wishes from
-								<a href="https://fb.com/akaankit" target="_blank"><font color="red">Ankit</font></a></li></ul>
-					</div>
-					<div class="header-social2 a">
-							<a href="https://www.instagram.com/imankit_art"><i class="fa fa-instagram"></i></a>
-							<a href="https://www.fb.com/akaankit"><i class="fa fa-facebook"></i></a>
-							<a href="https://www.youtube.com/missingpalette"><i class="fa fa-youtube"></i></a>
-							<a href="https://www.linkedin.com/in/akaankit"><i class="fa fa-linkedin"></i></a>
-						</div>
+						<!--inserting i-frame-->
+								<iframe width="90%" height="90%" data-src="https://www.youtube.com/embed/eG2okcGRTjQ	"
+									frameborder="05"
+									allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen></iframe>
 				</div>
-				<div class="col-lg-7 offset-lg-1">
-					<form class="contact-form">
-						<div class="row">
-							<div class="col-md-6">
-								<input type="text" placeholder="Your Name">
-							</div>
-							<div class="col-md-6">
-								<input type="text" placeholder="Your E-mail">
-							</div>
-							<div class="col-md-12">
-								<input type="text" placeholder="Subject">
-								<textarea placeholder="Message"></textarea>
-								<!--<button class="site-btn"><span>send</span></button>-->
-							</div>
 						</div>
-					</form>
+						<div class="row">
+								<div class="col-md-3 col-6 fact-item">
+									<h4><br><br><br>540k+</h4>
+									<p>Total Blog Views</p>
+								</div>
+								<div class="col-md-3 col-6 fact-item">
+									<h4><br><br><br>37k+</h4>
+									<p>Total YouTube views</p>
+								</div>
+								<div class="col-md-3 col-6 fact-item">
+									<h4><br><br><br>22</h4>
+									<p>Happy Clients</p>
+								</div>
+								<div class="col-md-3 col-6 fact-item">
+									<h4><br><br><br>300+</h4>
+									<p>Sheets Painted</p>
+								</div>
+							</div>
+					<h6>How about you visit my YouTube Channel? <span><a href="https://www.youtube.com/missingpalette" target="_blank"><font color='red'>Missing Palette</a></font></span></h6>
+					<script src="https://apis.google.com/js/platform.js"></script>
+					<div class="g-ytsubscribe" data-channelid="UCFZc4TLK_0pqDKc4xw5RogA" data-layout="default" data-count="hidden"></div>
 				</div>
 			</div>
 		</div>
-	</section>
-</div>
-	<!-- Contact Section end -->
-<!--Copyright &copy;<script>document.write(new Date().getFullYear());
-</script> <font align="text-lg-right">Feel free to copy and use | Best wishes from </font><!--<i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://fb.com/akaankit" target="_blank">Ankit</a></p>
-		</div>
-	</footer>
+	</div>
+		<!-- YouTube Sections ends-->
 	
-	........................................Footer Section end-->
+		
+
+<!-- Testimonial section-->
+<div id="testimonial">
+<div class="section testimonial-section set-bg" data-setbg="./img/section-bg/7.jpg" >
+	<div class="container">
+		<div class="testimonial-content2">
+				<h2>Happy People</h2>
+		<div class="hero-slider2 owl-carousel">
+			<div>	
+				<p>"Perfect place to learn oil painting.Ankit is really calm and composed.
+					He caters to all your doubts and teaches you the basic techniques in an effective way.
+					A must go place to satiate your artistic hunger.I highly recommend him."</p>
+				<img src="img/testimonial/NP.jpg" class="testi-avatar2" alt="">
+				<h6>Neha Priyadarshini, <span>Art Student</span></h6>	
+			</div>
+			<div>	
+					<p>"हमारा विद्यालय अक्सर ऐसे कार्यक्रम करवाता है | इस तरह की एक्टिविटी से बच्चों के अंदर छुपी प्रतिभा निखरकर सामने आती है | 
+						अंकित ने काफी सूचना प्रद और रोचक वर्कशॉप करवाया |"</p>
+					<img src="img/testimonial/PR.jpg" class="testi-avatar2" alt="">
+					<h6>Mr. Pravin Rajgadia, <span>Director, Sri Agrasen School,Bhurkunda</span></h6>	
+				</div>
+			<div>
+				<p>"Thank you Ankit for providing such useful classes.
+					<br>I learnt a few useful tips which helped me brush up my knowledge.
+					I really appriciate your guidance. Thank you so much."</p>
+				<img src="img/testimonial/MR.jpg" class="testi-avatar2" alt="">
+				<h6>Moni, <span>Art Student</span></h6>
+			</div>
+			<div>
+					<p>"A perfect place to learn oil painting, sketching, portrait, watercoloring. 
+						His art work is awesome and teaches different types of technique during classes. 
+						Good for beginners and professionals. My experience was good over here."</p><br>
+					<img src="img/testimonial/ANU.jpg" class="testi-avatar2" alt="">
+					<h6>Anupama, <span>Art Student</span></h6>
+				</div>
+			<div>
+					<p>"The workshop witnessed a huge participation. Students loved the sessions. 
+						Ankit has a unique way of conducting sessions. I wish him good luck"</p><br>
+					<img src="img/testimonial/DTPP.jpg" class="testi-avatar2" alt="">
+					<h6>Dr. T.P Pati, <span>Former Reg. Director, D.A.V. Group, Ranchi</span></h6>
+			</div>
+			<div>
+					<p>"Ankit is no ordinary student of BIT, Mesra. He is a painter of professional caliber. 
+							I was gifted a watercolor of BIT Mesra, painted by him. 
+							He himself handed it to me following my talk. But with my typical forgetfulness,
+							I left it on some chair at Ranchi airport. And i blame me so much."</p>
+					<img src="img/testimonial/DAM.jpg" class="testi-avatar2" alt="">
+					<h6>Dr. Abhas Mitra, <span>Former Head, BARC</span></h6>
+			</div>
+			<div>
+					<p>"Good color composition and effects. 
+						Good that he is a self taught artist and one can see different styles in his paintings"</p><br><br>
+					<img src="img/testimonial/WK.jpg" class="testi-avatar2" alt="">
+					<h6>Mr. Wasim Kapoor, <span>Eminent Painter</span></h6>
+			</div>
+			<div>
+					<p>"My good wishes to Ankit, an upright young artist, who is passionate not only for his own paintings but also for imparting his knowledge to others.
+							I remember his dedication for organising a painting workshop for kids at a village school under Saansad Adarsh Gram Yojana at Mahilong in Jharkhand. 
+							& 2 days Art workshop for professionals."</p>
+					<img src="img/testimonial/VR.jpg" class="testi-avatar2" alt="">
+					<h6>Mr. Vishnu Rajgadia, <span>Journalist & Dir. Jharkhand Foundation</span></h6>
+			</div>
+			
+			<div>
+					<p>"When you know you have to gift someone your admiration for them, you can’t think about anything less than gifting them art in any form. 
+						While hunting for the perfect gift, I stumbled upon Ankit’s work. 
+						I saw his works and instantly knew that his paintings and sketches were more than mere strokes of charcoal and colours. 
+						I was overwhelmed when I received the portrait. He puts life into the paper and I felt so happy when I gifted the sketch to the person."</p>
+					<img src="img/testimonial/SK.jpg" class="testi-avatar2" alt="">
+					<h6>Subi, <span>Art Client</span></h6>
+			</div>
+		
+		</div>
+		</div>
+	</div>
+</div>
+</div>
+<!-- Testimonial section end-->
+
+
+		<!-- Contact Section2 -->
+
+	<div id="Contact">
+			<section class="contact-page2 set-bg" data-setbg="./img/section-bg/4.jpg">
+				<div class="sp-container">
+					
+					<div class="row">
+								<div class="col-lg-4">
+										<div class="contact-text2 text-white">
+											<h2>Get in touch</h2>
+											<h6>I’m shy, please come say hi 😬</h6><br>
+											<p>Do you want to buy my paintings, place a custom order or learn to paint?
+												<br>You can reach out to me anytime.<br> I would love to hear from you.
+												<br>Help Needy | Protect Nature &hearts;<p>
+					
+										</div>
+	
+										<div class="down-sign3">
+										<h6><font color="#fff">Want to hire me?</font><b>
+											<a href="Ankit K Agrawal_Resume.pdf" download target="_blank"><font color="#fff">DOWNLOAD MY CV</font></a></b></h6>
+										</div>
+									
+										<div class="down-sign3a">
+											<h6><font color="#fff">© Images 2019 | Created by</font><b>
+												<a href="https://www.linkedin.com/in/akaankit" target="_blank"><font color="#fff">Ankit Agrawal 🙃</font></a></b></h6>
+										</div>
+								</div>
+	
+		
+								<div class="col-lg-4">
+										
+											<div class="contact-text2 text-white">
+												<br><br><br><br><br>
+												<ul>
+													<div class="op">
+														<li>+91-7870760367</li>
+														<li>ankit@missingpalette.com</li>
+														<li>Feel free to copy and use | Best wishes from
+														<a href="https://fb.com/akaankit" target="_blank"><font color="red"><b>Ankit</b></font></a></li>
+														<li>Want to support me? |
+															<a href="https://www.patreon.com/bePatron?u=15378539" target="_blank"><img src="img/icons/patreon.png" style= "width: 100px;height:auto; opacity:10;" alt=""></a>
+														</li>
+													</ul>
+									
+														
+											
+											
+											<div class="header-social2 a">
+													<a href="https://www.instagram.com/imankit_art" target="_blank"><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+													<a href="https://www.fb.com/missingpalette" target="_blank"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+													<a href="https://www.youtube.com/missingpalette" target="_blank"><i class="fa fa-youtube"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+													<a href="https://www.linkedin.com/in/akaankit" target="_blank"><i class="fa fa-linkedin"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+													<a href="https://www.github.com/dipidup" target="_blank"><i class="fa fa-github"></i></a><br>
+													<div class="fb-like" data-href="https://www.facebook.com/missingpalette" data-width="10" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+												</div>
+											</div>	
+								</div>	
+								<div class="col-lg-4">
+										<br><br><br><br><br>
+									<div m6>	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15129.904942086374!2d73.9251495!3d18.5525563!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xeb361144d527fc44!2sMissing%20Palette-%20Ankit&#39;s%20Art!5e0!3m2!1sen!2sin!4v1575207415087!5m2!1sen!2sin" width="290" height="160" frameborder="10" style="border:10;" allowfullscreen=""></iframe></div>
+								</div>
+								
+							
+					</div>
+				</div>
+			</section>	
+		</div>
+		
+			<!-- Contact Section2 end -->
+		
+    <!-- **** All JS Files ***** -->
+    <!-- jQuery 2.2.4 -->
+    <script src="js/jquery.min.js"></script>
+    <!-- All Plugins -->
+    <script src="js/aka.bundle.js"></script>
+    <!-- Active -->
+    <script src="js/active.js"></script>
+	
+	
 
 	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
@@ -442,6 +516,17 @@
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/fullpage.min.js"></script>
 	<script src="js/main.js"></script>
+	<!--You Tube JS Parsing-->
+	<script>
+	function init() {
+		var vidDefer = document.getElementsByTagName('iframe');
+		for (var i=0; i<vidDefer.length; i++) {
+		if(vidDefer[i].getAttribute('data-src')) {
+		vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+		} } }
+		window.onload = init;
+	</script>
+
 
 	</body>
 </html>

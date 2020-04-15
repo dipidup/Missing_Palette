@@ -1,0 +1,1 @@
+active.js, aka.bundle.js and jquery.min.js are used for the gallery
