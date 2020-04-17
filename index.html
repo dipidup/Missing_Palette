@@ -108,6 +108,15 @@
 </div>
 popup on top of the page ends-->
 
+<!--popup on top of the page-->
+<div id="popupmain" style="display: none;">
+	<div id="popup">
+		<h2 id="Newsheading">Join this workshop</h1>
+		<div id="close">
+			<div class="site-btn"><span><h5><m5>CLOSE</m5></h5></span></a></div>
+	</div>
+</div>
+</div>
 			
 	<!--Go to top link-->
 	<div class="down-sign4">
@@ -525,6 +534,17 @@ popup on top of the page ends-->
 		vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
 		} } }
 		window.onload = init;
+	</script>
+
+	<!-- Javascript for the popup-->
+	<script>
+		$(document).ready(function(){
+			setTimeout(function(){
+				$('#popupmain').css('display','block');},3000);
+		});
+		$('#close').click(function(){
+			$('#popupmain').css('display','none');});
+
 	</script>
 
 
