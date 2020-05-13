@@ -130,6 +130,7 @@
   .aka-projects-menu {
     position: relative;
     z-index: 1;
+    
     margin-bottom: 40px; }
 
     .aka-projects-menu .portfolio-menu .btn {
@@ -137,7 +138,7 @@
       z-index: 1;
       padding: 0;
       float: center;
-      
+      color: rgb(195, 200, 201);
       border: 0;
       background-color: transparent;
       font-size: 16px;
@@ -155,6 +156,7 @@
       {
         .aka-projects-menu .portfolio-menu .btn {
           font-size: 14px;
+
           margin: 0 5px; } }
 
       .aka-projects-menu .portfolio-menu .btn::after {
@@ -164,7 +166,7 @@
         position: absolute;
         width: 0%;
         height: 3px;
-        background-color: #043666ef;
+        background-color: #6f9fccef;
         content: '';
         bottom: -5px;
         left: 0;

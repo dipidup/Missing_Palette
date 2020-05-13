@@ -3232,14 +3232,14 @@ select {
   height: 10px;
   line-height: 10px;
   border-radius: 50%;
-  background: black;
+  background: rgb(236, 231, 231);
   border: none;
   padding: 0;
   margin: 0;
   cursor: pointer;
   font: 0/0 a;
   text-shadow: none;
-  color: transparent;
+  color: white;
 }
 
 .featured-slider .slick-dots li button:hover,
@@ -3251,7 +3251,7 @@ select {
 .featured-slider .slick-dots li:hover button {
   background: transparent;
   background-color: transparent;
-  border: 3px solid #000000;
+  border: 1px solid #a7a3a3;
 }
 
 .featured-slider .slick-arrow {
@@ -3264,8 +3264,9 @@ select {
   height: 7rem;
   width: 7rem;
   border-radius: 50%;
-  background-color: #FFFFFF;
-  border: none;
+  background-color:transparent;
+  border-color: thistle;
+  border-width: 1px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
   background-repeat: no-repeat;
   background-position: center center;
@@ -3285,12 +3286,12 @@ select {
 
 .featured-slider .slick-prev {
   left: -120px;
-  background-image: url(../img/icons/icon-arrow-left.svg);
+  background-image: url(../img/icons/arrow-udp.png);
 }
 
 .featured-slider .slick-next {
   right: -120px;
-  background-image: url(../img/icons/icon-arrow-right.svg);
+  background-image: url(../img/icons/arrow-right.png);
 }
 
 .featured__slide {
@@ -3621,8 +3622,8 @@ select {
  * ------------------------------------------------------------------- */
 .s-content {
   background-color: #f2f2f2;
-  padding-top: 6rem;
-  padding-bottom: 7.2rem;
+  padding-top: 16rem;
+  padding-bottom: 10rem;
 }
 
 .s-content--no-padding-bottom {
@@ -3641,6 +3642,99 @@ select {
   text-align: center;
   position: relative;
 }
+
+/* ------------------------------------------------------------------- */
+  
+  .s-content .slick-dots {
+    display: block;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 3.6rem 0 0 0;
+    text-align: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  
+  .s-content .slick-dots li {
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+    margin: 0;
+    padding: 9px;
+    cursor: pointer;
+  }
+  
+  .s-content .slick-dots li button {
+    display: block;
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    border-radius: 50%;
+    background: rgb(236, 231, 231);
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font: 0/0 a;
+    text-shadow: none;
+    color: white;
+  }
+  
+  .s-content .slick-dots li button:hover,
+  .s-content .slick-dots li button:focus {
+    outline: none;
+  }
+  
+  .s-content .slick-dots li.slick-active button,
+  .s-content .slick-dots li:hover button {
+    background: transparent;
+    background-color: transparent;
+    border: 1px solid #a7a3a3;
+  }
+  
+  .s-content .slick-arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -3.5rem;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    background-color:transparent;
+    border-color: thistle;
+    border-width: 1px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 24px 11px;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  
+  .s-content .slick-arrow:hover {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  
+  .s-content .slick-prev {
+    left: -120px;
+    background-image: url(../img/icons/arrow-udp.png);
+  }
+  
+  .s-content .slick-next {
+    right: -120px;
+    background-image: url(../img/icons/arrow-right.png);
+  }
+/* ------------------------------------------------------------------- */
+
 
 /* -------------------------------------------------------------------
  * ## page and single entry main content
