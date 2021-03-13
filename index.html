@@ -97,7 +97,7 @@
 <div id="popupmain"  style="display:none ;">
 	<div id="popupimage">
 			<div class="single-portfolio-content">
-				<img src="img/gallery/sketch (1).jpg" alt="Something for you!">
+				<img src="img/gallery/sketch (1a).jpg" alt="Something for you!">
 			</div>
 			<div id="close">
 				<div class="mfp-figure">
@@ -111,9 +111,9 @@
 <!-----------------------------------Text popup/ custom message box popup-----------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------
 
-		<div id="popupmain" style="display: inline;">
+		<div id="popupmain" style="display: none;">
 			<div id="popup">
-				<h2 id="Newsheading">Join this workshop</h1>
+				<h2 id="Newsheading">Join this workshop</h2>
 				<div id="close">
                 
                     <button title="Close (Esc)" type="button" class="mfp-close"><font color="black">×</font></button>
@@ -546,13 +546,22 @@
 	<script>
 		$(document).ready(function(){
 			setTimeout(function(){
-				$('#popupmain').css('display','block');},3000);
+				$('#popupmain').css('display','block');},5000);
 		});
 		$('#close').click(function(){
 			$('#popupmain').css('display','none');});
 
 	</script>
 
+<script>
+	$(document).ready(function(){
+		setTimeout(function(){
+			$('#popup').css('display','block');},5000);
+	});
+	$('#close').click(function(){
+		$('#popup').css('display','none');});
+
+</script>
 
 	</body>
 </html>

@@ -214,7 +214,7 @@
         z-index: 100;
         margin-left: -150px;                /*added left margin in negative to addjust the box*/
         width: 300px;                       /*had to fix the length to cover the whole box*/
-        height: auto    ;
+        height: auto;
         border-radius: 0%;                   /*this is for the circular background*/
         background-color: #0000006e;
         text-align: center;
@@ -489,7 +489,7 @@
     padding: 40px 0 40px;
     margin: 0 auto; }
   
-  /* The shadow behind the image */
+  /* The shadow behind the popup image */
   .mfp-figure {
     line-height: 0; }
     .mfp-figure:after {
