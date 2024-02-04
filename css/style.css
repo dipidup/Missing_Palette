@@ -303,9 +303,55 @@ text-align: center;
 	
 }
 
-/* Preloder */
 
-#preloder {
+/*Preloader for highlighting the text; can ignore the next preloader css which creates a rotating element*/
+
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    background: #000;
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-size: 24px;
+    color: white;
+}
+
+.loader span {
+    animation: highlight 2s linear infinite;
+}
+
+@keyframes highlight {
+    0% {
+        color: #fdfbfb;
+    }
+    33.33% {
+        color: #f77a3b;
+    }
+    66.67% {
+        color: #fdfbfb;
+    }
+    100% {
+        color: #499227;
+    }
+}
+
+
+/* Preloder 
+
+#preloader {
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -366,7 +412,7 @@ text-align: center;
 		border: 4px solid #f44336;
 		border-left-color: transparent;
 	}
-}
+}*/
 
 /*  Fullpage plugin */
 
