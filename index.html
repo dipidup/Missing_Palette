@@ -608,5 +608,55 @@
 
 <!--Pop up end-->
 
+	<!-- Collapsible Amazon Product Links Section -->
+<div style="padding: 10px; background-color: #f0f0f0; text-align: center; font-family: 'Montserrat', sans-serif;">
+  <button onclick="toggleAmazonLinks()" style="padding: 5px 15px; font-size: 14px; cursor: pointer; border: none; background-color: #222; color: #fff; border-radius: 5px;">
+    🔽 Show Product Links
+  </button>
+  <div id="amazonLinksSection" style="display: none; margin-top: 10px;">
+    <p><strong>Recommended Products:</strong></p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 14px;">
+      <a href="https://amzn.to/4jRr40e" target="_blank" style="text-decoration: none;" rel="nofollow">
+        🖌️ Product Link 1
+      </a>
+      <a href="https://amzn.to/4n2gcj1" target="_blank" style="text-decoration: none;" rel="nofollow">
+        🎨 Product Link 2
+      </a>
+      <a href="https://amzn.to/3SPujKP" target="_blank" style="text-decoration: none;" rel="nofollow">
+        🖍️ Product Link 3
+      </a>
+      <a href="https://amzn.to/3SQLYSb" target="_blank" style="text-decoration: none;" rel="nofollow">
+        📘 Product Link 4
+      </a>
+      <a href="https://amzn.to/43YfhY7" target="_blank" style="text-decoration: none;" rel="nofollow">
+        ✏️ Product Link 5
+      </a>
+      <a href="https://amzn.to/45UN6vL" target="_blank" style="text-decoration: none;" rel="nofollow">
+        🎒 Product Link 6
+      </a>
+      <a href="https://amzn.to/3TnTe8h" target="_blank" style="text-decoration: none;" rel="nofollow">
+        🧴 Product Link 7
+      </a>
+      <a href="https://amzn.to/3Tprksy" target="_blank" style="text-decoration: none;" rel="nofollow">
+        🧤 Product Link 8
+      </a>
+      <a href="https://amzn.to/4kZnYs4" target="_blank" style="text-decoration: none;" rel="nofollow">
+        🧢 Product Link 9
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleAmazonLinks() {
+    const section = document.getElementById("amazonLinksSection");
+    const isHidden = section.style.display === "none";
+    section.style.display = isHidden ? "block" : "none";
+    event.target.innerText = isHidden ? "🔼 Hide Product Links" : "🔽 Show Product Links";
+  }
+</script>
+<!-- End Collapsible Amazon Product Links Section -->
+
+
 	</body>
 </html>
