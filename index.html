@@ -608,53 +608,54 @@
 
 <!--Pop up end-->
 
-	<!-- Collapsible Amazon Product Links Section -->
+<!-- Collapsible Amazon Product Links Section -->
+<!-- 🛒 Amarnath product Gear & Essentials -->
 <div style="padding: 10px; background-color: #f0f0f0; text-align: center; font-family: 'Montserrat', sans-serif;">
-  <button onclick="toggleAmazonLinks()" style="padding: 5px 15px; font-size: 14px; cursor: pointer; border: none; background-color: #222; color: #fff; border-radius: 5px;">
-    🔽 Show Product Links
+  <button onclick="toggleproductLinks()" style="padding: 6px 14px; font-size: 14px; cursor: pointer; border: none; background-color: #333; color: #fff; border-radius: 5px;">
+    🔽 Show recommended Products
   </button>
-  <div id="amazonLinksSection" style="display: none; margin-top: 10px;">
-    <p><strong>Recommended Products:</strong></p>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 14px;">
-      <a href="https://amzn.to/4jRr40e" target="_blank" style="text-decoration: none;" rel="nofollow">
-        🖌️ Product Link 1
-      </a>
-      <a href="https://amzn.to/4n2gcj1" target="_blank" style="text-decoration: none;" rel="nofollow">
-        🎨 Product Link 2
-      </a>
-      <a href="https://amzn.to/3SPujKP" target="_blank" style="text-decoration: none;" rel="nofollow">
-        🖍️ Product Link 3
-      </a>
-      <a href="https://amzn.to/3SQLYSb" target="_blank" style="text-decoration: none;" rel="nofollow">
-        📘 Product Link 4
-      </a>
-      <a href="https://amzn.to/43YfhY7" target="_blank" style="text-decoration: none;" rel="nofollow">
-        ✏️ Product Link 5
-      </a>
-      <a href="https://amzn.to/45UN6vL" target="_blank" style="text-decoration: none;" rel="nofollow">
-        🎒 Product Link 6
-      </a>
-      <a href="https://amzn.to/3TnTe8h" target="_blank" style="text-decoration: none;" rel="nofollow">
-        🧴 Product Link 7
-      </a>
-      <a href="https://amzn.to/3Tprksy" target="_blank" style="text-decoration: none;" rel="nofollow">
-        🧤 Product Link 8
-      </a>
-      <a href="https://amzn.to/4kZnYs4" target="_blank" style="text-decoration: none;" rel="nofollow">
-        🧢 Product Link 9
-      </a>
-    </div>
+  <div id="productLinksSection" style="display: none; margin-top: 12px; font-size: 14px;">
+    <strong>🚶‍♂️ Trekking Essentials:</strong><br>
+    <a href="https://amzn.to/4jRr40e" target="_blank" rel="nofollow">Torch / Headlamp</a> |
+    <a href="https://amzn.to/43Saite" target="_blank" rel="nofollow">Power Bank</a> |
+    <a href="https://amzn.to/3Zx6WcE" target="_blank" rel="nofollow">Document Organizer</a> |
+    <a href="https://amzn.to/4ljqf1D" target="_blank" rel="nofollow">Travel Pouch</a> |
+    <a href="https://amzn.to/4laci5N" target="_blank" rel="nofollow">ID Card Holder</a><br><br>
+
+    <strong>🩺 First Aid & Medicine:</strong><br>
+    <a href="https://amzn.to/4k1aewf" target="_blank" rel="nofollow">Basic First Aid Kit</a> |
+    <a href="https://amzn.to/3ZznYH5" target="_blank" rel="nofollow">Face Mask</a><br><br>
+
+    <strong>🥜 Food & Snacks:</strong><br>
+    <a href="https://amzn.to/43YfhY7" target="_blank" rel="nofollow">Mixed Dry Fruits</a> |
+    <a href="https://amzn.to/4kG6GAt" target="_blank" rel="nofollow">Sattu (Roasted Chana)</a> |
+    <a href="https://amzn.to/4kZnYs4" target="_blank" rel="nofollow">ORS / Electrolyte Sachets</a><br><br>
+
+    <strong>🥾 Clothing & Trek Gear:</strong><br>
+    <a href="https://amzn.to/4kOG40o" target="_blank" rel="nofollow">Trekking Boots 1</a> |
+    <a href="https://amzn.to/4lc6cC3" target="_blank" rel="nofollow">Trekking Boots 2</a> |
+    <a href="https://amzn.to/3HP7rZu" target="_blank" rel="nofollow">Trekking Boots 3</a><br>
+    <a href="https://amzn.to/3T132oG" target="_blank" rel="nofollow">Trek Socks 1</a> |
+    <a href="https://amzn.to/4kSn8Oc" target="_blank" rel="nofollow">Trek Socks 2</a> |
+    <a href="https://amzn.to/3T0rpmy" target="_blank" rel="nofollow">Trek Socks 3</a><br>
+    <a href="https://amzn.to/4kOhPPX" target="_blank" rel="nofollow">Thermals & Trek Pants</a> |
+    <a href="https://amzn.to/4jStvQd" target="_blank" rel="nofollow">Winter Accessories</a> |
+    <a href="https://amzn.to/3T19JXT" target="_blank" rel="nofollow">Rain Jacket</a> |
+    <a href="https://amzn.to/4ld0iAC" target="_blank" rel="nofollow">Quick-Dry Trek Pants</a><br><br>
+
+    <strong>💧 Water & Hydration:</strong><br>
+    <a href="https://amzn.to/3G6a3Sd" target="_blank" rel="nofollow">2L Water Bottle</a> |
+    <a href="https://amzn.to/4laGAVY" target="_blank" rel="nofollow">Enerzal / Electrolytes</a><br>
   </div>
 </div>
 
 <script>
-  function toggleAmazonLinks() {
-    const section = document.getElementById("amazonLinksSection");
+  function toggleproductLinks() {
+    const section = document.getElementById("productLinksSection");
     const isHidden = section.style.display === "none";
     section.style.display = isHidden ? "block" : "none";
-    event.target.innerText = isHidden ? "🔼 Hide Product Links" : "🔽 Show Product Links";
+    event.target.innerText = isHidden ? "🔼 Hide Products" : "🔽 Show recommended products";
   }
-</script>
 <!-- End Collapsible Amazon Product Links Section -->
 
 
