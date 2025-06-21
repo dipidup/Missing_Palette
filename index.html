@@ -352,15 +352,15 @@
 									<p>Total Blog Views</p>
 								</div>
 								<div class="col-md-3 col-6 fact-item">
-									<h4><br><br><br>39k+</h4>
+									<h4><br><br><br>70k+</h4>
 									<p>Total YouTube views</p>
 								</div>
 								<div class="col-md-3 col-6 fact-item">
-									<h4><br><br><br>22</h4>
+									<h4><br><br><br>80+</h4>
 									<p>Happy Clients</p>
 								</div>
 								<div class="col-md-3 col-6 fact-item">
-									<h4><br><br><br>300+</h4>
+									<h4><br><br><br>400+</h4>
 									<p>Sheets Painted</p>
 								</div>
 							</div>
@@ -610,7 +610,8 @@
 
 <!-- 🛒 Amarnath product Gear & Essentials -->
 <div style="padding: 10px; background-color: #f0f0f0; text-align: center; font-family: 'Montserrat', sans-serif;">
-  <button onclick="toggleproductLinks()" style="padding: 6px 14px; font-size: 14px; cursor: pointer; border: none; background-color: #333; color: #fff; border-radius: 5px;">
+  <!-- Collapsible Amazon Product Links Section -->
+  <button onclick="toggleproductLinks(event)" style="padding: 6px 14px; font-size: 14px; cursor: pointer; border: none; background-color: #333; color: #fff; border-radius: 5px;">
     🔽 Show recommended Products
   </button>
   <div id="productLinksSection" style="display: none; margin-top: 12px; font-size: 14px;">
@@ -649,11 +650,11 @@
 </div>
 
 <script>
-  function toggleproductLinks() {
+  function toggleproductLinks(event) {
     const section = document.getElementById("productLinksSection");
     const isHidden = section.style.display === "none";
     section.style.display = isHidden ? "block" : "none";
-    event.target.innerText = isHidden ? "🔼 Hide Products" : "🔽 Show recommended products";
+    event.target.innerText = isHidden ? "🔼 Hide Products" : "🔽 Show recommended Products";
   }
 </script>
 <!-- End of product Essentials Section -->
