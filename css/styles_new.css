@@ -4247,13 +4247,12 @@ img.u-pull-left {
     }
 }
 
-<style>
+
 @media (max-width: 768px) {
     .contact-form form {
         flex-direction: column;
     }
 }
-</style>
 
 /* ---------------------------------------------------------
    GALLERY PAGE STYLES
