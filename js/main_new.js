@@ -345,3 +345,27 @@
 
 
 })(document.documentElement);
+
+/* ============================================
+   Shopify-style 3-Card Rotation
+=============================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".work-card");
+
+    if (!cards.length) return;
+
+    let index = 0;
+
+    function rotateCards() {
+        cards.forEach(card => card.classList.remove("card-front", "card-right", "card-left"));
+
+        cards[index % 3].classList.add("card-front");
+        cards[(index + 1) % 3].classList.add("card-right");
+        cards[(index + 2) % 3].classList.add("card-left");
+
+        index++;
+    }
+
+    rotateCards();              // initial state
+    setInterval(rotateCards, 1000); // rotate every 1 second
+});
