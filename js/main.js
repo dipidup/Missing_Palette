@@ -1,179 +1,371 @@
-/* ======================================
------------------------------------------
-MISSING PALETTE
- ---------------------------------------
- =======================================*/
+/* ===================================================================
+ * Luther 1.0.0 - Main JS
+ * UPDATED: Added Google Ratings Fetcher + FIXED Smooth Scroll
+ * ------------------------------------------------------------------- */
 
+(function(html) {
 
-'use strict';
+    "use strict";
 
+    html.className = html.className.replace(/\bno-js\b/g, '') + ' js ';
 
-$(window).on('load', function() {
-	/*------------------
-		Preloder
-	--------------------*/
-	$(".loader").fadeOut();
-	$("#preloder").delay(400).fadeOut("slow");
-
-	var masonryLayout = function () {
-		$('.portfolios-area').masonry({
-			itemSelector: '.grid-item',
-			columnWidth: '.grid-sizer',
-			percentPosition: true
-		});
-	}
-
-
-	/*------------------
-		Mixitup js
-	--------------------*/
-	masonryLayout();
-	if($('.portfolios-area').length > 0 ) {
-		var containerEl = document.querySelector('.portfolios-area');
-		var mixer = mixitup(containerEl, {
-			callbacks: {
-				onMixEnd: function() {
-					masonryLayout();
-				}
-			}
-		});
-	}
-
-});
-
-(function($) {
-	/*------------------
-		Navigation
-	--------------------*/
-	$('.nav-switch').on('click', function () {
-		$('.main-menu').slideToggle();
-	});
-	
-
-	/*------------------
-		Background Set
-	--------------------*/
-	$('.set-bg').each(function() {
-		var bg = $(this).data('setbg');
-		$(this).css('background-image', 'url(' + bg + ')');
-	});
-
-
-	/*------------------
-		Hero Slider
-	--------------------*/
-	var hero_s = $(".hero-slider");
-    hero_s.owlCarousel({
-        loop: true,
-        margin: 0,
-        nav: true,
-        items: 1,
-        dots: false,
-        animateOut: 'fadeOut',
-    	animateIn: 'fadeIn',
-        navText: ['', '<img src="img/icons/arrow-right.png" alt="">'],
-        smartSpeed: 1200,
-        autoHeight: false,
-		autoplay: true,
-		autoplayTimeout:6000,
-        onInitialized: function() {
-        	var a = this.items().length;
-            $("#snh-1").html("<span>1</span>/<span>" + a + "</span>");
+    /* --------------------------------------------------------------
+     * Animations
+     * -------------------------------------------------------------- */
+    const tl = anime.timeline({
+        easing: 'easeInOutCubic',
+        duration: 800,
+        autoplay: false
+    })
+    .add({
+        targets: '#loader',
+        opacity: 0,
+        duration: 1000,
+        begin: function() { window.scrollTo(0, 0); }
+    })
+    .add({
+        targets: '#preloader',
+        opacity: 0,
+        complete: function() {
+            const pre = document.querySelector("#preloader");
+            pre.style.visibility = "hidden";
+            pre.style.display = "none";
         }
-    }).on("changed.owl.carousel", function(a) {
-        var b = --a.item.index, a = a.item.count;
-    	$("#snh-1").html("<span> "+ (1 > b ? b + a : b > a ? b - a : b) + "</span>/<span>" + a + "</span>");
-	});
-	
-	var hero_s = $(".hero-slider2");
-    hero_s.owlCarousel({
-        loop: true,
-        margin: 0,
-        nav: true,
-        items: 1,
-        dots: false,
-        animateOut: 'fadeOut',
-    	animateIn: 'fadeIn',
-        navText: ['', '<img src="img/icons/arrow-up2.png" alt="">'],
-        smartSpeed: 1200,
-        autoHeight: false,
-		autoplay: true,
-		autoplayTimeout:5000,
-		autoplayHoverPause:true,
+    })
+    .add({
+        targets: '.s-header',
+        translateY: [-100, 0],
+        opacity: [0, 1]
+    }, '-=200')
+    .add({
+        targets: ['.s-intro .text-pretitle', '.s-intro .text-huge-title'],
+        translateX: [100, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(400)
+    })
+    .add({
+        targets: '.circles span',
+        keyframes: [
+            { opacity: [0, .3] },
+            { opacity: [.3, .1], delay: anime.stagger(100, { direction: 'reverse' }) }
+        ],
+        delay: anime.stagger(100, { direction: 'reverse' })
+    })
+    .add({
+        targets: '.intro-social li',
+        translateX: [-50, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(100, { direction: 'reverse' })
+    })
+    .add({
+        targets: '.intro-scrolldown',
+        translateY: [100, 0],
+        opacity: [0, 1]
+    }, '-=800');
+
+
+    /* --------------------------------------------------------------
+     * Preloader
+     * -------------------------------------------------------------- */
+    const ssPreloader = function() {
+
+        const preloader = document.querySelector('#preloader');
+        if (!preloader) return;
         
+        window.addEventListener('load', function() {
+            document.querySelector('html').classList.remove('ss-preload');
+            document.querySelector('html').classList.add('ss-loaded');
+
+            document.querySelectorAll('.ss-animated').forEach(item => item.classList.remove('ss-animated'));
+
+            tl.play();
+        });
+
+    }; 
+
+
+    /* --------------------------------------------------------------
+     * Mobile Menu
+     * -------------------------------------------------------------- */ 
+    const ssMobileMenu = function() {
+
+        const toggleButton = document.querySelector('.mobile-menu-toggle');
+        const mainNavWrap = document.querySelector('.main-nav-wrap');
+        const siteBody = document.querySelector("body");
+
+        if (!(toggleButton && mainNavWrap)) return;
+
+        toggleButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleButton.classList.toggle('is-clicked');
+            siteBody.classList.toggle('menu-is-open');
+        });
+
+        mainNavWrap.querySelectorAll('.main-nav a').forEach(function(link) {
+            link.addEventListener("click", function() {
+                if (window.matchMedia('(max-width: 800px)').matches) {
+                    toggleButton.classList.remove('is-clicked');
+                    siteBody.classList.remove('menu-is-open');
+                }
+            });
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.matchMedia('(min-width: 801px)').matches) {
+                siteBody.classList.remove('menu-is-open');
+                toggleButton.classList.remove("is-clicked");
+            }
+        });
+
+    }; 
+
+
+    /* --------------------------------------------------------------
+     * ScrollSpy
+     * -------------------------------------------------------------- */
+    const ssScrollSpy = function() {
+
+        const sections = document.querySelectorAll(".target-section");
+
+        window.addEventListener("scroll", function() {
+
+            let scrollY = window.pageYOffset;
+
+            sections.forEach(function(current) {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 50;
+                const sectionId = current.getAttribute("id");
+                const navLink = document.querySelector(`.main-nav a[href="#${sectionId}"]`);
+
+                if (!navLink) return;
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLink.parentNode.classList.add("current");
+                } else {
+                    navLink.parentNode.classList.remove("current");
+                }
+            });
+        });
+
+    }; 
+
+
+    /* --------------------------------------------------------------
+     * Animate on Scroll
+     * -------------------------------------------------------------- */
+    const ssViewAnimate = function() {
+
+        const blocks = document.querySelectorAll("[data-animate-block]");
+
+        window.addEventListener("scroll", function() {
+
+            let scrollY = window.pageYOffset;
+
+            blocks.forEach(function(current) {
+
+                const viewportHeight = window.innerHeight;
+                const triggerTop = (current.offsetTop + (viewportHeight * .2)) - viewportHeight;
+                const blockHeight = current.offsetHeight;
+                const blockSpace = triggerTop + blockHeight;
+                const inView = scrollY > triggerTop && scrollY <= blockSpace;
+                const isAnimated = current.classList.contains("ss-animated");
+
+                if (inView && (!isAnimated)) {
+                    anime({
+                        targets: current.querySelectorAll("[data-animate-el]"),
+                        opacity: [0, 1],
+                        translateY: [100, 0],
+                        delay: anime.stagger(400, { start: 200 }),
+                        duration: 800,
+                        easing: 'easeInOutCubic',
+                        begin: function() { current.classList.add("ss-animated"); }
+                    });
+                }
+            });
+        });
+
+    }; 
+
+
+    /* --------------------------------------------------------------
+     * Swiper Slider
+     * -------------------------------------------------------------- */ 
+    const ssSwiper = function() {
+
+        const mySwiper = new Swiper('.swiper-container', {
+
+            slidesPerView: 1,
+            loop: true,
+
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false
+            },
+
+            speed: 600,
+
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            breakpoints: {
+                401: { slidesPerView: 1, spaceBetween: 20 },
+                801: { slidesPerView: 2, spaceBetween: 32 },
+                1201: { slidesPerView: 2, spaceBetween: 80 }
+            }
+        });
+
+    }; 
+
+
+    /* --------------------------------------------------------------
+     * Lightbox
+     * -------------------------------------------------------------- */
+    const ssLightbox = function() {
+
+        const folioLinks = document.querySelectorAll('.folio-list__item-link');
+        const modals = [];
+
+        folioLinks.forEach(function(link) {
+            let modalbox = link.getAttribute('href');
+            let instance = basicLightbox.create(
+                document.querySelector(modalbox),
+                {
+                    onShow: function(instance) {
+                        document.addEventListener("keydown", function(event) {
+                            if (event.keyCode === 27) instance.close();
+                        });
+                    }
+                }
+            );
+            modals.push(instance);
+        });
+
+        folioLinks.forEach(function(link, index) {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                modals[index].show();
+            });
+        });
+
+    };  
+
+
+    /* --------------------------------------------------------------
+     * Alert Boxes
+     * -------------------------------------------------------------- */
+    const ssAlertBoxes = function() {
+        document.querySelectorAll('.alert-box').forEach(function(box) {
+            box.addEventListener('click', function(event) {
+                if (event.target.matches(".alert-box__close")) {
+                    event.stopPropagation();
+                    box.classList.add("hideit");
+
+                    setTimeout(function() {
+                        box.style.display = "none";
+                    }, 500)
+                }    
+            });
+        });
+    }; 
+
+
+    /* --------------------------------------------------------------
+     * Smooth Scroll (FIXED)
+     * -------------------------------------------------------------- */
+    document.addEventListener("DOMContentLoaded", function () {
+        const moveTo = new MoveTo({
+            tolerance: 0,
+            duration: 1200,
+            easing: 'easeInOutCubic'
+        });
+
+        document.querySelectorAll('.smoothscroll').forEach(trigger => {
+            moveTo.registerTrigger(trigger);
+        });
     });
-	
 
-	/*------------------
-		Portfolio Slider
-	--------------------*/
-	$('.portfolio-slider').owlCarousel({
-        loop: true,
-        margin: 0,
-		dots: false,
-		margin: 0,
-		nav:true,
-		center: true,
-		startPosition: 1,
-		navText: ['', '<img src="img/icons/arrow-right.png" alt="">'],
-		responsive : {
-			0 : {
-				items: 1
-			},
-			480 : {
-				items: 3
-			}
-		},
-		onInitialized: function() {
-        	var a = this.items().length;
-            $("#snh-1").html("<span>2</span>/<span>" + a + "</span>");
+
+    /* --------------------------------------------------------------
+     * ⭐ GOOGLE BUSINESS RATINGS ⭐
+     * -------------------------------------------------------------- */
+
+    const PLACE_PUNE = "ChIJ18Vmwx_BwjsRRPwn1UQRNus";
+    const PLACE_RANCHI = "ChIJMyS0GeHg9DkRs-ikZBp-1YU";
+    const API_KEY = "YOUR_API_KEY";
+
+    async function fetchRating(placeId, ratingEl, countEl) {
+        const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=rating,user_ratings_total&key=${API_KEY}`;
+
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+
+            if (data.result) {
+                ratingEl.textContent = `⭐ ${data.result.rating}/5`;
+                countEl.textContent = `${data.result.user_ratings_total} reviews`;
+            } else {
+                ratingEl.textContent = "Unavailable";
+                countEl.textContent = "";
+            }
+        } catch (err) {
+            ratingEl.textContent = "Error";
+            countEl.textContent = "";
         }
-    }).on("changed.owl.carousel", function(a) {
-        var b = --a.item.index, a = a.item.count;
-    	$("#snh-1").html("<span> "+ (1 > b ? b + a : b > a ? b - a : b) + "</span>/<span>" + a + "</span>");
-	});
-	
+    }
 
-	/*----------------------
-		Portfolio item size
-	------------------------*/
-	var PorfolioItemFix = function () {
-		$( ".portfolio-item" ).each(function( index ) {
-			var portfolioItem = $(this);
-			var PIheight = portfolioItem.width();
-			portfolioItem.css('height',PIheight);
-		});
+    function initGoogleRatings() {
+        const rp = document.getElementById("rating-pune");
+        const cp = document.getElementById("count-pune");
+        const rr = document.getElementById("rating-ranchi");
+        const cr = document.getElementById("count-ranchi");
 
-		var portfolioIntro = $( ".portfolio-item.__wide");
-		var Introheight = portfolioIntro.width() / 2;
-		if($(window).width() > 768) {
-			portfolioIntro.css('height', Introheight);
-		}
-		$('.portfolios-area').css('minHeight', Introheight)
-	}
-	PorfolioItemFix();
-	$(window).on('resize',function(){
-		PorfolioItemFix();
-	});
+        if (rp && cp) fetchRating(PLACE_PUNE, rp, cp);
+        if (rr && cr) fetchRating(PLACE_RANCHI, rr, cr);
+    }
 
 
-	/*------------------
-		Fullpage js
-	--------------------*/
-	if($('#fullpage').length > 0 ) {
-		$('#fullpage').fullpage({
-			//options here
-			autoScrolling:false,
-			scrollHorizontally: true,
-			easing: 'easeInOutCubic',
-			easingcss3: 'ease',
-			fitToSection: false,
-			scrollBar: true,
-			navigation: true,
-			navigationPosition: 'right',
-			responsiveWidth: 991,
-		});
-	}
+    /* --------------------------------------------------------------
+     * Initialize Everything
+     * -------------------------------------------------------------- */
+    (function ssInit() {
+
+        ssPreloader();
+        ssMobileMenu();
+        ssScrollSpy();
+        ssViewAnimate();
+        ssSwiper();
+        ssLightbox();
+        ssAlertBoxes();
+
+        initGoogleRatings();
+
+    })();
 
 
-})(jQuery);
+})(document.documentElement);
+
+/* ============================================
+   Shopify-style 3-Card Rotation
+=============================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".work-card");
+
+    if (!cards.length) return;
+
+    let index = 0;
+
+    function rotateCards() {
+        cards.forEach(card => card.classList.remove("card-front", "card-right", "card-left"));
+
+        cards[index % 3].classList.add("card-front");
+        cards[(index + 1) % 3].classList.add("card-right");
+        cards[(index + 2) % 3].classList.add("card-left");
+
+        index++;
+    }
+
+    rotateCards();              // initial state
+    setInterval(rotateCards, 2500); // rotate every 1 second
+});
