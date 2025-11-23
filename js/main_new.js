@@ -367,5 +367,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     rotateCards();              // initial state
-    setInterval(rotateCards, 1000); // rotate every 1 second
+    setInterval(rotateCards, 2500); // rotate every 1 second
 });
