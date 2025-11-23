@@ -3397,8 +3397,8 @@ img.u-pull-left {
  * ------------------------------------------------------------------- */
 
 .s-about {
-    padding-top    : var(--vspace-4);
-    padding-bottom : var(--vspace-3);
+    padding-top    : var(--vspace-0);
+    padding-bottom : var(--vspace-1);
 }
 
 /* --------------------------------------------------------------------
@@ -3592,8 +3592,8 @@ img.u-pull-left {
  * ------------------------------------------------------------------- */
 
 .s-works {
-    padding-top    : var(--vspace-5);
-    padding-bottom : var(--vspace-3_5);
+    padding-top    : var(--vspace-3);
+    padding-bottom : var(--vspace-3);
 }
 
 .s-works .h1 {
