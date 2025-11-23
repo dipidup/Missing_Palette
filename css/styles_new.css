@@ -87,6 +87,9 @@
     --font-mono : Consolas, "Andale Mono", Courier, "Courier New", monospace;
 }
 
+html { scroll-behavior: smooth; }
+
+
 /* ------------------------------------------------------------------- 
  * ## colors
  * ------------------------------------------------------------------- */
