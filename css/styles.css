@@ -4254,7 +4254,6 @@ img.u-pull-left {
     }
 }
 
-
 /* ============================================
    WORK SECTION – Shopify 3-Card Rotation
 =============================================== */
@@ -4281,6 +4280,7 @@ img.u-pull-left {
     z-index: 2;
     display: flex;
     align-items: center;
+    gap: 40px;
 }
 
 /* ----------------------------------------
@@ -4289,6 +4289,8 @@ img.u-pull-left {
 .work-carousel {
     position: relative;
     height: 430px;
+    width: 100%;
+    overflow: visible;
 }
 
 .work-card {
@@ -4341,7 +4343,7 @@ img.u-pull-left {
 }
 
 /* ----------------------------------------
-   RIGHT — INFO CARD (made smaller)
+   RIGHT — INFO CARD
 ----------------------------------------- */
 .work-info {
     display: flex;
@@ -4369,9 +4371,64 @@ img.u-pull-left {
     margin-bottom: 1rem;
 }
 
-@media(max-width: 800px) {
-    .work-carousel { height: 340px; }
-    .work-card { width: 220px; height: 100px; }
+/* -------------------------------------------------
+   RESPONSIVE FIXES – MOBILE CARD RESIZING
+-------------------------------------------------- */
+@media(max-width: 900px) {
+    .work-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* Tablets */
+@media(max-width: 768px) {
+
+    .work-carousel {
+        height: 360px;
+        transform: scale(0.92);
+    }
+
+    .work-card {
+        width: 230px !important;
+        height: 330px !important;
+        border-radius: 14px;
+    }
+
+    .card-front {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .card-left {
+        transform: translate(-80%, -50%) scale(.82);
+    }
+
+    .card-right {
+        transform: translate(-20%, -50%) scale(.82);
+    }
+}
+
+/* Phones */
+@media(max-width: 480px) {
+
+    .work-carousel {
+        height: 320px;
+        transform: scale(0.75);
+        margin-top: -20px;
+    }
+
+    .work-card {
+        width: 210px !important;
+        height: 300px !important;
+    }
+
+    .card-left {
+        transform: translate(-70%, -50%) scale(.78);
+    }
+
+    .card-right {
+        transform: translate(-30%, -50%) scale(.78);
+    }
 }
 
 /* ---------------------------------------------------------
