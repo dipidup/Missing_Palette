@@ -4253,7 +4253,6 @@ img.u-pull-left {
         flex-direction: column;
     }
 }
-
 /* ============================================
    WORK SECTION – Shopify 3-Card Rotation
 =============================================== */
@@ -4267,8 +4266,10 @@ img.u-pull-left {
 /* Background */
 .work-bg {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: url("./img/slider/1.jpg") center/cover no-repeat;
     opacity: 0.22;
     z-index: 0;
@@ -4279,18 +4280,28 @@ img.u-pull-left {
     position: relative;
     z-index: 2;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
+}
+
+/* Make columns equal */
+.work-wrapper .column {
+    flex: 1;
 }
 
 /* ----------------------------------------
-   LEFT — SHOPIFY STYLE ROTATING CARDS
+   LEFT — ROTATING CARDS
 ----------------------------------------- */
 .work-carousel {
     position: relative;
-    height: 430px;
     width: 100%;
+    height: 450px;
     overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
 }
 
 .work-card {
@@ -4300,7 +4311,7 @@ img.u-pull-left {
     width: 260px;
     height: 360px;
     transform: translate(-50%, -50%);
-    border-radius: 14px;
+    border-radius: 16px;
     overflow: hidden;
     background: rgba(0,0,0,0.15);
     backdrop-filter: blur(4px);
@@ -4314,32 +4325,28 @@ img.u-pull-left {
     object-fit: cover;
 }
 
-/* Positions */
+/* Card positions (desktop) */
 .card-front {
     z-index: 3;
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
-    filter: brightness(1);
 }
 
 .card-right {
     z-index: 2;
-    transform: translate(-10%, -50%) scale(0.85);
-    filter: brightness(0.55) blur(1px);
+    transform: translate(0%, -50%) scale(0.85);
     opacity: 0.75;
 }
 
 .card-left {
     z-index: 1;
-    transform: translate(-90%, -50%) scale(0.72);
-    filter: brightness(0.35) blur(2px);
+    transform: translate(-100%, -50%) scale(0.75);
     opacity: 0.45;
 }
 
 .card-exit {
-    transform: translate(-140%, -50%) scale(0.5);
+    transform: translate(-160%, -50%) scale(0.55);
     opacity: 0;
-    filter: blur(4px) brightness(0.2);
 }
 
 /* ----------------------------------------
@@ -4351,83 +4358,62 @@ img.u-pull-left {
 }
 
 .work-info-box {
-    max-width: 440px;
+    max-width: 450px;
     background: rgba(255,255,255,0.05);
     padding: 1.8rem;
-    border-radius: 12px;
-    backdrop-filter: blur(6px);
+    border-radius: 14px;
     text-align: center;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 
-.work-main-img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-}
+/* ============================================
+   RESPONSIVE — STACK WITHOUT OVERLAP
+=============================================== */
 
-.work-desc {
-    color: var(--color-gray-4);
-    margin-bottom: 1rem;
-}
-
-/* -------------------------------------------------
-   RESPONSIVE FIXES – MOBILE CARD RESIZING
--------------------------------------------------- */
-@media(max-width: 900px) {
+/* Tablets & Mobile: STACK */
+@media (max-width: 900px) {
     .work-wrapper {
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
+        gap: 200px;
     }
-}
 
-/* Tablets */
-@media(max-width: 768px) {
-
+    /* Keep full height images */
     .work-carousel {
-        height: 360px;
-        transform: scale(0.92);
+        height: 450px;
+        margin-bottom: 30px;  /* <<< FIX: adds gap so it never overlaps */
     }
 
     .work-card {
-        width: 230px !important;
-        height: 330px !important;
-        border-radius: 14px;
+        width: 260px;
+        height: 360px;
     }
 
-    .card-front {
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    .card-left {
-        transform: translate(-80%, -50%) scale(.82);
-    }
-
-    .card-right {
-        transform: translate(-20%, -50%) scale(.82);
-    }
+    /* Adjust side offsets */
+    .card-front  { transform: translate(-50%, -50%) scale(1); }
+    .card-left   { transform: translate(-80%, -50%) scale(.88); }
+    .card-right  { transform: translate(-20%, -50%) scale(.88); }
 }
 
 /* Phones */
-@media(max-width: 480px) {
+@media (max-width: 480px) {
 
     .work-carousel {
-        height: 320px;
-        transform: scale(0.75);
-        margin-top: -20px;
+        height: 450px; /* Full size */
+        margin-bottom: 40px; /* More spacing */
     }
 
     .work-card {
-        width: 210px !important;
-        height: 300px !important;
+        width: 240px;
+        height: 330px;
     }
 
-    .card-left {
-        transform: translate(-70%, -50%) scale(.78);
-    }
+    .card-left  { transform: translate(-75%, -50%) scale(.9); }
+    .card-right { transform: translate(-25%, -50%) scale(.9); }
 
-    .card-right {
-        transform: translate(-30%, -50%) scale(.78);
+    .work-info-box {
+        max-width: 92%;
     }
 }
 
@@ -4596,5 +4582,251 @@ img.u-pull-left {
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+/* ============================================================
+   FIX FOR WORK CAROUSEL + INFO CARD RESPONSIVE OVERLAPPING
+   (Overrides Luther grid rules safely)
+   ============================================================ */
+
+/* 1) Force proper spacing of the whole section */
+.s-work {
+    position: relative;
+    padding-top: var(--vspace-2); 
+    padding-bottom: 1px; /* ensures space for absolutely positioned cards */
+}
+
+/* 2) Correct the row width/padding ONLY inside s-work */
+.s-work .row {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* 3) Fix column spacing in s-work */
+.s-work .column {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* ============================================================
+   DESKTOP — SIDE BY SIDE (LAPTOP/TABLET LANDSCAPE)
+   ============================================================ */
+@media (min-width: 901px) {
+    .work-wrapper {
+        flex-direction: row !important;
+        align-items: center;
+        gap: 60px !important;
+    }
+}
+
+/* ============================================================
+   TABLET + MOBILE — STACK VERTICALLY, CENTERED
+   ============================================================ */
+@media (max-width: 900px) {
+
+    .work-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 80px !important;  /* prevents overlap */
+    }
+
+    /* Center the carousel */
+    .work-carousel {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 auto !important;
+        padding-bottom: 40px !important;
+    }
+
+    /* Ensure the cards do not cut */
+    .work-card {
+        width: 260px !important;
+        height: 360px !important;
+        left: 50% !important;
+    }
+
+    /* Adjust left/right offsets */
+    .card-left {
+        transform: translate(-75%, -50%) scale(.90) !important;
+    }
+
+    .card-right {
+        transform: translate(-25%, -50%) scale(.90) !important;
+    }
+
+    /* Info card spacing */
+    .work-info {
+        margin-top: 100px !important;
+    }
+}
+
+/* ============================================================
+   SMALL PHONES — keep full image, just a bit smaller
+   ============================================================ */
+@media (max-width: 480px) {
+
+    .work-carousel {
+        height: 5000px !important;
+        padding-bottom: 60px !important;
+    }
+
+    .work-card {
+        width: 200px !important;
+        height: 100px !important;
+    }
+
+    .card-left {
+        transform: translate(-80%, -50%) scale(.90) !important;
+    }
+
+    .card-right {
+        transform: translate(-20%, -50%) scale(.90) !important;
+    }
+}
+
+/* ============================================
+   FIXED — WORK SECTION (No Overlap, Fully Responsive)
+=============================================== */
+
+.s-work {
+    position: relative;
+    padding: var(--vspace-2) 0;
+    overflow: visible;
+}
+
+.work-bg {
+    position: absolute;
+    inset: 0;
+    background: url("./img/slider/1.jpg") center/cover no-repeat;
+    opacity: 0.22;
+    z-index: 0;
+}
+
+/* Wrap */
+.work-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Left container — prevents clipping */
+.work-carousel-container {
+    position: relative;
+    min-height: 480px; /* ensures carousel has its own space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Actual Carousel */
+.work-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    height: 450px;
+}
+
+/* Cards */
+.work-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 260px;
+    height: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    transition: all 0.8s ease;
+    background: rgba(0,0,0,0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+}
+
+.work-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Card positions */
+.card-front {
+    z-index: 3;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.card-right {
+    z-index: 2;
+    transform: translate(-10%, -50%) scale(0.85);
+    opacity: 0.75;
+}
+
+.card-left {
+    z-index: 1;
+    transform: translate(-90%, -50%) scale(0.75);
+    opacity: 0.5;
+}
+
+/* Right info card */
+.work-info {
+    display: flex;
+    justify-content: center;
+}
+
+.work-info-box {
+    max-width: 420px;
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 14px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+}
+
+/* ==========================
+   RESPONSIVE — STACK CLEANLY
+============================= */
+
+/* Tablets + Mobile */
+@media (max-width: 900px) {
+
+    .work-wrapper {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .work-carousel-container {
+        min-height: 480px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+
+    .work-carousel {
+        height: 420px;
+    }
+
+    .work-card {
+        width: 230px;
+        height: 320px;
+    }
+
+    .card-left {
+        transform: translate(-80%, -50%) scale(.88);
+    }
+
+    .card-right {
+        transform: translate(-20%, -50%) scale(.88);
+    }
+
+    .work-info-box {
+        max-width: 92%;
+    }
 }
 
