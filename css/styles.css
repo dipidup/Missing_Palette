@@ -76,6 +76,7 @@
 /* ------------------------------------------------------------------- 
  * ## fonts 
  * ------------------------------------------------------------------- */
+ 
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Serif+Text:ital@0;1&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 :root {
@@ -4583,119 +4584,17 @@ img.u-pull-left {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
 /* ============================================================
-   FIX FOR WORK CAROUSEL + INFO CARD RESPONSIVE OVERLAPPING
-   (Overrides Luther grid rules safely)
+   WORK SECTION — FIXED, RESPONSIVE, NON-CLIPPING VERSION
    ============================================================ */
 
-/* 1) Force proper spacing of the whole section */
-.s-work {
-    position: relative;
-    padding-top: var(--vspace-2); 
-    padding-bottom: 1px; /* ensures space for absolutely positioned cards */
-}
-
-/* 2) Correct the row width/padding ONLY inside s-work */
-.s-work .row {
-    width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-/* 3) Fix column spacing in s-work */
-.s-work .column {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-/* ============================================================
-   DESKTOP — SIDE BY SIDE (LAPTOP/TABLET LANDSCAPE)
-   ============================================================ */
-@media (min-width: 901px) {
-    .work-wrapper {
-        flex-direction: row !important;
-        align-items: center;
-        gap: 60px !important;
-    }
-}
-
-/* ============================================================
-   TABLET + MOBILE — STACK VERTICALLY, CENTERED
-   ============================================================ */
-@media (max-width: 900px) {
-
-    .work-wrapper {
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 80px !important;  /* prevents overlap */
-    }
-
-    /* Center the carousel */
-    .work-carousel {
-        width: 100% !important;
-        height: 100% !important;
-        margin: 0 auto !important;
-        padding-bottom: 40px !important;
-    }
-
-    /* Ensure the cards do not cut */
-    .work-card {
-        width: 260px !important;
-        height: 360px !important;
-        left: 50% !important;
-    }
-
-    /* Adjust left/right offsets */
-    .card-left {
-        transform: translate(-75%, -50%) scale(.90) !important;
-    }
-
-    .card-right {
-        transform: translate(-25%, -50%) scale(.90) !important;
-    }
-
-    /* Info card spacing */
-    .work-info {
-        margin-top: 100px !important;
-    }
-}
-
-/* ============================================================
-   SMALL PHONES — keep full image, just a bit smaller
-   ============================================================ */
-@media (max-width: 480px) {
-
-    .work-carousel {
-        height: 5000px !important;
-        padding-bottom: 60px !important;
-    }
-
-    .work-card {
-        width: 200px !important;
-        height: 100px !important;
-    }
-
-    .card-left {
-        transform: translate(-80%, -50%) scale(.90) !important;
-    }
-
-    .card-right {
-        transform: translate(-20%, -50%) scale(.90) !important;
-    }
-}
-
-/* ============================================
-   FIXED — WORK SECTION (No Overlap, Fully Responsive)
-=============================================== */
-
-.s-work {
+   .s-work {
     position: relative;
     padding: var(--vspace-2) 0;
     overflow: visible;
 }
 
+/* Background */
 .work-bg {
     position: absolute;
     inset: 0;
@@ -4704,25 +4603,36 @@ img.u-pull-left {
     z-index: 0;
 }
 
-/* Wrap */
+/* Wrapper (default desktop side-by-side) */
 .work-wrapper {
     position: relative;
     z-index: 2;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 60px;
 }
 
-/* Left container — prevents clipping */
+/* Each side takes equal space */
+.work-wrapper .column {
+    flex: 1;
+}
+
+/* ============================================================
+   LEFT — ROTATING CARDS
+   ============================================================ */
+
+/* Prevents clipping on mobile — IMPORTANT */
 .work-carousel-container {
     position: relative;
-    min-height: 480px; /* ensures carousel has its own space */
+    width: 100%;
+    min-height: 480px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Actual Carousel */
+/* The carousel box */
 .work-carousel {
     position: relative;
     width: 100%;
@@ -4751,7 +4661,7 @@ img.u-pull-left {
     object-fit: cover;
 }
 
-/* Card positions */
+/* Card positions (desktop) */
 .card-front {
     z-index: 3;
     transform: translate(-50%, -50%) scale(1);
@@ -4766,46 +4676,65 @@ img.u-pull-left {
 .card-left {
     z-index: 1;
     transform: translate(-90%, -50%) scale(0.75);
-    opacity: 0.5;
+    opacity: 0.45;
 }
 
-/* Right info card */
+/* ============================================================
+   RIGHT — INFO CARD
+   ============================================================ */
+
 .work-info {
     display: flex;
     justify-content: center;
 }
 
 .work-info-box {
-    max-width: 420px;
+    max-width: 450px;
     background: rgba(255,255,255,0.05);
     padding: 2rem;
     border-radius: 14px;
     text-align: center;
     backdrop-filter: blur(6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 
-/* ==========================
-   RESPONSIVE — STACK CLEANLY
-============================= */
+/* ============================================================
+   RESPONSIVE — TABLET & MOBILE
+   ============================================================ */
 
-/* Tablets + Mobile */
 @media (max-width: 900px) {
 
+    /* Stack vertically */
     .work-wrapper {
         flex-direction: column;
-        gap: 30px;
         align-items: center;
+        justify-content: flex-start;
+        gap: 40px;
     }
 
+    /* Carousel stays full size */
     .work-carousel-container {
         min-height: 480px;
         width: 100%;
-        display: flex;
         justify-content: center;
+    }
+
+    /* Scaled positions for tablets */
+    .card-front {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    .card-left {
+        transform: translate(-75%, -50%) scale(.88);
+    }
+    .card-right {
+        transform: translate(-25%, -50%) scale(.88);
     }
 }
 
-/* Phones */
+/* ============================================================
+   SMALL PHONES — prevent clipping, keep full image
+   ============================================================ */
+
 @media (max-width: 480px) {
 
     .work-carousel {
@@ -4829,4 +4758,3 @@ img.u-pull-left {
         max-width: 92%;
     }
 }
-
