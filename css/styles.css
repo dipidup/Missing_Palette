@@ -4255,7 +4255,7 @@ img.u-pull-left {
     }
 }
 /* ============================================
-   WORK SECTION – Shopify 3-Card Rotation
+   WORK SECTION –  3-Card Rotation
 =============================================== */
 
 .s-work {
@@ -4419,7 +4419,7 @@ img.u-pull-left {
 }
 
 /* ---------------------------------------------------------
-   GALLERY PAGE — SHOPIFY STYLE CARD GRID + PREMIUM EFFECTS
+   GALLERY PAGE —  STYLE CARD GRID + PREMIUM EFFECTS
 ------------------------------------------------------------ */
 
 .gallery-section {
@@ -4454,7 +4454,7 @@ img.u-pull-left {
 }
 
 /* ---------------------------------------------------------
-   FIXED-RATIO SHOPIFY CARD GRID (SOLVES YOUR MISALIGNMENT)
+   FIXED-RATIO  CARD GRID (SOLVES YOUR MISALIGNMENT)
 ------------------------------------------------------------ */
 
 .gallery-grid {
@@ -4758,3 +4758,121 @@ img.u-pull-left {
         max-width: 92%;
     }
 }
+
+
+/* ============================================================
+   SOCIAL ICONS — GoDaddy Style
+============================================================ */
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    margin-top: 14px;
+}
+
+.social-icon {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Images inside icon */
+.social-icon img {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+/* Default: show white version */
+.social-icon img.mono {
+    opacity: 100;
+    filter: brightness(0) invert(1); /* Make white */
+}
+
+/* Color version hidden by default */
+.social-icon img.color {
+    opacity: 0;
+}
+
+/* Hover effect */
+.social-icon:hover img.mono {
+    opacity: 0;
+}
+
+.social-icon:hover img.color {
+    opacity: 1;
+    transform: scale(1.12);
+}
+
+/* -------------------------
+   Tooltip for Topmate
+-------------------------- */
+.topmate-icon {
+    position: relative;
+}
+
+.topmate-icon:hover::after {
+    content: "Click to book a 1:1 session with me";
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.85);
+    color: white;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.topmate-icon::after {
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+/* =============================
+   FIX ABOUT SECTION OVERLAP
+   ============================= */
+
+/* Fix text alignment on desktop */
+.about-info__text {
+    margin-left: 0 !important;        /* Removes unwanted negative shift */
+    padding-left: 30px !important;    /* Pushes text to the right */
+    padding-right: 20px;
+}
+
+/* Make image & text breathe better */
+.about-info__pic-block {
+    padding-right: 20px;
+}
+
+/* Tablet fix */
+@media (max-width: 900px) {
+    .about-info__text {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: left;
+        margin-top: 20px;
+    }
+}
+
+/* Mobile fix */
+@media (max-width: 600px) {
+    .about-info__text {
+        padding: 0 !important;
+    }
+
+    .about-info__pic-block img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
