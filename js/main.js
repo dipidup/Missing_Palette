@@ -87,17 +87,6 @@
             document.querySelectorAll('.ss-animated').forEach(el => el.classList.remove('ss-animated'));
             tl.play();
         });
-
-        // Stats Fade-In Animation
-anime({
-    targets: '.stat-item, .stat-divider',
-    opacity: [0, 1],
-    translateY: [20, 0],
-    delay: anime.stagger(120, { start: 200 }),
-    duration: 900,
-    easing: 'easeOutCubic'
-});
-
     };
 
     /* --------------------------------------------------------------
@@ -429,22 +418,17 @@ anime({
 
     };
 
-// Global fallback: close any open gallery modal on ESC (keeps class consistent with initGalleryModal)
+// Close modal on ESC
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-        document.querySelectorAll(".fullscreen-modal.show").forEach(modal => {
-            modal.classList.remove("show");
+        document.querySelectorAll(".fullscreen-modal").forEach(modal => {
+            modal.classList.remove("active");
         });
     }
 });
 
 
 
-
-
-
-
-    
 
     /* --------------------------------------------------------------
      * Initialize All Features
@@ -474,3 +458,4 @@ document.addEventListener("keydown", function (e) {
     init();
 
 })(document.documentElement);
+

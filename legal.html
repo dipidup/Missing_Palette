@@ -5,7 +5,7 @@
     <title>Legal Policies | Missing Palette</title>
 
     <!-- SEO -->
-    <meta name="description" content="Complete legal policies for Missing Palette including Terms & Conditions, Refund Policy, Cookie Policy, Copyright, and Disclaimer.">
+    <meta name="description" content="Complete legal policies for Missing Palette including Terms & Conditions, Refund Policy, Cookie Policy, Copyright, Trademark and Disclaimer.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:title" content="Legal Policies | Missing Palette">
@@ -27,29 +27,66 @@
             margin: auto;
         }
         .legal-container p, .legal-container li {
-            font-size: 1.7rem;
-            line-height: 1.7;
-            margin-bottom: 1.6rem;
+            font-size: 1.05rem;       /* slightly smaller for easier scanning */
+            line-height: 1.65;
+            margin-bottom: 1.0rem;
+            color: rgba(255,255,255,0.88);
+        }
+        .legal-container h1 {
+            margin-bottom: 0.5rem;
         }
         .legal-container h2 {
-            margin-top: 4.2rem;
-            margin-bottom: 1.6rem;
-        }
-        .legal-container h3 {
             margin-top: 2.8rem;
             margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        .legal-container h3 {
+            margin-top: 1.8rem;
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
         }
         .legal-nav {
-            margin: 2rem 0 4rem 0;
-            padding: 2rem;
-            background: rgba(255,255,255,0.04);
+            margin: 2rem 0 2.6rem 0;
+            padding: 18px;
+            background: rgba(255,255,255,0.02);
             border-radius: 12px;
             backdrop-filter: blur(6px);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
         }
         .legal-nav a {
             color: var(--color-1);
-            font-size: 1.6rem;
-            margin-right: 2rem;
+            font-size: 0.95rem;
+            margin-right: 0;
+            text-decoration: none;
+        }
+        .legal-note {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        ul.legal-list {
+            margin-left: 1.25rem;
+        }
+
+        pre.policy-excerpt {
+            background: rgba(255,255,255,0.02);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            overflow-x: auto;
+        }
+
+        .contact-legal {
+            margin-top: 1.6rem;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 700px) {
+            .legal-container { padding: 0 18px; }
+            .legal-nav { padding: 12px; }
         }
     </style>
 
@@ -74,111 +111,178 @@
 </header>
 
 <section class="s-content legal-section">
-<div class="legal-container">
+    <div class="legal-container">
 
-    <h1 class="h1">Legal Policies</h1>
-    <p><strong>Last Updated: March 2025</strong></p>
-
-    <!-- Quick Navigation -->
-    <div class="legal-nav">
-        <a href="#terms">Terms & Conditions</a>
-        <a href="#cookies">Cookie Policy</a>
-        <a href="#refunds">Refund & Cancellation</a>
-        <a href="#copyright">Copyright Policy</a>
-        <a href="#disclaimer">Disclaimer</a>
+        <!-- ============== TL;DR SUMMARY ============== -->
+        <div class="legal-tldr">
+            <h2>TL;DR (Quick Summary)</h2>
+            <ul>
+                <li>All artworks are owned by Ankit Agrawal (Missing Palette®).</li>
+                <li>Commissions require a non-refundable advance.</li>
+                <li>Workshops are non-refundable unless stated otherwise.</li>
+                <li>Sharing artwork is allowed with proper credit; commercial use is prohibited.</li>
+                <li>If copyrighted content appears by mistake, notify us — we will remove it.</li>
+            </ul>
+        </div>
+    
+        <!-- ============== NAVIGATION LINKS ============== -->
+        <div class="legal-nav">
+            <a href="#terms">Terms & Conditions</a>
+            <a href="#copyright">Copyright & Trademark</a>
+            <a href="#fairuse">Fair Use & Attribution</a>
+            <a href="#thirdparty">External Credits</a>
+            <a href="#dmca">Notice & Takedown (DMCA)</a>
+            <a href="#refunds">Refund Policy</a>
+            <a href="#cookies">Cookie Policy</a>
+            <a href="#liability">Liability</a>
+            <a href="#law">Governing Law</a>
+            <a href="#contact">Contact</a>
+        </div>
+    
+    
+        <!-- ============== TERMS ============== -->
+        <h2 id="terms" class="legal-heading">
+            Terms & Conditions <a href="#terms" class="anchor">#</a>
+        </h2>
+    
+        <p>These Terms govern your use of Missing Palette, including the website, services, artworks, workshops, and digital content. By using the website, you agree to abide by these Terms.</p>
+    
+        <h3>General Use</h3>
+        <p>You may not misuse the website, attempt unauthorized access, or use automated tools to scrape or copy content.</p>
+    
+        <h3>User Responsibilities</h3>
+        <ul class="legal-list">
+            <li>You must provide accurate information when purchasing or contacting us.</li>
+            <li>You agree not to violate any law while using the website.</li>
+            <li>You will not upload abusive, illegal, or harmful content.</li>
+        </ul>
+    
+    
+        <!-- ============== COPYRIGHT & TRADEMARK ============== -->
+        <h2 id="copyright" class="legal-heading">
+            Copyright & Trademark <a href="#copyright" class="anchor">#</a>
+        </h2>
+    
+        <p>The entire content of Missing Palette — including paintings, drawings, photography, digital art, text, videos, and design — is protected under copyright law.</p>
+    
+        <p><strong>Missing Palette®</strong> is a registered trademark owned by <strong>Ankit Agrawal</strong>. Unauthorized usage, imitation, reproduction, or misleading similarity is strictly prohibited.</p>
+    
+        <h3>Prohibited Uses</h3>
+        <ul class="legal-list">
+            <li>Re-uploading artworks elsewhere without permission.</li>
+            <li>Using artworks for resale, copying, or commercial reproduction.</li>
+            <li>Using artworks for AI training or dataset creation.</li>
+            <li>Removing watermarks or signatures.</li>
+        </ul>
+    
+        <h3>Permitted Uses</h3>
+        <ul class="legal-list">
+            <li>Sharing art with proper credit (e.g., “Art by Missing Palette / @imankit_art”).</li>
+            <li>Using artworks as reference for education (non-commercial, personal learning).</li>
+            <li>Featuring artworks in blogs with attribution.</li>
+        </ul>
+    
+    
+        <!-- ============== FAIR USE PROTECTION ============== -->
+        <h2 id="fairuse" class="legal-heading">
+            Fair Use & Attribution <a href="#fairuse" class="anchor">#</a>
+        </h2>
+    
+        <p>Missing Palette respects intellectual property rights. If any third-party material appears unintentionally, it was used under the assumption of being permissible (such as Fair Use, CC-licensed, or royalty-free).</p>
+    
+        <h3>If you are a copyright owner</h3>
+        <p>You may request removal or attribution. We will respond within 48 hours.</p>
+    
+        <h3>Good-Faith Disclaimer</h3>
+        <p>Any copyrighted content used was incorporated in good faith for artistic, educational, or commentary purposes. No infringement is intended.</p>
+    
+    
+        <!-- ============== EXTERNAL CONTENT ============== -->
+        <h2 id="thirdparty" class="legal-heading">
+            External Content & Credits <a href="#thirdparty" class="anchor">#</a>
+        </h2>
+    
+        <p>Missing Palette may use reference images, stock photos, fonts, or icons from licensed or fair-use sources. Credits are provided when required.</p>
+    
+        <p>If you notice missing credit for something you own, contact us — we will add proper attribution or remove the content.</p>
+    
+    
+        <!-- ============== DMCA TAKEDOWN ============== -->
+        <h2 id="dmca" class="legal-heading">
+            Notice & Takedown / DMCA <a href="#dmca" class="anchor">#</a>
+        </h2>
+    
+        <p>If you believe content on this site infringes your copyright, send a notice to:</p>
+    
+        <p><strong>Email:</strong> ankit@missingpalette.com</p>
+    
+        <p>Your message should include:</p>
+        <ul class="legal-list">
+            <li>Identification of copyrighted work</li>
+            <li>URL of infringing content</li>
+            <li>Proof of ownership</li>
+            <li>Your contact details</li>
+            <li>A good-faith statement</li>
+        </ul>
+    
+        <p>We respond within 48 hours.</p>
+    
+    
+        <!-- ============== REFUNDS ============== -->
+        <h2 id="refunds" class="legal-heading">
+            Refund & Cancellation Policy <a href="#refunds" class="anchor">#</a>
+        </h2>
+    
+        <h3>Custom Artwork</h3>
+        <p>All custom orders require a non-refundable advance. After work begins, cancellations are not allowed.</p>
+    
+        <h3>Workshops</h3>
+        <ul class="legal-list">
+            <li>Tickets are non-refundable.</li>
+            <li>Rescheduling allowed 48 hours before the workshop (subject to availability).</li>
+        </ul>
+    
+        <h3>Digital Goods</h3>
+        <p>Digital files cannot be refunded once delivered.</p>
+    
+    
+        <!-- ============== COOKIES ============== -->
+        <h2 id="cookies" class="legal-heading">
+            Cookie Policy <a href="#cookies" class="anchor">#</a>
+        </h2>
+    
+        <p>We use cookies for analytics, performance improvements, and essential functionality. You may disable cookies, but the website may not function properly.</p>
+    
+    
+        <!-- ============== LIABILITY ============== -->
+        <h2 id="liability" class="legal-heading">
+            Disclaimer & Liability <a href="#liability" class="anchor">#</a>
+        </h2>
+    
+        <p>All content is provided “as is.” Missing Palette is not liable for indirect or consequential damages, loss of revenue, or service interruptions.</p>
+    
+        <p>Total liability is limited to the amount paid for the service (if any).</p>
+    
+    
+        <!-- ============== GOVERNING LAW ============== -->
+        <h2 id="law" class="legal-heading">
+            Governing Law <a href="#law" class="anchor">#</a>
+        </h2>
+    
+        <p>These policies are governed by Indian law. All disputes will be handled in the jurisdiction where Missing Palette is registered.</p>
+    
+    
+        <!-- ============== CONTACT ============== -->
+        <h2 id="contact" class="legal-heading">
+            Contact <a href="#contact" class="anchor">#</a>
+        </h2>
+    
+        <p>Email: <a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a></p>
+        <p>Business: Missing Palette (Ankit Agrawal)</p>
+    
     </div>
-
-    <!-- TERMS -->
-    <h2 id="terms">1. Terms & Conditions</h2>
-    <p>These Terms govern your use of <strong>Missing Palette</strong> and all services provided.</p>
-
-    <h3>Website Usage</h3>
-    <p>You agree not to misuse or damage the website. All content is protected by law.</p>
-
-    <h3>Intellectual Property</h3>
-    <p>All artworks and content belong solely to <strong>Ankit Agrawal</strong> and may not be reproduced without permission.</p>
-
-    <h3>Services</h3>
-    <p>We may offer custom paintings, workshops, coaching, digital content, and more.</p>
-
-    <h3>Payment Terms</h3>
-    <p>Prices may change without notice. Commissioned work requires a non-refundable advance.</p>
-
-    <h3>Liability</h3>
-    <p>We are not responsible for service interruptions or third-party errors outside our control.</p>
-
-    <!-- COOKIES -->
-    <h2 id="cookies">2. Cookie Policy</h2>
-    <p>We use cookies to improve performance, analyze traffic, and enhance user experience.</p>
-
-    <h3>Types of Cookies</h3>
-    <ul>
-        <li>Necessary (website can’t function without them)</li>
-        <li>Analytics (e.g., Google Analytics)</li>
-        <li>Performance</li>
-    </ul>
-
-    <h3>Managing Cookies</h3>
-    <p>You may disable cookies from browser settings; some features may stop working.</p>
-
-    <!-- REFUNDS -->
-    <h2 id="refunds">3. Refund & Cancellation Policy</h2>
-
-    <h3>Custom Artwork</h3>
-    <p>All custom orders require a non-refundable advance. Once work has begun, cancellations are not allowed.</p>
-
-    <h3>Workshops</h3>
-    <ul>
-        <li>Tickets are non-refundable.</li>
-        <li>Rescheduling may be allowed 48 hours prior based on availability.</li>
-    </ul>
-
-    <h3>Artwork Purchases</h3>
-    <ul>
-        <li>All sales are final.</li>
-        <li>Damaged delivery must be reported within 24 hours with proof.</li>
-    </ul>
-
-    <h3>Digital Goods</h3>
-    <p>Digital items cannot be refunded.</p>
-
-    <!-- COPYRIGHT -->
-    <h2 id="copyright">4. Copyright & Usage Policy</h2>
-
-    <p>All artworks on this website are protected under the Copyright Act, owned exclusively by <strong>Ankit Agrawal (Missing Palette)</strong>.</p>
-
-    <h3>Prohibited Uses</h3>
-    <ul>
-        <li>No copying, scanning, printing, downloading for resale</li>
-        <li>No AI-training, dataset creation, or generative model use</li>
-        <li>No editing or redistribution</li>
-        <li>No commercial use without licensing</li>
-    </ul>
-
-    <h3>Allowed Uses</h3>
-    <ul>
-        <li>Sharing on social media with proper credit</li>
-        <li>Embedding only with written permission</li>
-    </ul>
-
-    <!-- DISCLAIMER -->
-    <h2 id="disclaimer">5. Disclaimer</h2>
-
-    <p>This website provides content “as is” without warranty. Colors or textures in images may vary based on lighting or display screens.</p>
-
-    <h3>No Professional Advice</h3>
-    <p>Nothing on this site is legal, financial, or medical advice.</p>
-
-    <h3>External Links</h3>
-    <p>We are not responsible for the content of external websites linked here.</p>
-
-    <h3>Liability</h3>
-    <p>Missing Palette is not responsible for damages, losses, or interruptions caused by use of this site.</p>
-
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a></p>
-
-</div>
+    
+    
 </section>
 
 <footer class="s-footer">

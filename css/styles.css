@@ -5360,3 +5360,61 @@ img.u-pull-left {
     height: 28px;
     margin-bottom: 6px;
 }
+
+
+
+/* TL;DR Box */
+.legal-tldr {
+    background: rgba(255,255,255,0.03);
+    padding: 20px 24px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+.legal-tldr ul { margin-left: 18px; }
+
+/* Navigation bar */
+.legal-nav {
+    margin: 20px 0 32px;
+    padding: 18px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+}
+.legal-nav a {
+    color: var(--color-1);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/* Headings + permalinks */
+.legal-heading {
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2.5rem;
+}
+.anchor {
+    font-size: 0.8rem;
+    opacity: 0.4;
+    text-decoration: none;
+}
+.anchor:hover {
+    opacity: 0.9;
+}
+
+/* Lists */
+.legal-list {
+    margin-left: 20px;
+    list-style: disc;
+}
+
+/* Typography */
+.legal-container p,
+.legal-container li {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.88);
+}
