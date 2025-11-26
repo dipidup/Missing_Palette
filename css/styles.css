@@ -4993,3 +4993,370 @@ img.u-pull-left {
     }
 }
 
+/* ===================== CONTACT — CARD STYLE ===================== */
+
+.contact-container {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contact-title {
+    font-size: 2.4rem;
+    font-family: var(--font-2);
+    margin-top: 12px;
+    line-height: 1.3;
+}
+
+/* Card box */
+.contact-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 32px;
+    margin-top: 40px;
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    backdrop-filter: blur(6px);
+}
+
+/* Form layout */
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Inputs */
+.contact-card input,
+.contact-card textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.contact-card textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Button */
+.contact-card button {
+    padding: 14px 0;
+    background: #d8a45c;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .25s ease;
+}
+
+.contact-card button:hover {
+    background: #eabf7f;
+}
+
+/* Divider */
+.contact-divider {
+    height: 1px;
+    width: 60%;
+    background: rgba(255,255,255,0.08);
+    margin: 50px auto;
+}
+
+/* CTA under card */
+.contact-cta {
+    font-size: 15px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.contact-cta a {
+    color: #d8a45c;
+    font-weight: 600;
+}
+
+/* Social Row */
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+.social-icons img {
+    width: 32px;
+    height: 32px;
+    opacity: 0.85;
+    transition: opacity .25s ease;
+}
+
+.social-icons img:hover {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .contact-title {
+        font-size: 1.9rem;
+    }
+    .contact-card {
+        padding: 24px;
+    }
+}
+
+/* ===================== CONTACT — TWO COLUMN LAYOUT ===================== */
+
+.contact-2col-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* LEFT SIDE */
+.contact-left {
+    flex: 1;
+}
+
+.contact-left-heading {
+    font-family: var(--font-2);
+    font-size: var(--text-display-1); /* EXACT size from your original */
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+/* RIGHT SIDE CARD */
+.contact-right-card {
+    width: 380px;              /* fixed size for perfect alignment */
+    min-width: 350px;
+}
+
+.contact-card {
+    background: rgba(7, 7, 7, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    backdrop-filter: blur(6px);
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-card input,
+.contact-card textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.contact-card textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.contact-card button {
+    padding: 4px 0;
+    background: #7a2408;
+    color: #f3f1f1;
+    border: none;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .25s ease;
+}
+
+.contact-card button:hover {
+    background: #eabf7f;
+}
+
+/* Divider */
+.contact-divider {
+    height: 1px;
+    width: 60%;
+    background: rgba(255,255,255,0.08);
+    margin: 60px auto 35px;
+}
+
+/* CTA */
+.contact-cta {
+    text-align: center;
+    opacity: 0.8;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.contact-cta a {
+    color: #d8a45c;
+    font-weight: 600;
+}
+
+/* Social icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 40px;
+}
+
+.social-icons img {
+    width: 32px;
+    height: 32px;
+    opacity: 0.85;
+    transition: opacity .25s ease;
+}
+
+.social-icons img:hover {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-2col-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .contact-left-heading {
+        font-size: var(--text-xxl); /* scale down on mobile */
+    }
+
+    .contact-right-card {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+.contact-card textarea {
+    height: 90px;        /* reduced from 120px */
+    min-height: 90px;    /* prevent it from stretching */
+    max-height: 180px;   /* limit growth */
+    resize: vertical;    /* user can stretch manually */
+    overflow-y: auto;    /* scroll when text exceeds */
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.contact-top-divider {
+    width: 80%;
+    height: 1px;
+    align-items: center;
+    background: rgba(255,255,255,0.08); /* subtle line */
+    margin-top: 30;
+    margin: auto; /* spacing below the line */
+}
+
+
+/* ===================== PREMIUM ANIMATED STATS BAR ===================== */
+
+.stats-premium {
+    margin: 10px auto 70px;
+    padding: 0 20px;
+}
+
+/* Grid layout */
+.stats-premium-grid {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+
+/* Individual stat item */
+.stat-item {
+    text-align: center;
+    padding: 0 16px;
+    opacity: 0;                 /* for fade-in animation */
+    transform: translateY(20px);
+    display: flex;
+    flex-direction: column;     /* stack vertically */
+    align-items: center;
+    gap: 8px;                   /* spacing between rows */
+    text-decoration: none;
+    color: white;
+}
+
+/* Hover gold accent */
+.stat-item:hover .stat-value {
+    color: #d8a45c;
+}
+
+/* Value (big number) */
+.stat-value {
+    font-size: 34px;
+    font-weight: 700;
+    font-family: var(--font-2);
+    transition: color .25s ease;
+}
+
+/* Label (small text) */
+.stat-label {
+    font-size: 14px;
+    opacity: 0.65;
+    margin-top: -4px;
+    letter-spacing: 0.5px;
+}
+
+/* Review Button */
+.review-link {
+    font-size: 10px;
+    opacity: 0.8;
+    padding: 0px 12px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: all .2s ease;
+    display: inline-block;
+    margin-top: 1px;
+}
+
+.review-link:hover {
+    background: #d56a13;
+    color: #111;
+    border-color: #d8a45c;
+}
+
+/* Divider line between stats */
+.stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+    opacity: 0;                 /* animates in */
+}
+
+/* Google branding block */
+.google-brand {
+    margin-top: 30px;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.google-brand img {
+    height: 28px;
+    margin-bottom: 6px;
+}

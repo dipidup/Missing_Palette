@@ -87,6 +87,17 @@
             document.querySelectorAll('.ss-animated').forEach(el => el.classList.remove('ss-animated'));
             tl.play();
         });
+
+        // Stats Fade-In Animation
+anime({
+    targets: '.stat-item, .stat-divider',
+    opacity: [0, 1],
+    translateY: [20, 0],
+    delay: anime.stagger(120, { start: 200 }),
+    duration: 900,
+    easing: 'easeOutCubic'
+});
+
     };
 
     /* --------------------------------------------------------------
