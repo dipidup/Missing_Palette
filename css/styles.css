@@ -5418,3 +5418,51 @@ img.u-pull-left {
     line-height: 1.65;
     color: rgba(255,255,255,0.88);
 }
+
+
+/* ===================== MINIMAL AFFILIATE BOX ===================== */
+.aff-box {
+    margin-top: 1px;
+    text-align: left;
+    font-size: 0.9rem;
+    opacity: 0.55;        /* Make it subtle (you asked for hard to locate) */
+}
+
+.aff-details {
+    display: inline-block;
+    text-align: left;
+    max-width: 420px;
+}
+
+.aff-details summary {
+    cursor: pointer;
+    font-size: 0.85rem;
+    background: rgba(255,255,255,0.05);
+    padding: 1px 12px;
+    border-radius: 6px;
+    user-select: none;
+}
+
+.aff-details summary:hover {
+    opacity: 0.8;
+}
+
+.aff-links {
+    margin-top: 12px;
+    line-height: 1.45;
+}
+
+.aff-links a {
+    color: #d8a45c; /* subtle gold link */
+    text-decoration: none;
+}
+.aff-links a:hover {
+    text-decoration: underline;
+}
+
+.aff-note {
+    display: block;
+    margin-top: 3px;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
