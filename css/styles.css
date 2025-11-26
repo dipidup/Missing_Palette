@@ -4417,92 +4417,47 @@ img.u-pull-left {
         max-width: 92%;
     }
 }
+/* ============================
+   FIXED & IMPROVED GALLERY
+============================ */
 
-/* ---------------------------------------------------------
-   GALLERY PAGE —  STYLE CARD GRID + PREMIUM EFFECTS
------------------------------------------------------------- */
-
-.gallery-section {
-    padding-top: var(--vspace-3);
-    padding-bottom: var(--vspace-3);
-}
-
-/* FILTER BUTTONS */
-.gallery-filter {
-    margin-bottom: 2.8rem;
-    text-align: center;
-}
-
-.filter-btn {
-    background: transparent;
-    border: 1px solid var(--color-border);
-    color: white;
-    padding: 0.9rem 2rem;
-    margin: 0 0.6rem;
-    cursor: pointer;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    font-size: var(--text-xs);
-    transition: 0.3s;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-    background: var(--color-1);
-    color: black;
-    border-color: var(--color-1);
-}
-
-/* ---------------------------------------------------------
-   FIXED-RATIO  CARD GRID (SOLVES YOUR MISALIGNMENT)
------------------------------------------------------------- */
-
+/* GRID */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* smaller cards */
+    gap: 22px; 
     padding: 20px 4vw;
-    opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
 }
 
 /* CARD */
 .gallery-item {
     background: rgba(255,255,255,0.04);
-    border-radius: 18px;
-    padding: 14px;
-    overflow: hidden;
+    border-radius: 16px;
+    padding: 10px;
     cursor: pointer;
-    transition: transform .35s ease, box-shadow .35s ease;
-    box-shadow: 0 10px 18px rgba(37, 32, 30, 0.25);
-    backdrop-filter: blur(6px);
-    display: flex;
-    flex-direction: column;
+    transition: .3s ease;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
 }
 
-/* FIXED IMAGE FRAME — THIS IS WHAT FIXES ALL UNEVEN HEIGHTS */
+.gallery-item:hover {
+    transform: translateY(-6px);
+}
+
+/* FIXED image area */
 .gallery-item .img-wrap {
     width: 100%;
-    height: 360px; /* 🔥 uniform card height — change to 420 if you want taller cards */
-    border-radius: 14px;
+    height: 260px;       /* 🔥 smaller card height */
+    border-radius: 12px;
     overflow: hidden;
-    background: #0f0f0f;
 }
 
-/* IMAGE INSIDE FRAME */
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;          /* ⭐ makes all images uniform! */
-    border-radius: 14px;
+    object-fit: cover;
+    border-radius: 12px;
     filter: grayscale(100%) brightness(85%);
-    transition: all .45s ease;
-}
-
-/* HOVER POP */
-.gallery-item:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 25px 40px rgba(0,0,0,0.35);
+    transition: .35s ease;
 }
 
 .gallery-item:hover img {
@@ -4510,80 +4465,119 @@ img.u-pull-left {
     transform: scale(1.05);
 }
 
-/* TITLE */
+/* TITLE — always visible */
 .gallery-item .overlay {
-    margin-top: 10px;
-    padding: 6px 0;
+    margin-top: 8px;
     text-align: center;
-    color: var(--color-gray-3);
-    font-size: var(--text-sm);
-    letter-spacing: .04em;
-    opacity: 0;
-    transform: translateY(6px);
+    font-size: 14px;
+    color: #cfcfcf;
+    opacity: 1;               
+    transform: translateY(0);  
     transition: .35s ease;
 }
 
 .gallery-item:hover .overlay {
-    opacity: 1;
-    transform: translateY(0);
+    color: white;
 }
 
-/* FILTER HIDE */
+/* FILTER HIDE (remains same) */
 .gallery-item.hide {
     opacity: 0 !important;
     transform: scale(0.85) translateY(10px) !important;
     pointer-events: none;
-    transition: all .25s ease !important;
+    transition: .25s ease !important;
 }
 
 /* FULLSCREEN MODAL */
 .fullscreen-modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
+    inset: 0;
+    background: rgba(0,0,0,0.92);
     justify-content: center;
     align-items: center;
-    z-index: 500;
+    z-index: 999;
     opacity: 0;
-    transition: opacity .3s ease;
+    transition: .3s ease;
 }
 
-.fullscreen-modal.show {
+.fullscreen-modal.show { 
     display: flex;
-    opacity: 1;
+    opacity: 1; 
 }
 
 .fullscreen-modal img {
     max-width: 90%;
     max-height: 90%;
-    border-radius: 8px;
-    transform: scale(.8);
-    transition: transform .4s ease;
+    border-radius: 10px;
 }
 
-.fullscreen-modal.show img {
-    transform: scale(1);
-}
-
-.close-modal {
+/* ARROWS */
+.modal-arrow {
     position: absolute;
-    top: 40px;
-    right: 60px;
-    font-size: 50px;
+    top: 50%;
+    font-size: 60px;
     color: white;
     cursor: pointer;
-    font-weight: 300;
+    padding: 20px;
+    user-select: none;
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+.modal-arrow.left { left: 30px; }
+.modal-arrow.right { right: 30px; }
+
+/* ============================================================
+   RESTORED FILTER BUTTON BAR — CENTERED, CLEAN, MINIMAL
+============================================================ */
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
 }
+
+.filter-btn {
+    padding: 8px 34px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: transparent;
+    color: #e6e6e6;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.filter-btn:hover {
+    background: #d8a45c;  /* your theme mustard gold */
+    color: #111;
+    border-color: #d8a45c;
+}
+
+.filter-btn.active {
+    background: #d8a45c;
+    color: #111;
+    border-color: #d8a45c;
+}
+
+/* MOBILE REFINEMENTS */
+@media (max-width: 600px) {
+    .gallery-filter {
+        gap: 12px;
+    }
+    .filter-btn {
+        padding: 10px 22px;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}
+
+
 /* ============================================================
    WORK SECTION — FIXED, RESPONSIVE, NON-CLIPPING VERSION
    ============================================================ */

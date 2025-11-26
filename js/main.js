@@ -369,3 +369,55 @@ document.addEventListener("DOMContentLoaded", () => {
     rotateCards();              // initial state
     setInterval(rotateCards, 2500); // rotate every 1 second
 });
+/* ============================================================
+   GALLERY FULLSCREEN VIEW + ARROW KEY NAVIGATION
+============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const items = document.querySelectorAll(".gallery-item");
+    const modal = document.querySelector(".fullscreen-modal");
+    const modalImg = modal.querySelector("img");
+
+    let currentIndex = 0;
+
+    function openModal(index) {
+        currentIndex = index;
+        modalImg.src = items[index].querySelector("img").src;
+        modal.classList.add("show");
+    }
+
+    function closeModal() {
+        modal.classList.remove("show");
+    }
+
+    function nextImg() {
+        currentIndex = (currentIndex + 1) % items.length;
+        modalImg.src = items[currentIndex].querySelector("img").src;
+    }
+
+    function prevImg() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        modalImg.src = items[currentIndex].querySelector("img").src;
+    }
+
+    // Open on click
+    items.forEach((item, i) => {
+        item.addEventListener("click", () => openModal(i));
+    });
+
+    // Close on clicking X or background
+    document.querySelector(".close-modal")?.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Arrow keys
+    document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("show")) return;
+
+        if (e.key === "ArrowRight") nextImg();
+        if (e.key === "ArrowLeft") prevImg();
+        if (e.key === "Escape") closeModal();
+    });
+});
