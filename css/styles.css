@@ -5290,8 +5290,8 @@ img.u-pull-left {
 .stat-item {
     text-align: center;
     padding: 0 16px;
-    opacity: 0;                 /* for fade-in animation */
-    transform: translateY(20px);
+    opacity: 1;                 /* for fade-in animation */
+    transform: translateY(0px);
     display: flex;
     flex-direction: column;     /* stack vertically */
     align-items: center;
@@ -5346,7 +5346,7 @@ img.u-pull-left {
     width: 1px;
     height: 36px;
     background: rgba(255,255,255,0.15);
-    opacity: 0;                 /* animates in */
+    opacity: 1;                 /* animates in */
 }
 
 /* Google branding block */
@@ -5357,7 +5357,7 @@ img.u-pull-left {
 }
 
 .google-brand img {
-    height: 28px;
+    height: 12px;
     margin-bottom: 6px;
 }
 
