@@ -4433,7 +4433,7 @@ img.u-pull-left {
 .gallery-item {
     background: rgba(255,255,255,0.04);
     border-radius: 16px;
-    padding: 10px;
+    padding: 20px;
     cursor: pointer;
     transition: .3s ease;
     box-shadow: 0 8px 16px rgba(0,0,0,0.25);
@@ -4446,14 +4446,14 @@ img.u-pull-left {
 /* FIXED image area */
 .gallery-item .img-wrap {
     width: 100%;
-    height: 260px;       /* 🔥 smaller card height */
+    height: 260px;       /*  smaller card height */
     border-radius: 12px;
     overflow: hidden;
 }
 
 .gallery-item img {
     width: 100%;
-    height: 100%;
+    height: 75%;
     object-fit: cover;
     border-radius: 12px;
     filter: grayscale(100%) brightness(85%);
@@ -4467,8 +4467,9 @@ img.u-pull-left {
 
 /* TITLE — always visible */
 .gallery-item .overlay {
-    margin-top: 8px;
-    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 10px;
+    text-align: top;
     font-size: 14px;
     color: #cfcfcf;
     opacity: 1;               
@@ -4526,6 +4527,124 @@ img.u-pull-left {
 .modal-arrow.left { left: 30px; }
 .modal-arrow.right { right: 30px; }
 
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item .overlay {
+    position: static !important;
+    background: none !important;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 8px;
+    opacity: 1 !important;
+    transform: none !important;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 80px;
+}
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+}
+
+
+
+/* ============================================================
+   FULLSCREEN MODAL FIXED CLEAN LOOK
+============================================================ */
+
+.fullscreen-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Fullscreen modal hidden by default */
+.fullscreen-modal {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+/* When JS adds .show → modal becomes visible */
+.fullscreen-modal.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+.fullscreen-modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease;
+}
+
+.fullscreen-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.fullscreen-modal img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 10px;
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    top: 22px;
+    right: 32px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+/* Arrows */
+.modal-arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+.modal-arrow.left { left: 30px; }
+.modal-arrow.right { right: 30px; }
+
+.modal-arrow:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+
 /* ============================================================
    RESTORED FILTER BUTTON BAR — CENTERED, CLEAN, MINIMAL
 ============================================================ */
@@ -4533,6 +4652,7 @@ img.u-pull-left {
 .gallery-filter {
     display: flex;
     justify-content: center;
+    align-content: center;
     gap: 26px;
     margin-bottom: 40px;
     margin-top: 40px;
@@ -4543,6 +4663,7 @@ img.u-pull-left {
     padding: 8px 34px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     background: transparent;
+    text-align: middle;
     color: #e6e6e6;
     font-size: 14px;
     letter-spacing: 2px;
@@ -4576,6 +4697,8 @@ img.u-pull-left {
         letter-spacing: 1px;
     }
 }
+
+
 
 
 /* ============================================================
