@@ -5605,107 +5605,220 @@ img.u-pull-left {
     .shop-subtitle { font-size:1.5rem; }
     .shop-hero { padding:110px 0 50px; }
 }
-
 /* =========================================================
-   TOOLS AUTO-SCROLLER
+   TOOLS INFINITE AUTO-SCROLLER (FINAL)
 ========================================================= */
 
-.tools-showcase { padding: 100px 20px; text-align:center; }
-
-.tools-scroller { overflow:hidden; padding:30px 0; }
-.tools-track {
-    display:flex; gap:20px;
-    animation: scrollLeft 10s linear infinite;
+/* Section wrapper */
+.tools-showcase {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);   /* Break container */
+    margin-right: calc(50% - 50vw);
+    padding: 80px 0;
+    text-align: center;
 }
 
+/* Strip container */
+.tools-strip {
+    width: 100vw;
+    overflow: hidden;
+    padding: 40px 0;
+    position: relative;
+}
+
+/* Scrolling track */
+.strip-track {
+    display: flex;
+    width: max-content;
+    gap: 0;
+    animation: stripScroll 20s linear infinite;
+}
+
+/* EACH ITEM */
 .tool-item {
-    min-width:280px; height:180px; flex-shrink:0;
-    border-radius:16px; overflow:hidden; position:relative;
+    width: 400px;          /* fixed clean width */
+    height: 300px;         /* uniform height */
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
 }
 
+/* Image */
 .tool-item img {
-    width:100%; height:100%;
-    object-fit:cover;
-    border-radius:16px;
-    filter:brightness(.82);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85);
+    display: block;
 }
 
+/* Label */
 .tool-label {
-    position:absolute; bottom:12px; left:16px;
-    font-size:1.6rem; font-weight:600; color:#fff;
-    text-shadow:0px 2px 8px rgba(0,0,0,.7);
+    position: absolute;
+    bottom: 12px;
+    left: 16px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0px 2px 8px rgba(0,0,0,.7);
 }
+
+/* Buy Button */
+.tool-btn {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    padding: 6px 14px;
+    background: #FF9900;
+    color: #111;
+    border-radius: 6px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.tool-btn:hover {
+    background: #ffaa33;
+}
+
+/* ===========================
+   CLICKABLE + HOVER EFFECTS
+=========================== */
+
+/* Make entire card clickable */
+.tool-link {
+    display: block;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Remove underline on hover */
+.tool-link:hover { text-decoration: none; }
+
+/* Smooth hover effect */
+.tool-item img {
+    transition: filter .35s ease, transform .35s ease;
+}
+
+/* Hover to lighten + lift */
+.tool-link:hover img {
+    filter: brightness(1);
+    transform: scale(1.04);
+}
+
+/* Hover label brighten */
+.tool-link:hover .tool-label {
+    opacity: 1;
+}
+
+/* Stop animation on hover */
+.tools-track:hover {
+    animation-play-state: paused;
+}
+
+
+/* Infinite scroll animation */
+@keyframes stripScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); } /* Half track = infinite effect */
+}
+
 
 /* =========================================================
-   PREMIUM SERVICE STACK CARDS
+   PREMIUM SERVICE SECTION
 ========================================================= */
 
 .services-stack {
-    max-width:1200px;
-    margin:0 auto;
-    padding:100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
 }
 
+/* Clean flat layout (no borders, no shadows) */
 .service-card {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    background:rgba(255,255,255,0.03);
-    border-radius:22px;
-    padding:50px;
-    margin-bottom:70px;
-    gap:50px;
-    box-shadow:0 12px 40px rgba(0,0,0,.25);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 50px 0;
+    margin-bottom: 80px;
 
-    opacity:0;
-    transform:translateY(40px);
+    opacity: 0;
+    transform: translateY(40px);
     animation: fadeInUp .9s ease forwards;
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
-.service-card:nth-child(2){ animation-delay:.2s }
-.service-card:nth-child(3){ animation-delay:.35s }
-.service-card:nth-child(4){ animation-delay:.5s }
+/* Delay animations */
+.service-card:nth-child(2) { animation-delay: .2s; }
+.service-card:nth-child(3) { animation-delay: .35s; }
+.service-card:nth-child(4) { animation-delay: .5s; }
 
-.service-img { position:relative; overflow:hidden; border-radius:20px; }
-.service-img img { width:100%; object-fit:cover; border-radius:20px; }
-
-.service-content ul { padding:0; margin:0 0 26px; list-style:none; }
-.service-content ul li { font-size:1.55rem; opacity:.85; margin-bottom:10px; }
-
-@media(max-width:850px){
-    .service-card { grid-template-columns:1fr; padding:35px; }
-    .service-content h2 { font-size:2.4rem; }
+.service-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
 }
+
+.service-img img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Content */
+.service-content ul {
+    padding: 0;
+    margin: 0 0 26px;
+    list-style: none;
+}
+
+.service-content ul li {
+    font-size: 1.55rem;
+    opacity: .85;
+    margin-bottom: 10px;
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+    .service-card {
+        grid-template-columns: 1fr;
+        padding: 35px 0;
+    }
+    .service-content h2 {
+        font-size: 2.4rem;
+    }
+}
+
 
 /* =========================================================
    ANIMATIONS
 ========================================================= */
 
 @keyframes fadeUp {
-    from { opacity:0; transform:translateY(25px); }
-    to   { opacity:1; transform:translateY(0); }
+    from { opacity: 0; transform: translateY(25px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-    from { opacity:0; transform:translateY(40px); }
-    to   { opacity:1; transform:translateY(0); }
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideInLeft {
-    from { opacity:0; transform:translateX(-25px); }
-    to   { opacity:1; transform:translateX(0); }
+    from { opacity: 0; transform: translateX(-25px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInRight {
-    from { opacity:0; transform:translateX(25px); }
-    to   { opacity:1; transform:translateX(0); }
+    from { opacity: 0; transform: translateX(25px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes cardFadeUp {
-    from { opacity:0; transform:translateY(30px); }
-    to   { opacity:1; transform:translateY(0); }
-}
-
-@keyframes scrollLeft {
-    from { transform:translateX(0); }
-    to   { transform:translateX(-50%); }
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
