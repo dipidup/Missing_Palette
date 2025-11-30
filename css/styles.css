@@ -5468,12 +5468,11 @@ img.u-pull-left {
 }
 
 
+/* =========================================================
+   PRODUCT PAGE BASE STYLES
+========================================================= */
 
-/* ================= PRODUCT PAGE ================= */
-
-.shop-section {
-    padding: 8rem 0 6rem;
-}
+.shop-section { padding: 8rem 0 6rem; }
 
 .shop-container {
     max-width: 1100px;
@@ -5481,26 +5480,38 @@ img.u-pull-left {
     padding: 0 20px;
 }
 
-.shop-container h2 {
-    font-size: 3.4rem;
+.shop-container h2,
+.tools-text h2,
+.service-content h2 {
+    font-size: 3.2rem;
     margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateX(-25px);
+    animation: slideInLeft .9s ease forwards;
 }
 
-.section-desc {
+.section-desc,
+.tools-text p,
+.service-content p {
     opacity: 0.75;
     margin-bottom: 4rem;
     font-size: 1.8rem;
     line-height: 1.6;
+    transform: translateX(25px);
+    animation: slideInRight 1s ease forwards;
 }
 
-/* Product Grid */
+/* =========================================================
+   GRID CARDS (PRODUCTS, DIGITAL)
+========================================================= */
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 28px;
+    margin-top: 30px;
 }
 
-/* Product Card */
 .product-card {
     background: rgba(255,255,255,0.05);
     border-radius: 12px;
@@ -5508,280 +5519,193 @@ img.u-pull-left {
     text-align: center;
     transition: 0.25s ease;
     backdrop-filter: blur(4px);
-}
 
-.product-card:hover {
-    background: rgba(255,255,255,0.10);
-    transform: translateY(-4px);
-}
-
-.product-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 16px;
-}
-
-.product-card h3 {
-    font-size: 1.7rem;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.product-card p {
-    font-size: 1.5rem;
-    opacity: 0.8;
-    line-height: 1.5;
-    margin-bottom: 16px;
-}
-
-/* Buttons */
-.btn-buy {
-    display: inline-block;
-    padding: 8px 18px;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.25);
-    color: white;
-    text-decoration: none;
-    font-size: 1.45rem;
-    transition: 0.25s ease;
-}
-
-.btn-buy:hover {
-    background: #d8a45c;
-    color: #111;
-    border-color: #d8a45c;
-}
-
-/* Highlight box */
-.highlight-box {
-    background: rgba(255,255,255,0.03);
-    padding: 30px;
-    border-radius: 12px;
-    margin-top: 20px;
-    text-align: center;
-}
-
-/* ================= PREMIUM SHOP HERO ================= */
-
-.shop-hero {
-    padding: 140px 0 70px;
-    background: radial-gradient(
-        circle at 50% 20%,
-        rgba(255,255,255,0.10) 0%,
-        rgba(255,255,255,0.02) 40%,
-        transparent 100%
-    );
-    text-align: center;
-}
-
-.shop-hero-inner {
-    max-width: 800px;
-    margin: auto;
-    padding: 0 20px;
-    animation: fadeUp 1.0s ease-out forwards;
-    opacity: 0;
-}
-
-.shop-pretitle {
-    display: block;
-    font-size: 1.3rem;
-    letter-spacing: 2px;
-    opacity: 0.55;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-}
-
-.shop-title {
-    font-size: 4rem;
-    font-weight: 700;
-    margin: 0 0 18px;
-    line-height: 1.05;
-}
-
-.shop-subtitle {
-    font-size: 1.7rem;
-    opacity: 0.7;
-    line-height: 1.6;
-    margin-bottom: 0;
-}
-
-/* Animation */
-@keyframes fadeUp {
-    0% { opacity: 0; transform: translateY(25px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Reduce sizes on mobile */
-@media (max-width: 600px) {
-    .shop-title { font-size: 2.8rem; }
-    .shop-subtitle { font-size: 1.5rem; }
-    .shop-hero { padding: 110px 0 50px; }
-}
-
-
-  /* ============== GOLD DIVIDER LINE ============== */
-
-.section-divider {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(
-        to right,
-        transparent,
-        rgba(216,164,92,0.6),
-        transparent
-    );
-    margin: 60px 0 40px;
-}
-
-/* ============== SECTION TITLE SLIDE IN ============== */
-
-.shop-container h2 {
-    opacity: 0;
-    transform: translateX(-25px);
-    animation: slideInLeft 0.9s ease forwards;
-}
-
-.section-desc {
-    opacity: 0;
-    transform: translateX(25px);
-    animation: slideInRight 1s ease forwards;
-}
-
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-25px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(25px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-
-/* ============== STAGGERED CARD FADE IN ============== */
-
-.product-card {
     opacity: 0;
     transform: translateY(20px);
     animation: cardFadeUp 1s ease forwards;
 }
 
-.product-card:nth-child(1) { animation-delay: 0.15s; }
-.product-card:nth-child(2) { animation-delay: 0.30s; }
-.product-card:nth-child(3) { animation-delay: 0.45s; }
-.product-card:nth-child(4) { animation-delay: 0.60s; }
-.product-card:nth-child(5) { animation-delay: 0.75s; }
-.product-card:nth-child(6) { animation-delay: 0.90s; }
-
-@keyframes cardFadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+.product-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
 }
 
-
-/* ========================== 1:1 SECTION ========================== */
-
-.one-to-one-section {
-    padding: 80px 20px;
-}
-
-.one-to-one-grid {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-/* Left: Image Card */
-.one-to-one-image img {
+.product-card img {
     width: 100%;
-    border-radius: 22px;
+    height: 220px;
     object-fit: cover;
-    box-shadow: 0px 10px 35px rgba(0,0,0,0.45);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1s ease forwards;
-}
-
-/* Right Content */
-.one-to-one-content h2 {
-    font-size: 3rem;
-    font-weight: 700;
+    border-radius: 10px;
     margin-bottom: 16px;
 }
 
-.one-to-one-sub {
-    font-size: 1.7rem;
-    opacity: 0.75;
-    margin-bottom: 28px;
-    line-height: 1.6;
-}
+.product-card h3 { font-size: 1.7rem; margin-bottom: 10px; font-weight: 600; }
+.product-card p { font-size: 1.5rem; opacity: .8; margin-bottom: 16px; }
 
-/* Bullet List */
-.one-to-one-list {
-    list-style: none;
-    margin: 0 0 32px;
-    padding: 0;
-}
+/* Card Stagger */
+.product-card:nth-child(1) { animation-delay: .15s }
+.product-card:nth-child(2) { animation-delay: .30s }
+.product-card:nth-child(3) { animation-delay: .45s }
+.product-card:nth-child(4) { animation-delay: .60s }
+.product-card:nth-child(5) { animation-delay: .75s }
+.product-card:nth-child(6) { animation-delay: .90s }
 
-.one-to-one-list li {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-    opacity: 0.85;
-}
-
-/* Button */
+.btn-buy,
+.service-btn,
 .one-to-one-btn {
     display: inline-block;
     padding: 10px 22px;
-    background: #d8a45c;
-    color: #111;
+    border-radius: 6px;
+    text-decoration: none;
     font-size: 1.45rem;
     font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
     transition: 0.25s ease;
+    background: #d8a45c;
+    color: #111;
 }
 
-.one-to-one-btn:hover {
-    background: #e8c08a;
+.btn-buy { border: 1px solid rgba(255,255,255,0.25); background: transparent; color: white; }
+.btn-buy:hover { background: #d8a45c; color:#111; border-color:#d8a45c; }
+.service-btn:hover,
+.one-to-one-btn:hover { background:#e8c68f; }
+
+/* Gold Divider */
+.section-divider {
+    width:100%; height:1px;
+    background: linear-gradient(to right,transparent,rgba(216,164,92,0.6),transparent);
+    margin: 60px 0 40px;
 }
 
-/* Animation */
+/* =========================================================
+   SHOP HERO
+========================================================= */
+
+.shop-hero {
+    padding: 140px 0 70px;
+    text-align: center;
+    background: radial-gradient(circle at 50% 20%,
+        rgba(255,255,255,.10) 0%,
+        rgba(255,255,255,.02) 40%,
+        transparent 100%);
+}
+
+.shop-hero-inner {
+    max-width: 800px;
+    margin:auto;
+    padding:0 20px;
+    opacity:0;
+    animation: fadeUp 1s ease-out forwards;
+}
+
+.shop-pretitle { font-size: 1.3rem; letter-spacing:2px; opacity:.55; margin-bottom:12px; text-transform:uppercase; display:block; }
+.shop-title { font-size:4rem; margin-bottom:18px; font-weight:700; }
+.shop-subtitle { font-size:1.7rem; opacity:.7; line-height:1.6; }
+
+@media(max-width:600px){
+    .shop-title { font-size:2.8rem; }
+    .shop-subtitle { font-size:1.5rem; }
+    .shop-hero { padding:110px 0 50px; }
+}
+
+/* =========================================================
+   TOOLS AUTO-SCROLLER
+========================================================= */
+
+.tools-showcase { padding: 100px 20px; text-align:center; }
+
+.tools-scroller { overflow:hidden; padding:30px 0; }
+.tools-track {
+    display:flex; gap:20px;
+    animation: scrollLeft 10s linear infinite;
+}
+
+.tool-item {
+    min-width:280px; height:180px; flex-shrink:0;
+    border-radius:16px; overflow:hidden; position:relative;
+}
+
+.tool-item img {
+    width:100%; height:100%;
+    object-fit:cover;
+    border-radius:16px;
+    filter:brightness(.82);
+}
+
+.tool-label {
+    position:absolute; bottom:12px; left:16px;
+    font-size:1.6rem; font-weight:600; color:#fff;
+    text-shadow:0px 2px 8px rgba(0,0,0,.7);
+}
+
+/* =========================================================
+   PREMIUM SERVICE STACK CARDS
+========================================================= */
+
+.services-stack {
+    max-width:1200px;
+    margin:0 auto;
+    padding:100px 20px;
+}
+
+.service-card {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:rgba(255,255,255,0.03);
+    border-radius:22px;
+    padding:50px;
+    margin-bottom:70px;
+    gap:50px;
+    box-shadow:0 12px 40px rgba(0,0,0,.25);
+
+    opacity:0;
+    transform:translateY(40px);
+    animation: fadeInUp .9s ease forwards;
+}
+
+.service-card:nth-child(2){ animation-delay:.2s }
+.service-card:nth-child(3){ animation-delay:.35s }
+.service-card:nth-child(4){ animation-delay:.5s }
+
+.service-img { position:relative; overflow:hidden; border-radius:20px; }
+.service-img img { width:100%; object-fit:cover; border-radius:20px; }
+
+.service-content ul { padding:0; margin:0 0 26px; list-style:none; }
+.service-content ul li { font-size:1.55rem; opacity:.85; margin-bottom:10px; }
+
+@media(max-width:850px){
+    .service-card { grid-template-columns:1fr; padding:35px; }
+    .service-content h2 { font-size:2.4rem; }
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity:0; transform:translateY(25px); }
+    to   { opacity:1; transform:translateY(0); }
 }
 
-/* Mobile */
-@media (max-width: 850px) {
-    .one-to-one-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .one-to-one-content h2 {
-        font-size: 2.4rem;
-    }
+@keyframes fadeInUp {
+    from { opacity:0; transform:translateY(40px); }
+    to   { opacity:1; transform:translateY(0); }
 }
 
-.one-to-one-image {
-    position: relative;
+@keyframes slideInLeft {
+    from { opacity:0; transform:translateX(-25px); }
+    to   { opacity:1; transform:translateX(0); }
 }
 
-.one-to-one-image::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 22px;
-    background: radial-gradient(circle at center, rgba(216,164,92,0.25), transparent 70%);
-    filter: blur(40px);
-    z-index: -1;
+@keyframes slideInRight {
+    from { opacity:0; transform:translateX(25px); }
+    to   { opacity:1; transform:translateX(0); }
 }
-.one-to-one-image img {
-    width: 100%;
-    border-radius: 22px;
-    object-fit: cover;
-    box-shadow: 0px 10px 35px rgba(0,0,0,0.45);
+
+@keyframes cardFadeUp {
+    from { opacity:0; transform:translateY(30px); }
+    to   { opacity:1; transform:translateY(0); }
+}
+
+@keyframes scrollLeft {
+    from { transform:translateX(0); }
+    to   { transform:translateX(-50%); }
 }

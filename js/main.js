@@ -459,3 +459,12 @@ document.addEventListener("keydown", function (e) {
 
 })(document.documentElement);
 
+/* ===================== PARALLAX FOR SERVICE IMAGES ===================== */
+document.addEventListener("scroll", () => {
+    const speed = 0.25; // lower = subtle, higher = stronger parallax
+    document.querySelectorAll(".service-img img").forEach(img => {
+        const rect = img.getBoundingClientRect();
+        const offset = rect.top * speed;
+        img.style.transform = `translateY(${offset}px)`;
+    });
+});
