@@ -5822,3 +5822,141 @@ img.u-pull-left {
     from { opacity: 0; transform: translateY(30px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+
+
+
+/* MAIN SECTION SPACING */
+.materials-section {
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+
+/* EACH CATEGORY CARD */
+.material-card {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+
+    /* STACK EFFECT */
+    position: relative;
+    z-index: 10;
+}
+
+.material-card:nth-child(1) { z-index: 40; }
+.material-card:nth-child(2) { z-index: 30; margin-top: -120px; }
+.material-card:nth-child(3) { z-index: 20; margin-top: -120px; }
+.material-card:nth-child(4) { z-index: 10; margin-top: -120px; }
+
+/* LEFT TEXT BLOCK */
+.material-left h2 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+}
+
+.material-left p {
+    font-size: 1.6rem;
+    opacity: 0.75;
+    line-height: 1.6;
+    max-width: 380px;
+}
+
+/* RIGHT SIDE SCROLLER */
+.material-right {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.scroller {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.scroll-track {
+    display: flex;
+    gap: 20px;
+    animation: slideRow 14s linear infinite;
+}
+
+.scroll-track img {
+    height: 240px;
+    width: auto;
+    border-radius: 14px;
+    flex-shrink: 0;
+    object-fit: cover;
+    filter: brightness(0.88);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover coloring */
+.scroll-track img:hover {
+    filter: brightness(1.05);
+    transform: scale(1.03);
+}
+
+/* Stop scroll on hover */
+.scroller:hover .scroll-track {
+    animation-play-state: paused;
+}
+
+/* ANIMATION */
+@keyframes slideRow {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .material-card {
+        grid-template-columns: 1fr;
+        margin-top: 0 !important;
+        z-index: 1 !important;
+    }
+
+    .scroll-track img {
+        height: 190px;
+    }
+}
+.material-card {
+    will-change: transform;
+    transition: transform 0.15s linear;
+    position: relative;
+}
+
+
+/* ================================================
+   Gallery behavior for hover vs mobile
+   ================================================ */
+
+/* DESKTOP/LAPTOP: Hover available */
+@media (hover: hover) and (pointer: fine) {
+    .gallery-item img {
+        filter: grayscale(100%);
+        transform: scale(1);
+        transition: 
+            filter 0.4s ease,
+            transform 0.4s ease,
+            opacity 0.4s ease; /* keeps smoothness */
+    }
+
+    .gallery-item:hover img {
+        filter: grayscale(0%);
+        transform: scale(1.04); /* restores subtle zoom */
+    }
+}
+
+/* MOBILE: No hover → always colorful */
+@media (hover: none) and (pointer: coarse) {
+    .gallery-item img {
+        filter: grayscale(0%) !important;
+        transform: scale(1) !important;
+    }
+}

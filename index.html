@@ -554,7 +554,6 @@
 </section>
 
 
-
     
                     <!-- ### testimonial
                     ================================================== -->
@@ -1031,4 +1030,115 @@
                 <script src="js/main.js" defer></script>
 
             
+                <script>
+                    const testimonials = [
+                        {
+                            name: "Neha Priyadarshini",
+                            role: "Art Student",
+                            img: "img/testimonial/NP.jpg",
+                            text: `"Perfect place to learn oil painting. Very patient guidance and great techniques to learn!"`
+                        },
+                        {
+                            name: "Mr. Pravin Rajgadia",
+                            role: "Director, Sri Agrasen School",
+                            img: "img/testimonial/PR.jpg",
+                            text: `"इस तरह की एक्टिविटी से बच्चों में छुपी प्रतिभा निखर कर आती है। अंकित ने रोचक और जानकारीपूर्ण सत्र लिया।"`
+                        },
+                        {
+                            name: "Moni",
+                            role: "Art Student",
+                            img: "img/testimonial/MR.jpg",
+                            text: `"I learnt amazing techniques that helped me improve completely! Very helpful guidance."`
+                        }
+                    ];
+                    
+                    let index = 0;
+                    let autoRotate;
+                    let paused = false;
+                    
+                    const mainCard = document.getElementById("main-testimonial");
+                    const bg = document.getElementById("testimonial-bg");
+                    
+                    /* -----------------------
+                       Populate Background Cards
+                    ------------------------ */
+                    testimonials.forEach((t, i) => {
+                        const c = document.createElement("div");
+                        c.className = "float-card";
+                        c.style.top = `${100 + Math.random()*350}px`;
+                        c.style.left = `${60 + (i * 280)}px`;
+                        c.style.animationDelay = `${i * 2}s`;
+                    
+                        c.innerHTML = `
+                            <img src="${t.img}">
+                            <span>${t.text.slice(0, 45)}...</span>
+                        `;
+                        bg.appendChild(c);
+                    });
+                    
+                    /* -----------------------
+                       Main Card Renderer
+                    ------------------------ */
+                    function renderTestimonial() {
+                        const t = testimonials[index];
+                    
+                        mainCard.classList.remove("show"); // fade out
+                    
+                        setTimeout(() => {
+                            mainCard.innerHTML = `
+                                <div class="author">
+                                    <img src="${t.img}">
+                                    <div>
+                                        <strong>${t.name}</strong><br>
+                                        <span>${t.role}</span>
+                                    </div>
+                                </div>
+                                <p>${t.text}</p>
+                            `;
+                            mainCard.classList.add("show"); // fade in
+                        }, 300);
+                    }
+                    
+                    /* -----------------------
+                       Auto Rotation
+                    ------------------------ */
+                    function startRotation() {
+                        autoRotate = setInterval(() => {
+                            if (!paused) {
+                                index = (index + 1) % testimonials.length;
+                                renderTestimonial();
+                            }
+                        }, 6000);
+                    }
+                    
+                    function stopRotation() {
+                        clearInterval(autoRotate);
+                    }
+                    
+                    /* -----------------------
+                       Click to Pause or Resume
+                    ------------------------ */
+                    mainCard.addEventListener("click", () => {
+                        paused = !paused;
+                    
+                        if (paused) {
+                            stopRotation();
+                            mainCard.style.border = "1px solid rgba(255,255,255,0.35)";
+                        } else {
+                            startRotation();
+                            mainCard.style.border = "1px solid rgba(255,255,255,0.15)";
+                        }
+                    });
+                    
+                    /* Init */
+                    renderTestimonial();
+                    startRotation();
+                    </script>
+                    
+
+
+
+
+
+
         </body></html>
