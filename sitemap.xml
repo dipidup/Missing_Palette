@@ -4,27 +4,37 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
 
 
 <url>
   <loc>https://missingpalette.com/</loc>
-  <lastmod>2025-11-22T15:13:42+00:00</lastmod>
+  <lastmod>2025-12-14T17:37:09+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://missingpalette.com/index.html</loc>
-  <lastmod>2025-11-22T15:13:42+00:00</lastmod>
+  <lastmod>2025-12-14T17:37:10+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://missingpalette.com/gallery.html</loc>
-  <lastmod>2025-11-22T15:13:42+00:00</lastmod>
+  <lastmod>2025-12-14T17:37:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://missingpalette.com/2025%20Ankit_K_Agrawal_Resume.pdf</loc>
-  <lastmod>2025-11-22T15:13:42+00:00</lastmod>
+  <lastmod>2025-12-14T17:37:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://missingpalette.com/privacy.html</loc>
+  <lastmod>2025-12-14T17:37:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://missingpalette.com/legal.html</loc>
+  <lastmod>2025-12-14T17:37:09+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
