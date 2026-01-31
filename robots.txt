@@ -1,3 +1,3 @@
 User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
+Allow: /
+Sitemap: https://missingpalette.com/sitemap.xml
