@@ -5,11 +5,20 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <!-- HOMEPAGE -->
   <url>
     <loc>https://missingpalette.com/</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+  </url>
+
+  <!-- CORE PAGES -->
+  <url>
+    <loc>https://missingpalette.com/blog.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
 
   <url>
@@ -19,18 +28,41 @@
     <priority>0.90</priority>
   </url>
 
+  <!-- BLOG ARTICLES -->
+  <url>
+    <loc>https://missingpalette.com/blog/watercolor-portrait-guide.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://missingpalette.com/blog/Ghat.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://missingpalette.com/blog/hostel4.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- OPTIONAL / LOW PRIORITY -->
   <url>
     <loc>https://missingpalette.com/products.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.70</priority>
   </url>
 
   <url>
     <loc>https://missingpalette.com/2025_Ankit_K_Agrawal_Resume.pdf</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.50</priority>
+    <priority>0.40</priority>
   </url>
 
   <url>
@@ -48,5 +80,3 @@
   </url>
 
 </urlset>
-
-
