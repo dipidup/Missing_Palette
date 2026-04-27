@@ -1,5 +1,34 @@
+# Missing Palette® — robots.txt
+# Allow everything to be crawled by reputable bots, point to sitemap
+
 User-agent: *
 Allow: /
 
+# Block AI training crawlers from scraping artwork
+# (You're an artist; you don't want your paintings used as ML training data)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Sitemap
 Sitemap: https://missingpalette.com/sitemap.xml
-Sitemap: https://missingpalette.com/sitemap-images.xml

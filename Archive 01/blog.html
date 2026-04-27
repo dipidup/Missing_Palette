@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>Blog | Missing Palette</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/vendor.css">
+<link rel="stylesheet" href="css/styles.css">
+
+<style>
+
+/* ===== NAV ===== */
+.blog-header {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.header-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 24px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo a {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.nav {
+    display: flex;
+    gap: 28px;
+}
+.nav a {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+.nav a:hover,
+.nav a.active {
+    opacity: 1;
+}
+
+/* ===== HERO ===== */
+.hero {
+    max-width: 700px;
+    margin: 100px auto 80px;
+    text-align: center;
+}
+.hero h1 { font-size: 48px; }
+.hero p { opacity: 0.6; }
+
+/* ===== FEATURED ===== */
+.featured {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    margin-bottom: 100px;
+}
+.featured img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.featured h2 { font-size: 32px; margin-top: 20px; }
+.featured p { opacity: 0.7; }
+
+.read { color: #d85d24; display: inline-block; margin-top: 10px; }
+
+/* ===== GRID ===== */
+.grid {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 20px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+.card h3 { margin-top: 10px; }
+.card p { opacity: 0.6; }
+
+/* ===== CTA ===== */
+.cta {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 90px 20px;
+    text-align: center;
+}
+.cta a {
+    margin-top: 12px;
+    display: inline-block;
+    padding: 12px 20px;
+    background: #d85d24;
+    color: white;
+    border-radius: 8px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 34px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="blog-header">
+<div class="header-inner">
+<div class="logo"><a href="index.html">Missing Palette®</a></div>
+<nav class="nav">
+<a href="/index.html">Home</a>
+<a href="blog.html" class="active">Blog</a>
+<a href="/gallery.html">Gallery</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<h1>Stories & Thoughts</h1>
+<p>Art, process, and quiet creativity.</p>
+</section>
+
+<section class="featured">
+<img src="img/gallery/water (2).jpg">
+<h2>Beginner’s Guide to Watercolor Portraits</h2>
+<p>A calm approach to watercolor portraits without overthinking.</p>
+<a href="blog/watercolor-portrait-guide.html" class="read">Read →</a>
+</section>
+
+<section class="grid">
+
+<div class="card">
+<img src="img/gallery/water (14).jpg">
+<h3>Painting at Banaras Ganga Ghat</h3>
+<p>Why imperfections define your style.</p>
+<a href="blog/Ghat.html" class="read">Read →</a>
+</div>
+
+<div class="card">
+<img src="img/gallery/sketch (13).jpg">
+<h3>Sketching Outside Room 113</h3>
+<p>A simple beginner roadmap.</p>
+<a href="blog/hostel4.html" class="read">Read →</a>
+</div>
+
+</section>
+
+<section class="cta">
+<h2>Let’s create something meaningful 🎨</h2>
+<p>Custom portraits, workshops, or just a chat.</p>
+<a href="index.html#contact">Get in touch</a>
+</section>
+
+</body>
+</html>

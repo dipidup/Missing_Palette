@@ -1,82 +1,647 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- HOMEPAGE -->
-  <url>
-    <loc>https://missingpalette.com/</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://missingpalette.com/thumb.jpg</image:loc>
+            <image:title>Bhandi Baba — watercolor portrait of a sadhu by Ankit Agrawal</image:title>
+            <image:caption>Featured artwork: Bhandi Baba, watercolor on paper, 2017. Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/aboutphoto.jpg</image:loc>
+            <image:title>Ankit Agrawal — Indian artist, founder of Missing Palette</image:title>
+            <image:caption>Portrait of Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(1).jpg</image:loc>
+            <image:title>भण्डि बाबा — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A wandering sadhu lost in his own smoke. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(2).jpg</image:loc>
+            <image:title>ढलती मुस्कान — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A grandmother&#x27;s laugh — every wrinkle a chapter. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(3).jpg</image:loc>
+            <image:title>पगडण्डी — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A village trail, painted from memory. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(2a).jpg</image:loc>
+            <image:title>अनिद्रा — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>Wide eyes long past the hour of sleep. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(3a).jpg</image:loc>
+            <image:title>केतली — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>The kettle on the chai stove — copper and steam. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(3b).jpg</image:loc>
+            <image:title>Frooty — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A late-90s mango juice carton — pure nostalgia. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+    </url>
 
-  <!-- CORE PAGES -->
-  <url>
-    <loc>https://missingpalette.com/blog.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/gallery.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(1).jpg</image:loc>
+            <image:title>भण्डि बाबा — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A wandering sadhu lost in his own smoke. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(2).jpg</image:loc>
+            <image:title>ढलती मुस्कान — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A grandmother&#x27;s laugh — every wrinkle a chapter. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(3).jpg</image:loc>
+            <image:title>पगडण्डी — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A village trail, painted from memory. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(2a).jpg</image:loc>
+            <image:title>अनिद्रा — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>Wide eyes long past the hour of sleep. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(3a).jpg</image:loc>
+            <image:title>केतली — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>The kettle on the chai stove — copper and steam. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(3b).jpg</image:loc>
+            <image:title>Frooty — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A late-90s mango juice carton — pure nostalgia. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(3c).jpeg</image:loc>
+            <image:title>Rings — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(4).jpg</image:loc>
+            <image:title>गजराज — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(5).jpg</image:loc>
+            <image:title>Hey Birdy — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(6).jpg</image:loc>
+            <image:title>Hey Birdy — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(6a).jpeg</image:loc>
+            <image:title>Hey Birdy — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(7).jpg</image:loc>
+            <image:title>Landscape — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(8).jpg</image:loc>
+            <image:title>Landscape — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(9).jpg</image:loc>
+            <image:title>Landscape — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(10).jpg</image:loc>
+            <image:title>Bit Mesra — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>Painted on campus during my undergraduate years. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(11).jpg</image:loc>
+            <image:title>Sky — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(12).jpg</image:loc>
+            <image:title>Hey Hyderabad — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(13).jpg</image:loc>
+            <image:title>बनारसी सुबह — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>Banaras at dawn, painted from the ghat steps. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(14).jpg</image:loc>
+            <image:title>बनारसी शाम — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>The same ghat at evening, lit by aarti flames. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(15).jpg</image:loc>
+            <image:title>बनारसी धूप — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A watercolor study. Watercolor by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(1).jpg</image:loc>
+            <image:title>आँचल — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A tribal father holding his sleeping child. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(2).jpg</image:loc>
+            <image:title>शागिर्द — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A Rajasthani snake charmer, a disciple to his craft. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(3).jpg</image:loc>
+            <image:title>चिंतन — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A monk in contemplation — light against a sea of black. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(4).jpg</image:loc>
+            <image:title>बनारसी दर्शन — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A street sadhu blessing pilgrims at Manikarnika. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(5).jpg</image:loc>
+            <image:title>Omran Daqneesh — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>The boy from Aleppo — a war&#x27;s quiet portrait. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(6).jpg</image:loc>
+            <image:title>Tulip Buddha — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>Buddha rendered in tulip petals — meditation in bloom. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(7).jpg</image:loc>
+            <image:title>रफ़्तार — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>An oil painting study. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(8).jpg</image:loc>
+            <image:title>रफ़्तार — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>An oil painting study. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(9).jpg</image:loc>
+            <image:title>Freedom — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>An oil painting study. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(10).jpg</image:loc>
+            <image:title>हया — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A study in modesty and form. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(11).jpg</image:loc>
+            <image:title>हया — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A study in modesty and form. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(12).jpg</image:loc>
+            <image:title>Radha Krishna — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>An oil painting study. Oil by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/acrylic%20(1).jpg</image:loc>
+            <image:title>Confusion — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>Faces overlapping in a moment of inner doubt. Acrylic by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/acrylic%20(2).jpg</image:loc>
+            <image:title>अमृतांजलि — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>An offering, painted in deep crimson and gold. Acrylic by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/acrylic%20(3).jpg</image:loc>
+            <image:title>Shadow — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A figure half-emerged from darkness. Acrylic by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/acrylic%20(3a).jpg</image:loc>
+            <image:title>Hercules — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A study of mythological strength in motion. Acrylic by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/acrylic%20(3b).jpg</image:loc>
+            <image:title>Hercules — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A study of mythological strength in motion. Acrylic by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/acrylic%20(3c).jpg</image:loc>
+            <image:title>Hercules — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A study of mythological strength in motion. Acrylic by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/acrylic%20(3d).jpeg</image:loc>
+            <image:title>रफ़्तार — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>An acrylic painting study. Acrylic by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/acrylic%20(4).jpg</image:loc>
+            <image:title>Mini Painting — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>An acrylic painting study. Acrylic by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/acrylic%20(5).jpg</image:loc>
+            <image:title>Mini Painting — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>An acrylic painting study. Acrylic by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(1a).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(1b).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(1c).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(2a).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(2a1).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(2a2)%20(2).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(2a2).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(2b).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(2c).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(3a).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(3b).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(3c).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(3c1).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(3d).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4a).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4b).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4c).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4d).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4f).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4g).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4g1).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4g2).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4g3).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(4g6).jpg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(5).jpeg</image:loc>
+            <image:title>Portrait — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(5a).jpg</image:loc>
+            <image:title>गजराज — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(5b).jpg</image:loc>
+            <image:title>Quick Sketch — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(11).jpeg</image:loc>
+            <image:title>Maata Ji — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(12).jpg</image:loc>
+            <image:title>रफ़्तार — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A charcoal portrait study from life. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(13).jpg</image:loc>
+            <image:title>Bit Mesra — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>Painted on campus during my undergraduate years. Sketch by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/ws%20(1).jpg</image:loc>
+            <image:title>Workshop — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A frame from a teaching workshop. Workshop by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/ws%20(2).jpg</image:loc>
+            <image:title>Workshop — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A frame from a teaching workshop. Workshop by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/ws%20(3).jpg</image:loc>
+            <image:title>Workshop — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A frame from a teaching workshop. Workshop by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/ws%20(4).jpg</image:loc>
+            <image:title>Workshop — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A frame from a teaching workshop. Workshop by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/ws%20(7).jpg</image:loc>
+            <image:title>Workshop — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A frame from a teaching workshop. Workshop by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/ws%20(8).jpg</image:loc>
+            <image:title>Workshop — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A frame from a teaching workshop. Workshop by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/ws%20(9).jpg</image:loc>
+            <image:title>Workshop — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A frame from a teaching workshop. Workshop by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/ws%20(10).jpg</image:loc>
+            <image:title>Workshop — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A frame from a teaching workshop. Workshop by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/ws%20(11).jpg</image:loc>
+            <image:title>Workshop — by Ankit Agrawal, Missing Palette</image:title>
+            <image:caption>A frame from a teaching workshop. Workshop by Indian artist Ankit Agrawal.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+    </url>
 
-  <url>
-    <loc>https://missingpalette.com/gallery.html</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/blog.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <!-- BLOG ARTICLES -->
-  <url>
-    <loc>https://missingpalette.com/blog/watercolor-portrait-guide.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/blog/watercolor-portrait-guide.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(1).jpg</image:loc>
+            <image:title>Bhandi Baba — watercolor portrait</image:title>
+            <image:caption>Hero image for the watercolor portrait tutorial.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(2).jpg</image:loc>
+            <image:title>Dhalti Muskaan — watercolor portrait of an elderly woman</image:title>
+            <image:caption>Layering example in watercolor portrait tutorial.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(2a).jpg</image:loc>
+            <image:title>Anidra — watercolor portrait</image:title>
+            <image:caption>Final-thought illustration in watercolor portrait tutorial.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+    </url>
 
-  <url>
-    <loc>https://missingpalette.com/blog/Ghat.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/blog/Ghat.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(14).jpg</image:loc>
+            <image:title>Banarasi Shaam — Banaras ghat at evening, watercolor</image:title>
+            <image:caption>Hero image for the Banaras plein-air post.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(13).jpg</image:loc>
+            <image:title>Banarasi Subah — Banaras at dawn, watercolor</image:title>
+            <image:caption>Banaras at dawn from the ghat steps.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(15).jpg</image:loc>
+            <image:title>Banarasi Dhoop — Banaras at midday, watercolor</image:title>
+            <image:caption>Banaras at midday from the ghat steps.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/oil%20(4).jpg</image:loc>
+            <image:title>Banarasi Darshan — sadhu at Manikarnika ghat, oil painting</image:title>
+            <image:caption>Oil painting from a later visit to Banaras.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+    </url>
 
-  <url>
-    <loc>https://missingpalette.com/blog/hostel4.html</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/blog/hostel4.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/sketch%20(13).jpg</image:loc>
+            <image:title>BIT Mesra — charcoal sketch of Hostel 4</image:title>
+            <image:caption>Hero image: charcoal sketch made outside Hostel 4 Room 113.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+        <image:image>
+            <image:loc>https://missingpalette.com/img/gallery/water%20(10).jpg</image:loc>
+            <image:title>BIT Mesra — watercolor of campus</image:title>
+            <image:caption>Watercolor of BIT Mesra campus from a later visit.</image:caption>
+            <image:license>https://missingpalette.com/legal.html</image:license>
+        </image:image>
+    </url>
 
-  <!-- OPTIONAL / LOW PRIORITY -->
-  <url>
-    <loc>https://missingpalette.com/products.html</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/products.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 
-  <url>
-    <loc>https://missingpalette.com/2025_Ankit_K_Agrawal_Resume.pdf</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.40</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/register.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 
-  <url>
-    <loc>https://missingpalette.com/privacy.html</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/legal.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
 
-  <url>
-    <loc>https://missingpalette.com/legal.html</loc>
-    <lastmod>2026-04-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.30</priority>
-  </url>
+    <url>
+        <loc>https://missingpalette.com/privacy.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
 
 </urlset>
