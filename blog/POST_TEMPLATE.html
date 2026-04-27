@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFGSTZXF57"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HFGSTZXF57');
+</script>
+
+<title>A Blank Template | Missing Palette® · Journal</title>
+<meta name="description" content="Blog post template for missingpalette.com - copy and replace the content to publish a new journal entry.">
+<meta name="author" content="Ankit Agrawal">
+<meta name="copyright" content="© 2019–2026 Missing Palette®">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://missingpalette.com/blog/POST_TEMPLATE.html">
+
+<meta property="og:title" content="A Blank Template | Missing Palette®">
+<meta property="og:description" content="Blog post template for missingpalette.com - copy and replace the content to publish a new journal entry.">
+<meta property="og:image" content="https://missingpalette.com/img/gallery/water (1).jpg">
+<meta property="og:url" content="https://missingpalette.com/blog/POST_TEMPLATE.html">
+<meta property="og:type" content="article">
+<meta property="og:rights" content="© 2019–2026 Missing Palette®. All Rights Reserved.">
+<meta property="article:author" content="Ankit Agrawal">
+<meta property="article:section" content="Template">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Blank Template | Missing Palette®">
+<meta name="twitter:description" content="Blog post template for missingpalette.com - copy and replace the content to publish a new journal entry.">
+<meta name="twitter:image" content="https://missingpalette.com/img/gallery/water (1).jpg">
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "A Blank Template",
+    "image": "https://missingpalette.com/img/gallery/water (1).jpg",
+    "url": "https://missingpalette.com/blog/POST_TEMPLATE.html",
+    "author": { "@type": "Person", "name": "Ankit Agrawal", "url": "https://missingpalette.com/" },
+    "publisher": { "@type": "Organization", "name": "Missing Palette" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://missingpalette.com/blog/POST_TEMPLATE.html" }
+}
+</script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/missingpalette.css">
+
+<!-- Page-specific styles for blog post layout -->
+<style>
+.post-page {
+    padding-top: 5rem;
+}
+
+.post-hero {
+    position: relative;
+    width: 100%;
+    background: var(--paper-deep);
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+}
+.post-hero-img {
+    width: 100%;
+    max-height: 70vh;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+.post-hero-caption {
+    text-align: center;
+    padding: 0.8rem var(--gutter) 1rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-mute);
+    font-size: 0.85rem;
+    background: var(--paper-soft);
+}
+
+.post-header {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3.5rem var(--gutter) 2rem;
+    text-align: center;
+}
+.post-eyebrow {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ochre);
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+.post-eyebrow::before, .post-eyebrow::after {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ochre);
+}
+.post-page h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+}
+.post-page h1 em { font-style: italic; color: var(--crimson); }
+.post-subtitle {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    max-width: 50ch;
+    margin: 0 auto;
+}
+.post-meta {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+.post-meta .dot { color: var(--ochre); }
+
+.post-body {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem var(--gutter) 4rem;
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+.post-body p { margin-bottom: 1.4rem; }
+.post-body p.lead {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+.post-body h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+}
+.post-body h2 em { font-style: italic; color: var(--crimson); }
+.post-body h2::before {
+    content: "—";
+    color: var(--ochre);
+    margin-right: 0.5em;
+    font-style: normal;
+    font-weight: 400;
+}
+.post-body h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+}
+.post-body strong { color: var(--ink); font-weight: 500; }
+.post-body em { color: var(--ink); }
+.post-body a {
+    color: var(--ochre);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ochre);
+    padding-bottom: 1px;
+    transition: color 200ms ease, border-color 200ms ease;
+}
+.post-body a:hover { color: var(--crimson); border-bottom-color: var(--crimson); }
+
+.post-body ul, .post-body ol {
+    margin: 0 0 1.5rem 1.5rem;
+    padding: 0;
+}
+.post-body li { margin-bottom: 0.6rem; }
+
+.post-body blockquote {
+    border-left: 3px solid var(--ochre);
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    margin: 2rem 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--ink);
+}
+
+.post-image {
+    margin: 2.5rem -2rem;
+    background: var(--paper-deep);
+    padding: 1rem;
+    border: 1px solid var(--line);
+}
+@media (max-width: 720px) {
+    .post-image { margin: 2rem 0; }
+}
+.post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 16px rgba(26, 22, 20, 0.08);
+}
+.post-image-caption {
+    margin-top: 0.7rem;
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-mute);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+.post-image-caption .hi { font-family: var(--font-hindi); font-style: normal; font-weight: 400; color: var(--ink); }
+
+.post-image-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem -2rem;
+}
+@media (max-width: 720px) {
+    .post-image-pair { grid-template-columns: 1fr; margin: 2rem 0; }
+}
+.post-image-pair .post-image { margin: 0; padding: 0.6rem; }
+
+.post-divider {
+    border: 0;
+    height: 1px;
+    background: var(--line);
+    margin: 3rem auto;
+    max-width: 200px;
+}
+
+.post-end-cta {
+    background: var(--paper-deep);
+    border-top: 1px solid var(--line);
+    padding: 4rem var(--gutter);
+    text-align: center;
+}
+.post-end-cta h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1rem;
+}
+.post-end-cta h3 em { font-style: italic; color: var(--crimson); }
+.post-end-cta p {
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 50ch;
+    margin: 0 auto 1.8rem;
+}
+.post-end-cta .btn-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.post-back-link {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem var(--gutter);
+    text-align: center;
+}
+.post-back-link a {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 200ms ease;
+}
+.post-back-link a:hover { color: var(--ink); }
+</style>
+
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<nav class="site-nav" id="siteNav">
+    <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/gallery.html">Gallery</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#testimonials">Testimonials</a></li>
+        <li><a href="/#commissions">Commissions</a></li>
+        <li><a href="/blog.html" aria-current="page">Journal</a></li>
+        <li><a href="/products.html">Shop</a></li>
+        <li><a href="/#contact" class="nav-cta">Inquire</a></li>
+    </ul>
+</nav>
+
+<main class="post-page">
+
+    <div class="post-header">
+        <div class="post-eyebrow">Template · Reference</div>
+        <h1>A Blank <em>Template</em></h1>
+        <p class="post-subtitle">Copy this file, rename it, replace the content. The scaffolding is already in place.</p>
+        <div class="post-meta">
+            <span>Template</span>
+            <span class="dot">·</span>
+            <span>— min read</span>
+            <span class="dot">·</span>
+            <span>Template</span>
+        </div>
+    </div>
+
+    <figure class="post-hero">
+        <img class="post-hero-img" src="/img/gallery/water (1).jpg" alt="Replace this hero image and caption with your own." loading="eager">
+        <figcaption class="post-hero-caption">Replace this hero image and caption with your own.</figcaption>
+    </figure>
+
+    <article class="post-body">
+        <!-- ====================================================
+             BLOG POST TEMPLATE
+             Copy this file, rename it (e.g. /blog/my-new-post.html)
+             and replace this whole <article class="post-body"> content.
+
+             AVAILABLE BUILDING BLOCKS:
+
+             Lead paragraph (first line, larger and italic):
+                 <p class="lead">Your opening line here.</p>
+
+             Regular paragraph:
+                 <p>Body text here.</p>
+
+             Heading 2 (with optional emphasis):
+                 <h2>Section title with <em>emphasis</em></h2>
+
+             Heading 3:
+                 <h3>Subsection</h3>
+
+             Bullet list:
+                 <ul>
+                     <li>Item 1</li>
+                     <li><strong>Bold item</strong></li>
+                 </ul>
+
+             Pull-quote / blockquote:
+                 <blockquote>An important sentence you want to highlight.</blockquote>
+
+             Single image with caption:
+                 <figure class="post-image">
+                     <img src="/img/gallery/your-image.jpg" alt="description" loading="lazy">
+                     <figcaption class="post-image-caption">Caption with <span class="hi">हिंदी</span> if needed.</figcaption>
+                 </figure>
+
+             Two images side-by-side:
+                 <div class="post-image-pair">
+                     <figure class="post-image">...</figure>
+                     <figure class="post-image">...</figure>
+                 </div>
+
+             Section divider:
+                 <hr class="post-divider">
+
+             Internal link (to another page):
+                 <a href="/gallery.html">View the gallery</a>
+
+             External link (always with rel attrs):
+                 <a href="https://example.com" target="_blank" rel="noopener noreferrer">Link text</a>
+
+             ====================================================
+             ALSO REMEMBER TO UPDATE IN <head>:
+             - <title>Your Post Title | Missing Palette® · Journal</title>
+             - meta description
+             - meta og:title, og:description, og:image
+             - <link rel="canonical" href="https://missingpalette.com/blog/your-slug.html">
+             - JSON-LD "headline" and "image"
+
+             AND IN THE PAGE BODY:
+             - .post-eyebrow text (e.g. "Tutorial · Watercolor · 2026")
+             - h1 title
+             - .post-subtitle dek line
+             - .post-meta date / reading time / category
+             - .post-hero img src and caption
+
+             FINALLY, ADD A CARD TO blog.html SO THIS POST APPEARS IN THE INDEX.
+             ==================================================== -->
+
+        <p class="lead">Lead paragraph &mdash; this is the opening line, set in larger italic type. Use it to set the tone of the post in one breath.</p>
+
+        <p>This is a regular paragraph. Use these for the bulk of your writing. You can add <strong>bold emphasis</strong> sparingly, or <em>italic</em> when you mean it. Links inside paragraphs look <a href="/">like this</a> &mdash; ochre, with a soft underline that warms to crimson on hover.</p>
+
+        <p>Keep paragraphs short. Two to four sentences each. White space is a feature, not a bug.</p>
+
+        <figure class="post-image">
+            <img src="/img/gallery/water (1).jpg" alt="Replace this with a real image" loading="lazy">
+            <figcaption class="post-image-caption">A caption that explains the image. Optional <span class="hi">हिंदी</span> works inline.</figcaption>
+        </figure>
+
+        <h2>This is a <em>section heading</em></h2>
+
+        <p>Section headings use H2 tags and get a small dash automatically prepended in the styling. The italic <em>emphasis</em> renders in crimson.</p>
+
+        <p>Try to make headings feel like a thought, not a label. "Letting the painting flow" reads better than "Painting techniques."</p>
+
+        <h3>This is a sub-heading</h3>
+
+        <p>H3 is for sub-points within a section. Use sparingly &mdash; if you find yourself reaching for H3 a lot, the post probably wants to be split into more H2s instead.</p>
+
+        <h2>Lists, when <em>they help</em></h2>
+
+        <p>Use bullet lists for genuinely list-like content. Don't bulletize prose just because you can.</p>
+
+        <ul>
+            <li><strong>Lead with the bold</strong> &mdash; the bolded phrase is a kind of mini-heading for the bullet</li>
+            <li><strong>Then explain</strong> &mdash; the rest of the bullet is the supporting sentence</li>
+            <li><strong>Keep them parallel</strong> &mdash; same shape across all bullets reads cleaner</li>
+        </ul>
+
+        <h2>A blockquote, <em>when needed</em></h2>
+
+        <p>For a sentence you want to give extra weight, use a blockquote. They're set in display serif and italic, with an ochre left border.</p>
+
+        <blockquote>This is a pull-quote. Use it for the one sentence in the post you most want a reader to remember.</blockquote>
+
+        <p>Don't use blockquotes for every other sentence. They lose their power that way.</p>
+
+        <hr class="post-divider">
+
+        <h2>Pairing <em>images</em></h2>
+
+        <p>For comparing two paintings or showing before/after, use a side-by-side pair:</p>
+
+        <div class="post-image-pair">
+            <figure class="post-image">
+                <img src="/img/gallery/water (2).jpg" alt="Replace with first image" loading="lazy">
+                <figcaption class="post-image-caption">Caption A</figcaption>
+            </figure>
+            <figure class="post-image">
+                <img src="/img/gallery/water (2a).jpg" alt="Replace with second image" loading="lazy">
+                <figcaption class="post-image-caption">Caption B</figcaption>
+            </figure>
+        </div>
+
+        <h2>Final <em>thought</em></h2>
+
+        <p>End with one closing paragraph. Pull the thread of the post together. Don't summarize &mdash; readers can scroll up. Instead, leave them with the one thing you want them to take with them.</p>
+
+        <p>The CTA section below this article is automatic. You don't need to add a "want to learn more" paragraph at the end &mdash; the page will already invite the reader to commission a piece or register for a class.</p>
+    </article>
+
+    <div class="post-back-link">
+        <a href="/blog.html">← All journal entries</a>
+    </div>
+
+    <section class="post-end-cta">
+        <h3>Want to <em>paint with me</em>?</h3>
+        <p>I take a small number of commissions each year and run watercolor / oil / sketching classes in Pune, Ranchi, and online. Drop a line.</p>
+        <div class="btn-row">
+            <a href="/#commissions" class="btn primary">Commission a piece <span class="arrow">→</span></a>
+            <a href="/register.html" class="btn">Register for a class <span class="arrow">→</span></a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand">Missing <em>Palette</em><sup class="tm">®</sup></div>
+            <p class="footer-tagline">The studio practice of Indian artist Ankit Agrawal. Watercolor, oil, and the things in between.</p>
+        </div>
+        <div class="footer-col">
+            <h5>Explore</h5>
+            <ul>
+                <li><a href="/gallery.html">Gallery</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#commissions">Commissions</a></li>
+                <li><a href="/blog.html">Journal</a></li>
+                <li><a href="/products.html">Shop</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5>Connect</h5>
+            <ul class="footer-social-list">
+                <li><a href="https://www.instagram.com/imankit_art" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a></li>
+                <li><a href="https://www.youtube.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>YouTube</a></li>
+                <li><a href="https://www.facebook.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
+                <li><a href="https://www.linkedin.com/in/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
+                <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Topmate · Book a call</a></li>
+                <li><a href="https://www.patreon.com/bePatron?u=15378539" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14.5" cy="9.5" r="6.5"/><line x1="4" y1="3" x2="4" y2="21"/></svg>Patreon</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5>Inquire</h5>
+            <ul>
+                <li><a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a></li>
+                <li><a href="/#contact">Contact form</a></li>
+                <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer">Book a 1:1 call</a></li>
+                <li><a href="/register.html">Register for class</a></li>
+                <li><a href="/2025_Ankit_K_Agrawal_Resume.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-legal">
+        <div class="copyright-line">
+            <p>© 2019&ndash;2026 Missing Palette<sup class="tm">®</sup> · All Rights Reserved.</p>
+            <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal - unauthorized reproduction is prohibited.</p>
+        </div>
+        <div class="right">
+            <a href="/privacy.html">Privacy</a>
+            <a href="/legal.html">Legal</a>
+        </div>
+    </div>
+    <p class="made-with">Made with <span class="heart">❤</span> by <span class="aka">AKA</span></p>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+</button>
+
+<script src="/js/missingpalette.js" defer></script>
+
+</body>
+</html>
