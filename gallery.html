@@ -14,14 +14,14 @@
     gtag('config', 'G-HFGSTZXF57');
 </script>
 
-<title>Gallery - Watercolor, Oil, Sketch | Missing Palette® · Ankit Agrawal</title>
-<meta name="description" content="The full body of work by Indian artist Ankit Agrawal - 80+ watercolors, oils, acrylics, and sketches. Browse the gallery of Missing Palette®.">
+<title>Gallery — Watercolor, Oil, Sketch | Missing Palette® · Ankit Agrawal</title>
+<meta name="description" content="The full body of work by Indian artist Ankit Agrawal — 80+ watercolors, oils, acrylics, and sketches. Browse the gallery of Missing Palette®.">
 <meta name="author" content="Ankit Agrawal">
 <meta name="copyright" content="© 2019–2026 Missing Palette®">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://missingpalette.com/gallery.html">
 
-<meta property="og:title" content="Gallery - Missing Palette® · Ankit Agrawal">
+<meta property="og:title" content="Gallery — Missing Palette® · Ankit Agrawal">
 <meta property="og:description" content="80+ original watercolors, oils, sketches, and acrylics by Indian artist Ankit Agrawal.">
 <meta property="og:image" content="https://missingpalette.com/thumb.jpg">
 <meta property="og:url" content="https://missingpalette.com/gallery.html">
@@ -29,7 +29,7 @@
 <meta property="og:rights" content="© 2019–2026 Missing Palette®. All Rights Reserved.">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gallery - Missing Palette®">
+<meta name="twitter:title" content="Gallery — Missing Palette®">
 <meta name="twitter:description" content="80+ original artworks by Ankit Agrawal.">
 <meta name="twitter:image" content="https://missingpalette.com/thumb.jpg">
 
@@ -293,6 +293,40 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Prints available badge */
+
+/* "Prints Available" chip/box inside card body */
+.gallery-card-print-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.6rem 1rem 1rem;
+    padding: 0.5rem 0.85rem;
+    background: transparent;
+    border: 1px solid var(--ochre);
+    color: var(--ochre);
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: background 240ms ease, color 240ms ease;
+    cursor: pointer;
+}
+.gallery-card-print-link:hover {
+    background: var(--ochre);
+    color: var(--paper);
+}
+.gallery-card-print-link::after {
+    content: "→";
+    transition: transform 240ms ease;
+}
+.gallery-card-print-link:hover::after {
+    transform: translateX(2px);
+}
+
 </style>
 
 </head>
@@ -326,16 +360,16 @@
 <!-- HERO with rotating monk/Hayaa/Shagird/Confusion -->
 <section class="gallery-page-hero">
     <div class="gallery-hero-bg" id="galleryHeroBg" aria-hidden="true">
-        <div class="gallery-hero-bg-img active" style="background-image: url('img/gallery/Slide\ 1.jpg');"></div>
-        <div class="gallery-hero-bg-img" style="background-image: url('img/gallery/Slider\ 2.jpg');"></div>
-        <div class="gallery-hero-bg-img" style="background-image: url('img/gallery/Slider\ 3.jpg');"></div>
-        <div class="gallery-hero-bg-img" style="background-image: url('img/gallery/Slider\ 4.jpg');"></div>
+        <div class="gallery-hero-bg-img active" style="background-image: url('img/gallery/oil (3).jpg');"></div>
+        <div class="gallery-hero-bg-img" style="background-image: url('img/gallery/oil (11).jpg');"></div>
+        <div class="gallery-hero-bg-img" style="background-image: url('img/gallery/oil (2).jpg');"></div>
+        <div class="gallery-hero-bg-img" style="background-image: url('img/gallery/acrylic (1).jpg');"></div>
     </div>
     <div class="gallery-hero-content">
         <div class="gallery-hero-eyebrow">— The full body of work —</div>
         <h1>Eighty <em>pieces</em>, in watercolor, oil, sketch, and acrylic.</h1>
         <p>
-            A growing collection of original works - portraits painted from life, plein-air watercolors of Banaras and BIT Mesra, oils of Indian villagers and tribals, and the workshops where many of these techniques were taught.
+            A growing collection of original works — portraits painted from life, plein-air watercolors of Banaras and BIT Mesra, oils of Indian villagers and tribals, and the workshops where many of these techniques were taught.
         </p>
     </div>
 </section>
@@ -343,6 +377,7 @@
 <!-- FILTER BAR -->
 <div class="gallery-filter-bar" id="galleryFilterBar">
     <button class="gallery-filter-btn active" data-filter="all">All <span class="gallery-filter-count">80</span></button>
+    <button class="gallery-filter-btn" data-filter="prints">Prints Available <span class="gallery-filter-count">6</span></button>
     <button class="gallery-filter-btn" data-filter="watercolor">Watercolor <span class="gallery-filter-count">20</span></button>
     <button class="gallery-filter-btn" data-filter="oil">Oil <span class="gallery-filter-count">12</span></button>
     <button class="gallery-filter-btn" data-filter="acrylic">Acrylic <span class="gallery-filter-count">9</span></button>
@@ -352,9 +387,9 @@
 
 <section class="gallery-section">
     <div class="gallery-grid" id="galleryGrid">
-            <a href="img/gallery/water (1).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="भण्डि बाबा" data-medium="Watercolor on paper" data-year="2017" data-desc="A wandering sadhu lost in his own smoke.">
+            <a href="img/gallery/water (1).jpg" class="gallery-card" data-category="watercolor" data-print-url="REPLACE_WITH_PRINT_URL_BHANDI_BABA" data-lightbox="gallery" data-title="" data-title-hi="भण्डि बाबा" data-medium="Watercolor on paper" data-year="2017" data-desc="A wandering sadhu lost in his own smoke.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (1).jpg" alt="Watercolor painting - &quot;Bhandi Baba&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (1).jpg" alt="Watercolor painting — &quot;Bhandi Baba&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -364,10 +399,11 @@
                     <span class="gallery-card-medium">Watercolor</span>
                 </div>
                 <p class="gallery-card-desc">A wandering sadhu lost in his own smoke.</p>
+                <span class="gallery-card-print-link">Prints Available</span>
             </a>
-            <a href="img/gallery/water (2).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="ढलती मुस्कान" data-medium="Watercolor on paper" data-year="2018" data-desc="A grandmother's laugh - every wrinkle a chapter.">
+            <a href="img/gallery/water (2).jpg" class="gallery-card" data-category="watercolor" data-print-url="REPLACE_WITH_PRINT_URL_DHALTI_MUSKAAN" data-lightbox="gallery" data-title="" data-title-hi="ढलती मुस्कान" data-medium="Watercolor on paper" data-year="2018" data-desc="A grandmother's laugh — every wrinkle a chapter.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (2).jpg" alt="Watercolor painting - &quot;Dhalti Muskaan (Fading Smile)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (2).jpg" alt="Watercolor painting — &quot;Dhalti Muskaan (Fading Smile)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -376,11 +412,12 @@
                     </div>
                     <span class="gallery-card-medium">Watercolor</span>
                 </div>
-                <p class="gallery-card-desc">A grandmother's laugh - every wrinkle a chapter.</p>
+                <p class="gallery-card-desc">A grandmother's laugh — every wrinkle a chapter.</p>
+                <span class="gallery-card-print-link">Prints Available</span>
             </a>
             <a href="img/gallery/water (3).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="पगडण्डी" data-medium="Watercolor on paper" data-year="2018" data-desc="A village trail, painted from memory.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (3).jpg" alt="Watercolor painting - &quot;Pagdandi (Trail)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (3).jpg" alt="Watercolor painting — &quot;Pagdandi (Trail)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -391,9 +428,9 @@
                 </div>
                 <p class="gallery-card-desc">A village trail, painted from memory.</p>
             </a>
-            <a href="img/gallery/water (2a).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="अनिद्रा" data-medium="Watercolor on paper" data-year="2020" data-desc="Wide eyes long past the hour of sleep.">
+            <a href="img/gallery/water (2a).jpg" class="gallery-card" data-category="watercolor" data-print-url="REPLACE_WITH_PRINT_URL_ANIDRA" data-lightbox="gallery" data-title="" data-title-hi="अनिद्रा" data-medium="Watercolor on paper" data-year="2020" data-desc="Wide eyes long past the hour of sleep.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (2a).jpg" alt="Watercolor painting - &quot;Anidra (Insomnia)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (2a).jpg" alt="Watercolor painting — &quot;Anidra (Insomnia)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -403,10 +440,11 @@
                     <span class="gallery-card-medium">Watercolor</span>
                 </div>
                 <p class="gallery-card-desc">Wide eyes long past the hour of sleep.</p>
+                <span class="gallery-card-print-link">Prints Available</span>
             </a>
-            <a href="img/gallery/water (3a).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="केतली" data-medium="Watercolor on paper" data-year="2021" data-desc="The kettle on the chai stove - copper and steam.">
+            <a href="img/gallery/water (3a).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="केतली" data-medium="Watercolor on paper" data-year="2021" data-desc="The kettle on the chai stove — copper and steam.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (3a).jpg" alt="Watercolor painting - &quot;Ketli (Kettle)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (3a).jpg" alt="Watercolor painting — &quot;Ketli (Kettle)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -415,11 +453,11 @@
                     </div>
                     <span class="gallery-card-medium">Watercolor</span>
                 </div>
-                <p class="gallery-card-desc">The kettle on the chai stove - copper and steam.</p>
+                <p class="gallery-card-desc">The kettle on the chai stove — copper and steam.</p>
             </a>
-            <a href="img/gallery/water (3b).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="FROOTY" data-title-hi="" data-medium="Watercolor on paper" data-year="2022" data-desc="A late-90s mango juice carton - pure nostalgia.">
+            <a href="img/gallery/water (3b).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="FROOTY" data-title-hi="" data-medium="Watercolor on paper" data-year="2022" data-desc="A late-90s mango juice carton — pure nostalgia.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (3b).jpg" alt="Watercolor painting - &quot;Frooty&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (3b).jpg" alt="Watercolor painting — &quot;Frooty&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -428,11 +466,11 @@
                     </div>
                     <span class="gallery-card-medium">Watercolor</span>
                 </div>
-                <p class="gallery-card-desc">A late-90s mango juice carton - pure nostalgia.</p>
+                <p class="gallery-card-desc">A late-90s mango juice carton — pure nostalgia.</p>
             </a>
             <a href="img/gallery/water (3c).jpeg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="RINGS" data-title-hi="" data-medium="Watercolor on paper" data-year="2024" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (3c).jpeg" alt="Watercolor painting - &quot;Rings&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (3c).jpeg" alt="Watercolor painting — &quot;Rings&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -445,7 +483,7 @@
             </a>
             <a href="img/gallery/water (4).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="गजराज" data-medium="Watercolor on paper" data-year="2018" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (4).jpg" alt="Watercolor painting - &quot;Gajraj (Elephant King)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (4).jpg" alt="Watercolor painting — &quot;Gajraj (Elephant King)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -458,7 +496,7 @@
             </a>
             <a href="img/gallery/water (5).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="HEY BIRDY" data-title-hi="" data-medium="Watercolor on paper" data-year="2018" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (5).jpg" alt="Watercolor painting - &quot;Hey Birdy&quot; by Ankit Agrawal - Missing Palette (study 1)" loading="lazy">
+                    <img src="img/gallery/water (5).jpg" alt="Watercolor painting — &quot;Hey Birdy&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -471,7 +509,7 @@
             </a>
             <a href="img/gallery/water (6).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="HEY BIRDY" data-title-hi="" data-medium="Watercolor on paper" data-year="2017" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (6).jpg" alt="Watercolor painting - &quot;Hey Birdy&quot; by Ankit Agrawal - Missing Palette (study 2)" loading="lazy">
+                    <img src="img/gallery/water (6).jpg" alt="Watercolor painting — &quot;Hey Birdy&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -484,7 +522,7 @@
             </a>
             <a href="img/gallery/water (6a).jpeg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="HEY BIRDY" data-title-hi="" data-medium="Watercolor on paper" data-year="2018" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (6a).jpeg" alt="Watercolor painting - &quot;Hey Birdy&quot; by Ankit Agrawal - Missing Palette (study 3)" loading="lazy">
+                    <img src="img/gallery/water (6a).jpeg" alt="Watercolor painting — &quot;Hey Birdy&quot; by Ankit Agrawal — Missing Palette (study 3)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -497,7 +535,7 @@
             </a>
             <a href="img/gallery/water (7).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="LANDSCAPE" data-title-hi="" data-medium="Watercolor on paper" data-year="2017" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (7).jpg" alt="Watercolor painting - &quot;Landscape&quot; by Ankit Agrawal - Missing Palette (study 1)" loading="lazy">
+                    <img src="img/gallery/water (7).jpg" alt="Watercolor painting — &quot;Landscape&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -510,7 +548,7 @@
             </a>
             <a href="img/gallery/water (8).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="LANDSCAPE" data-title-hi="" data-medium="Watercolor on paper" data-year="2017" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (8).jpg" alt="Watercolor painting - &quot;Landscape&quot; by Ankit Agrawal - Missing Palette (study 2)" loading="lazy">
+                    <img src="img/gallery/water (8).jpg" alt="Watercolor painting — &quot;Landscape&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -523,7 +561,7 @@
             </a>
             <a href="img/gallery/water (9).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="LANDSCAPE" data-title-hi="" data-medium="Watercolor on paper" data-year="2021" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (9).jpg" alt="Watercolor painting - &quot;Landscape&quot; by Ankit Agrawal - Missing Palette (study 3)" loading="lazy">
+                    <img src="img/gallery/water (9).jpg" alt="Watercolor painting — &quot;Landscape&quot; by Ankit Agrawal — Missing Palette (study 3)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -536,7 +574,7 @@
             </a>
             <a href="img/gallery/water (10).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="BIT MESRA" data-title-hi="" data-medium="Watercolor on paper" data-year="2018" data-desc="Painted on campus during my undergraduate years.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (10).jpg" alt="Watercolor painting - &quot;Bit Mesra&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (10).jpg" alt="Watercolor painting — &quot;Bit Mesra&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -549,7 +587,7 @@
             </a>
             <a href="img/gallery/water (11).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="SKY" data-title-hi="" data-medium="Watercolor on paper" data-year="2022" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (11).jpg" alt="Watercolor painting - &quot;Sky&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (11).jpg" alt="Watercolor painting — &quot;Sky&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -562,7 +600,7 @@
             </a>
             <a href="img/gallery/water (12).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="HEY HYDERABAD" data-title-hi="" data-medium="Watercolor on paper" data-year="2020" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (12).jpg" alt="Watercolor painting - &quot;Hey Hyderabad&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (12).jpg" alt="Watercolor painting — &quot;Hey Hyderabad&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -575,7 +613,7 @@
             </a>
             <a href="img/gallery/water (13).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="बनारसी सुबह" data-medium="Watercolor on paper" data-year="2019" data-desc="Banaras at dawn, painted from the ghat steps.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (13).jpg" alt="Watercolor painting - &quot;Banarasi Subah (Banaras Morning)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (13).jpg" alt="Watercolor painting — &quot;Banarasi Subah (Banaras Morning)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -588,7 +626,7 @@
             </a>
             <a href="img/gallery/water (14).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="बनारसी शाम" data-medium="Watercolor on paper" data-year="2019" data-desc="The same ghat at evening, lit by aarti flames.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (14).jpg" alt="Watercolor painting - &quot;Banarasi Shaam (Banaras Evening)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (14).jpg" alt="Watercolor painting — &quot;Banarasi Shaam (Banaras Evening)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -601,7 +639,7 @@
             </a>
             <a href="img/gallery/water (15).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="बनारसी धूप" data-medium="Watercolor on paper" data-year="2019" data-desc="A watercolor study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (15).jpg" alt="Watercolor painting - &quot;Banarasi Dhoop (Banaras Sunlight)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/water (15).jpg" alt="Watercolor painting — &quot;Banarasi Dhoop (Banaras Sunlight)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -614,7 +652,7 @@
             </a>
             <a href="img/gallery/oil (1).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="आँचल" data-medium="Oil on canvas" data-year="2020" data-desc="A tribal father holding his sleeping child.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (1).jpg" alt="Oil painting - &quot;Aanchal&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/oil (1).jpg" alt="Oil painting — &quot;Aanchal&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -627,7 +665,7 @@
             </a>
             <a href="img/gallery/oil (2).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="शागिर्द" data-medium="Oil on canvas" data-year="2021" data-desc="A Rajasthani snake charmer, a disciple to his craft.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (2).jpg" alt="Oil painting - &quot;Shagird (Disciple)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/oil (2).jpg" alt="Oil painting — &quot;Shagird (Disciple)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -638,9 +676,9 @@
                 </div>
                 <p class="gallery-card-desc">A Rajasthani snake charmer, a disciple to his craft.</p>
             </a>
-            <a href="img/gallery/oil (3).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="चिंतन" data-medium="Oil on canvas" data-year="2022" data-desc="A monk in contemplation - light against a sea of black.">
+            <a href="img/gallery/oil (3).jpg" class="gallery-card" data-category="oil" data-print-url="REPLACE_WITH_PRINT_URL_CHINTAN" data-lightbox="gallery" data-title="" data-title-hi="चिंतन" data-medium="Oil on canvas" data-year="2022" data-desc="A monk in contemplation — light against a sea of black.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (3).jpg" alt="Oil painting - &quot;Chintan (Contemplation)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/oil (3).jpg" alt="Oil painting — &quot;Chintan (Contemplation)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -649,11 +687,12 @@
                     </div>
                     <span class="gallery-card-medium">Oil</span>
                 </div>
-                <p class="gallery-card-desc">A monk in contemplation - light against a sea of black.</p>
+                <p class="gallery-card-desc">A monk in contemplation — light against a sea of black.</p>
+                <span class="gallery-card-print-link">Prints Available</span>
             </a>
             <a href="img/gallery/oil (4).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="बनारसी दर्शन" data-medium="Oil on canvas" data-year="2019" data-desc="A street sadhu blessing pilgrims at Manikarnika.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (4).jpg" alt="Oil painting - &quot;Banarasi Darshan (Banaras Sight)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/oil (4).jpg" alt="Oil painting — &quot;Banarasi Darshan (Banaras Sight)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -664,9 +703,9 @@
                 </div>
                 <p class="gallery-card-desc">A street sadhu blessing pilgrims at Manikarnika.</p>
             </a>
-            <a href="img/gallery/oil (5).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="OMRAN DAQNEESH" data-title-hi="" data-medium="Oil on canvas" data-year="2017" data-desc="The boy from Aleppo - a war's quiet portrait.">
+            <a href="img/gallery/oil (5).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="OMRAN DAQNEESH" data-title-hi="" data-medium="Oil on canvas" data-year="2017" data-desc="The boy from Aleppo — a war's quiet portrait.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (5).jpg" alt="Oil painting - &quot;Omran Daqneesh&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/oil (5).jpg" alt="Oil painting — &quot;Omran Daqneesh&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -675,11 +714,11 @@
                     </div>
                     <span class="gallery-card-medium">Oil</span>
                 </div>
-                <p class="gallery-card-desc">The boy from Aleppo - a war's quiet portrait.</p>
+                <p class="gallery-card-desc">The boy from Aleppo — a war's quiet portrait.</p>
             </a>
-            <a href="img/gallery/oil (6).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="TULIP BUDDHA" data-title-hi="" data-medium="Oil on canvas" data-year="2022" data-desc="Buddha rendered in tulip petals - meditation in bloom.">
+            <a href="img/gallery/oil (6).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="TULIP BUDDHA" data-title-hi="" data-medium="Oil on canvas" data-year="2022" data-desc="Buddha rendered in tulip petals — meditation in bloom.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (6).jpg" alt="Oil painting - &quot;Tulip Buddha&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/oil (6).jpg" alt="Oil painting — &quot;Tulip Buddha&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -688,11 +727,11 @@
                     </div>
                     <span class="gallery-card-medium">Oil</span>
                 </div>
-                <p class="gallery-card-desc">Buddha rendered in tulip petals - meditation in bloom.</p>
+                <p class="gallery-card-desc">Buddha rendered in tulip petals — meditation in bloom.</p>
             </a>
             <a href="img/gallery/oil (7).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="रफ़्तार" data-medium="Oil on canvas" data-year="2020" data-desc="An oil painting study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (7).jpg" alt="Oil painting - &quot;रफ़्तार&quot; by Ankit Agrawal - Missing Palette (study 1)" loading="lazy">
+                    <img src="img/gallery/oil (7).jpg" alt="Oil painting — &quot;रफ़्तार&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -705,7 +744,7 @@
             </a>
             <a href="img/gallery/oil (8).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="रफ़्तार" data-medium="Oil on canvas" data-year="2022" data-desc="An oil painting study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (8).jpg" alt="Oil painting - &quot;रफ़्तार&quot; by Ankit Agrawal - Missing Palette (study 2)" loading="lazy">
+                    <img src="img/gallery/oil (8).jpg" alt="Oil painting — &quot;रफ़्तार&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -718,7 +757,7 @@
             </a>
             <a href="img/gallery/oil (9).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="FREEDOM" data-title-hi="" data-medium="Oil on canvas" data-year="2023" data-desc="An oil painting study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (9).jpg" alt="Oil painting - &quot;Freedom&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/oil (9).jpg" alt="Oil painting — &quot;Freedom&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -731,7 +770,7 @@
             </a>
             <a href="img/gallery/oil (10).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="हया" data-medium="Oil on canvas" data-year="2023" data-desc="A study in modesty and form.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (10).jpg" alt="Oil painting - &quot;Hayaa (Modesty)&quot; by Ankit Agrawal - Missing Palette (study 1)" loading="lazy">
+                    <img src="img/gallery/oil (10).jpg" alt="Oil painting — &quot;Hayaa (Modesty)&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -742,9 +781,9 @@
                 </div>
                 <p class="gallery-card-desc">A study in modesty and form.</p>
             </a>
-            <a href="img/gallery/oil (11).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="हया" data-medium="Oil on canvas" data-year="2023" data-desc="A study in modesty and form.">
+            <a href="img/gallery/oil (11).jpg" class="gallery-card" data-category="oil" data-print-url="REPLACE_WITH_PRINT_URL_HAYAA" data-lightbox="gallery" data-title="" data-title-hi="हया" data-medium="Oil on canvas" data-year="2023" data-desc="A study in modesty and form.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (11).jpg" alt="Oil painting - &quot;Hayaa (Modesty)&quot; by Ankit Agrawal - Missing Palette (study 2)" loading="lazy">
+                    <img src="img/gallery/oil (11).jpg" alt="Oil painting — &quot;Hayaa (Modesty)&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -754,10 +793,11 @@
                     <span class="gallery-card-medium">Oil</span>
                 </div>
                 <p class="gallery-card-desc">A study in modesty and form.</p>
+                <span class="gallery-card-print-link">Prints Available</span>
             </a>
             <a href="img/gallery/oil (12).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="Radha Krishna" data-title-hi="" data-medium="Oil on canvas" data-year="2020" data-desc="An oil painting study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (12).jpg" alt="Oil painting - &quot;Radha Krishna&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/oil (12).jpg" alt="Oil painting — &quot;Radha Krishna&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -768,9 +808,9 @@
                 </div>
                 <p class="gallery-card-desc">An oil painting study.</p>
             </a>
-            <a href="img/gallery/acrylic (1).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="CONFUSION" data-title-hi="" data-medium="Acrylic on canvas" data-year="2018" data-desc="Faces overlapping in a moment of inner doubt.">
+            <a href="img/gallery/acrylic (1).jpg" class="gallery-card" data-category="acrylic" data-print-url="REPLACE_WITH_PRINT_URL_CONFUSION" data-lightbox="gallery" data-title="CONFUSION" data-title-hi="" data-medium="Acrylic on canvas" data-year="2018" data-desc="Faces overlapping in a moment of inner doubt.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (1).jpg" alt="Acrylic painting - &quot;Confusion&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/acrylic (1).jpg" alt="Acrylic painting — &quot;Confusion&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -780,10 +820,11 @@
                     <span class="gallery-card-medium">Acrylic</span>
                 </div>
                 <p class="gallery-card-desc">Faces overlapping in a moment of inner doubt.</p>
+                <span class="gallery-card-print-link">Prints Available</span>
             </a>
             <a href="img/gallery/acrylic (2).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="" data-title-hi="अमृतांजलि" data-medium="Acrylic on canvas" data-year="2020" data-desc="An offering, painted in deep crimson and gold.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (2).jpg" alt="Acrylic painting - &quot;Amritanjali&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/acrylic (2).jpg" alt="Acrylic painting — &quot;Amritanjali&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -796,7 +837,7 @@
             </a>
             <a href="img/gallery/acrylic (3).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="SHADOW" data-title-hi="" data-medium="Acrylic on canvas" data-year="2017" data-desc="A figure half-emerged from darkness.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3).jpg" alt="Acrylic painting - &quot;Shadow&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/acrylic (3).jpg" alt="Acrylic painting — &quot;Shadow&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -809,7 +850,7 @@
             </a>
             <a href="img/gallery/acrylic (3a).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="HERCULES" data-title-hi="" data-medium="Acrylic on canvas" data-year="2018" data-desc="A study of mythological strength in motion.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3a).jpg" alt="Acrylic painting - &quot;Hercules&quot; by Ankit Agrawal - Missing Palette (study 1)" loading="lazy">
+                    <img src="img/gallery/acrylic (3a).jpg" alt="Acrylic painting — &quot;Hercules&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -822,7 +863,7 @@
             </a>
             <a href="img/gallery/acrylic (3b).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="HERCULES" data-title-hi="" data-medium="Acrylic on canvas" data-year="2018" data-desc="A study of mythological strength in motion.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3b).jpg" alt="Acrylic painting - &quot;Hercules&quot; by Ankit Agrawal - Missing Palette (study 2)" loading="lazy">
+                    <img src="img/gallery/acrylic (3b).jpg" alt="Acrylic painting — &quot;Hercules&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -835,7 +876,7 @@
             </a>
             <a href="img/gallery/acrylic (3c).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="HERCULES" data-title-hi="" data-medium="Acrylic on canvas" data-year="2018" data-desc="A study of mythological strength in motion.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3c).jpg" alt="Acrylic painting - &quot;Hercules&quot; by Ankit Agrawal - Missing Palette (study 3)" loading="lazy">
+                    <img src="img/gallery/acrylic (3c).jpg" alt="Acrylic painting — &quot;Hercules&quot; by Ankit Agrawal — Missing Palette (study 3)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -848,7 +889,7 @@
             </a>
             <a href="img/gallery/acrylic (3d).jpeg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="" data-title-hi="रफ़्तार" data-medium="Acrylic on canvas" data-year="2023" data-desc="An acrylic painting study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3d).jpeg" alt="Acrylic painting - &quot;रफ़्तार&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/acrylic (3d).jpeg" alt="Acrylic painting — &quot;रफ़्तार&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -861,7 +902,7 @@
             </a>
             <a href="img/gallery/acrylic (4).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="MINI PAINTING" data-title-hi="" data-medium="Acrylic on canvas" data-year="2021" data-desc="An acrylic painting study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (4).jpg" alt="Acrylic painting - &quot;Mini Painting&quot; by Ankit Agrawal - Missing Palette (study 1)" loading="lazy">
+                    <img src="img/gallery/acrylic (4).jpg" alt="Acrylic painting — &quot;Mini Painting&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -874,7 +915,7 @@
             </a>
             <a href="img/gallery/acrylic (5).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="MINI PAINTING" data-title-hi="" data-medium="Acrylic on canvas" data-year="2017" data-desc="An acrylic painting study.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (5).jpg" alt="Acrylic painting - &quot;Mini Painting&quot; by Ankit Agrawal - Missing Palette (study 2)" loading="lazy">
+                    <img src="img/gallery/acrylic (5).jpg" alt="Acrylic painting — &quot;Mini Painting&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -887,7 +928,7 @@
             </a>
             <a href="img/gallery/sketch (1a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (1a).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 1)" loading="lazy">
+                    <img src="img/gallery/sketch (1a).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -900,7 +941,7 @@
             </a>
             <a href="img/gallery/sketch (1b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (1b).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 2)" loading="lazy">
+                    <img src="img/gallery/sketch (1b).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -913,7 +954,7 @@
             </a>
             <a href="img/gallery/sketch (1c).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2017" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (1c).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 3)" loading="lazy">
+                    <img src="img/gallery/sketch (1c).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 3)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -926,7 +967,7 @@
             </a>
             <a href="img/gallery/sketch (2a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2a).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 4)" loading="lazy">
+                    <img src="img/gallery/sketch (2a).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 4)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -939,7 +980,7 @@
             </a>
             <a href="img/gallery/sketch (2a1).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2017" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2a1).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 5)" loading="lazy">
+                    <img src="img/gallery/sketch (2a1).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 5)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -952,7 +993,7 @@
             </a>
             <a href="img/gallery/sketch (2a2) (2).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2a2) (2).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 6)" loading="lazy">
+                    <img src="img/gallery/sketch (2a2) (2).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 6)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -965,7 +1006,7 @@
             </a>
             <a href="img/gallery/sketch (2a2).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2019" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2a2).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 7)" loading="lazy">
+                    <img src="img/gallery/sketch (2a2).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 7)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -978,7 +1019,7 @@
             </a>
             <a href="img/gallery/sketch (2b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2b).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 8)" loading="lazy">
+                    <img src="img/gallery/sketch (2b).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 8)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -991,7 +1032,7 @@
             </a>
             <a href="img/gallery/sketch (2c).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2017" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2c).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 9)" loading="lazy">
+                    <img src="img/gallery/sketch (2c).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 9)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1004,7 +1045,7 @@
             </a>
             <a href="img/gallery/sketch (3a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2019" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3a).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 10)" loading="lazy">
+                    <img src="img/gallery/sketch (3a).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 10)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1017,7 +1058,7 @@
             </a>
             <a href="img/gallery/sketch (3b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3b).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 11)" loading="lazy">
+                    <img src="img/gallery/sketch (3b).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 11)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1030,7 +1071,7 @@
             </a>
             <a href="img/gallery/sketch (3c).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3c).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 12)" loading="lazy">
+                    <img src="img/gallery/sketch (3c).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 12)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1043,7 +1084,7 @@
             </a>
             <a href="img/gallery/sketch (3c1).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3c1).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 13)" loading="lazy">
+                    <img src="img/gallery/sketch (3c1).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 13)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1056,7 +1097,7 @@
             </a>
             <a href="img/gallery/sketch (3d).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3d).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 14)" loading="lazy">
+                    <img src="img/gallery/sketch (3d).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 14)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1069,7 +1110,7 @@
             </a>
             <a href="img/gallery/sketch (4a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4a).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 15)" loading="lazy">
+                    <img src="img/gallery/sketch (4a).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 15)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1082,7 +1123,7 @@
             </a>
             <a href="img/gallery/sketch (4b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4b).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 16)" loading="lazy">
+                    <img src="img/gallery/sketch (4b).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 16)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1095,7 +1136,7 @@
             </a>
             <a href="img/gallery/sketch (4c).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4c).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 17)" loading="lazy">
+                    <img src="img/gallery/sketch (4c).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 17)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1108,7 +1149,7 @@
             </a>
             <a href="img/gallery/sketch (4d).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4d).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 18)" loading="lazy">
+                    <img src="img/gallery/sketch (4d).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 18)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1121,7 +1162,7 @@
             </a>
             <a href="img/gallery/sketch (4f).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4f).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 19)" loading="lazy">
+                    <img src="img/gallery/sketch (4f).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 19)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1134,7 +1175,7 @@
             </a>
             <a href="img/gallery/sketch (4g).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 20)" loading="lazy">
+                    <img src="img/gallery/sketch (4g).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 20)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1147,7 +1188,7 @@
             </a>
             <a href="img/gallery/sketch (4g1).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2017" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g1).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 21)" loading="lazy">
+                    <img src="img/gallery/sketch (4g1).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 21)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1160,7 +1201,7 @@
             </a>
             <a href="img/gallery/sketch (4g2).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g2).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 22)" loading="lazy">
+                    <img src="img/gallery/sketch (4g2).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 22)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1173,7 +1214,7 @@
             </a>
             <a href="img/gallery/sketch (4g3).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g3).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 23)" loading="lazy">
+                    <img src="img/gallery/sketch (4g3).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 23)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1186,7 +1227,7 @@
             </a>
             <a href="img/gallery/sketch (4g6).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g6).jpg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 24)" loading="lazy">
+                    <img src="img/gallery/sketch (4g6).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 24)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1199,7 +1240,7 @@
             </a>
             <a href="img/gallery/sketch (5).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (5).jpeg" alt="Charcoal sketch - &quot;Portrait&quot; by Ankit Agrawal - Missing Palette (study 25)" loading="lazy">
+                    <img src="img/gallery/sketch (5).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 25)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1212,7 +1253,7 @@
             </a>
             <a href="img/gallery/sketch (5a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="" data-title-hi="गजराज" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (5a).jpg" alt="Charcoal sketch - &quot;Gajraj (Elephant King)&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/sketch (5a).jpg" alt="Charcoal sketch — &quot;Gajraj (Elephant King)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1225,7 +1266,7 @@
             </a>
             <a href="img/gallery/sketch (5b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="QUICK SKETCH" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (5b).jpg" alt="Charcoal sketch - &quot;Quick Sketch&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/sketch (5b).jpg" alt="Charcoal sketch — &quot;Quick Sketch&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1238,7 +1279,7 @@
             </a>
             <a href="img/gallery/sketch (11).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="Maata Ji" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (11).jpeg" alt="Charcoal sketch - &quot;Maata Ji&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/sketch (11).jpeg" alt="Charcoal sketch — &quot;Maata Ji&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1251,7 +1292,7 @@
             </a>
             <a href="img/gallery/sketch (12).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="" data-title-hi="रफ़्तार" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (12).jpg" alt="Charcoal sketch - &quot;रफ़्तार&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/sketch (12).jpg" alt="Charcoal sketch — &quot;रफ़्तार&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1264,7 +1305,7 @@
             </a>
             <a href="img/gallery/sketch (13).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="BIT MESRA" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="Painted on campus during my undergraduate years.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (13).jpg" alt="Charcoal sketch - &quot;Bit Mesra&quot; by Ankit Agrawal - Missing Palette" loading="lazy">
+                    <img src="img/gallery/sketch (13).jpg" alt="Charcoal sketch — &quot;Bit Mesra&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1277,7 +1318,7 @@
             </a>
             <a href="img/gallery/ws (1).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2021" data-desc="A frame from a teaching workshop.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (1).jpg" alt="Art workshop conducted by Ankit Agrawal - Missing Palette (session 1)" loading="lazy">
+                    <img src="img/gallery/ws (1).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 1)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1290,7 +1331,7 @@
             </a>
             <a href="img/gallery/ws (2).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2024" data-desc="A frame from a teaching workshop.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (2).jpg" alt="Art workshop conducted by Ankit Agrawal - Missing Palette (session 2)" loading="lazy">
+                    <img src="img/gallery/ws (2).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 2)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1303,7 +1344,7 @@
             </a>
             <a href="img/gallery/ws (3).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2021" data-desc="A frame from a teaching workshop.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (3).jpg" alt="Art workshop conducted by Ankit Agrawal - Missing Palette (session 3)" loading="lazy">
+                    <img src="img/gallery/ws (3).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 3)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1316,7 +1357,7 @@
             </a>
             <a href="img/gallery/ws (4).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2020" data-desc="A frame from a teaching workshop.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (4).jpg" alt="Art workshop conducted by Ankit Agrawal - Missing Palette (session 4)" loading="lazy">
+                    <img src="img/gallery/ws (4).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 4)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1329,7 +1370,7 @@
             </a>
             <a href="img/gallery/ws (7).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2022" data-desc="A frame from a teaching workshop.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (7).jpg" alt="Art workshop conducted by Ankit Agrawal - Missing Palette (session 5)" loading="lazy">
+                    <img src="img/gallery/ws (7).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 5)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1342,7 +1383,7 @@
             </a>
             <a href="img/gallery/ws (8).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2024" data-desc="A frame from a teaching workshop.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (8).jpg" alt="Art workshop conducted by Ankit Agrawal - Missing Palette (session 6)" loading="lazy">
+                    <img src="img/gallery/ws (8).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 6)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1355,7 +1396,7 @@
             </a>
             <a href="img/gallery/ws (9).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2022" data-desc="A frame from a teaching workshop.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (9).jpg" alt="Art workshop conducted by Ankit Agrawal - Missing Palette (session 7)" loading="lazy">
+                    <img src="img/gallery/ws (9).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 7)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1368,7 +1409,7 @@
             </a>
             <a href="img/gallery/ws (10).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2023" data-desc="A frame from a teaching workshop.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (10).jpg" alt="Art workshop conducted by Ankit Agrawal - Missing Palette (session 8)" loading="lazy">
+                    <img src="img/gallery/ws (10).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 8)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1381,7 +1422,7 @@
             </a>
             <a href="img/gallery/ws (11).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2019" data-desc="A frame from a teaching workshop.">
                 <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (11).jpg" alt="Art workshop conducted by Ankit Agrawal - Missing Palette (session 9)" loading="lazy">
+                    <img src="img/gallery/ws (11).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 9)" loading="lazy">
                 </div>
                 <div class="gallery-card-meta">
                     <div class="gallery-card-text">
@@ -1445,7 +1486,7 @@
     <div class="footer-legal">
         <div class="copyright-line">
             <p>© 2019&ndash;2026 Missing Palette<sup class="tm">®</sup> · All Rights Reserved.</p>
-            <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal - unauthorized reproduction is prohibited.</p>
+            <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal — unauthorized reproduction is prohibited.</p>
         </div>
         <div class="right">
             <a href="/privacy.html">Privacy</a>
@@ -1477,7 +1518,11 @@
             filterBar.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             cards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) card.classList.remove('hidden');
+                let show = false;
+                if (filter === 'all') show = true;
+                else if (filter === 'prints') show = card.hasAttribute('data-print-url');
+                else show = card.dataset.category === filter;
+                if (show) card.classList.remove('hidden');
                 else card.classList.add('hidden');
             });
         });
@@ -1495,8 +1540,26 @@
             }, 5500);
         }
     }
+
+    // PRINT LINK HANDLING — clicks on the "Buy a print" pill open the print URL
+    // instead of triggering the lightbox
+    document.querySelectorAll('.gallery-card-print-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const card = link.closest('.gallery-card[data-print-url]');
+            if (card && card.dataset.printUrl && !card.dataset.printUrl.startsWith('REPLACE_')) {
+                window.open(card.dataset.printUrl, '_blank', 'noopener,noreferrer');
+            } else {
+                alert('Print listing coming soon — check back shortly!');
+            }
+        });
+    });
+
 })();
 </script>
 
 </body>
 </html>
+
+

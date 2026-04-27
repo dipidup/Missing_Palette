@@ -1840,3 +1840,28 @@ section {
     .mp-lightbox-next { right: 1rem; }
     .mp-lightbox-img { max-height: calc(100vh - 14rem); }
 }
+
+
+/* "Prints available" note below commission CTA */
+.commission-prints-note {
+    margin-top: 1.4rem;
+    color: var(--ink-mute);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 38ch;
+}
+.commission-prints-note a {
+    color: var(--ochre);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ochre);
+    padding-bottom: 1px;
+    transition: color 200ms ease, border-color 200ms ease;
+}
+.commission-prints-note a:hover {
+    color: var(--crimson);
+    border-bottom-color: var(--crimson);
+}
+
+
