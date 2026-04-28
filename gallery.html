@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFGSTZXF57"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,14 +13,14 @@
     gtag('config', 'G-HFGSTZXF57');
 </script>
 
-<title>Gallery — Watercolor, Oil, Sketch | Missing Palette® · Ankit Agrawal</title>
-<meta name="description" content="The full body of work by Indian artist Ankit Agrawal — 80+ watercolors, oils, acrylics, and sketches. Browse the gallery of Missing Palette®.">
+<title>Gallery - Watercolor, Oil, Sketch | Missing Palette® · Ankit Agrawal</title>
+<meta name="description" content="The full body of work by Indian artist Ankit Agrawal - 80+ watercolors, oils, acrylics, and sketches. Browse the gallery of Missing Palette®.">
 <meta name="author" content="Ankit Agrawal">
 <meta name="copyright" content="© 2019–2026 Missing Palette®">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://missingpalette.com/gallery.html">
 
-<meta property="og:title" content="Gallery — Missing Palette® · Ankit Agrawal">
+<meta property="og:title" content="Gallery - Missing Palette® · Ankit Agrawal">
 <meta property="og:description" content="80+ original watercolors, oils, sketches, and acrylics by Indian artist Ankit Agrawal.">
 <meta property="og:image" content="https://missingpalette.com/thumb.jpg">
 <meta property="og:url" content="https://missingpalette.com/gallery.html">
@@ -29,21 +28,12 @@
 <meta property="og:rights" content="© 2019–2026 Missing Palette®. All Rights Reserved.">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gallery — Missing Palette®">
+<meta name="twitter:title" content="Gallery - Missing Palette®">
 <meta name="twitter:description" content="80+ original artworks by Ankit Agrawal.">
 <meta name="twitter:image" content="https://missingpalette.com/thumb.jpg">
 
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "ImageGallery",
-    "name": "Missing Palette Gallery",
-    "url": "https://missingpalette.com/gallery.html",
-    "creator": { "@type": "Person", "name": "Ankit Agrawal", "url": "https://missingpalette.com/" },
-    "copyrightHolder": { "@type": "Person", "name": "Ankit Agrawal" },
-    "copyrightYear": "2019",
-    "license": "https://missingpalette.com/legal.html"
-}
+{"@context":"https://schema.org","@type":"ImageGallery","name":"Missing Palette Gallery","url":"https://missingpalette.com/gallery.html","creator":{"@type":"Person","name":"Ankit Agrawal","url":"https://missingpalette.com/"},"copyrightHolder":{"@type":"Person","name":"Ankit Agrawal"},"copyrightYear":"2019","license":"https://missingpalette.com/legal.html"}
 </script>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
@@ -56,9 +46,13 @@
 
 <link rel="stylesheet" href="/css/missingpalette.css">
 
-<!-- Page-specific styles -->
 <style>
-/* Cinematic gallery hero */
+
+/* ============================================================
+   GALLERY PAGE — EXHIBITION LAYOUT
+   ============================================================ */
+
+/* --- Hero (unchanged from your file) --- */
 .gallery-page-hero {
     position: relative;
     min-height: 75vh;
@@ -69,206 +63,353 @@
 }
 .gallery-hero-bg { position: absolute; inset: 0; z-index: 0; }
 .gallery-hero-bg-img {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
     opacity: 0;
-    transition: opacity 1600ms cubic-bezier(0.4, 0, 0.2, 1);
-    transform: scale(1.05);
+    transition: opacity 1600ms cubic-bezier(0.4,0,0.2,1);
     animation: gallery-hero-pan 18s ease-in-out infinite alternate;
 }
 .gallery-hero-bg-img.active { opacity: 1; }
-@keyframes gallery-hero-pan {
-    from { transform: scale(1.05) translate(-1%, 0); }
-    to   { transform: scale(1.10) translate(1%, -1%); }
-}
-.gallery-hero-bg::after {
-    content: "";
+
+/* ── VIDEO / GIF support inside hero bg slides ──────────────────────────────
+   When you swap a slide div for a <video> tag, these rules kick in.
+   The video fills the same space and behaves identically to a bg-image slide.
+   ────────────────────────────────────────────────────────────────────────── */
+.gallery-hero-bg-img video,
+.gallery-hero-bg-img img.hero-gif {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(20,17,15,0.45) 0%, rgba(20,17,15,0.7) 70%, rgba(20,17,15,0.95) 100%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* VIDEO / GIF support inside exhibition section featured images */
+.medium-exhibition-image video,
+.medium-exhibition-image img.ex-gif {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+@keyframes gallery-hero-pan {
+    from { transform: scale(1.05) translate(-1%,0); }
+    to   { transform: scale(1.10) translate(1%,-1%); }
+}
+.gallery-hero-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg,rgba(20,17,15,.45) 0%,rgba(20,17,15,.7) 70%,rgba(20,17,15,.95) 100%);
     z-index: 1;
 }
 .gallery-hero-content {
-    position: relative;
-    z-index: 2;
+    position: relative; z-index: 2;
     padding: 8rem var(--gutter) 3.5rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    width: 100%;
+    max-width: var(--max-width); margin: 0 auto; width: 100%;
     color: var(--paper);
 }
 .gallery-hero-eyebrow {
+    font-family: var(--font-display); font-style: italic;
+    color: var(--ochre-light); font-size: 0.9rem; margin-bottom: 1rem;
+    letter-spacing: 0.04em; display: flex; align-items: center; gap: 0.8rem;
+}
+.gallery-hero-eyebrow::before {
+    content: ""; display: inline-block; width: 32px; height: 1px; background: var(--ochre-light);
+}
+.gallery-page-hero h1 {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(2.2rem,5vw,4rem); line-height: 1.05;
+    letter-spacing: -0.02em; color: var(--paper); margin-bottom: 1.2rem; max-width: 22ch;
+}
+.gallery-page-hero h1 em { font-style: italic; color: var(--ochre-light); }
+.gallery-page-hero p {
+    color: rgba(245,240,230,.78); line-height: 1.7; font-size: 1rem; max-width: 56ch; margin: 0;
+}
+
+/* --- Sticky nav --- */
+.gallery-medium-nav {
+    position: sticky;
+    top: 64px;
+    z-index: 50;
+    background: rgba(245,240,230,0.94);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 var(--gutter);
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.gallery-medium-nav::-webkit-scrollbar { display: none; }
+.gallery-medium-nav a {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 1rem 1.2rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 200ms, border-color 200ms;
+    flex-shrink: 0;
+}
+.gallery-medium-nav a:hover { color: var(--ink); }
+.gallery-medium-nav a.active { color: var(--ink); border-bottom-color: var(--ochre); }
+
+/* --- Medium section wrapper --- */
+.medium-section {
+    padding: 5rem 0 0;
+    border-top: 1px solid var(--line);
+}
+.medium-section:first-of-type { border-top: none; padding-top: 4rem; }
+
+/* --- Exhibition header: big image left, text right --- */
+.medium-exhibition {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    align-items: stretch;
+    min-height: 480px;
+}
+@media (max-width: 820px) {
+    .medium-exhibition { grid-template-columns: 1fr; min-height: auto; }
+}
+
+.medium-exhibition-image {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+    background: var(--paper-deep);
+}
+.medium-exhibition-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.2,0.8,0.2,1);
+}
+.medium-exhibition-image:hover img { transform: scale(1.03); }
+.medium-exhibition-image .ex-img-credit {
+    position: absolute; bottom: 1rem; right: 1rem;
+    font-family: var(--font-body); font-size: 0.65rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(245,240,230,0.55);
+}
+
+.medium-exhibition-text {
+    background: var(--paper-deep);
+    padding: 3.5rem 3.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid var(--line);
+}
+@media (max-width: 820px) {
+    .medium-exhibition-text { border-left: none; border-top: 1px solid var(--line); padding: 2.5rem var(--gutter); }
+}
+.medium-exhibition-text .ex-num {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 1.2rem;
+}
+.medium-exhibition-text h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+}
+.medium-exhibition-text h2 em { font-style: italic; color: var(--crimson); }
+.medium-exhibition-text .ex-featured-title {
     font-family: var(--font-display);
     font-style: italic;
-    color: var(--ochre-light);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.04em;
+    font-size: 1rem;
+    color: var(--ochre);
+    margin-bottom: 0.5rem;
+}
+.medium-exhibition-text p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 1.6rem;
+    max-width: 44ch;
+}
+.medium-exhibition-text .ex-count {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+}
+
+/* --- Horizontal scroll strip --- */
+.medium-strip-wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem var(--gutter) 4rem;
+}
+.medium-strip-label {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
     gap: 0.8rem;
 }
-.gallery-hero-eyebrow::before {
+.medium-strip-label::after {
     content: "";
-    display: inline-block;
-    width: 32px;
+    flex: 1;
     height: 1px;
-    background: var(--ochre-light);
+    background: var(--line);
 }
-.gallery-page-hero h1 {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--paper);
-    margin-bottom: 1.2rem;
-    max-width: 22ch;
-}
-.gallery-page-hero h1 em { font-style: italic; color: var(--ochre-light); }
-.gallery-page-hero p {
-    color: rgba(245, 240, 230, 0.78);
-    line-height: 1.7;
-    font-size: 1rem;
-    max-width: 56ch;
-    margin: 0;
-}
-
-/* Sticky filter bar */
-.gallery-filter-bar {
-    position: sticky;
-    top: 64px;
-    z-index: 50;
-    background: rgba(245, 240, 230, 0.92);
-    backdrop-filter: saturate(140%) blur(10px);
-    -webkit-backdrop-filter: saturate(140%) blur(10px);
-    border-bottom: 1px solid var(--line);
-    padding: 1rem var(--gutter);
+.medium-strip {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 1.2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
 }
-.gallery-filter-btn {
-    background: transparent;
-    border: 1px solid var(--line);
-    color: var(--ink-soft);
-    font-family: var(--font-body);
-    font-size: 0.74rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    padding: 0.6rem 1.1rem;
-    cursor: pointer;
-    transition: all 240ms ease;
-    border-radius: 0;
-}
-.gallery-filter-btn:hover { border-color: var(--ink); color: var(--ink); }
-.gallery-filter-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
-.gallery-filter-count { margin-left: 0.4em; opacity: 0.5; font-size: 0.85em; }
+.medium-strip::-webkit-scrollbar { height: 4px; }
+.medium-strip::-webkit-scrollbar-track { background: transparent; }
+.medium-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
 
-/* Grid */
-.gallery-section { padding: 3rem var(--gutter) 5rem; max-width: var(--max-width); margin: 0 auto; }
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(1.5rem, 3vw, 2.5rem);
-}
-@media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 540px) { .gallery-grid { grid-template-columns: 1fr; } }
-
-/* Cards */
-.gallery-card {
+/* Strip cards */
+.strip-card {
+    flex-shrink: 0;
+    width: 190px;
+    scroll-snap-align: start;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    background: var(--paper-soft);
-    border: 1px solid var(--line);
-    overflow: hidden;
-    transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1),
-                box-shadow 380ms cubic-bezier(0.2, 0.8, 0.2, 1),
-                border-color 380ms ease,
-                opacity 280ms ease;
+    background: transparent;
     cursor: zoom-in;
+    transition: transform 350ms cubic-bezier(0.2,0.8,0.2,1);
 }
-.gallery-card.hidden { display: none; }
-.gallery-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 28px rgba(26, 22, 20, 0.10);
-    border-color: var(--ochre);
-}
-.gallery-card-img-wrap {
-    width: 100%;
-    height: 320px;
+.strip-card:hover { transform: translateY(-6px); }
+.strip-card-img {
+    width: 190px;
+    height: 230px;
     background: var(--paper-deep);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px;
     overflow: hidden;
-    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+    border: none;
+    position: relative;
 }
-@media (max-width: 540px) { .gallery-card-img-wrap { height: 380px; } }
-.gallery-card-img-wrap img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: 0 2px 10px rgba(26, 22, 20, 0.10);
-}
-.gallery-card:hover .gallery-card-img-wrap img { transform: scale(1.025); }
-.gallery-card-meta {
-    padding: 0.85rem 1rem 0.4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 0.75rem;
-}
-.gallery-card-text { flex: 1; min-width: 0; }
-.gallery-card-title {
+.strip-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.7s cubic-bezier(0.2,0.8,0.2,1);
     display: block;
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 1rem;
-    color: var(--ink);
-    line-height: 1.25;
 }
-.gallery-card-title .hi { font-family: var(--font-hindi); font-weight: 400; }
-.gallery-card-title .translit {
+.strip-card:hover .strip-card-img img { transform: scale(1.06); }
+.strip-card-caption {
+    padding: 0.7rem 0 0.5rem;
+}
+.strip-card-title {
+    display: block;
     font-family: var(--font-display);
     font-style: italic;
-    font-weight: 400;
+    font-size: 0.88rem;
     color: var(--ink);
-    margin-left: 0.3rem;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.gallery-card-info {
-    display: block;
-    font-size: 0.66rem;
-    letter-spacing: 0.14em;
+.strip-card-title .hi { font-family: var(--font-hindi); font-style: normal; }
+.strip-card-meta {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink-mute);
-    margin-top: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.gallery-card-year { color: var(--ochre); font-style: normal; }
-.gallery-card-medium {
+.strip-card-meta .year { color: var(--ochre); }
+.strip-card-oneliner {
+    display: block;
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     color: var(--ink-mute);
-    flex-shrink: 0;
-    padding-top: 0.2rem;
+    line-height: 1.4;
+    margin-top: 0.2rem;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
-.gallery-card-desc {
-    padding: 0 1rem 1rem;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 0.86rem;
+
+/* Scroll arrows */
+.strip-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+}
+.strip-arrow {
+    background: transparent;
+    border: 1px solid var(--line);
     color: var(--ink-soft);
-    line-height: 1.5;
-    margin: 0;
-    min-height: 3rem;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: border-color 200ms, color 200ms;
+    font-size: 0.9rem;
+}
+.strip-arrow:hover { border-color: var(--ink); color: var(--ink); }
+
+/* --- Commission CTA --- */
+.hero-yt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.8rem;
+    padding: 0.65rem 1.2rem;
+    border: 1px solid rgba(245,240,230,0.25);
+    color: rgba(245,240,230,0.85);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: rgba(245,240,230,0.07);
+    transition: border-color 220ms, background 220ms, color 220ms;
+    backdrop-filter: blur(4px);
+}
+.hero-yt-btn:hover {
+    border-color: rgba(245,240,230,0.55);
+    background: rgba(245,240,230,0.12);
+    color: #fff;
 }
 
 .gallery-bottom-cta {
@@ -278,54 +419,63 @@
     border-top: 1px solid var(--line);
 }
 .gallery-bottom-cta h2 {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    line-height: 1.15;
-    margin-bottom: 1rem;
-    color: var(--ink);
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(1.6rem,3vw,2.4rem); line-height: 1.15;
+    margin-bottom: 1rem; color: var(--ink);
 }
 .gallery-bottom-cta h2 em { font-style: italic; color: var(--crimson); }
-.gallery-bottom-cta p {
-    color: var(--ink-soft);
-    margin-bottom: 1.8rem;
-    max-width: 50ch;
-    margin-left: auto;
-    margin-right: auto;
-}
+.gallery-bottom-cta p { color: var(--ink-soft); margin-bottom: 1.8rem; max-width: 50ch; margin-left: auto; margin-right: auto; }
 
-/* Prints available badge */
-
-/* "Prints Available" chip/box inside card body */
-.gallery-card-print-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin: 0.6rem 1rem 1rem;
-    padding: 0.5rem 0.85rem;
-    background: transparent;
-    border: 1px solid var(--ochre);
-    color: var(--ochre);
-    font-family: var(--font-body);
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    align-self: flex-start;
-    transition: background 240ms ease, color 240ms ease;
-    cursor: pointer;
+/* Lightbox */
+.lightbox-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(20,17,15,0.96);
+    align-items: center; justify-content: center;
+    flex-direction: column;
 }
-.gallery-card-print-link:hover {
-    background: var(--ochre);
-    color: var(--paper);
+.lightbox-overlay.open { display: flex; }
+.lightbox-img-wrap {
+    max-width: 90vw; max-height: 80vh;
+    display: flex; align-items: center; justify-content: center;
 }
-.gallery-card-print-link::after {
-    content: "→";
-    transition: transform 240ms ease;
+.lightbox-img-wrap img {
+    max-width: 90vw; max-height: 78vh;
+    object-fit: contain;
+    box-shadow: 0 8px 60px rgba(0,0,0,0.6);
 }
-.gallery-card-print-link:hover::after {
-    transform: translateX(2px);
+.lightbox-caption {
+    margin-top: 1.2rem; text-align: center;
+    font-family: var(--font-display); font-style: italic;
+    font-size: 1rem; color: var(--paper-soft);
+    opacity: 0.8;
 }
+.lightbox-caption .hi { font-family: var(--font-hindi); font-style: normal; }
+.lightbox-caption .meta {
+    display: block; margin-top: 0.3rem;
+    font-family: var(--font-body); font-style: normal;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(245,240,230,0.45);
+}
+.lightbox-close {
+    position: absolute; top: 1.5rem; right: 2rem;
+    background: none; border: none;
+    color: rgba(245,240,230,0.6); font-size: 2rem;
+    cursor: pointer; line-height: 1;
+    transition: color 200ms;
+}
+.lightbox-close:hover { color: var(--paper); }
+.lightbox-prev, .lightbox-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: none; border: 1px solid rgba(245,240,230,0.15);
+    color: rgba(245,240,230,0.6); font-size: 1.1rem;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 200ms;
+}
+.lightbox-prev:hover, .lightbox-next:hover { border-color: var(--paper); color: var(--paper); }
+.lightbox-prev { left: 1.5rem; }
+.lightbox-next { right: 1.5rem; }
 
 </style>
 
@@ -335,14 +485,10 @@
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <nav class="site-nav" id="siteNav">
-    <a href="/" class="brand">
-        Missing <em>Palette</em><sup class="tm">®</sup>
-    </a>
+    <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="3" y1="7" x2="21" y2="7"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="17" x2="21" y2="17"></line>
+            <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
         </svg>
     </button>
     <ul class="nav-links" id="navLinks">
@@ -352,1099 +498,831 @@
         <li><a href="/#testimonials">Testimonials</a></li>
         <li><a href="/#commissions">Commissions</a></li>
         <li><a href="/blog.html">Journal</a></li>
-        <li><a href="/products.html">Art Materials</a></li>
+        <li><a href="/products.html">Shop</a></li>
         <li><a href="/#contact" class="nav-cta">Inquire</a></li>
     </ul>
 </nav>
 
-<!-- HERO with rotating monk/Hayaa/Shagird/Confusion -->
+
+<!-- ============================================
+     HERO
+============================================ -->
 <section class="gallery-page-hero">
     <div class="gallery-hero-bg" id="galleryHeroBg" aria-hidden="true">
-        <div class="gallery-hero-bg-img active" style="background-image: url('img/gallery/oil (3).jpg');"></div>
-        <div class="gallery-hero-bg-img" style="background-image: url('img/gallery/oil (11).jpg');"></div>
-        <div class="gallery-hero-bg-img" style="background-image: url('img/gallery/oil (2).jpg');"></div>
-        <div class="gallery-hero-bg-img" style="background-image: url('img/gallery/acrylic (1).jpg');"></div>
+
+        <!-- ── CURRENT: static image slides (active) ────────────────────── -->
+        <div class="gallery-hero-bg-img active" style="background-image:url('img/gallery/Slide 1.jpg');"></div>
+        <div class="gallery-hero-bg-img" style="background-image:url('img/gallery/Slider 2.jpg');"></div>
+        <div class="gallery-hero-bg-img" style="background-image:url('img/gallery/Slider 3.jpg');"></div>
+        <div class="gallery-hero-bg-img" style="background-image:url('img/gallery/Slider 4.jpg');"></div>
+
+        <!--
+        ── OPTION A: Replace any slide above with a GIF ─────────────────────
+        Swap the <div> for this — the rotation JS will handle it like any slide.
+
+        <div class="gallery-hero-bg-img active">
+            <img class="hero-gif" src="img/gallery/YOUR-FILE.gif" alt="">
+        </div>
+
+        ── OPTION B: Replace any slide above with a looping video ───────────
+        Works best with a short MP4 (10–30s, muted). The JS rotates it like
+        any other slide — or just make it the only child and it plays solo.
+
+        <div class="gallery-hero-bg-img active">
+            <video autoplay muted loop playsinline>
+                <source src="img/gallery/YOUR-FILE.mp4" type="video/mp4">
+                <source src="img/gallery/YOUR-FILE.webm" type="video/webm">
+            </video>
+        </div>
+
+        ── OPTION C: Full-width video with no rotation (solo background) ────
+        Remove all other gallery-hero-bg-img divs, keep only this one.
+
+        <div class="gallery-hero-bg-img active">
+            <video autoplay muted loop playsinline>
+                <source src="img/gallery/YOUR-FILE.mp4" type="video/mp4">
+            </video>
+        </div>
+        -->
+
     </div>
     <div class="gallery-hero-content">
         <div class="gallery-hero-eyebrow">— The full body of work —</div>
         <h1>Eighty <em>pieces</em>, in watercolor, oil, sketch, and acrylic.</h1>
-        <p>
-            A growing collection of original works — portraits painted from life, plein-air watercolors of Banaras and BIT Mesra, oils of Indian villagers and tribals, and the workshops where many of these techniques were taught.
-        </p>
+        <p>A growing collection of original works — portraits painted from life, plein-air watercolors of Banaras and BIT Mesra, oils of Indian villagers and tribals, and the workshops where many of these techniques were taught.</p>
+        <a href="https://www.youtube.com/missingpalette" target="_blank" rel="noopener noreferrer" class="hero-yt-btn" aria-label="Watch on YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FF0000"/>
+            </svg>
+            Watch on YouTube
+        </a>
     </div>
 </section>
 
-<!-- FILTER BAR -->
-<div class="gallery-filter-bar" id="galleryFilterBar">
-    <button class="gallery-filter-btn active" data-filter="all">All <span class="gallery-filter-count">80</span></button>
-    <button class="gallery-filter-btn" data-filter="prints">Prints Available <span class="gallery-filter-count">6</span></button>
-    <button class="gallery-filter-btn" data-filter="watercolor">Watercolor <span class="gallery-filter-count">20</span></button>
-    <button class="gallery-filter-btn" data-filter="oil">Oil <span class="gallery-filter-count">12</span></button>
-    <button class="gallery-filter-btn" data-filter="acrylic">Acrylic <span class="gallery-filter-count">9</span></button>
-    <button class="gallery-filter-btn" data-filter="sketch">Sketch <span class="gallery-filter-count">30</span></button>
-    <button class="gallery-filter-btn" data-filter="workshop">Workshop <span class="gallery-filter-count">9</span></button>
-</div>
 
-<section class="gallery-section">
-    <div class="gallery-grid" id="galleryGrid">
-            <a href="img/gallery/water (1).jpg" class="gallery-card" data-category="watercolor" data-print-url="REPLACE_WITH_PRINT_URL_BHANDI_BABA" data-lightbox="gallery" data-title="" data-title-hi="भण्डि बाबा" data-medium="Watercolor on paper" data-year="2017" data-desc="A wandering sadhu lost in his own smoke.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (1).jpg" alt="Watercolor painting — &quot;Bhandi Baba&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">भण्डि बाबा</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A wandering sadhu lost in his own smoke.</p>
-                <span class="gallery-card-print-link">Prints Available</span>
-            </a>
-            <a href="img/gallery/water (2).jpg" class="gallery-card" data-category="watercolor" data-print-url="REPLACE_WITH_PRINT_URL_DHALTI_MUSKAAN" data-lightbox="gallery" data-title="" data-title-hi="ढलती मुस्कान" data-medium="Watercolor on paper" data-year="2018" data-desc="A grandmother's laugh — every wrinkle a chapter.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (2).jpg" alt="Watercolor painting — &quot;Dhalti Muskaan (Fading Smile)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">ढलती मुस्कान</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A grandmother's laugh — every wrinkle a chapter.</p>
-                <span class="gallery-card-print-link">Prints Available</span>
-            </a>
-            <a href="img/gallery/water (3).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="पगडण्डी" data-medium="Watercolor on paper" data-year="2018" data-desc="A village trail, painted from memory.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (3).jpg" alt="Watercolor painting — &quot;Pagdandi (Trail)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">पगडण्डी</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A village trail, painted from memory.</p>
-            </a>
-            <a href="img/gallery/water (2a).jpg" class="gallery-card" data-category="watercolor" data-print-url="REPLACE_WITH_PRINT_URL_ANIDRA" data-lightbox="gallery" data-title="" data-title-hi="अनिद्रा" data-medium="Watercolor on paper" data-year="2020" data-desc="Wide eyes long past the hour of sleep.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (2a).jpg" alt="Watercolor painting — &quot;Anidra (Insomnia)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">अनिद्रा</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">Wide eyes long past the hour of sleep.</p>
-                <span class="gallery-card-print-link">Prints Available</span>
-            </a>
-            <a href="img/gallery/water (3a).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="केतली" data-medium="Watercolor on paper" data-year="2021" data-desc="The kettle on the chai stove — copper and steam.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (3a).jpg" alt="Watercolor painting — &quot;Ketli (Kettle)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">केतली</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2021</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">The kettle on the chai stove — copper and steam.</p>
-            </a>
-            <a href="img/gallery/water (3b).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="FROOTY" data-title-hi="" data-medium="Watercolor on paper" data-year="2022" data-desc="A late-90s mango juice carton — pure nostalgia.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (3b).jpg" alt="Watercolor painting — &quot;Frooty&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Frooty</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2022</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A late-90s mango juice carton — pure nostalgia.</p>
-            </a>
-            <a href="img/gallery/water (3c).jpeg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="RINGS" data-title-hi="" data-medium="Watercolor on paper" data-year="2024" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (3c).jpeg" alt="Watercolor painting — &quot;Rings&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Rings</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2024</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (4).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="गजराज" data-medium="Watercolor on paper" data-year="2018" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (4).jpg" alt="Watercolor painting — &quot;Gajraj (Elephant King)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">गजराज</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (5).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="HEY BIRDY" data-title-hi="" data-medium="Watercolor on paper" data-year="2018" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (5).jpg" alt="Watercolor painting — &quot;Hey Birdy&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Hey Birdy</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (6).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="HEY BIRDY" data-title-hi="" data-medium="Watercolor on paper" data-year="2017" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (6).jpg" alt="Watercolor painting — &quot;Hey Birdy&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Hey Birdy</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (6a).jpeg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="HEY BIRDY" data-title-hi="" data-medium="Watercolor on paper" data-year="2018" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (6a).jpeg" alt="Watercolor painting — &quot;Hey Birdy&quot; by Ankit Agrawal — Missing Palette (study 3)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Hey Birdy</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (7).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="LANDSCAPE" data-title-hi="" data-medium="Watercolor on paper" data-year="2017" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (7).jpg" alt="Watercolor painting — &quot;Landscape&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Landscape</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (8).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="LANDSCAPE" data-title-hi="" data-medium="Watercolor on paper" data-year="2017" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (8).jpg" alt="Watercolor painting — &quot;Landscape&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Landscape</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (9).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="LANDSCAPE" data-title-hi="" data-medium="Watercolor on paper" data-year="2021" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (9).jpg" alt="Watercolor painting — &quot;Landscape&quot; by Ankit Agrawal — Missing Palette (study 3)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Landscape</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2021</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (10).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="BIT MESRA" data-title-hi="" data-medium="Watercolor on paper" data-year="2018" data-desc="Painted on campus during my undergraduate years.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (10).jpg" alt="Watercolor painting — &quot;Bit Mesra&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Bit Mesra</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">Painted on campus during my undergraduate years.</p>
-            </a>
-            <a href="img/gallery/water (11).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="SKY" data-title-hi="" data-medium="Watercolor on paper" data-year="2022" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (11).jpg" alt="Watercolor painting — &quot;Sky&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sky</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2022</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (12).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="HEY HYDERABAD" data-title-hi="" data-medium="Watercolor on paper" data-year="2020" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (12).jpg" alt="Watercolor painting — &quot;Hey Hyderabad&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Hey Hyderabad</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/water (13).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="बनारसी सुबह" data-medium="Watercolor on paper" data-year="2019" data-desc="Banaras at dawn, painted from the ghat steps.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (13).jpg" alt="Watercolor painting — &quot;Banarasi Subah (Banaras Morning)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">बनारसी सुबह</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2019</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">Banaras at dawn, painted from the ghat steps.</p>
-            </a>
-            <a href="img/gallery/water (14).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="बनारसी शाम" data-medium="Watercolor on paper" data-year="2019" data-desc="The same ghat at evening, lit by aarti flames.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (14).jpg" alt="Watercolor painting — &quot;Banarasi Shaam (Banaras Evening)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">बनारसी शाम</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2019</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">The same ghat at evening, lit by aarti flames.</p>
-            </a>
-            <a href="img/gallery/water (15).jpg" class="gallery-card" data-category="watercolor" data-lightbox="gallery" data-title="" data-title-hi="बनारसी धूप" data-medium="Watercolor on paper" data-year="2019" data-desc="A watercolor study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/water (15).jpg" alt="Watercolor painting — &quot;Banarasi Dhoop (Banaras Sunlight)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">बनारसी धूप</span></span>
-                        <span class="gallery-card-info">Watercolor on paper <span class="gallery-card-year">· 2019</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Watercolor</span>
-                </div>
-                <p class="gallery-card-desc">A watercolor study.</p>
-            </a>
-            <a href="img/gallery/oil (1).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="आँचल" data-medium="Oil on canvas" data-year="2020" data-desc="A tribal father holding his sleeping child.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (1).jpg" alt="Oil painting — &quot;Aanchal&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">आँचल</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">A tribal father holding his sleeping child.</p>
-            </a>
-            <a href="img/gallery/oil (2).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="शागिर्द" data-medium="Oil on canvas" data-year="2021" data-desc="A Rajasthani snake charmer, a disciple to his craft.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (2).jpg" alt="Oil painting — &quot;Shagird (Disciple)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">शागिर्द</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2021</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">A Rajasthani snake charmer, a disciple to his craft.</p>
-            </a>
-            <a href="img/gallery/oil (3).jpg" class="gallery-card" data-category="oil" data-print-url="REPLACE_WITH_PRINT_URL_CHINTAN" data-lightbox="gallery" data-title="" data-title-hi="चिंतन" data-medium="Oil on canvas" data-year="2022" data-desc="A monk in contemplation — light against a sea of black.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (3).jpg" alt="Oil painting — &quot;Chintan (Contemplation)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">चिंतन</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2022</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">A monk in contemplation — light against a sea of black.</p>
-                <span class="gallery-card-print-link">Prints Available</span>
-            </a>
-            <a href="img/gallery/oil (4).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="बनारसी दर्शन" data-medium="Oil on canvas" data-year="2019" data-desc="A street sadhu blessing pilgrims at Manikarnika.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (4).jpg" alt="Oil painting — &quot;Banarasi Darshan (Banaras Sight)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">बनारसी दर्शन</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2019</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">A street sadhu blessing pilgrims at Manikarnika.</p>
-            </a>
-            <a href="img/gallery/oil (5).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="OMRAN DAQNEESH" data-title-hi="" data-medium="Oil on canvas" data-year="2017" data-desc="The boy from Aleppo — a war's quiet portrait.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (5).jpg" alt="Oil painting — &quot;Omran Daqneesh&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Omran Daqneesh</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">The boy from Aleppo — a war's quiet portrait.</p>
-            </a>
-            <a href="img/gallery/oil (6).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="TULIP BUDDHA" data-title-hi="" data-medium="Oil on canvas" data-year="2022" data-desc="Buddha rendered in tulip petals — meditation in bloom.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (6).jpg" alt="Oil painting — &quot;Tulip Buddha&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Tulip Buddha</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2022</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">Buddha rendered in tulip petals — meditation in bloom.</p>
-            </a>
-            <a href="img/gallery/oil (7).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="रफ़्तार" data-medium="Oil on canvas" data-year="2020" data-desc="An oil painting study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (7).jpg" alt="Oil painting — &quot;रफ़्तार&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">रफ़्तार</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">An oil painting study.</p>
-            </a>
-            <a href="img/gallery/oil (8).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="रफ़्तार" data-medium="Oil on canvas" data-year="2022" data-desc="An oil painting study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (8).jpg" alt="Oil painting — &quot;रफ़्तार&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">रफ़्तार</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2022</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">An oil painting study.</p>
-            </a>
-            <a href="img/gallery/oil (9).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="FREEDOM" data-title-hi="" data-medium="Oil on canvas" data-year="2023" data-desc="An oil painting study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (9).jpg" alt="Oil painting — &quot;Freedom&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Freedom</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2023</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">An oil painting study.</p>
-            </a>
-            <a href="img/gallery/oil (10).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="" data-title-hi="हया" data-medium="Oil on canvas" data-year="2023" data-desc="A study in modesty and form.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (10).jpg" alt="Oil painting — &quot;Hayaa (Modesty)&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">हया</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2023</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">A study in modesty and form.</p>
-            </a>
-            <a href="img/gallery/oil (11).jpg" class="gallery-card" data-category="oil" data-print-url="REPLACE_WITH_PRINT_URL_HAYAA" data-lightbox="gallery" data-title="" data-title-hi="हया" data-medium="Oil on canvas" data-year="2023" data-desc="A study in modesty and form.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (11).jpg" alt="Oil painting — &quot;Hayaa (Modesty)&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">हया</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2023</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">A study in modesty and form.</p>
-                <span class="gallery-card-print-link">Prints Available</span>
-            </a>
-            <a href="img/gallery/oil (12).jpg" class="gallery-card" data-category="oil" data-lightbox="gallery" data-title="Radha Krishna" data-title-hi="" data-medium="Oil on canvas" data-year="2020" data-desc="An oil painting study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/oil (12).jpg" alt="Oil painting — &quot;Radha Krishna&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Radha Krishna</span></span>
-                        <span class="gallery-card-info">Oil on canvas <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Oil</span>
-                </div>
-                <p class="gallery-card-desc">An oil painting study.</p>
-            </a>
-            <a href="img/gallery/acrylic (1).jpg" class="gallery-card" data-category="acrylic" data-print-url="REPLACE_WITH_PRINT_URL_CONFUSION" data-lightbox="gallery" data-title="CONFUSION" data-title-hi="" data-medium="Acrylic on canvas" data-year="2018" data-desc="Faces overlapping in a moment of inner doubt.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (1).jpg" alt="Acrylic painting — &quot;Confusion&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Confusion</span></span>
-                        <span class="gallery-card-info">Acrylic on canvas <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Acrylic</span>
-                </div>
-                <p class="gallery-card-desc">Faces overlapping in a moment of inner doubt.</p>
-                <span class="gallery-card-print-link">Prints Available</span>
-            </a>
-            <a href="img/gallery/acrylic (2).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="" data-title-hi="अमृतांजलि" data-medium="Acrylic on canvas" data-year="2020" data-desc="An offering, painted in deep crimson and gold.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (2).jpg" alt="Acrylic painting — &quot;Amritanjali&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">अमृतांजलि</span></span>
-                        <span class="gallery-card-info">Acrylic on canvas <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Acrylic</span>
-                </div>
-                <p class="gallery-card-desc">An offering, painted in deep crimson and gold.</p>
-            </a>
-            <a href="img/gallery/acrylic (3).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="SHADOW" data-title-hi="" data-medium="Acrylic on canvas" data-year="2017" data-desc="A figure half-emerged from darkness.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3).jpg" alt="Acrylic painting — &quot;Shadow&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Shadow</span></span>
-                        <span class="gallery-card-info">Acrylic on canvas <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Acrylic</span>
-                </div>
-                <p class="gallery-card-desc">A figure half-emerged from darkness.</p>
-            </a>
-            <a href="img/gallery/acrylic (3a).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="HERCULES" data-title-hi="" data-medium="Acrylic on canvas" data-year="2018" data-desc="A study of mythological strength in motion.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3a).jpg" alt="Acrylic painting — &quot;Hercules&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Hercules</span></span>
-                        <span class="gallery-card-info">Acrylic on canvas <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Acrylic</span>
-                </div>
-                <p class="gallery-card-desc">A study of mythological strength in motion.</p>
-            </a>
-            <a href="img/gallery/acrylic (3b).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="HERCULES" data-title-hi="" data-medium="Acrylic on canvas" data-year="2018" data-desc="A study of mythological strength in motion.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3b).jpg" alt="Acrylic painting — &quot;Hercules&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Hercules</span></span>
-                        <span class="gallery-card-info">Acrylic on canvas <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Acrylic</span>
-                </div>
-                <p class="gallery-card-desc">A study of mythological strength in motion.</p>
-            </a>
-            <a href="img/gallery/acrylic (3c).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="HERCULES" data-title-hi="" data-medium="Acrylic on canvas" data-year="2018" data-desc="A study of mythological strength in motion.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3c).jpg" alt="Acrylic painting — &quot;Hercules&quot; by Ankit Agrawal — Missing Palette (study 3)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Hercules</span></span>
-                        <span class="gallery-card-info">Acrylic on canvas <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Acrylic</span>
-                </div>
-                <p class="gallery-card-desc">A study of mythological strength in motion.</p>
-            </a>
-            <a href="img/gallery/acrylic (3d).jpeg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="" data-title-hi="रफ़्तार" data-medium="Acrylic on canvas" data-year="2023" data-desc="An acrylic painting study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (3d).jpeg" alt="Acrylic painting — &quot;रफ़्तार&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">रफ़्तार</span></span>
-                        <span class="gallery-card-info">Acrylic on canvas <span class="gallery-card-year">· 2023</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Acrylic</span>
-                </div>
-                <p class="gallery-card-desc">An acrylic painting study.</p>
-            </a>
-            <a href="img/gallery/acrylic (4).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="MINI PAINTING" data-title-hi="" data-medium="Acrylic on canvas" data-year="2021" data-desc="An acrylic painting study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (4).jpg" alt="Acrylic painting — &quot;Mini Painting&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Mini Painting</span></span>
-                        <span class="gallery-card-info">Acrylic on canvas <span class="gallery-card-year">· 2021</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Acrylic</span>
-                </div>
-                <p class="gallery-card-desc">An acrylic painting study.</p>
-            </a>
-            <a href="img/gallery/acrylic (5).jpg" class="gallery-card" data-category="acrylic" data-lightbox="gallery" data-title="MINI PAINTING" data-title-hi="" data-medium="Acrylic on canvas" data-year="2017" data-desc="An acrylic painting study.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/acrylic (5).jpg" alt="Acrylic painting — &quot;Mini Painting&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Mini Painting</span></span>
-                        <span class="gallery-card-info">Acrylic on canvas <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Acrylic</span>
-                </div>
-                <p class="gallery-card-desc">An acrylic painting study.</p>
-            </a>
-            <a href="img/gallery/sketch (1a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (1a).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 1)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2015</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (1b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (1b).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 2)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (1c).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2017" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (1c).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 3)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (2a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2a).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 4)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (2a1).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2017" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2a1).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 5)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (2a2) (2).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2a2) (2).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 6)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2015</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (2a2).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2019" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2a2).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 7)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2019</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (2b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2b).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 8)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (2c).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2017" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (2c).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 9)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (3a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2019" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3a).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 10)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2019</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (3b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3b).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 11)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2016</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (3c).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3c).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 12)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2016</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (3c1).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3c1).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 13)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (3d).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (3d).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 14)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2016</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4a).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 15)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2015</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4b).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 16)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4c).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4c).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 17)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4d).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4d).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 18)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2015</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4f).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4f).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 19)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4g).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 20)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4g1).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2017" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g1).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 21)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2017</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4g2).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g2).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 22)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2015</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4g3).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g3).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 23)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2016</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (4g6).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (4g6).jpg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 24)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (5).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="PORTRAIT" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (5).jpeg" alt="Charcoal sketch — &quot;Portrait&quot; by Ankit Agrawal — Missing Palette (study 25)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Sketch Study</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (5a).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="" data-title-hi="गजराज" data-medium="Charcoal sketch" data-year="2015" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (5a).jpg" alt="Charcoal sketch — &quot;Gajraj (Elephant King)&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">गजराज</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2015</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (5b).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="QUICK SKETCH" data-title-hi="" data-medium="Charcoal sketch" data-year="2016" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (5b).jpg" alt="Charcoal sketch — &quot;Quick Sketch&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Quick Sketch</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2016</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (11).jpeg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="Maata Ji" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (11).jpeg" alt="Charcoal sketch — &quot;Maata Ji&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Maata Ji</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (12).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="" data-title-hi="रफ़्तार" data-medium="Charcoal sketch" data-year="2020" data-desc="A charcoal portrait study from life.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (12).jpg" alt="Charcoal sketch — &quot;रफ़्तार&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="hi">रफ़्तार</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">A charcoal portrait study from life.</p>
-            </a>
-            <a href="img/gallery/sketch (13).jpg" class="gallery-card" data-category="sketch" data-lightbox="gallery" data-title="BIT MESRA" data-title-hi="" data-medium="Charcoal sketch" data-year="2018" data-desc="Painted on campus during my undergraduate years.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/sketch (13).jpg" alt="Charcoal sketch — &quot;Bit Mesra&quot; by Ankit Agrawal — Missing Palette" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Bit Mesra</span></span>
-                        <span class="gallery-card-info">Charcoal sketch <span class="gallery-card-year">· 2018</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Sketch</span>
-                </div>
-                <p class="gallery-card-desc">Painted on campus during my undergraduate years.</p>
-            </a>
-            <a href="img/gallery/ws (1).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2021" data-desc="A frame from a teaching workshop.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (1).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 1)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Workshop Study</span></span>
-                        <span class="gallery-card-info">Workshop <span class="gallery-card-year">· 2021</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Workshop</span>
-                </div>
-                <p class="gallery-card-desc">A frame from a teaching workshop.</p>
-            </a>
-            <a href="img/gallery/ws (2).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2024" data-desc="A frame from a teaching workshop.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (2).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 2)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Workshop Study</span></span>
-                        <span class="gallery-card-info">Workshop <span class="gallery-card-year">· 2024</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Workshop</span>
-                </div>
-                <p class="gallery-card-desc">A frame from a teaching workshop.</p>
-            </a>
-            <a href="img/gallery/ws (3).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2021" data-desc="A frame from a teaching workshop.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (3).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 3)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Workshop Study</span></span>
-                        <span class="gallery-card-info">Workshop <span class="gallery-card-year">· 2021</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Workshop</span>
-                </div>
-                <p class="gallery-card-desc">A frame from a teaching workshop.</p>
-            </a>
-            <a href="img/gallery/ws (4).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2020" data-desc="A frame from a teaching workshop.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (4).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 4)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Workshop Study</span></span>
-                        <span class="gallery-card-info">Workshop <span class="gallery-card-year">· 2020</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Workshop</span>
-                </div>
-                <p class="gallery-card-desc">A frame from a teaching workshop.</p>
-            </a>
-            <a href="img/gallery/ws (7).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2022" data-desc="A frame from a teaching workshop.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (7).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 5)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Workshop Study</span></span>
-                        <span class="gallery-card-info">Workshop <span class="gallery-card-year">· 2022</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Workshop</span>
-                </div>
-                <p class="gallery-card-desc">A frame from a teaching workshop.</p>
-            </a>
-            <a href="img/gallery/ws (8).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2024" data-desc="A frame from a teaching workshop.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (8).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 6)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Workshop Study</span></span>
-                        <span class="gallery-card-info">Workshop <span class="gallery-card-year">· 2024</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Workshop</span>
-                </div>
-                <p class="gallery-card-desc">A frame from a teaching workshop.</p>
-            </a>
-            <a href="img/gallery/ws (9).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2022" data-desc="A frame from a teaching workshop.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (9).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 7)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Workshop Study</span></span>
-                        <span class="gallery-card-info">Workshop <span class="gallery-card-year">· 2022</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Workshop</span>
-                </div>
-                <p class="gallery-card-desc">A frame from a teaching workshop.</p>
-            </a>
-            <a href="img/gallery/ws (10).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2023" data-desc="A frame from a teaching workshop.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (10).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 8)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Workshop Study</span></span>
-                        <span class="gallery-card-info">Workshop <span class="gallery-card-year">· 2023</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Workshop</span>
-                </div>
-                <p class="gallery-card-desc">A frame from a teaching workshop.</p>
-            </a>
-            <a href="img/gallery/ws (11).jpg" class="gallery-card" data-category="workshop" data-lightbox="gallery" data-title="WORKSHOP" data-title-hi="" data-medium="Workshop" data-year="2019" data-desc="A frame from a teaching workshop.">
-                <div class="gallery-card-img-wrap">
-                    <img src="img/gallery/ws (11).jpg" alt="Art workshop conducted by Ankit Agrawal — Missing Palette (session 9)" loading="lazy">
-                </div>
-                <div class="gallery-card-meta">
-                    <div class="gallery-card-text">
-                        <span class="gallery-card-title"><span class="translit">Workshop Study</span></span>
-                        <span class="gallery-card-info">Workshop <span class="gallery-card-year">· 2019</span></span>
-                    </div>
-                    <span class="gallery-card-medium">Workshop</span>
-                </div>
-                <p class="gallery-card-desc">A frame from a teaching workshop.</p>
-            </a>
+<!-- ============================================
+     STICKY MEDIUM NAV
+============================================ -->
+<nav class="gallery-medium-nav" id="galleryMediumNav" aria-label="Jump to medium">
+    <a href="#watercolor" class="active">Watercolor <span style="opacity:0.45; margin-left:0.3em;">20</span></a>
+    <a href="#oil">Oil <span style="opacity:0.45; margin-left:0.3em;">12</span></a>
+    <a href="#sketch">Sketch <span style="opacity:0.45; margin-left:0.3em;">30</span></a>
+    <a href="#acrylic">Acrylic <span style="opacity:0.45; margin-left:0.3em;">9</span></a>
+    <a href="#workshop">Workshop <span style="opacity:0.45; margin-left:0.3em;">9</span></a>
+</nav>
+
+
+<!-- ============================================
+     1. WATERCOLOR
+============================================ -->
+<section class="medium-section" id="watercolor">
+
+    <!-- Exhibition header -->
+    <div class="medium-exhibition">
+        <div class="medium-exhibition-image" data-lb-src="img/gallery/water (2).jpg" data-lb-title="ढलती मुस्कान" data-lb-meta="Watercolor on paper · 2018">
+            <img src="img/gallery/water (2).jpg" alt="Dhalti Muskaan — watercolor portrait of a laughing elderly woman by Ankit Agrawal" loading="eager">
+        <!--
+        ── TO SWAP THIS FEATURED IMAGE WITH A GIF ───────────────────────────
+        Replace the <img> above with:
+
+        <img class="ex-gif" src="img/gallery/YOUR-FILE.gif" alt="">
+
+        ── TO SWAP WITH A LOOPING VIDEO ─────────────────────────────────────
+        Replace the <img> above with:
+
+        <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <source src="img/gallery/YOUR-FILE.mp4" type="video/mp4">
+        </video>
+
+        Note: remove the data-lb-src attribute on the parent div if using video,
+        since the lightbox won't be able to display a video src.
+        -->
+        <span class="ex-img-credit">© Ankit Agrawal</span>
+        </div>
+        <div class="medium-exhibition-text">
+            <span class="ex-num">01 — Watercolor</span>
+            <p class="ex-featured-title">ढलती मुस्कान &nbsp;· Dhalti Muskaan, 2018</p>
+            <h2>Painted in <em>water</em> and light.</h2>
+            <p>
+                Watercolor has been my primary medium since 2016 — transparent, unforgiving, and alive. These works span portraits painted from life, plein-air studies from Banaras and Jharkhand, and quiet still-life observations. The sadhu with the smoke, the grandmother's laugh, three dawns on the same ghat.
+            </p>
+            <span class="ex-count">20 works · 2016 – 2024</span>
+        </div>
+    </div>
+
+    <!-- Horizontal strip -->
+    <div class="medium-strip-wrap">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="medium-strip-label">All watercolors</div>
+            <div class="strip-nav">
+                <button class="strip-arrow" data-strip="watercolor-strip" data-dir="-1" aria-label="Scroll left">&#8592;</button>
+                <button class="strip-arrow" data-strip="watercolor-strip" data-dir="1" aria-label="Scroll right">&#8594;</button>
+            </div>
+        </div>
+        <div class="medium-strip" id="watercolor-strip">
+
+            <a class="strip-card" data-lb-src="img/gallery/water (1).jpg" data-lb-title="भण्डि बाबा" data-lb-meta="Watercolor on paper · 2017" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (1).jpg" alt="भण्डि बाबा" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">भण्डि बाबा</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2017</span></span>
+                    <span class="strip-card-oneliner">A wandering sadhu lost in his own smoke.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (2).jpg" data-lb-title="ढलती मुस्कान" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (2).jpg" alt="ढलती मुस्कान" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">ढलती मुस्कान</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">A grandmother's laugh — every wrinkle a chapter.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (3).jpg" data-lb-title="पगडण्डी" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (3).jpg" alt="पगडण्डी" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">पगडण्डी</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">A village trail, painted from memory.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (2a).jpg" data-lb-title="अनिद्रा" data-lb-meta="Watercolor on paper · 2020" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (2a).jpg" alt="अनिद्रा" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">अनिद्रा</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Wide eyes long past the hour of sleep.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (3a).jpg" data-lb-title="केतली" data-lb-meta="Watercolor on paper · 2021" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (3a).jpg" alt="केतली" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">केतली</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">The chai kettle — copper and steam.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (3b).jpg" data-lb-title="Frooty" data-lb-meta="Watercolor on paper · 2022" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (3b).jpg" alt="Frooty" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Frooty</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">A late-90s mango juice carton. Pure nostalgia.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (3c).jpeg" data-lb-title="Rings" data-lb-meta="Watercolor on paper · 2024" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (3c).jpeg" alt="Rings" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Rings</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2024</span></span>
+                    <span class="strip-card-oneliner">A watercolor study of light on metal.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (4).jpg" data-lb-title="गजराज" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (4).jpg" alt="गजराज" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">गजराज</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">The elephant king, charcoal on paper.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (5).jpg" data-lb-title="Hey Birdy" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (5).jpg" alt="Hey Birdy" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Hey Birdy</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">A quick watercolor of a resting bird.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (6).jpg" data-lb-title="Hey Birdy" data-lb-meta="Watercolor on paper · 2017" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (6).jpg" alt="Hey Birdy II" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Hey Birdy II</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2017</span></span>
+                    <span class="strip-card-oneliner">A quick watercolor of a resting bird.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (6a).jpeg" data-lb-title="Hey Birdy" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (6a).jpeg" alt="Hey Birdy III" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Hey Birdy III</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">A quick watercolor of a resting bird.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (7).jpg" data-lb-title="Landscape" data-lb-meta="Watercolor on paper · 2017" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (7).jpg" alt="Landscape" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Landscape</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2017</span></span>
+                    <span class="strip-card-oneliner">A hillscape from memory, Jharkhand.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (8).jpg" data-lb-title="Landscape II" data-lb-meta="Watercolor on paper · 2017" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (8).jpg" alt="Landscape II" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Landscape II</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2017</span></span>
+                    <span class="strip-card-oneliner">Soft greens, softer edges.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (9).jpg" data-lb-title="Landscape III" data-lb-meta="Watercolor on paper · 2021" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (9).jpg" alt="Landscape III" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Landscape III</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">A landscape painted in one sitting.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (10).jpg" data-lb-title="BIT Mesra" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (10).jpg" alt="BIT Mesra" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">BIT Mesra</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">Painted on campus during my undergraduate years.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (11).jpg" data-lb-title="Sky" data-lb-meta="Watercolor on paper · 2022" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (11).jpg" alt="Sky" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Sky</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">A sky study — cloud and diffused light.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (12).jpg" data-lb-title="Hey Hyderabad" data-lb-meta="Watercolor on paper · 2020" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (12).jpg" alt="Hey Hyderabad" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Hey Hyderabad</span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">A city ghat on a slow afternoon.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (13).jpg" data-lb-title="बनारसी सुबह" data-lb-meta="Watercolor on paper · 2019" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (13).jpg" alt="बनारसी सुबह" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">बनारसी सुबह</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">Banaras at dawn, painted from the ghat steps.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (14).jpg" data-lb-title="बनारसी शाम" data-lb-meta="Watercolor on paper · 2019" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (14).jpg" alt="बनारसी शाम" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">बनारसी शाम</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">The same ghat at evening, lit by aarti flames.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/water (15).jpg" data-lb-title="बनारसी धूप" data-lb-meta="Watercolor on paper · 2019" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/water (15).jpg" alt="बनारसी धूप" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">बनारसी धूप</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">Midday light on the Ganges — bleached and still.</span>
+                </div>
+            </a>
+
+        </div>
     </div>
 </section>
 
+
+<!-- ============================================
+     2. OIL
+============================================ -->
+<section class="medium-section" id="oil">
+
+    <div class="medium-exhibition">
+        <div class="medium-exhibition-image" data-lb-src="img/gallery/oil (2).jpg" data-lb-title="शागिर्द" data-lb-meta="Oil on canvas · 2021">
+            <img src="img/gallery/oil (2).jpg" alt="Shagird — oil painting of a Rajasthani snake charmer by Ankit Agrawal" loading="lazy">
+        <!--
+        ── TO SWAP THIS FEATURED IMAGE WITH A GIF ───────────────────────────
+        Replace the <img> above with:
+
+        <img class="ex-gif" src="img/gallery/YOUR-FILE.gif" alt="">
+
+        ── TO SWAP WITH A LOOPING VIDEO ─────────────────────────────────────
+        Replace the <img> above with:
+
+        <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <source src="img/gallery/YOUR-FILE.mp4" type="video/mp4">
+        </video>
+
+        Note: remove the data-lb-src attribute on the parent div if using video,
+        since the lightbox won't be able to display a video src.
+        -->
+        <span class="ex-img-credit">© Ankit Agrawal</span>
+        </div>
+        <div class="medium-exhibition-text">
+            <span class="ex-num">02 — Oil</span>
+            <p class="ex-featured-title">शागिर्द &nbsp;· Shagird, 2021</p>
+            <h2>Painted in <em>depth</em> and time.</h2>
+            <p>
+                Oil allows what watercolor doesn't — revision, layering, and a texture you can feel. These paintings are mostly figures: a tribal father, a snake charmer, a monk lost in thought, a child from Aleppo. Each one takes weeks. Each one starts with a single face I can't stop looking at.
+            </p>
+            <span class="ex-count">12 works · 2017 – 2023</span>
+        </div>
+    </div>
+
+    <div class="medium-strip-wrap">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="medium-strip-label">All oil paintings</div>
+            <div class="strip-nav">
+                <button class="strip-arrow" data-strip="oil-strip" data-dir="-1" aria-label="Scroll left">&#8592;</button>
+                <button class="strip-arrow" data-strip="oil-strip" data-dir="1" aria-label="Scroll right">&#8594;</button>
+            </div>
+        </div>
+        <div class="medium-strip" id="oil-strip">
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (1).jpg" data-lb-title="आँचल" data-lb-meta="Oil on canvas · 2020" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (1).jpg" alt="आँचल" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">आँचल</span></span>
+                    <span class="strip-card-meta">Oil · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">A tribal father holding his sleeping child.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (2).jpg" data-lb-title="शागिर्द" data-lb-meta="Oil on canvas · 2021" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (2).jpg" alt="शागिर्द" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">शागिर्द</span></span>
+                    <span class="strip-card-meta">Oil · <span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">A Rajasthani snake charmer, a disciple to his craft.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (3).jpg" data-lb-title="चिंतन" data-lb-meta="Oil on canvas · 2022" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (3).jpg" alt="चिंतन" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">चिंतन</span></span>
+                    <span class="strip-card-meta">Oil · <span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">A monk in contemplation — light against a sea of black.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (4).jpg" data-lb-title="बनारसी दर्शन" data-lb-meta="Oil on canvas · 2019" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (4).jpg" alt="बनारसी दर्शन" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">बनारसी दर्शन</span></span>
+                    <span class="strip-card-meta">Oil · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">A street sadhu blessing pilgrims at Manikarnika.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (5).jpg" data-lb-title="Omran Daqneesh" data-lb-meta="Oil on canvas · 2017" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (5).jpg" alt="Omran Daqneesh" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Omran Daqneesh</span>
+                    <span class="strip-card-meta">Oil · <span class="year">2017</span></span>
+                    <span class="strip-card-oneliner">The boy from Aleppo — a war's quiet portrait.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (6).jpg" data-lb-title="Tulip Buddha" data-lb-meta="Oil on canvas · 2022" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (6).jpg" alt="Tulip Buddha" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Tulip Buddha</span>
+                    <span class="strip-card-meta">Oil · <span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">Buddha rendered in tulip petals — meditation in bloom.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (7).jpg" data-lb-title="रफ़्तार" data-lb-meta="Oil on canvas · 2020" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (7).jpg" alt="रफ़्तार" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">रफ़्तार</span></span>
+                    <span class="strip-card-meta">Oil · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Speed — gestural, restless, unresolved.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (8).jpg" data-lb-title="रफ़्तार II" data-lb-meta="Oil on canvas · 2020" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (8).jpg" alt="रफ़्तार II" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">रफ़्तार II</span></span>
+                    <span class="strip-card-meta">Oil · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">A second study of motion and urgency.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (9).jpg" data-lb-title="Freedom" data-lb-meta="Oil on canvas · 2021" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (9).jpg" alt="Freedom" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Freedom</span>
+                    <span class="strip-card-meta">Oil · <span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">An oil study on the idea of release.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (10).jpg" data-lb-title="हया" data-lb-meta="Oil on canvas · 2022" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (10).jpg" alt="हया" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">हया</span></span>
+                    <span class="strip-card-meta">Oil · <span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">Modesty — a figure study in muted light.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (11).jpg" data-lb-title="हया II" data-lb-meta="Oil on canvas · 2023" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (11).jpg" alt="हया II" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title"><span class="hi">हया II</span></span>
+                    <span class="strip-card-meta">Oil · <span class="year">2023</span></span>
+                    <span class="strip-card-oneliner">A second look at the same quiet subject.</span>
+                </div>
+            </a>
+
+            <a class="strip-card" data-lb-src="img/gallery/oil (12).jpg" data-lb-title="Radha Krishna" data-lb-meta="Oil on canvas · 2023" href="#" onclick="return false;">
+                <div class="strip-card-img"><img src="img/gallery/oil (12).jpg" alt="Radha Krishna" loading="lazy"></div>
+                <div class="strip-card-caption">
+                    <span class="strip-card-title">Radha Krishna</span>
+                    <span class="strip-card-meta">Oil · <span class="year">2023</span></span>
+                    <span class="strip-card-oneliner">Painted as a devotional — colour over form.</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     3. SKETCH
+============================================ -->
+<section class="medium-section" id="sketch">
+
+    <div class="medium-exhibition">
+        <div class="medium-exhibition-image" data-lb-src="img/gallery/sketch (4c).jpg" data-lb-title="Portrait Study" data-lb-meta="Charcoal sketch · 2020">
+            <img src="img/gallery/sketch (4c).jpg" alt="Charcoal portrait study by Ankit Agrawal" loading="lazy">
+        <!--
+        ── TO SWAP THIS FEATURED IMAGE WITH A GIF ───────────────────────────
+        Replace the <img> above with:
+
+        <img class="ex-gif" src="img/gallery/YOUR-FILE.gif" alt="">
+
+        ── TO SWAP WITH A LOOPING VIDEO ─────────────────────────────────────
+        Replace the <img> above with:
+
+        <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <source src="img/gallery/YOUR-FILE.mp4" type="video/mp4">
+        </video>
+
+        Note: remove the data-lb-src attribute on the parent div if using video,
+        since the lightbox won't be able to display a video src.
+        -->
+        <span class="ex-img-credit">© Ankit Agrawal</span>
+        </div>
+        <div class="medium-exhibition-text">
+            <span class="ex-num">03 — Sketch</span>
+            <p class="ex-featured-title">Portrait Study · Charcoal, 2020</p>
+            <h2>Drawn in <em>charcoal</em> and observation.</h2>
+            <p>
+                Sketching is where I began. These thirty works span nearly a decade of portrait studies — from early attempts at BIT Mesra to more recent figure work. Charcoal on paper, mostly from life or from photographs that refused to leave my head. The elephant king. The quick sketch. The BIT Mesra campus in grey.
+            </p>
+            <span class="ex-count">30 works · 2015 – 2022</span>
+        </div>
+    </div>
+
+    <div class="medium-strip-wrap">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="medium-strip-label">All sketches</div>
+            <div class="strip-nav">
+                <button class="strip-arrow" data-strip="sketch-strip" data-dir="-1" aria-label="Scroll left">&#8592;</button>
+                <button class="strip-arrow" data-strip="sketch-strip" data-dir="1" aria-label="Scroll right">&#8594;</button>
+            </div>
+        </div>
+        <div class="medium-strip" id="sketch-strip">
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (1a).jpg" data-lb-title="Portrait Study 1" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (1a).jpg" alt="Portrait Study 1" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">A charcoal study from life.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (1b).jpg" data-lb-title="Portrait Study 2" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (1b).jpg" alt="Portrait Study 2" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Eyes, charcoal, and patience.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (1c).jpg" data-lb-title="Portrait Study 3" data-lb-meta="Charcoal sketch · 2017" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (1c).jpg" alt="Portrait Study 3" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2017</span></span>
+                    <span class="strip-card-oneliner">Learning to see before learning to draw.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2a).jpg" data-lb-title="Portrait Study 4" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2a).jpg" alt="Portrait Study 4" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">A study in shadow and structure.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2a1).jpeg" data-lb-title="Portrait Study 5" data-lb-meta="Charcoal sketch · 2017" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2a1).jpeg" alt="Portrait Study 5" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2017</span></span>
+                    <span class="strip-card-oneliner">Quick marks, slow looking.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2a2) (2).jpeg" data-lb-title="Portrait Study 6" data-lb-meta="Charcoal sketch · 2015" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2a2) (2).jpeg" alt="Portrait Study 6" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2015</span></span>
+                    <span class="strip-card-oneliner">Early work — the beginning of a practice.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2a2).jpeg" data-lb-title="Portrait Study 7" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2a2).jpeg" alt="Portrait Study 7" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">The face as a problem to solve.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2b).jpg" data-lb-title="Portrait Study 8" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2b).jpg" alt="Portrait Study 8" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">A study in chiaroscuro.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2c).jpeg" data-lb-title="Portrait Study 9" data-lb-meta="Charcoal sketch · 2017" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2c).jpeg" alt="Portrait Study 9" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2017</span></span>
+                    <span class="strip-card-oneliner">Charcoal on cartridge paper, from life.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3a).jpg" data-lb-title="Portrait Study 10" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3a).jpg" alt="Portrait Study 10" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">A face remembered from a bus journey.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3b).jpg" data-lb-title="Portrait Study 11" data-lb-meta="Charcoal sketch · 2016" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3b).jpg" alt="Portrait Study 11" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2016</span></span>
+                    <span class="strip-card-oneliner">Form without colour.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3c).jpg" data-lb-title="Portrait Study 12" data-lb-meta="Charcoal sketch · 2016" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3c).jpg" alt="Portrait Study 12" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2016</span></span>
+                    <span class="strip-card-oneliner">Charcoal on newsprint.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3c1).jpg" data-lb-title="Portrait Study 13" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3c1).jpg" alt="Portrait Study 13" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Drawn in one unbroken hour.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3d).jpg" data-lb-title="Portrait Study 14" data-lb-meta="Charcoal sketch · 2016" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3d).jpg" alt="Portrait Study 14" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2016</span></span>
+                    <span class="strip-card-oneliner">A study in stillness.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4a).jpg" data-lb-title="Portrait Study 15" data-lb-meta="Charcoal sketch · 2015" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4a).jpg" alt="Portrait Study 15" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2015</span></span>
+                    <span class="strip-card-oneliner">The earliest work in this series.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4b).jpg" data-lb-title="Portrait Study 16" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4b).jpg" alt="Portrait Study 16" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Charcoal portrait from a photograph.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4c).jpg" data-lb-title="Portrait Study 17" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4c).jpg" alt="Portrait Study 17" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Loose marks, tight observation.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4d).jpg" data-lb-title="Portrait Study 18" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4d).jpg" alt="Portrait Study 18" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">A figure study at BIT Mesra.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4f).jpeg" data-lb-title="Portrait Study 19" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4f).jpeg" alt="Portrait Study 19" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">Rendered with compressed charcoal.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g).jpeg" data-lb-title="Portrait Study 20" data-lb-meta="Charcoal sketch · 2022" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g).jpeg" alt="Portrait Study 20" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">A recent study — more confidence, less fear.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g1).jpeg" data-lb-title="Portrait Study 21" data-lb-meta="Charcoal sketch · 2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g1).jpeg" alt="Portrait Study 21" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">Soft charcoal, soft light.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g2).jpeg" data-lb-title="Portrait Study 22" data-lb-meta="Charcoal sketch · 2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g2).jpeg" alt="Portrait Study 22" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">A study in contour.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g3).jpeg" data-lb-title="Portrait Study 23" data-lb-meta="Charcoal sketch · 2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g3).jpeg" alt="Portrait Study 23" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">The last in this portrait sequence.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g6).jpg" data-lb-title="Portrait Study 24" data-lb-meta="Charcoal sketch · 2022" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g6).jpg" alt="Portrait Study 24" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">A loose sketch from a workshop session.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (5).jpeg" data-lb-title="Portrait Study 25" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (5).jpeg" alt="Portrait Study 25" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">Quick charcoal — five minutes, no eraser.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (5a).jpg" data-lb-title="गजराज" data-lb-meta="Charcoal sketch" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (5a).jpg" alt="गजराज" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">गजराज</span></span><span class="strip-card-meta">Charcoal</span>
+                    <span class="strip-card-oneliner">The elephant king, charcoal on paper.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (5b).jpg" data-lb-title="Quick Sketch" data-lb-meta="Charcoal sketch" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (5b).jpg" alt="Quick Sketch" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Quick Sketch</span><span class="strip-card-meta">Charcoal</span>
+                    <span class="strip-card-oneliner">A five-minute sketch from life.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (11).jpeg" data-lb-title="Maata Ji" data-lb-meta="Charcoal sketch" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (11).jpeg" alt="Maata Ji" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Maata Ji</span><span class="strip-card-meta">Charcoal</span>
+                    <span class="strip-card-oneliner">An elderly woman, drawn from a photograph.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (12).jpg" data-lb-title="रफ़्तार" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (12).jpg" alt="रफ़्तार" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">रफ़्तार</span></span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Speed — gestural, restless, unresolved.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/sketch (13).jpg" data-lb-title="BIT Mesra" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (13).jpg" alt="BIT Mesra" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">BIT Mesra</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">Painted on campus during my undergraduate years.</span>
+                </div></a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     4. ACRYLIC
+============================================ -->
+<section class="medium-section" id="acrylic">
+
+    <div class="medium-exhibition">
+        <div class="medium-exhibition-image" data-lb-src="img/gallery/acrylic (1).jpg" data-lb-title="Confusion" data-lb-meta="Acrylic · 2018">
+            <img src="img/gallery/acrylic (1).jpg" alt="Confusion — acrylic painting by Ankit Agrawal" loading="lazy">
+        <!--
+        ── TO SWAP THIS FEATURED IMAGE WITH A GIF ───────────────────────────
+        Replace the <img> above with:
+
+        <img class="ex-gif" src="img/gallery/YOUR-FILE.gif" alt="">
+
+        ── TO SWAP WITH A LOOPING VIDEO ─────────────────────────────────────
+        Replace the <img> above with:
+
+        <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <source src="img/gallery/YOUR-FILE.mp4" type="video/mp4">
+        </video>
+
+        Note: remove the data-lb-src attribute on the parent div if using video,
+        since the lightbox won't be able to display a video src.
+        -->
+        <span class="ex-img-credit">© Ankit Agrawal</span>
+        </div>
+        <div class="medium-exhibition-text">
+            <span class="ex-num">04 — Acrylic</span>
+            <p class="ex-featured-title">Confusion · Acrylic, 2018</p>
+            <h2>Painted in <em>colour</em> and experiment.</h2>
+            <p>
+                Acrylic is my most experimental medium — fast, opaque, and forgiving of risk. These nine pieces range from abstract gesture to figurative studies: a Hercules series, mini canvases, and the chaotic energy of Confusion, painted in one sitting in 2018.
+            </p>
+            <span class="ex-count">9 works · 2018 – 2024</span>
+        </div>
+    </div>
+
+    <div class="medium-strip-wrap">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="medium-strip-label">All acrylic works</div>
+            <div class="strip-nav">
+                <button class="strip-arrow" data-strip="acrylic-strip" data-dir="-1" aria-label="Scroll left">&#8592;</button>
+                <button class="strip-arrow" data-strip="acrylic-strip" data-dir="1" aria-label="Scroll right">&#8594;</button>
+            </div>
+        </div>
+        <div class="medium-strip" id="acrylic-strip">
+
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (1).jpg" data-lb-title="Confusion" data-lb-meta="Acrylic · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (1).jpg" alt="Confusion" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Confusion</span><span class="strip-card-meta">Acrylic · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">Painted in one sitting in 2018. Still unresolved.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (2).jpg" data-lb-title="अमृतांजलि" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (2).jpg" alt="अमृतांजलि" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">अमृतांजलि</span></span><span class="strip-card-meta">Acrylic</span>
+                    <span class="strip-card-oneliner">A devotional gesture — colour and form.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (3).jpg" data-lb-title="Shadow" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (3).jpg" alt="Shadow" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Shadow</span><span class="strip-card-meta">Acrylic</span>
+                    <span class="strip-card-oneliner">An acrylic study in negative space.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (3a).jpg" data-lb-title="Hercules I" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (3a).jpg" alt="Hercules I" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Hercules I</span><span class="strip-card-meta">Acrylic</span>
+                    <span class="strip-card-oneliner">First pass at a figurative acrylic series.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (3b).jpg" data-lb-title="Hercules II" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (3b).jpg" alt="Hercules II" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Hercules II</span><span class="strip-card-meta">Acrylic</span>
+                    <span class="strip-card-oneliner">The second study — more controlled.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (3c).jpg" data-lb-title="Hercules III" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (3c).jpg" alt="Hercules III" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Hercules III</span><span class="strip-card-meta">Acrylic</span>
+                    <span class="strip-card-oneliner">The final piece in the Hercules series.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (3d).jpeg" data-lb-title="रफ़्तार" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (3d).jpeg" alt="रफ़्तार" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">रफ़्तार</span></span><span class="strip-card-meta">Acrylic</span>
+                    <span class="strip-card-oneliner">Speed — gestural, restless, unresolved.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (4).jpg" data-lb-title="Mini Painting I" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (4).jpg" alt="Mini Painting I" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Mini Painting I</span><span class="strip-card-meta">Acrylic</span>
+                    <span class="strip-card-oneliner">A small canvas — big focus.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (5).jpg" data-lb-title="Mini Painting II" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (5).jpg" alt="Mini Painting II" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Mini Painting II</span><span class="strip-card-meta">Acrylic</span>
+                    <span class="strip-card-oneliner">Second mini — same discipline.</span>
+                </div></a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     5. WORKSHOP
+============================================ -->
+<section class="medium-section" id="workshop">
+
+    <div class="medium-exhibition">
+        <div class="medium-exhibition-image" data-lb-src="img/gallery/ws (1).jpg" data-lb-title="Workshop" data-lb-meta="Teaching · 2021">
+            <img src="img/gallery/ws (1).jpg" alt="Art workshop conducted by Ankit Agrawal" loading="lazy">
+        <!--
+        ── TO SWAP THIS FEATURED IMAGE WITH A GIF ───────────────────────────
+        Replace the <img> above with:
+
+        <img class="ex-gif" src="img/gallery/YOUR-FILE.gif" alt="">
+
+        ── TO SWAP WITH A LOOPING VIDEO ─────────────────────────────────────
+        Replace the <img> above with:
+
+        <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <source src="img/gallery/YOUR-FILE.mp4" type="video/mp4">
+        </video>
+
+        Note: remove the data-lb-src attribute on the parent div if using video,
+        since the lightbox won't be able to display a video src.
+        -->
+        <span class="ex-img-credit">© Ankit Agrawal</span>
+        </div>
+        <div class="medium-exhibition-text">
+            <span class="ex-num">05 — Workshop</span>
+            <p class="ex-featured-title">Teaching workshop · 2021</p>
+            <h2>Taught in <em>studios</em> and village schools.</h2>
+            <p>
+                Since 2016, Missing Palette has run workshops in Pune, Ranchi, and rural Jharkhand — including a session for children at Mahilong village under the Saansad Adarsh Gram Yojana. These photographs are from those sessions: students, canvases, and the particular quiet of a room learning to look.
+            </p>
+            <span class="ex-count">9 photographs · 2019 – 2024</span>
+        </div>
+    </div>
+
+    <div class="medium-strip-wrap">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="medium-strip-label">Workshop photographs</div>
+            <div class="strip-nav">
+                <button class="strip-arrow" data-strip="workshop-strip" data-dir="-1" aria-label="Scroll left">&#8592;</button>
+                <button class="strip-arrow" data-strip="workshop-strip" data-dir="1" aria-label="Scroll right">&#8594;</button>
+            </div>
+        </div>
+        <div class="medium-strip" id="workshop-strip">
+
+            <a class="strip-card" data-lb-src="img/gallery/ws (1).jpg" data-lb-title="Workshop Session 1" data-lb-meta="2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (1).jpg" alt="Workshop 1" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">Mahilong village — children and watercolour.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/ws (2).jpg" data-lb-title="Workshop Session 2" data-lb-meta="2024" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (2).jpg" alt="Workshop 2" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2024</span></span>
+                    <span class="strip-card-oneliner">Students at work, Pune.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/ws (3).jpg" data-lb-title="Workshop Session 3" data-lb-meta="2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (3).jpg" alt="Workshop 3" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">A plein-air session on location.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/ws (4).jpg" data-lb-title="Workshop Session 4" data-lb-meta="2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (4).jpg" alt="Workshop 4" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Group class — the quiet before a brushstroke.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/ws (7).jpg" data-lb-title="Workshop Session 5" data-lb-meta="2022" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (7).jpg" alt="Workshop 5" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">A demonstration in progress.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/ws (8).jpg" data-lb-title="Workshop Session 6" data-lb-meta="2024" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (8).jpg" alt="Workshop 6" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2024</span></span>
+                    <span class="strip-card-oneliner">Ranchi batch — oil on canvas.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/ws (9).jpg" data-lb-title="Workshop Session 7" data-lb-meta="2022" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (9).jpg" alt="Workshop 7" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">Students painting from life.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/ws (10).jpg" data-lb-title="Workshop Session 8" data-lb-meta="2023" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (10).jpg" alt="Workshop 8" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2023</span></span>
+                    <span class="strip-card-oneliner">An outdoor session — natural light.</span>
+                </div></a>
+
+            <a class="strip-card" data-lb-src="img/gallery/ws (11).jpg" data-lb-title="Workshop Session 9" data-lb-meta="2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (11).jpg" alt="Workshop 9" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">The first workshop photo. 2019.</span>
+                </div></a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Commission CTA -->
 <section class="gallery-bottom-cta">
     <h2>Want a <em>custom piece</em>?</h2>
     <p>Commissions are accepted in limited number each year. Each piece begins with a conversation.</p>
-    <a href="/#commissions" class="btn primary">
-        Inquire about a commission
-        <span class="arrow">→</span>
-    </a>
+    <a href="/#commissions" class="btn primary">Inquire about a commission <span class="arrow">→</span></a>
 </section>
 
+
+<!-- Footer (unchanged) -->
 <footer class="site-footer">
     <div class="footer-grid">
         <div>
@@ -1486,74 +1364,141 @@
     <div class="footer-legal">
         <div class="copyright-line">
             <p>© 2019&ndash;2026 Missing Palette<sup class="tm">®</sup> · All Rights Reserved.</p>
-            <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal — unauthorized reproduction is prohibited.</p>
+            <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal - unauthorized reproduction is prohibited.</p>
         </div>
-        <div class="right">
-            <a href="/privacy.html">Privacy</a>
-            <a href="/legal.html">Legal</a>
-        </div>
+        <div class="right"><a href="/privacy.html">Privacy</a><a href="/legal.html">Legal</a></div>
     </div>
     <p class="made-with">Made with <span class="heart">❤</span> by <span class="aka">AKA</span></p>
 </footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <line x1="12" y1="19" x2="12" y2="5"></line>
-        <polyline points="5 12 12 5 19 12"></polyline>
+        <line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/>
     </svg>
 </button>
+
+
+<!-- ============================================
+     LIGHTBOX
+============================================ -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" id="lbPrev" aria-label="Previous">&#8592;</button>
+    <div class="lightbox-img-wrap">
+        <img src="" alt="" id="lbImg">
+    </div>
+    <div class="lightbox-caption" id="lbCaption"></div>
+    <button class="lightbox-next" id="lbNext" aria-label="Next">&#8594;</button>
+</div>
+
 
 <script src="/js/missingpalette.js" defer></script>
 
 <script>
 (function() {
-    const filterBar = document.getElementById('galleryFilterBar');
-    const grid = document.getElementById('galleryGrid');
-    if (filterBar && grid) {
-        const cards = grid.querySelectorAll('.gallery-card');
-        filterBar.addEventListener('click', (e) => {
-            const btn = e.target.closest('.gallery-filter-btn');
-            if (!btn) return;
-            const filter = btn.dataset.filter;
-            filterBar.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            cards.forEach(card => {
-                let show = false;
-                if (filter === 'all') show = true;
-                else if (filter === 'prints') show = card.hasAttribute('data-print-url');
-                else show = card.dataset.category === filter;
-                if (show) card.classList.remove('hidden');
-                else card.classList.add('hidden');
-            });
-        });
-    }
 
+    /* --- Hero background rotation --- */
     const heroBg = document.getElementById('galleryHeroBg');
     if (heroBg) {
         const slides = heroBg.querySelectorAll('.gallery-hero-bg-img');
-        let current = 0;
+        let cur = 0;
         if (slides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             setInterval(() => {
-                slides[current].classList.remove('active');
-                current = (current + 1) % slides.length;
-                slides[current].classList.add('active');
+                slides[cur].classList.remove('active');
+                cur = (cur + 1) % slides.length;
+                slides[cur].classList.add('active');
             }, 5500);
         }
     }
 
-    // PRINT LINK HANDLING — clicks on the "Buy a print" pill open the print URL
-    // instead of triggering the lightbox
-    document.querySelectorAll('.gallery-card-print-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const card = link.closest('.gallery-card[data-print-url]');
-            if (card && card.dataset.printUrl && !card.dataset.printUrl.startsWith('REPLACE_')) {
-                window.open(card.dataset.printUrl, '_blank', 'noopener,noreferrer');
-            } else {
-                alert('Print listing coming soon — check back shortly!');
+    /* --- Strip scroll arrows --- */
+    document.querySelectorAll('.strip-arrow').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const strip = document.getElementById(btn.dataset.strip);
+            if (strip) strip.scrollBy({ left: parseInt(btn.dataset.dir) * 700, behavior: 'smooth' });
+        });
+    });
+
+    /* --- Sticky nav active state --- */
+    const mediumSections = document.querySelectorAll('.medium-section');
+    const navLinks = document.querySelectorAll('.gallery-medium-nav a');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(a => a.classList.remove('active'));
+                const link = document.querySelector('.gallery-medium-nav a[href="#' + entry.target.id + '"]');
+                if (link) link.classList.add('active');
             }
         });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    mediumSections.forEach(s => observer.observe(s));
+
+    /* --- Lightbox --- */
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCaption = document.getElementById('lbCaption');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+
+    let lbItems = [];
+    let lbIdx = 0;
+
+    // Collect all lightbox-able items in DOM order
+    function collectItems() {
+        lbItems = Array.from(document.querySelectorAll('[data-lb-src]'));
+    }
+
+    function openLightbox(idx) {
+        collectItems();
+        lbIdx = idx;
+        showLbItem();
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function showLbItem() {
+        const el = lbItems[lbIdx];
+        if (!el) return;
+        const src = el.dataset.lbSrc;
+        const title = el.dataset.lbTitle || '';
+        const meta = el.dataset.lbMeta || '';
+        lbImg.src = src;
+        lbImg.alt = title;
+        lbCaption.innerHTML = title + (meta ? '<span class="meta">' + meta + '</span>' : '');
+    }
+
+    function closeLightbox() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+    }
+
+    document.querySelectorAll('[data-lb-src]').forEach((el, i) => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            collectItems();
+            openLightbox(lbItems.indexOf(el));
+        });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+
+    lbPrev.addEventListener('click', () => {
+        lbIdx = (lbIdx - 1 + lbItems.length) % lbItems.length;
+        showLbItem();
+    });
+    lbNext.addEventListener('click', () => {
+        lbIdx = (lbIdx + 1) % lbItems.length;
+        showLbItem();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') { lbIdx = (lbIdx - 1 + lbItems.length) % lbItems.length; showLbItem(); }
+        if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % lbItems.length; showLbItem(); }
     });
 
 })();
@@ -1561,5 +1506,6 @@
 
 </body>
 </html>
+
 
 
