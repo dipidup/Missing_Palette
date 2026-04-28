@@ -3,9 +3,11 @@
    Used across all pages of missingpalette.com
    ========================================== */
 
+
 /* =========================================================
    MISSING PALETTE® — Homepage stylesheet
    ========================================================= */
+
 
 :root {
     /* Palette */
@@ -21,22 +23,27 @@
     --ochre-light:  #E8B26C;
     --moss:         #4F5A3A;
 
+
     /* Typography */
     --font-display: 'Fraunces', 'Georgia', serif;
     --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-hindi:   'Tiro Devanagari Hindi', 'Fraunces', serif;
+
 
     /* Spacing */
     --max-width:    1280px;
     --gutter:       clamp(1.5rem, 4vw, 3rem);
 }
 
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 
 html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
 }
+
 
 body {
     background: var(--paper);
@@ -49,15 +56,19 @@ body {
     overflow-x: hidden;
 }
 
+
 img { display: block; max-width: 100%; height: auto; }
 
+
 a { color: inherit; }
+
 
 /* Selection */
 ::selection {
     background: var(--ink);
     color: var(--paper);
 }
+
 
 /* Trademark mark — small lifted ® */
 .tm {
@@ -68,11 +79,13 @@ a { color: inherit; }
     font-weight: 400;
 }
 
+
 /* Hindi inline */
 .hi {
     font-family: var(--font-hindi);
     font-weight: 400;
 }
+
 
 /* ==========================================
    NAVIGATION
@@ -143,6 +156,7 @@ a { color: inherit; }
     transform-origin: left;
 }
 
+
 .nav-cta {
     border: 1px solid var(--ink) !important;
     padding: 0.55rem 1.1rem !important;
@@ -154,6 +168,7 @@ a { color: inherit; }
 }
 .nav-cta::after { display: none !important; }
 
+
 /* Mobile menu toggle */
 .menu-toggle {
     display: none;
@@ -164,6 +179,7 @@ a { color: inherit; }
     color: var(--ink);
 }
 .menu-toggle svg { width: 22px; height: 22px; }
+
 
 @media (max-width: 860px) {
     .site-nav .nav-links {
@@ -186,6 +202,7 @@ a { color: inherit; }
     .menu-toggle { display: block; }
     .site-nav .nav-links a { font-size: 1rem; letter-spacing: 0.1em; }
 }
+
 
 /* ==========================================
    HERO — Option B: text band on top, art below in true aspect
@@ -289,6 +306,7 @@ a { color: inherit; }
     color: var(--ink);
 }
 
+
 /* The image plate — true aspect ratio, full container width */
 .hero-plate {
     position: relative;
@@ -339,11 +357,13 @@ a { color: inherit; }
     opacity: 0.95;
 }
 
+
 @media (max-width: 700px) {
     .hero-plate-caption .hi-title { font-size: 0.95rem; }
     .hero-plate-caption .en-title { font-size: 0.78rem; }
     .hero-plate-credit { font-size: 0.6rem; }
 }
+
 
 @keyframes fadeInLeft {
     from { opacity: 0; transform: translateX(-30px); }
@@ -357,6 +377,7 @@ a { color: inherit; }
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
 
 /* ==========================================
    SECTION COMMONS
@@ -412,6 +433,7 @@ section {
 @media (max-width: 720px) {
     .section-header .right { text-align: left; }
 }
+
 
 /* ==========================================
    ABOUT SNIPPET
@@ -485,6 +507,7 @@ section {
     margin-top: 2rem;
 }
 
+
 /* ==========================================
    BUTTONS
    ========================================== */
@@ -529,6 +552,7 @@ section {
     color: var(--ink);
 }
 
+
 /* ==========================================
    SELECTED WORKS — framed cards (uniform container, image + text inside)
    Each card is a "polaroid" / museum-label container with:
@@ -550,6 +574,7 @@ section {
     .works-grid { grid-template-columns: 1fr; }
 }
 
+
 /* Card container — visible frame */
 .artwork-card {
     text-decoration: none;
@@ -570,6 +595,7 @@ section {
     box-shadow: 0 12px 36px rgba(26, 22, 20, 0.10);
     border-color: var(--ochre);
 }
+
 
 /* Image area is now an <a> (clickable to gallery) */
 .artwork-card .img-wrap {
@@ -604,6 +630,7 @@ section {
 }
 .artwork-card:hover .img-wrap img { transform: scale(1.025); }
 
+
 /* Number badge — top-right of image area */
 .artwork-num-badge {
     position: absolute;
@@ -621,6 +648,7 @@ section {
     border: 1px solid var(--line);
     border-radius: 1px;
 }
+
 
 /* Text area — locked min-height for uniform alignment */
 .artwork-caption {
@@ -661,6 +689,7 @@ section {
     color: var(--ink-mute);
 }
 
+
 /* "Read story" button — small, subtle, anchored to bottom of card */
 .read-story-link {
     display: inline-flex;
@@ -685,10 +714,12 @@ section {
     color: var(--paper);
 }
 
+
 .works-cta {
     margin-top: clamp(2.5rem, 5vw, 4rem);
     text-align: center;
 }
+
 
 /* ==========================================
    PROCESS BAND (dark, plein-air)
@@ -788,6 +819,7 @@ section {
     color: var(--paper);
 }
 
+
 /* ==========================================
    EXHIBITIONS / PRESS
    ========================================== */
@@ -837,6 +869,7 @@ section {
     color: var(--ink-mute);
     text-align: right;
 }
+
 
 /* ==========================================
    COMMISSIONS
@@ -907,11 +940,13 @@ section {
     .commissions-image { max-width: 360px; }
 }
 
+
 .commissions-stack {
     position: absolute;
     inset: 0;
     perspective: 1200px;
 }
+
 
 /* Each card in the stack */
 .commissions-slide {
@@ -933,6 +968,7 @@ section {
     will-change: transform;
 }
 
+
 /* Stack positions, cycled by JS via classes */
 .commissions-slide.pos-front {
     transform: translate(-50%, 0) rotate(-1deg) scale(1);
@@ -949,6 +985,7 @@ section {
     z-index: 1;
     opacity: 0.92;
 }
+
 
 /* Caption sits below the stack */
 .commissions-image-caption {
@@ -976,10 +1013,12 @@ section {
     font-style: normal;
 }
 
+
 /* Give the parent some bottom space for the caption */
 .commissions-grid .commissions-image {
     margin-bottom: 60px;
 }
+
 
 /* ==========================================
    GOOGLE REVIEWS / STATS BAND
@@ -1061,6 +1100,7 @@ section {
     opacity: 0.7;
 }
 
+
 /* ==========================================
    BACK TO TOP BUTTON — appears after scrolling past hero
    ========================================== */
@@ -1110,6 +1150,7 @@ section {
     }
 }
 
+
 /* ==========================================
    ANIMATED STAT COUNTERS — count up on scroll
    ========================================== */
@@ -1150,6 +1191,7 @@ section {
 }
 .stat-write-review:hover { border-bottom-color: var(--ochre); }
 
+
 /* ==========================================
    TESTIMONIALS — subtle continuous marquee
    ========================================== */
@@ -1189,6 +1231,7 @@ section {
     color: var(--ink);
 }
 
+
 /* Marquee track — full bleed, edge to edge */
 .marquee {
     width: 100%;
@@ -1211,6 +1254,7 @@ section {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
+
 
 /* Smaller, quieter testimonial cards — text floats, minimal frame */
 .testimonial-mini {
@@ -1287,6 +1331,7 @@ section {
     margin-top: 0.2rem;
 }
 
+
 /* Reduced motion: pause the marquee */
 @media (prefers-reduced-motion: reduce) {
     .marquee-track {
@@ -1296,6 +1341,7 @@ section {
         width: auto;
     }
 }
+
 
 /* ==========================================
    QUIET FOOTER PROMOS (classes / shop)
@@ -1360,6 +1406,7 @@ section {
     transition: gap 240ms ease;
 }
 .quiet-promo a.go:hover { gap: 0.8rem; }
+
 
 /* ==========================================
    CONTACT / INQUIRE
@@ -1439,6 +1486,7 @@ section {
 }
 .contact-left .email:hover { border-bottom-color: var(--ochre-light); }
 
+
 .contact-form {
     background: rgba(245, 240, 230, 0.04);
     border: 1px solid rgba(245, 240, 230, 0.12);
@@ -1499,6 +1547,7 @@ section {
     background: var(--paper);
     color: var(--ink);
 }
+
 
 /* ==========================================
    FOOTER
@@ -1562,6 +1611,7 @@ section {
 }
 .footer-col a:hover { color: var(--paper); }
 
+
 /* Connect column: icon + label */
 .footer-social-list {
     list-style: none;
@@ -1593,6 +1643,7 @@ section {
     color: var(--paper);
 }
 
+
 .footer-legal {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -1620,11 +1671,13 @@ section {
 }
 .footer-legal a:hover { color: var(--paper); }
 
+
 /* Trademark notice */
 .tm-notice {
     font-style: italic;
     color: rgba(245, 240, 230, 0.45);
 }
+
 
 /* Made-with-love tagline */
 .made-with {
@@ -1657,6 +1710,7 @@ section {
     50% { transform: scale(1.15); }
 }
 
+
 /* ==========================================
    SCROLL REVEAL
    ========================================== */
@@ -1671,6 +1725,7 @@ section {
     transform: translateY(0);
 }
 
+
 /* Reduce motion preferences */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -1681,9 +1736,11 @@ section {
     .title-reveal { opacity: 1 !important; transform: none !important; }
 }
 
+
 /* ==========================================
    SCROLL INTERACTIONS — parallax + letter reveal + image unveil
    ========================================== */
+
 
 /* Parallax hero image — moves at ~0.7x scroll speed */
 .hero-plate {
@@ -1692,6 +1749,7 @@ section {
 .hero-plate img {
     transition: transform 0.05s linear; /* updated via JS */
 }
+
 
 /* Section title — simple fade-up reveal (no letter-by-letter) */
 .title-reveal {
@@ -1706,11 +1764,13 @@ section {
 }
 /* (Per-character animation removed — was too busy.) */
 
+
 /* Image reveal — quiet fade-up, no clip-path wash */
 .image-reveal {
     /* image-reveal piggybacks on the .reveal class for fade-up. */
     /* No additional animation needed here. */
 }
+
 
 /* Process band image parallax */
 .process-image {
@@ -1725,6 +1785,7 @@ section {
     background-position: center;
     will-change: transform;
 }
+
 
 /* ==========================================
    LIGHTBOX — for gallery images, triggered by data-lightbox attr
@@ -1842,6 +1903,8 @@ section {
 }
 
 
+
+
 /* "Prints available" note below commission CTA */
 .commission-prints-note {
     margin-top: 1.4rem;
@@ -1862,6 +1925,97 @@ section {
 .commission-prints-note a:hover {
     color: var(--crimson);
     border-bottom-color: var(--crimson);
+}
+
+
+
+
+/* ==========================================
+   WHAT'S HAPPENING band — homepage updates
+   Three editable slots: video / class / instagram
+   ========================================== */
+.whats-happening {
+    background: var(--paper-deep);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 4rem var(--gutter);
+}
+.happening-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+.happening-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    line-height: 1.15;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.01em;
+}
+.happening-title em {
+    font-style: italic;
+    color: var(--ochre);
+}
+.happening-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.2rem, 2.5vw, 2rem);
+}
+@media (max-width: 860px) {
+    .happening-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+
+.happening-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1.6rem 1.6rem 1.4rem;
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 280ms ease,
+                box-shadow 280ms ease;
+}
+.happening-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--ochre);
+    box-shadow: 0 6px 22px rgba(26, 22, 20, 0.08);
+}
+
+
+.happening-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    font-weight: 500;
+}
+.happening-headline {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.15rem;
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 0;
+    flex: 1;
+}
+.happening-link {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    transition: color 200ms ease;
+    margin-top: 0.4rem;
+}
+.happening-card:hover .happening-link {
+    color: var(--crimson);
 }
 
 
