@@ -370,4 +370,22 @@
       });
   })();
 
+/* =====================
+  // Workshop popup — shows once per user, 5s after page load
+  // Uses localStorage to track if user has seen it before
+  // =====================      */
+  
+  window.addEventListener("load", function () {
+  setTimeout(function () {
+    if (!localStorage.getItem("popupShown")) {
+      document.getElementById("workshopPopup").style.display = "flex";
+      localStorage.setItem("popupShown", "true");
+    }
+  }, 5000);
+});
+
+function closePopup() {
+  document.getElementById("workshopPopup").style.display = "none";
+}
+
 })();
