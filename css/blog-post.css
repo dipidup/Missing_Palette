@@ -1,0 +1,310 @@
+/* =========================================================
+   blog-post.css
+   Shared styles for individual blog post pages on missingpalette.com.
+   Used by every file in /blog/*.html (Ghat, hostel4, watercolor-portrait-guide,
+   POST_TEMPLATE, and any future post).
+
+   This file expects the main site stylesheet (missingpalette.css) to already
+   be loaded — it relies on the design tokens defined there:
+     --paper-deep, --paper-soft, --line, --ink, --ink-soft, --ink-mute,
+     --ochre, --crimson, --gutter, --font-display, --font-body, --font-hindi.
+   ========================================================= */
+
+.post-page {
+    padding-top: 5rem;
+}
+
+/* ---------- Hero image ---------- */
+.post-hero {
+    position: relative;
+    width: 100%;
+    background: var(--paper-deep);
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+}
+.post-hero-img {
+    width: 100%;
+    max-height: 70vh;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+.post-hero-caption {
+    text-align: center;
+    padding: 0.8rem var(--gutter) 1rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-mute);
+    font-size: 0.85rem;
+    background: var(--paper-soft);
+}
+
+/* ---------- Header (eyebrow / title / subtitle / meta) ---------- */
+.post-header {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3.5rem var(--gutter) 2rem;
+    text-align: center;
+}
+.post-eyebrow {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ochre);
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+.post-eyebrow::before,
+.post-eyebrow::after {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ochre);
+}
+.post-page h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+}
+.post-page h1 em {
+    font-style: italic;
+    color: var(--crimson);
+}
+.post-subtitle {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    max-width: 50ch;
+    margin: 0 auto;
+}
+.post-meta {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+.post-meta .dot {
+    color: var(--ochre);
+}
+
+/* ---------- Body typography ---------- */
+.post-body {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem var(--gutter) 4rem;
+    color: var(--ink-soft);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+.post-body p {
+    margin-bottom: 1.4rem;
+}
+.post-body p.lead {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+.post-body h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+}
+.post-body h2 em {
+    font-style: italic;
+    color: var(--crimson);
+}
+.post-body h2::before {
+    content: "—";
+    color: var(--ochre);
+    margin-right: 0.5em;
+    font-style: normal;
+    font-weight: 400;
+}
+.post-body h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+}
+.post-body strong {
+    color: var(--ink);
+    font-weight: 500;
+}
+.post-body em {
+    color: var(--ink);
+}
+.post-body a {
+    color: var(--ochre);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ochre);
+    padding-bottom: 1px;
+    transition: color 200ms ease, border-color 200ms ease;
+}
+.post-body a:hover {
+    color: var(--crimson);
+    border-bottom-color: var(--crimson);
+}
+
+.post-body ul,
+.post-body ol {
+    margin: 0 0 1.5rem 1.5rem;
+    padding: 0;
+}
+.post-body li {
+    margin-bottom: 0.6rem;
+}
+
+.post-body blockquote {
+    border-left: 3px solid var(--ochre);
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    margin: 2rem 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--ink);
+}
+
+/* ---------- In-body images ---------- */
+.post-image {
+    margin: 2.5rem -2rem;
+    background: var(--paper-deep);
+    padding: 1rem;
+    border: 1px solid var(--line);
+}
+@media (max-width: 720px) {
+    .post-image {
+        margin: 2rem 0;
+    }
+}
+.post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 16px rgba(26, 22, 20, 0.08);
+}
+.post-image-caption {
+    margin-top: 0.7rem;
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-mute);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+.post-image-caption .hi {
+    font-family: var(--font-hindi);
+    font-style: normal;
+    font-weight: 400;
+    color: var(--ink);
+}
+
+.post-image-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem -2rem;
+}
+@media (max-width: 720px) {
+    .post-image-pair {
+        grid-template-columns: 1fr;
+        margin: 2rem 0;
+    }
+}
+.post-image-pair .post-image {
+    margin: 0;
+    padding: 0.6rem;
+}
+
+/* ---------- Divider ---------- */
+.post-divider {
+    border: 0;
+    height: 1px;
+    background: var(--line);
+    margin: 3rem auto;
+    max-width: 200px;
+}
+
+/* ---------- End-of-post CTA ---------- */
+.post-end-cta {
+    background: var(--paper-deep);
+    border-top: 1px solid var(--line);
+    padding: 4rem var(--gutter);
+    text-align: center;
+}
+.post-end-cta h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1rem;
+}
+.post-end-cta h3 em {
+    font-style: italic;
+    color: var(--crimson);
+}
+.post-end-cta p {
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 50ch;
+    margin: 0 auto 1.8rem;
+}
+.post-end-cta .btn-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ---------- Back-to-index link ---------- */
+.post-back-link {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem var(--gutter);
+    text-align: center;
+}
+.post-back-link a {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 200ms ease;
+}
+.post-back-link a:hover {
+    color: var(--ink);
+}

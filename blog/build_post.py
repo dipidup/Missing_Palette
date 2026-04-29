@@ -1,4 +1,99 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+build_post.py — Missing Palette® blog post generator
+=====================================================
+
+Generate a full blog post HTML page from a tiny per-post source file.
+You write ~10 lines of front matter plus the article body. The script
+fills in all the boilerplate (head, nav, footer, scripts, meta tags,
+JSON-LD, CTA section).
+
+USAGE
+-----
+    python3 build_post.py posts/my-new-post.txt
+    python3 build_post.py posts/my-new-post.txt --out blog/my-new-post.html
+
+INPUT FILE FORMAT
+-----------------
+A plain text file with TOML-style front matter at the top, then the body.
+Example:
+
+    ---
+    title       = "Hostel 4, and the making of an artist"
+    title_html  = "Hostel 4, and the <em>making</em> of an artist"
+    slug        = "hostel4"
+    eyebrow     = "Memoir · BIT Mesra"
+    subtitle    = "On the four years that turned a B.Tech student into a painter."
+    date_label  = "Originally written 2024"
+    read_time   = "4 min read"
+    category    = "Memoir"
+    hero_image  = "/img/gallery/sketch (13).jpg"
+    hero_alt    = "BIT Mesra - charcoal sketch of Hostel 4"
+    hero_caption = "BIT Mesra - charcoal sketch of Hostel 4, college years"
+    description = "A charcoal sketch outside Hostel 4 Room 113."
+    section     = "Memoir"
+    ---
+
+    <p class="lead">Hostel life has a strange kind of stillness inside its chaos.</p>
+    <p>This was outside Hostel 4, Room 113...</p>
+    ...the rest of your post body in HTML, using the building blocks
+    documented in POST_TEMPLATE.html.
+
+NOTES
+-----
+- Place this script at the root of your site, next to your /blog/ folder.
+- Place source files in a /posts/ folder (or anywhere — pass the path).
+- Output defaults to /blog/<slug>.html.
+- Front matter values can use single or double quotes.
+- title_html is optional — if absent, title is used (no <em> emphasis).
+"""
+
+from __future__ import annotations
+import argparse
+import re
+import sys
+from pathlib import Path
+from html import escape
+
+
+SITE_URL = "https://missingpalette.com"
+
+
+def parse_source(text: str) -> tuple[dict, str]:
+    """Split a source file into (front_matter_dict, body_html)."""
+    # Front matter is between two lines that start with "---"
+    m = re.match(r"\s*---\s*\n(.*?)\n---\s*\n(.*)", text, re.DOTALL)
+    if not m:
+        raise ValueError(
+            "Source file must start with a front-matter block delimited by "
+            "lines containing only '---'. See build_post.py docstring."
+        )
+    fm_block, body = m.group(1), m.group(2)
+
+    fm = {}
+    for line_no, raw in enumerate(fm_block.splitlines(), start=2):
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        kv = re.match(r'^([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.*)$', line)
+        if not kv:
+            raise ValueError(f"Front matter line {line_no} is not 'key = value': {raw!r}")
+        key, val = kv.group(1), kv.group(2).strip()
+        # Strip surrounding quotes if present
+        if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
+            val = val[1:-1]
+        fm[key] = val
+
+    return fm, body.strip()
+
+
+def require(fm: dict, *keys: str) -> None:
+    missing = [k for k in keys if k not in fm or not fm[k]]
+    if missing:
+        raise ValueError(f"Front matter is missing required keys: {', '.join(missing)}")
+
+
+TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -9,43 +104,43 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFGSTZXF57"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
     gtag('config', 'G-HFGSTZXF57');
 </script>
 
-<title>Hostel 4, and the making of an artist | Missing Palette® · Journal</title>
-<meta name="description" content="A charcoal sketch made outside Hostel 4 Room 113 at BIT Mesra, and the four years that turned an engineering student into an artist. By Ankit Agrawal.">
+<title>{title} | Missing Palette® · Journal</title>
+<meta name="description" content="{description}">
 <meta name="author" content="Ankit Agrawal">
 <meta name="copyright" content="© 2019–2026 Missing Palette®">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://missingpalette.com/blog/hostel4.html">
+<link rel="canonical" href="{canonical_url}">
 
-<meta property="og:title" content="Hostel 4, and the making of an artist | Missing Palette®">
-<meta property="og:description" content="A charcoal sketch made outside Hostel 4 Room 113 at BIT Mesra, and the four years that turned an engineering student into an artist. By Ankit Agrawal.">
-<meta property="og:image" content="https://missingpalette.com/img/gallery/sketch (13).jpg">
-<meta property="og:url" content="https://missingpalette.com/blog/hostel4.html">
+<meta property="og:title" content="{title} | Missing Palette®">
+<meta property="og:description" content="{description}">
+<meta property="og:image" content="{og_image}">
+<meta property="og:url" content="{canonical_url}">
 <meta property="og:type" content="article">
 <meta property="og:rights" content="© 2019–2026 Missing Palette®. All Rights Reserved.">
 <meta property="article:author" content="Ankit Agrawal">
-<meta property="article:section" content="Memoir">
+<meta property="article:section" content="{section}">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Hostel 4, and the making of an artist | Missing Palette®">
-<meta name="twitter:description" content="A charcoal sketch made outside Hostel 4 Room 113 at BIT Mesra, and the four years that turned an engineering student into an artist. By Ankit Agrawal.">
-<meta name="twitter:image" content="https://missingpalette.com/img/gallery/sketch (13).jpg">
+<meta name="twitter:title" content="{title} | Missing Palette®">
+<meta name="twitter:description" content="{description}">
+<meta name="twitter:image" content="{og_image}">
 
 <script type="application/ld+json">
-{
+{{
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Hostel 4, and the making of an artist",
-    "image": "https://missingpalette.com/img/gallery/sketch (13).jpg",
-    "url": "https://missingpalette.com/blog/hostel4.html",
-    "author": { "@type": "Person", "name": "Ankit Agrawal", "url": "https://missingpalette.com/" },
-    "publisher": { "@type": "Organization", "name": "Missing Palette" },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://missingpalette.com/blog/hostel4.html" }
-}
+    "headline": "{title}",
+    "image": "{og_image}",
+    "url": "{canonical_url}",
+    "author": {{ "@type": "Person", "name": "Ankit Agrawal", "url": "https://missingpalette.com/" }},
+    "publisher": {{ "@type": "Organization", "name": "Missing Palette" }},
+    "mainEntityOfPage": {{ "@type": "WebPage", "@id": "{canonical_url}" }}
+}}
 </script>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
@@ -69,84 +164,39 @@
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
     </button>
-   <ul class="nav-links" id="navLinks">
-       <!-- <li><a href="/">Home</a></li> -->
-       <li><a href="/gallery.html">Gallery</a></li>
-       <li><a href="#about">About Me</a></li>
-       <!-- <li><a href="#testimonials">Testimonials</a></li> -->
-       <li><a href="#commissions">Commissions</a></li>
-       <li><a href="/blog.html">My Journal</a></li>
-       <li><a href="/exhibitions.html">Exhibitions & Press</a></li>
-       <li><a href="/products.html">Art Products</a></li>
-       <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-   </ul>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="/gallery.html">Gallery</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#commissions">Commissions</a></li>
+        <li><a href="/blog.html">My Journal</a></li>
+        <li><a href="/exhibitions.html">Exhibitions & Press</a></li>
+        <li><a href="/products.html">Art Products</a></li>
+        <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+</nav>
 
 <main class="post-page">
 
     <div class="post-header">
-        <div class="post-eyebrow">Memoir · BIT Mesra</div>
-        <h1>Hostel 4, and the <em>making</em> of an artist</h1>
-        <p class="post-subtitle">On the four years that turned a B.Tech student into a painter - sketchbooks, ordinary corridors, and the place that started it all.</p>
+        <div class="post-eyebrow">{eyebrow}</div>
+        <h1>{title_html}</h1>
+        <p class="post-subtitle">{subtitle}</p>
         <div class="post-meta">
-            <span>Originally written 2024</span>
+            <span>{date_label}</span>
             <span class="dot">·</span>
-            <span>4 min read</span>
+            <span>{read_time}</span>
             <span class="dot">·</span>
-            <span>Memoir</span>
+            <span>{category}</span>
         </div>
     </div>
 
     <figure class="post-hero">
-        <img class="post-hero-img" src="/img/gallery/sketch (13).jpg" alt="BIT Mesra - charcoal sketch of Hostel 4, college years" loading="eager">
-        <figcaption class="post-hero-caption">BIT Mesra - charcoal sketch of Hostel 4, college years</figcaption>
+        <img class="post-hero-img" src="{hero_image}" alt="{hero_alt}" loading="eager">
+        <figcaption class="post-hero-caption">{hero_caption}</figcaption>
     </figure>
 
     <article class="post-body">
-        <p class="lead">Hostel life has a strange kind of stillness hidden inside its chaos.</p>
-
-        <p>This was outside Hostel 4, Room 113. A place that saw late-night conversations, unfinished assignments, random chai breaks, and long stretches of doing absolutely nothing. That day, I stepped outside with my sketchbook, not really planning to create anything serious. Just sitting there felt enough.</p>
-
-        <figure class="post-image">
-            <img src="/img/gallery/sketch (13).jpg" alt="BIT Mesra - charcoal sketch of campus by Ankit Agrawal" loading="lazy">
-            <figcaption class="post-image-caption">BIT Mesra - charcoal sketch of the corridor outside Hostel 4. Done from observation, on a regular afternoon.</figcaption>
-        </figure>
-
-        <h2>A familiar <em>scene</em></h2>
-
-        <p>The corridor wasn't extraordinary. Slightly worn walls. Scattered slippers. Doors half-open. Someone playing music somewhere in the background. But maybe that's what made it worth sketching.</p>
-
-        <p>It wasn't dramatic. It wasn't picturesque. It was just <em>real</em>.</p>
-
-        <p>I picked a spot and started sketching what I saw - the perspective of the corridor, the light falling from one side, the subtle shadows stretching across the floor. There was no rush. No pressure to make it perfect.</p>
-
-        <h2>Slowing <em>down</em></h2>
-
-        <p>Most of the time, we wait for something "special" to paint. A landscape. A monument. A perfect reference photo. But that day reminded me that even the most ordinary spaces carry character, if you take a moment to really see them.</p>
-
-        <p>The chipped paint. The uneven light. The quiet pauses between the music. Everything added to the story.</p>
-
-        <p>By the end of it, the sketch wasn't technically perfect. But it didn't need to be. It held a memory - of that corridor, that phase of life, and that simple act of sitting still.</p>
-
-        <h2>Same campus, <em>different medium</em></h2>
-
-        <p>A few semesters later I came back to the same area with a watercolor set, and tried to paint the campus in color. The watercolor sits very differently. The sketch is a memory of a moment; the watercolor is a memory of a <em>place</em>.</p>
-
-        <figure class="post-image">
-            <img src="/img/gallery/water (10).jpg" alt="BIT Mesra - watercolor of campus" loading="lazy">
-            <figcaption class="post-image-caption">BIT Mesra - watercolor on paper. Same campus. Different medium. Different kind of remembering.</figcaption>
-        </figure>
-
-        <p>I gave one of these to <a href="/#testimonials">Dr. Abhas Mitra</a> after he came to give a talk at our college. (He famously left it on a chair at Ranchi airport. He still apologizes about it.) That painting is technically lost. But every time I think about that talk, I think about handing it to him. So I'm not sure it's really lost.</p>
-
-        <h2>More than just a <em>sketch</em></h2>
-
-        <p>Sometimes I think the four years I spent at BIT Mesra are what made me an artist, not the engineering. Not because of any specific class or teacher, but because the campus gave me time. Time to sit on a step with a sketchbook and not feel like I was wasting anything.</p>
-
-        <blockquote>Most of the time, we wait for something special to paint. But the most ordinary spaces carry character, if you take a moment to really see them.</blockquote>
-
-        <p>I'm working on putting together a small series - sketches and paintings from different corners of the campus. If you've been there, or are still there, and you'd like to share a memory of a specific spot, send it to me. <a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a>. I might paint it.</p>
-
-        <p>Sometimes that's enough for art.</p>
+{body}
     </article>
 
     <div class="post-back-link">
@@ -226,3 +276,77 @@
 
 </body>
 </html>
+"""
+
+
+def render(fm: dict, body: str) -> str:
+    require(fm, "title", "slug", "eyebrow", "subtitle",
+            "date_label", "read_time", "category",
+            "hero_image", "hero_alt", "hero_caption",
+            "description")
+
+    canonical_url = f"{SITE_URL}/blog/{fm['slug']}.html"
+    og_image = fm["hero_image"]
+    if og_image.startswith("/"):
+        og_image = SITE_URL + og_image
+
+    # Plain title is used in <title>, og:title, twitter:title, JSON-LD headline.
+    # title_html is optional and used inside <h1> so you can put <em> in it.
+    title = fm["title"]
+    title_html = fm.get("title_html") or escape(title)
+
+    # Indent body so it sits nicely inside <article>.
+    indented_body = "\n".join("        " + ln if ln.strip() else "" for ln in body.splitlines())
+
+    values = {
+        "title": escape(title),
+        "title_html": title_html,  # raw HTML allowed
+        "description": escape(fm["description"]),
+        "canonical_url": canonical_url,
+        "og_image": og_image,
+        "section": escape(fm.get("section", fm["category"])),
+        "eyebrow": escape(fm["eyebrow"]),
+        "subtitle": escape(fm["subtitle"]),
+        "date_label": escape(fm["date_label"]),
+        "read_time": escape(fm["read_time"]),
+        "category": escape(fm["category"]),
+        "hero_image": escape(fm["hero_image"], quote=True),
+        "hero_alt": escape(fm["hero_alt"], quote=True),
+        "hero_caption": fm["hero_caption"],  # raw HTML allowed
+        "body": indented_body,
+    }
+    return TEMPLATE.format(**values)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Build a Missing Palette blog post page.")
+    ap.add_argument("source", help="Path to the post source .txt/.md file")
+    ap.add_argument("--out", help="Output HTML path (default: blog/<slug>.html)")
+    args = ap.parse_args()
+
+    src_path = Path(args.source)
+    if not src_path.exists():
+        print(f"error: source file not found: {src_path}", file=sys.stderr)
+        return 1
+
+    text = src_path.read_text(encoding="utf-8")
+    try:
+        fm, body = parse_source(text)
+        html = render(fm, body)
+    except ValueError as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
+
+    if args.out:
+        out_path = Path(args.out)
+    else:
+        out_path = Path("blog") / f"{fm['slug']}.html"
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(html, encoding="utf-8")
+    print(f"wrote {out_path}  ({len(html):,} bytes)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
