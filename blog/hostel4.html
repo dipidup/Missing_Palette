@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+<!--
+================================================================
+  MISSING PALETTE - BLOG POST TEMPLATE
+  ================================================================
+  TO PUBLISH A NEW POST:
+    1. Copy this file to /blog/your-slug.html (e.g. monsoon-2026.html)
+    2. Edit ONLY the marked sections below:
+         (A) POST META          in head
+         (B) POST HEADER        in body
+         (C) POST HERO          in body
+         (D) article.post-body  in body  (your actual writing)
+    3. Add a card to /blog.html so the post appears in the index.
+
+  Everything else (nav, footer, scripts, styles) is shared and
+  should not be edited per-post.
+================================================================
+-->
 <html lang="en">
 <head>
 
@@ -14,37 +31,67 @@
     gtag('config', 'G-HFGSTZXF57');
 </script>
 
-<title>Hostel 4, and the making of an artist | Missing Palette® · Journal</title>
-<meta name="description" content="A charcoal sketch made outside Hostel 4 Room 113 at BIT Mesra, and the four years that turned an engineering student into an artist. By Ankit Agrawal.">
+<!--
+============================================================
+(A) POST META - edit the 5 values marked [EDIT]
+The same 5 values feed title, description, canonical URL,
+social-share image, and category. Just paste each one into
+the matching tags below.
+============================================================
+-->
+
+<!-- [EDIT] Post title (also used inside h1 below) -->
+<title>A Blank Template | Missing Palette® · Journal</title>
+
+<!-- [EDIT] One-sentence description for search engines and social -->
+<meta name="description" content="Blog post template for missingpalette.com - copy and replace the content to publish a new journal entry.">
+
+<!-- [EDIT] Canonical URL (must end with the actual filename) -->
+<link rel="canonical" href="https://missingpalette.com/blog/POST_TEMPLATE.html">
+
+<!-- [EDIT] Hero / share image (full URL with https://missingpalette.com prefix) -->
+<meta property="og:image" content="https://missingpalette.com/img/gallery/water (1).jpg">
+
+<!-- [EDIT] Category tag (e.g. "Memoir", "Tutorial", "Travel") -->
+<meta property="article:section" content="Template">
+
+<!--
+============================================================
+The 4 social/SEO blocks below repeat the [EDIT] values so
+crawlers (Google, Twitter, Facebook, LinkedIn) read them
+without running JavaScript. Just paste the same values.
+============================================================
+-->
+
 <meta name="author" content="Ankit Agrawal">
 <meta name="copyright" content="© 2019–2026 Missing Palette®">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://missingpalette.com/blog/hostel4.html">
 
-<meta property="og:title" content="Hostel 4, and the making of an artist | Missing Palette®">
-<meta property="og:description" content="A charcoal sketch made outside Hostel 4 Room 113 at BIT Mesra, and the four years that turned an engineering student into an artist. By Ankit Agrawal.">
-<meta property="og:image" content="https://missingpalette.com/img/gallery/sketch (13).jpg">
-<meta property="og:url" content="https://missingpalette.com/blog/hostel4.html">
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+<meta property="og:title" content="A Blank Template | Missing Palette®">
+<meta property="og:description" content="Blog post template for missingpalette.com - copy and replace the content to publish a new journal entry.">
+<meta property="og:url" content="https://missingpalette.com/blog/POST_TEMPLATE.html">
 <meta property="og:type" content="article">
 <meta property="og:rights" content="© 2019–2026 Missing Palette®. All Rights Reserved.">
 <meta property="article:author" content="Ankit Agrawal">
-<meta property="article:section" content="Memoir">
 
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Hostel 4, and the making of an artist | Missing Palette®">
-<meta name="twitter:description" content="A charcoal sketch made outside Hostel 4 Room 113 at BIT Mesra, and the four years that turned an engineering student into an artist. By Ankit Agrawal.">
-<meta name="twitter:image" content="https://missingpalette.com/img/gallery/sketch (13).jpg">
+<meta name="twitter:title" content="A Blank Template | Missing Palette®">
+<meta name="twitter:description" content="Blog post template for missingpalette.com - copy and replace the content to publish a new journal entry.">
+<meta name="twitter:image" content="https://missingpalette.com/img/gallery/water (1).jpg">
 
+<!-- Schema.org structured data -->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "Hostel 4, and the making of an artist",
-    "image": "https://missingpalette.com/img/gallery/sketch (13).jpg",
-    "url": "https://missingpalette.com/blog/hostel4.html",
+    "headline": "A Blank Template",
+    "image": "https://missingpalette.com/img/gallery/water (1).jpg",
+    "url": "https://missingpalette.com/blog/POST_TEMPLATE.html",
     "author": { "@type": "Person", "name": "Ankit Agrawal", "url": "https://missingpalette.com/" },
     "publisher": { "@type": "Organization", "name": "Missing Palette" },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://missingpalette.com/blog/hostel4.html" }
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://missingpalette.com/blog/POST_TEMPLATE.html" }
 }
 </script>
 
@@ -69,84 +116,147 @@
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="7" x2="21" y2="7"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="17" x2="21" y2="17"></line></svg>
     </button>
-   <ul class="nav-links" id="navLinks">
-       <!-- <li><a href="/">Home</a></li> -->
-       <li><a href="/gallery.html">Gallery</a></li>
-       <li><a href="#about">About Me</a></li>
-       <!-- <li><a href="#testimonials">Testimonials</a></li> -->
-       <li><a href="#commissions">Commissions</a></li>
-       <li><a href="/blog.html">My Journal</a></li>
-       <li><a href="/exhibitions.html">Exhibitions & Press</a></li>
-       <li><a href="/products.html">Art Products</a></li>
-       <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-   </ul>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="/gallery.html">Gallery</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#commissions">Commissions</a></li>
+        <li><a href="/blog.html">My Journal</a></li>
+        <li><a href="/exhibitions.html">Exhibitions & Press</a></li>
+        <li><a href="/products.html">Art Products</a></li>
+        <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+</nav>
 
 <main class="post-page">
 
+    <!-- ========================================================
+         (B) POST HEADER — edit eyebrow, title, subtitle, meta
+         ======================================================== -->
     <div class="post-header">
-        <div class="post-eyebrow">Memoir · BIT Mesra</div>
-        <h1>Hostel 4, and the <em>making</em> of an artist</h1>
-        <p class="post-subtitle">On the four years that turned a B.Tech student into a painter - sketchbooks, ordinary corridors, and the place that started it all.</p>
+        <div class="post-eyebrow">Template · Reference</div>
+        <h1>A Blank <em>Template</em></h1>
+        <p class="post-subtitle">Copy this file, rename it, replace the content. The scaffolding is already in place.</p>
         <div class="post-meta">
-            <span>Originally written 2024</span>
+            <span>Template</span>
             <span class="dot">·</span>
-            <span>4 min read</span>
+            <span>— min read</span>
             <span class="dot">·</span>
-            <span>Memoir</span>
+            <span>Template</span>
         </div>
     </div>
 
+    <!-- ========================================================
+         (C) POST HERO — the big image at the top of the post
+         ======================================================== -->
     <figure class="post-hero">
-        <img class="post-hero-img" src="/img/gallery/sketch (13).jpg" alt="BIT Mesra - charcoal sketch of Hostel 4, college years" loading="eager">
-        <figcaption class="post-hero-caption">BIT Mesra - charcoal sketch of Hostel 4, college years</figcaption>
+        <img class="post-hero-img" src="/img/gallery/water (1).jpg" alt="Replace this hero image and caption with your own." loading="eager">
+        <figcaption class="post-hero-caption">Replace this hero image and caption with your own.</figcaption>
     </figure>
 
+    <!-- ========================================================
+         (D) POST BODY — your actual writing goes here
+         ========================================================
+         BUILDING BLOCKS YOU CAN USE:
+
+           Lead paragraph (opening line, larger and italic):
+             <p class="lead">Your opening line.</p>
+
+           Regular paragraph:
+             <p>Body text.</p>
+
+           Section heading (with optional emphasis):
+             <h2>Section title with <em>emphasis</em></h2>
+
+           Sub-heading:
+             <h3>Subsection</h3>
+
+           Bullet list:
+             <ul>
+                 <li>Item</li>
+                 <li><strong>Bold</strong> &mdash; with explanation</li>
+             </ul>
+
+           Pull-quote:
+             <blockquote>One sentence to remember.</blockquote>
+
+           Single image with caption:
+             <figure class="post-image">
+                 <img src="/img/gallery/your-image.jpg" alt="description" loading="lazy">
+                 <figcaption class="post-image-caption">Caption text.</figcaption>
+             </figure>
+
+           Two images side-by-side:
+             <div class="post-image-pair">
+                 <figure class="post-image">
+                     <img src="..." alt="..." loading="lazy">
+                     <figcaption class="post-image-caption">Caption A</figcaption>
+                 </figure>
+                 <figure class="post-image">
+                     <img src="..." alt="..." loading="lazy">
+                     <figcaption class="post-image-caption">Caption B</figcaption>
+                 </figure>
+             </div>
+
+           Divider:
+             <hr class="post-divider">
+
+           Hindi inline (in any caption or paragraph):
+             <span class="hi">हिंदी</span>
+
+           Internal link:
+             <a href="/gallery.html">View the gallery</a>
+
+           External link (always with rel attrs):
+             <a href="https://example.com" target="_blank" rel="noopener noreferrer">Link text</a>
+         ======================================================== -->
     <article class="post-body">
-        <p class="lead">Hostel life has a strange kind of stillness hidden inside its chaos.</p>
 
-        <p>This was outside Hostel 4, Room 113. A place that saw late-night conversations, unfinished assignments, random chai breaks, and long stretches of doing absolutely nothing. That day, I stepped outside with my sketchbook, not really planning to create anything serious. Just sitting there felt enough.</p>
+        <p class="lead">Lead paragraph &mdash; this is the opening line, set in larger italic type. Use it to set the tone of the post in one breath.</p>
 
-        <figure class="post-image">
-            <img src="/img/gallery/sketch (13).jpg" alt="BIT Mesra - charcoal sketch of campus by Ankit Agrawal" loading="lazy">
-            <figcaption class="post-image-caption">BIT Mesra - charcoal sketch of the corridor outside Hostel 4. Done from observation, on a regular afternoon.</figcaption>
-        </figure>
+        <p>This is a regular paragraph. Use these for the bulk of your writing. You can add <strong>bold emphasis</strong> sparingly, or <em>italic</em> when you mean it. Links inside paragraphs look <a href="/">like this</a> &mdash; ochre, with a soft underline that warms to crimson on hover.</p>
 
-        <h2>A familiar <em>scene</em></h2>
-
-        <p>The corridor wasn't extraordinary. Slightly worn walls. Scattered slippers. Doors half-open. Someone playing music somewhere in the background. But maybe that's what made it worth sketching.</p>
-
-        <p>It wasn't dramatic. It wasn't picturesque. It was just <em>real</em>.</p>
-
-        <p>I picked a spot and started sketching what I saw - the perspective of the corridor, the light falling from one side, the subtle shadows stretching across the floor. There was no rush. No pressure to make it perfect.</p>
-
-        <h2>Slowing <em>down</em></h2>
-
-        <p>Most of the time, we wait for something "special" to paint. A landscape. A monument. A perfect reference photo. But that day reminded me that even the most ordinary spaces carry character, if you take a moment to really see them.</p>
-
-        <p>The chipped paint. The uneven light. The quiet pauses between the music. Everything added to the story.</p>
-
-        <p>By the end of it, the sketch wasn't technically perfect. But it didn't need to be. It held a memory - of that corridor, that phase of life, and that simple act of sitting still.</p>
-
-        <h2>Same campus, <em>different medium</em></h2>
-
-        <p>A few semesters later I came back to the same area with a watercolor set, and tried to paint the campus in color. The watercolor sits very differently. The sketch is a memory of a moment; the watercolor is a memory of a <em>place</em>.</p>
+        <p>Keep paragraphs short. Two to four sentences each. White space is a feature, not a bug.</p>
 
         <figure class="post-image">
-            <img src="/img/gallery/water (10).jpg" alt="BIT Mesra - watercolor of campus" loading="lazy">
-            <figcaption class="post-image-caption">BIT Mesra - watercolor on paper. Same campus. Different medium. Different kind of remembering.</figcaption>
+            <img src="/img/gallery/water (1).jpg" alt="Replace this with a real image" loading="lazy">
+            <figcaption class="post-image-caption">A caption that explains the image. Optional <span class="hi">हिंदी</span> works inline.</figcaption>
         </figure>
 
-        <p>I gave one of these to <a href="/#testimonials">Dr. Abhas Mitra</a> after he came to give a talk at our college. (He famously left it on a chair at Ranchi airport. He still apologizes about it.) That painting is technically lost. But every time I think about that talk, I think about handing it to him. So I'm not sure it's really lost.</p>
+        <h2>This is a <em>section heading</em></h2>
 
-        <h2>More than just a <em>sketch</em></h2>
+        <p>Section headings use H2 tags and get a small dash automatically prepended in the styling. The italic <em>emphasis</em> renders in crimson.</p>
 
-        <p>Sometimes I think the four years I spent at BIT Mesra are what made me an artist, not the engineering. Not because of any specific class or teacher, but because the campus gave me time. Time to sit on a step with a sketchbook and not feel like I was wasting anything.</p>
+        <h3>This is a sub-heading</h3>
 
-        <blockquote>Most of the time, we wait for something special to paint. But the most ordinary spaces carry character, if you take a moment to really see them.</blockquote>
+        <p>H3 is for sub-points within a section. Use sparingly &mdash; if you find yourself reaching for H3 a lot, the post probably wants to be split into more H2s.</p>
 
-        <p>I'm working on putting together a small series - sketches and paintings from different corners of the campus. If you've been there, or are still there, and you'd like to share a memory of a specific spot, send it to me. <a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a>. I might paint it.</p>
+        <h2>Lists, when <em>they help</em></h2>
 
-        <p>Sometimes that's enough for art.</p>
+        <ul>
+            <li><strong>Lead with the bold</strong> &mdash; the bolded phrase is a kind of mini-heading for the bullet</li>
+            <li><strong>Then explain</strong> &mdash; the rest is the supporting sentence</li>
+            <li><strong>Keep them parallel</strong> &mdash; same shape across all bullets reads cleaner</li>
+        </ul>
+
+        <blockquote>This is a pull-quote. Use it for the one sentence in the post you most want a reader to remember.</blockquote>
+
+        <hr class="post-divider">
+
+        <h2>Pairing <em>images</em></h2>
+
+        <div class="post-image-pair">
+            <figure class="post-image">
+                <img src="/img/gallery/water (2).jpg" alt="Replace with first image" loading="lazy">
+                <figcaption class="post-image-caption">Caption A</figcaption>
+            </figure>
+            <figure class="post-image">
+                <img src="/img/gallery/water (2a).jpg" alt="Replace with second image" loading="lazy">
+                <figcaption class="post-image-caption">Caption B</figcaption>
+            </figure>
+        </div>
+
+        <p>End with one closing paragraph. Pull the thread of the post together. Leave the reader with the one thing you want them to take with them.</p>
+
     </article>
 
     <div class="post-back-link">
@@ -226,3 +336,4 @@
 
 </body>
 </html>
+
