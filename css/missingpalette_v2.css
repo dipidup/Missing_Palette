@@ -177,12 +177,19 @@ a {
 }
 a:hover {
     color: #D4A85A !important;
-    text-decoration: underline !important;
-    text-underline-offset: 4px;
+    /* no global underline on hover - apply per-element where needed */
 }
 .brand, .brand:hover {
     color: #E8DDC8 !important;
     text-decoration: none !important;
+}
+
+/* Restore underline on hover ONLY for body-prose links - not nav, not cards */
+.post-body a:hover,
+.about p a:hover,
+main p a:hover {
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
 }
 
 
@@ -446,6 +453,21 @@ nav.ex-tab-nav {
 .ex-tab-nav a[aria-current="true"] {
     color: #C08F3D !important;
     border-bottom-color: #C08F3D !important;
+}
+/* "Prints available" link under gallery strip card descriptions */
+.strip-card .prints-tag {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: #C08F3D !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+    position: relative;
+    z-index: 2;
+}
+.strip-card .prints-tag:hover {
+    color: #D4A85A !important;
 }
 
 

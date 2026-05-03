@@ -2235,3 +2235,19 @@ section {
 .topmate-logo:hover {
     opacity: 0.7;
 }
+
+/* "Prints available" link under gallery strip card descriptions */
+.strip-card .prints-tag {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: #C08F3D !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+    position: relative;
+    z-index: 2;
+}
+.strip-card .prints-tag:hover {
+    color: #D4A85A !important;
+}
