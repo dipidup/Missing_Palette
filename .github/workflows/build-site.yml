@@ -1,0 +1,50 @@
+name: Rebuild Site
+
+# Runs the gallery build script on every push, every hour, and on
+# manual trigger. The script appends sheet rows into gallery.html
+# without touching the static base cards.
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - 'img/gallery/**'
+      - 'gallery.html'
+      - 'build_gallery.py'
+      - 'scripts/**'
+      - '.github/workflows/build-site.yml'
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build gallery (Sheet -> gallery.html)
+        env:
+          GALLERY_SHEET_CSV_URL: ${{ secrets.GALLERY_SHEET_CSV_URL }}
+        run: python3 build_gallery.py
+
+      - name: Commit changes (if any)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "auto: rebuild gallery from sheet"
+            git push
+          else
+            echo "Nothing changed."
+          fi
