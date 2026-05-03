@@ -143,13 +143,6 @@
     font-style: italic;
     color: var(--crimson);
 }
-.post-body h2::before {
-    content: "—";
-    color: var(--ochre);
-    margin-right: 0.5em;
-    font-style: normal;
-    font-weight: 400;
-}
 .post-body h3 {
     font-family: var(--font-display);
     font-weight: 500;

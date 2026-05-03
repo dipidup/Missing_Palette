@@ -1,0 +1,70 @@
+name: Rebuild Site
+
+# Runs on every commit to master that touches sources, plus hourly,
+# plus on manual trigger.
+#
+# What it builds:
+#   1. gallery.html (from img/gallery/ + Sheet -> see existing build_gallery.py)
+#   2. blog/<slug>.html for each posts/<slug>.md
+#   3. blog.html cards block (from posts/*.md frontmatter)
+#
+# Each step commits its own output back to master (only if the file changed).
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'img/gallery/**'
+      - 'img/blog/**'
+      - 'gallery.html'
+      - 'blog.html'
+      - 'POST_TEMPLATE.html'
+      - 'posts/**'
+      - 'scripts/**'
+      - 'build_gallery.py'
+      - '.github/workflows/build-site.yml'
+  schedule:
+    - cron: '0 * * * *'   # every hour, on the hour
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python deps
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install markdown-it-py PyYAML
+
+      - name: Build gallery (existing)
+        if: ${{ hashFiles('build_gallery.py') != '' }}
+        run: python3 build_gallery.py
+
+      - name: Build posts (markdown -> blog/*.html)
+        run: python3 scripts/build_post.py
+
+      - name: Build blog index (cards in blog.html)
+        run: python3 scripts/build_blog.py
+
+      - name: Commit changes (if any)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "auto: rebuild gallery + blog"
+            git push
+          else
+            echo "Nothing changed."
+          fi

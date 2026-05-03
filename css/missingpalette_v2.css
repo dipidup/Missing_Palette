@@ -1,0 +1,454 @@
+/* =============================================================
+   THEME V5.1 — "Gallery Wall, After Hours" (BULLETPROOF)
+   =============================================================
+   Same palette as V5, but every rule that sets a background or
+   text color uses !important so it wins regardless of source
+   order or specificity in the base stylesheet. Also catches
+   the specific cream hex codes and class names that V5 missed.
+
+   Replace theme-v5.css with this file. No HTML changes needed
+   beyond what V5 already required.
+   ============================================================= */
+
+
+/* -------------------------------------------------------------
+   1. PALETTE OVERRIDE (root vars)
+   ------------------------------------------------------------- */
+:root,
+html,
+body {
+    --paper:        #14100E !important;
+    --paper-deep:   #0C0A09 !important;
+    --paper-soft:   #1E1814 !important;
+
+    --ink:          #E8DDC8 !important;
+    --ink-soft:     rgba(232, 221, 200, 0.75) !important;
+    --ink-mute:     rgba(232, 221, 200, 0.45) !important;
+
+    --crimson:      #9C0B07 !important;
+    --ochre:        #C08F3D !important;
+    --ochre-light:  #D4A85A !important;
+    --moss:         #2D4561 !important;
+
+    --line:         rgba(232, 221, 200, 0.14) !important;
+
+    --font-display: 'Newsreader', 'Tiro Devanagari Hindi', Georgia, serif !important;
+}
+
+
+/* -------------------------------------------------------------
+   2. KILL EYEBROWS
+   ------------------------------------------------------------- */
+.eyebrow,
+.post-eyebrow,
+.post-card-eyebrow,
+.section-eyebrow,
+.eyebrow-line {
+    display: none !important;
+}
+
+
+/* -------------------------------------------------------------
+   3. FORCE BODY DARK + CATCH HARDCODED CREAMS
+   ------------------------------------------------------------- */
+html, body {
+    background-color: #14100E !important;
+    color: #E8DDC8 !important;
+}
+
+[style*="#F5F0E6"], [style*="#f5f0e6"],
+[style*="#ECE4D4"], [style*="#ece4d4"],
+[style*="#FBF8F1"], [style*="#fbf8f1"],
+[style*="#EAE0CC"], [style*="#eae0cc"] {
+    background-color: #14100E !important;
+    color: #E8DDC8 !important;
+}
+
+
+/* -------------------------------------------------------------
+   4. SECTION BACKGROUNDS
+   ------------------------------------------------------------- */
+section, main, article, aside, header, footer,
+.section, .hero, .post-hero, .post-page, .blog-hero,
+.posts-section, .post-end-cta, .post-image,
+.contact, .contact-section, #contact,
+.commissions, .commissions-section, #commissions,
+.about, .about-section, #about,
+.testimonials, .testimonials-section, #testimonials,
+.stats, .stats-band, .stats-section,
+.gallery-section, .medium-strip,
+.shop-hero, .policy-section, .policy-content,
+.s-pagewrap, .s-content, .s-footer, .s-header, .s-pageheader,
+.row, .column {
+    background-color: transparent !important;
+    color: #E8DDC8 !important;
+}
+
+body, .s-pagewrap, main {
+    background-color: #14100E !important;
+}
+
+.hero, .post-hero, .blog-hero, .post-end-cta,
+.stats, .stats-band, .stats-section,
+footer, .site-footer, .s-footer {
+    background-color: #0C0A09 !important;
+    border-color: rgba(232, 221, 200, 0.14) !important;
+}
+
+.post-card, .gallery-card, .medium-strip article,
+.frame, .card, .testimonial, .testimonial-card,
+.post-image, .post-hero-caption,
+.contact-form, .inquiry-form, form {
+    background-color: #1E1814 !important;
+    border: 1px solid rgba(232, 221, 200, 0.14) !important;
+    color: #E8DDC8 !important;
+}
+
+
+/* -------------------------------------------------------------
+   5. ALL TEXT
+   ------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+p, li, dd, dt, span, div,
+blockquote, figcaption, label,
+.section-title, .post-card-title, .gallery-card-title,
+.brand, .brand em,
+.testimonial p, .testimonial blockquote {
+    color: #E8DDC8 !important;
+}
+
+.post-card-excerpt, .gallery-card-meta,
+.post-meta, .post-subtitle, .lede, .byline,
+.stat-label, .post-image-caption,
+.footer-col p, .footer-col li, small {
+    color: rgba(232, 221, 200, 0.75) !important;
+}
+
+h1 em, h2 em, h3 em, h4 em,
+.tm {
+    color: #C08F3D !important;
+    font-style: italic !important;
+}
+
+.brand, .brand em {
+    color: #E8DDC8 !important;
+}
+.brand .tm, .tm {
+    color: #C08F3D !important;
+}
+
+
+/* -------------------------------------------------------------
+   6. NAV + FILTER BAR
+   ------------------------------------------------------------- */
+.site-nav, nav.site-nav, header.s-header, .main-nav-wrap,
+.filter-bar, .medium-nav {
+    background-color: rgba(20, 16, 14, 0.92) !important;
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid rgba(232, 221, 200, 0.14) !important;
+}
+.site-nav a, .nav-links a, .main-nav a,
+.filter-btn, .medium-nav a, nav a {
+    color: rgba(232, 221, 200, 0.75) !important;
+}
+.site-nav a:hover, .nav-links a:hover, .main-nav a:hover,
+.filter-btn:hover, .filter-btn.active,
+.medium-nav a:hover, .medium-nav a.active,
+nav a:hover, .main-nav .current a {
+    color: #C08F3D !important;
+}
+.nav-cta {
+    color: #E8DDC8 !important;
+    border: 1px solid rgba(232, 221, 200, 0.45) !important;
+}
+.nav-cta:hover {
+    background-color: #9C0B07 !important;
+    border-color: #9C0B07 !important;
+}
+
+
+/* -------------------------------------------------------------
+   7. LINKS
+   ------------------------------------------------------------- */
+a {
+    color: #C08F3D !important;
+    text-decoration: none !important;
+}
+a:hover {
+    color: #D4A85A !important;
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+}
+.brand, .brand:hover {
+    color: #E8DDC8 !important;
+    text-decoration: none !important;
+}
+
+
+/* -------------------------------------------------------------
+   8. BUTTONS
+   ------------------------------------------------------------- */
+.btn, button.btn, a.btn, .btn.primary,
+button[type="submit"], input[type="submit"] {
+    background-color: #9C0B07 !important;
+    color: #E8DDC8 !important;
+    border: 1px solid #9C0B07 !important;
+}
+.btn:hover, .btn.primary:hover, button.btn:hover, a.btn:hover,
+button[type="submit"]:hover, input[type="submit"]:hover {
+    background-color: transparent !important;
+    color: #9C0B07 !important;
+}
+.btn-secondary, .btn-outline {
+    background-color: transparent !important;
+    color: #E8DDC8 !important;
+    border: 1px solid rgba(232, 221, 200, 0.45) !important;
+}
+.btn-secondary:hover, .btn-outline:hover {
+    background-color: #E8DDC8 !important;
+    color: #14100E !important;
+    border-color: #E8DDC8 !important;
+}
+
+
+/* -------------------------------------------------------------
+   9. FORMS
+   ------------------------------------------------------------- */
+input[type="text"], input[type="email"], input[type="tel"],
+input[type="url"],
+input:not([type="submit"]):not([type="button"]),
+textarea, select {
+    background-color: #1E1814 !important;
+    color: #E8DDC8 !important;
+    border: 1px solid rgba(232, 221, 200, 0.14) !important;
+}
+input:focus, textarea:focus, select:focus {
+    border-color: #C08F3D !important;
+    outline: none !important;
+}
+input::placeholder, textarea::placeholder {
+    color: rgba(232, 221, 200, 0.45) !important;
+}
+label, .form-label {
+    color: #C08F3D !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.05em !important;
+}
+
+
+/* -------------------------------------------------------------
+   10. STATS
+   ------------------------------------------------------------- */
+.stat-value, .stat-num, .stat .num {
+    color: #C08F3D !important;
+}
+.stat-label, .stat .label {
+    color: rgba(232, 221, 200, 0.75) !important;
+}
+
+
+/* -------------------------------------------------------------
+   11. SCROLL + BACK-TO-TOP + LIGHTBOX
+   ------------------------------------------------------------- */
+.scroll-progress {
+    background-color: #9C0B07 !important;
+}
+.back-to-top {
+    background-color: #1E1814 !important;
+    color: #E8DDC8 !important;
+    border: 1px solid rgba(232, 221, 200, 0.14) !important;
+}
+.back-to-top:hover {
+    background-color: #9C0B07 !important;
+    border-color: #9C0B07 !important;
+}
+.lightbox, .lightbox-bg {
+    background-color: rgba(12, 10, 9, 0.96) !important;
+}
+
+
+/* -------------------------------------------------------------
+   12. DIVIDERS + SELECTION
+   ------------------------------------------------------------- */
+hr, .divider, .post-divider {
+    border-color: rgba(232, 221, 200, 0.14) !important;
+    background-color: rgba(232, 221, 200, 0.14) !important;
+}
+::selection {
+    background-color: #9C0B07 !important;
+    color: #E8DDC8 !important;
+}
+
+
+/* -------------------------------------------------------------
+   13. DEVANAGARI
+   ------------------------------------------------------------- */
+.hi, [lang="hi"], :lang(hi) {
+    font-family: 'Tiro Devanagari Hindi', serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 1.08em !important;
+    letter-spacing: 0.005em !important;
+    color: inherit !important;
+}
+
+
+/* -------------------------------------------------------------
+   14. TYPOGRAPHY POLISH
+   ------------------------------------------------------------- */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+h1, h2, h3 {
+    letter-spacing: -0.01em;
+    font-family: 'Newsreader', 'Tiro Devanagari Hindi', Georgia, serif !important;
+    font-weight: 300 !important;
+}
+
+/* -------------------------------------------------------------
+   15. RECOG-HIGHLIGHT (Top 20 Artists block)
+   ------------------------------------------------------------- */
+.recog-highlight {
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 2.8rem 3rem !important;
+    background-color: #1E1814 !important;
+    border: 1px solid rgba(232, 221, 200, 0.14) !important;
+    margin-bottom: 3rem;
+}
+.recog-highlight-num {
+    border-right: 1px solid rgba(232, 221, 200, 0.14);
+    padding-right: 2.5rem;
+}
+.recog-num {
+    font-family: 'Newsreader', Georgia, serif !important;
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-weight: 300;
+    color: #C08F3D !important;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+.recog-num-label {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(232, 221, 200, 0.75) !important;
+    margin-top: 0.4rem;
+}
+.recog-name {
+    font-family: 'Newsreader', Georgia, serif !important;
+    font-size: 1.2rem;
+    color: #E8DDC8 !important;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+.recog-name em {
+    color: #C08F3D !important;
+    font-style: italic;
+}
+.recog-desc {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(232, 221, 200, 0.75) !important;
+    max-width: 50ch;
+    margin: 0 0 1rem !important;
+}
+.recog-link {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.68rem !important;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C08F3D !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(192, 143, 61, 0.4);
+    padding-bottom: 1px;
+}
+.recog-link:hover {
+    color: #D4A85A !important;
+    border-bottom-color: #D4A85A;
+}
+
+@media (max-width: 720px) {
+    .recog-highlight {
+        grid-template-columns: 1fr !important;
+        padding: 2rem 1.5rem !important;
+        gap: 1.5rem;
+    }
+    .recog-highlight-num {
+        border-right: none;
+        border-bottom: 1px solid rgba(232, 221, 200, 0.14);
+        padding-right: 0;
+        padding-bottom: 1.5rem;
+    }
+}
+
+/* -------------------------------------------------------------
+   18. GALLERY MEDIUM NAV (gallery.html sticky filter)
+   ------------------------------------------------------------- */
+.gallery-medium-nav,
+nav.gallery-medium-nav {
+    background-color: rgba(20, 16, 14, 0.95) !important;
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid rgba(232, 221, 200, 0.14) !important;
+    border-top: 1px solid rgba(232, 221, 200, 0.14) !important;
+}
+
+.gallery-medium-nav a {
+    color: rgba(232, 221, 200, 0.65) !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid transparent !important;
+}
+
+.gallery-medium-nav a:hover {
+    color: #C08F3D !important;
+}
+
+.gallery-medium-nav a.active,
+.gallery-medium-nav a[aria-current="page"],
+.gallery-medium-nav a[aria-current="true"] {
+    color: #C08F3D !important;
+    border-bottom-color: #C08F3D !important;
+}
+
+/* -------------------------------------------------------------
+   19. EXHIBITIONS TAB NAV (exhibitions.html sticky tabs)
+   ------------------------------------------------------------- */
+.ex-tab-nav,
+nav.ex-tab-nav {
+    background-color: rgba(20, 16, 14, 0.95) !important;
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid rgba(232, 221, 200, 0.14) !important;
+    border-top: 1px solid rgba(232, 221, 200, 0.14) !important;
+}
+
+.ex-tab-nav a {
+    color: rgba(232, 221, 200, 0.65) !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid transparent !important;
+}
+
+.ex-tab-nav a:hover {
+    color: #C08F3D !important;
+}
+
+.ex-tab-nav a.active,
+.ex-tab-nav a[aria-current="page"],
+.ex-tab-nav a[aria-current="true"] {
+    color: #C08F3D !important;
+    border-bottom-color: #C08F3D !important;
+}
+
+
+/* =============================================================
+   END OF THEME V5.1
+   ============================================================= */
