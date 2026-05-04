@@ -1,13 +1,25 @@
 /* =============================================================
-   THEME V5.1 — "Gallery Wall, After Hours" (BULLETPROOF)
+   THEME V6 — "Brass and Charcoal"
    =============================================================
-   Same palette as V5, but every rule that sets a background or
-   text color uses !important so it wins regardless of source
-   order or specificity in the base stylesheet. Also catches
-   the specific cream hex codes and class names that V5 missed.
+   Successor to V5.1 ("Gallery Wall, After Hours"). Same bulletproof
+   structure (every color rule uses !important to win the cascade
+   against the base stylesheet), but a different palette and mood.
 
-   Replace theme-v5.css with this file. No HTML changes needed
-   beyond what V5 already required.
+   PALETTE (single-accent dark theme):
+     #0E0E0E    charcoal       page background
+     #1A1A1A    deeper card    section/card surface
+     #141414    nav surface    sticky bars (slightly off charcoal)
+     #E5E0D5    ink            primary text (warm off-white)
+     #B89B5E    brass          single accent - links, em, accents
+     #D4B97A    brass-light    hover state for brass
+     #2A2520    ember          rare accent for hover-fills
+
+   The crimson and moss colors from V5 are gone. Brass alone carries
+   every accent moment. This is by design - one strong note holds
+   together better than two competing notes.
+
+   USAGE: replace your existing missingpalette_v2.css with this file.
+   No HTML changes needed.
    ============================================================= */
 
 
@@ -17,22 +29,22 @@
 :root,
 html,
 body {
-    --paper:        #14100E !important;
-    --paper-deep:   #0C0A09 !important;
-    --paper-soft:   #1E1814 !important;
+    --paper:         #0E0E0E !important;
+    --paper-deep:    #050505 !important;
+    --paper-soft:    #1A1A1A !important;
 
-    --ink:          #E8DDC8 !important;
-    --ink-soft:     rgba(232, 221, 200, 0.75) !important;
-    --ink-mute:     rgba(232, 221, 200, 0.45) !important;
+    --ink:           #E5E0D5 !important;
+    --ink-soft:      rgba(229, 224, 213, 0.72) !important;
+    --ink-mute:      rgba(229, 224, 213, 0.42) !important;
 
-    --crimson:      #9C0B07 !important;
-    --ochre:        #C08F3D !important;
-    --ochre-light:  #D4A85A !important;
-    --moss:         #2D4561 !important;
+    --crimson:       #B89B5E !important;   /* repurposed - was crimson, now brass */
+    --ochre:         #B89B5E !important;
+    --ochre-light:   #D4B97A !important;
+    --moss:          #1A1A1A !important;   /* repurposed - was moss blue, now neutral */
 
-    --line:         rgba(232, 221, 200, 0.14) !important;
+    --line:          rgba(229, 224, 213, 0.10) !important;
 
-    --font-display: 'Newsreader', 'Tiro Devanagari Hindi', Georgia, serif !important;
+    --font-display:  'Newsreader', 'Tiro Devanagari Hindi', Georgia, serif !important;
 }
 
 
@@ -52,16 +64,16 @@ body {
    3. FORCE BODY DARK + CATCH HARDCODED CREAMS
    ------------------------------------------------------------- */
 html, body {
-    background-color: #14100E !important;
-    color: #E8DDC8 !important;
+    background-color: #0E0E0E !important;
+    color: #E5E0D5 !important;
 }
 
 [style*="#F5F0E6"], [style*="#f5f0e6"],
 [style*="#ECE4D4"], [style*="#ece4d4"],
 [style*="#FBF8F1"], [style*="#fbf8f1"],
 [style*="#EAE0CC"], [style*="#eae0cc"] {
-    background-color: #14100E !important;
-    color: #E8DDC8 !important;
+    background-color: #0E0E0E !important;
+    color: #E5E0D5 !important;
 }
 
 
@@ -81,27 +93,27 @@ section, main, article, aside, header, footer,
 .s-pagewrap, .s-content, .s-footer, .s-header, .s-pageheader,
 .row, .column {
     background-color: transparent !important;
-    color: #E8DDC8 !important;
+    color: #E5E0D5 !important;
 }
 
 body, .s-pagewrap, main {
-    background-color: #14100E !important;
+    background-color: #0E0E0E !important;
 }
 
 .hero, .post-hero, .blog-hero, .post-end-cta,
 .stats, .stats-band, .stats-section,
 footer, .site-footer, .s-footer {
-    background-color: #0C0A09 !important;
-    border-color: rgba(232, 221, 200, 0.14) !important;
+    background-color: #050505 !important;
+    border-color: rgba(229, 224, 213, 0.10) !important;
 }
 
 .post-card, .gallery-card, .medium-strip article,
 .frame, .card, .testimonial, .testimonial-card,
 .post-image, .post-hero-caption,
 .contact-form, .inquiry-form, form {
-    background-color: #1E1814 !important;
-    border: 1px solid rgba(232, 221, 200, 0.14) !important;
-    color: #E8DDC8 !important;
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(229, 224, 213, 0.10) !important;
+    color: #E5E0D5 !important;
 }
 
 
@@ -114,27 +126,27 @@ blockquote, figcaption, label,
 .section-title, .post-card-title, .gallery-card-title,
 .brand, .brand em,
 .testimonial p, .testimonial blockquote {
-    color: #E8DDC8 !important;
+    color: #E5E0D5 !important;
 }
 
 .post-card-excerpt, .gallery-card-meta,
 .post-meta, .post-subtitle, .lede, .byline,
 .stat-label, .post-image-caption,
 .footer-col p, .footer-col li, small {
-    color: rgba(232, 221, 200, 0.75) !important;
+    color: rgba(229, 224, 213, 0.72) !important;
 }
 
 h1 em, h2 em, h3 em, h4 em,
 .tm {
-    color: #C08F3D !important;
+    color: #B89B5E !important;
     font-style: italic !important;
 }
 
 .brand, .brand em {
-    color: #E8DDC8 !important;
+    color: #E5E0D5 !important;
 }
 .brand .tm, .tm {
-    color: #C08F3D !important;
+    color: #B89B5E !important;
 }
 
 
@@ -143,28 +155,29 @@ h1 em, h2 em, h3 em, h4 em,
    ------------------------------------------------------------- */
 .site-nav, nav.site-nav, header.s-header, .main-nav-wrap,
 .filter-bar, .medium-nav {
-    background-color: rgba(20, 16, 14, 0.92) !important;
+    background-color: rgba(14, 14, 14, 0.94) !important;
     backdrop-filter: saturate(140%) blur(10px);
     -webkit-backdrop-filter: saturate(140%) blur(10px);
-    border-bottom: 1px solid rgba(232, 221, 200, 0.14) !important;
+    border-bottom: 1px solid rgba(229, 224, 213, 0.10) !important;
 }
 .site-nav a, .nav-links a, .main-nav a,
 .filter-btn, .medium-nav a, nav a {
-    color: rgba(232, 221, 200, 0.75) !important;
+    color: rgba(229, 224, 213, 0.72) !important;
 }
 .site-nav a:hover, .nav-links a:hover, .main-nav a:hover,
 .filter-btn:hover, .filter-btn.active,
 .medium-nav a:hover, .medium-nav a.active,
 nav a:hover, .main-nav .current a {
-    color: #C08F3D !important;
+    color: #B89B5E !important;
 }
 .nav-cta {
-    color: #E8DDC8 !important;
-    border: 1px solid rgba(232, 221, 200, 0.45) !important;
+    color: #E5E0D5 !important;
+    border: 1px solid rgba(229, 224, 213, 0.30) !important;
 }
 .nav-cta:hover {
-    background-color: #9C0B07 !important;
-    border-color: #9C0B07 !important;
+    background-color: #B89B5E !important;
+    color: #0E0E0E !important;
+    border-color: #B89B5E !important;
 }
 
 
@@ -172,19 +185,19 @@ nav a:hover, .main-nav .current a {
    7. LINKS
    ------------------------------------------------------------- */
 a {
-    color: #C08F3D !important;
+    color: #B89B5E !important;
     text-decoration: none !important;
 }
 a:hover {
-    color: #D4A85A !important;
-    /* no global underline on hover - apply per-element where needed */
+    color: #D4B97A !important;
+    /* no global underline on hover - applied per-element where needed */
 }
 .brand, .brand:hover {
-    color: #E8DDC8 !important;
+    color: #E5E0D5 !important;
     text-decoration: none !important;
 }
 
-/* Restore underline on hover ONLY for body-prose links - not nav, not cards */
+/* Restore underline on hover ONLY for body-prose links */
 .post-body a:hover,
 .about p a:hover,
 main p a:hover {
@@ -195,27 +208,31 @@ main p a:hover {
 
 /* -------------------------------------------------------------
    8. BUTTONS
+   =================================================================
+   Brass-and-charcoal uses brass for primary buttons (filled), with
+   charcoal text on the brass for contrast. On hover, the button
+   inverts to outlined brass.
    ------------------------------------------------------------- */
 .btn, button.btn, a.btn, .btn.primary,
 button[type="submit"], input[type="submit"] {
-    background-color: #9C0B07 !important;
-    color: #E8DDC8 !important;
-    border: 1px solid #9C0B07 !important;
+    background-color: #B89B5E !important;
+    color: #0E0E0E !important;
+    border: 1px solid #B89B5E !important;
 }
 .btn:hover, .btn.primary:hover, button.btn:hover, a.btn:hover,
 button[type="submit"]:hover, input[type="submit"]:hover {
     background-color: transparent !important;
-    color: #9C0B07 !important;
+    color: #B89B5E !important;
 }
 .btn-secondary, .btn-outline {
     background-color: transparent !important;
-    color: #E8DDC8 !important;
-    border: 1px solid rgba(232, 221, 200, 0.45) !important;
+    color: #E5E0D5 !important;
+    border: 1px solid rgba(229, 224, 213, 0.30) !important;
 }
 .btn-secondary:hover, .btn-outline:hover {
-    background-color: #E8DDC8 !important;
-    color: #14100E !important;
-    border-color: #E8DDC8 !important;
+    background-color: #E5E0D5 !important;
+    color: #0E0E0E !important;
+    border-color: #E5E0D5 !important;
 }
 
 
@@ -226,19 +243,19 @@ input[type="text"], input[type="email"], input[type="tel"],
 input[type="url"],
 input:not([type="submit"]):not([type="button"]),
 textarea, select {
-    background-color: #1E1814 !important;
-    color: #E8DDC8 !important;
-    border: 1px solid rgba(232, 221, 200, 0.14) !important;
+    background-color: #1A1A1A !important;
+    color: #E5E0D5 !important;
+    border: 1px solid rgba(229, 224, 213, 0.10) !important;
 }
 input:focus, textarea:focus, select:focus {
-    border-color: #C08F3D !important;
+    border-color: #B89B5E !important;
     outline: none !important;
 }
 input::placeholder, textarea::placeholder {
-    color: rgba(232, 221, 200, 0.45) !important;
+    color: rgba(229, 224, 213, 0.42) !important;
 }
 label, .form-label {
-    color: #C08F3D !important;
+    color: #B89B5E !important;
     font-size: 0.85rem !important;
     letter-spacing: 0.05em !important;
 }
@@ -248,10 +265,10 @@ label, .form-label {
    10. STATS
    ------------------------------------------------------------- */
 .stat-value, .stat-num, .stat .num {
-    color: #C08F3D !important;
+    color: #B89B5E !important;
 }
 .stat-label, .stat .label {
-    color: rgba(232, 221, 200, 0.75) !important;
+    color: rgba(229, 224, 213, 0.72) !important;
 }
 
 
@@ -259,19 +276,20 @@ label, .form-label {
    11. SCROLL + BACK-TO-TOP + LIGHTBOX
    ------------------------------------------------------------- */
 .scroll-progress {
-    background-color: #9C0B07 !important;
+    background-color: #B89B5E !important;
 }
 .back-to-top {
-    background-color: #1E1814 !important;
-    color: #E8DDC8 !important;
-    border: 1px solid rgba(232, 221, 200, 0.14) !important;
+    background-color: #1A1A1A !important;
+    color: #E5E0D5 !important;
+    border: 1px solid rgba(229, 224, 213, 0.10) !important;
 }
 .back-to-top:hover {
-    background-color: #9C0B07 !important;
-    border-color: #9C0B07 !important;
+    background-color: #B89B5E !important;
+    color: #0E0E0E !important;
+    border-color: #B89B5E !important;
 }
 .lightbox, .lightbox-bg {
-    background-color: rgba(12, 10, 9, 0.96) !important;
+    background-color: rgba(5, 5, 5, 0.97) !important;
 }
 
 
@@ -279,12 +297,12 @@ label, .form-label {
    12. DIVIDERS + SELECTION
    ------------------------------------------------------------- */
 hr, .divider, .post-divider {
-    border-color: rgba(232, 221, 200, 0.14) !important;
-    background-color: rgba(232, 221, 200, 0.14) !important;
+    border-color: rgba(229, 224, 213, 0.10) !important;
+    background-color: rgba(229, 224, 213, 0.10) !important;
 }
 ::selection {
-    background-color: #9C0B07 !important;
-    color: #E8DDC8 !important;
+    background-color: #B89B5E !important;
+    color: #0E0E0E !important;
 }
 
 
@@ -315,6 +333,7 @@ h1, h2, h3 {
     font-weight: 300 !important;
 }
 
+
 /* -------------------------------------------------------------
    15. RECOG-HIGHLIGHT (Top 20 Artists block)
    ------------------------------------------------------------- */
@@ -324,19 +343,19 @@ h1, h2, h3 {
     gap: 2.5rem;
     align-items: center;
     padding: 2.8rem 3rem !important;
-    background-color: #1E1814 !important;
-    border: 1px solid rgba(232, 221, 200, 0.14) !important;
+    background-color: #1A1A1A !important;
+    border: 1px solid rgba(229, 224, 213, 0.10) !important;
     margin-bottom: 3rem;
 }
 .recog-highlight-num {
-    border-right: 1px solid rgba(232, 221, 200, 0.14);
+    border-right: 1px solid rgba(229, 224, 213, 0.10);
     padding-right: 2.5rem;
 }
 .recog-num {
     font-family: 'Newsreader', Georgia, serif !important;
     font-size: clamp(3.5rem, 7vw, 5.5rem);
     font-weight: 300;
-    color: #C08F3D !important;
+    color: #B89B5E !important;
     line-height: 1;
     letter-spacing: -0.02em;
 }
@@ -345,25 +364,25 @@ h1, h2, h3 {
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(232, 221, 200, 0.75) !important;
+    color: rgba(229, 224, 213, 0.72) !important;
     margin-top: 0.4rem;
 }
 .recog-name {
     font-family: 'Newsreader', Georgia, serif !important;
     font-size: 1.2rem;
-    color: #E8DDC8 !important;
+    color: #E5E0D5 !important;
     margin-bottom: 0.5rem;
     font-style: italic;
 }
 .recog-name em {
-    color: #C08F3D !important;
+    color: #B89B5E !important;
     font-style: italic;
 }
 .recog-desc {
     font-family: 'Inter', sans-serif !important;
     font-size: 0.9rem;
     line-height: 1.7;
-    color: rgba(232, 221, 200, 0.75) !important;
+    color: rgba(229, 224, 213, 0.72) !important;
     max-width: 50ch;
     margin: 0 0 1rem !important;
 }
@@ -373,14 +392,14 @@ h1, h2, h3 {
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #C08F3D !important;
+    color: #B89B5E !important;
     text-decoration: none !important;
-    border-bottom: 1px solid rgba(192, 143, 61, 0.4);
+    border-bottom: 1px solid rgba(184, 155, 94, 0.4);
     padding-bottom: 1px;
 }
 .recog-link:hover {
-    color: #D4A85A !important;
-    border-bottom-color: #D4A85A;
+    color: #D4B97A !important;
+    border-bottom-color: #D4B97A;
 }
 
 @media (max-width: 720px) {
@@ -391,86 +410,89 @@ h1, h2, h3 {
     }
     .recog-highlight-num {
         border-right: none;
-        border-bottom: 1px solid rgba(232, 221, 200, 0.14);
+        border-bottom: 1px solid rgba(229, 224, 213, 0.10);
         padding-right: 0;
         padding-bottom: 1.5rem;
     }
 }
 
-/* -------------------------------------------------------------
-   18. GALLERY MEDIUM NAV (gallery.html sticky filter)
-   ------------------------------------------------------------- */
-.gallery-medium-nav,
-nav.gallery-medium-nav {
-    background-color: rgba(20, 16, 14, 0.95) !important;
-    backdrop-filter: saturate(140%) blur(10px);
-    -webkit-backdrop-filter: saturate(140%) blur(10px);
-    border-bottom: 1px solid rgba(232, 221, 200, 0.14) !important;
-    border-top: 1px solid rgba(232, 221, 200, 0.14) !important;
-}
-
-.gallery-medium-nav a {
-    color: rgba(232, 221, 200, 0.65) !important;
-    background-color: transparent !important;
-    border-bottom: 2px solid transparent !important;
-}
-
-.gallery-medium-nav a:hover {
-    color: #C08F3D !important;
-}
-
-.gallery-medium-nav a.active,
-.gallery-medium-nav a[aria-current="page"],
-.gallery-medium-nav a[aria-current="true"] {
-    color: #C08F3D !important;
-    border-bottom-color: #C08F3D !important;
-}
 
 /* -------------------------------------------------------------
-   19. EXHIBITIONS TAB NAV (exhibitions.html sticky tabs)
+   16. PRINTS-AVAILABLE TAG (gallery strip cards)
    ------------------------------------------------------------- */
-.ex-tab-nav,
-nav.ex-tab-nav {
-    background-color: rgba(20, 16, 14, 0.95) !important;
-    backdrop-filter: saturate(140%) blur(10px);
-    -webkit-backdrop-filter: saturate(140%) blur(10px);
-    border-bottom: 1px solid rgba(232, 221, 200, 0.14) !important;
-    border-top: 1px solid rgba(232, 221, 200, 0.14) !important;
-}
-
-.ex-tab-nav a {
-    color: rgba(232, 221, 200, 0.65) !important;
-    background-color: transparent !important;
-    border-bottom: 2px solid transparent !important;
-}
-
-.ex-tab-nav a:hover {
-    color: #C08F3D !important;
-}
-
-.ex-tab-nav a.active,
-.ex-tab-nav a[aria-current="page"],
-.ex-tab-nav a[aria-current="true"] {
-    color: #C08F3D !important;
-    border-bottom-color: #C08F3D !important;
-}
-/* "Prints available" link under gallery strip card descriptions */
 .strip-card .prints-tag {
     display: inline-block;
     margin-top: 0.4rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.7rem;
-    color: #C08F3D !important;
+    color: #B89B5E !important;
     text-decoration: underline !important;
     text-underline-offset: 3px;
     position: relative;
     z-index: 2;
 }
 .strip-card .prints-tag:hover {
-    color: #D4A85A !important;
+    color: #D4B97A !important;
+    text-decoration: underline !important;
+}
+
+
+/* -------------------------------------------------------------
+   18. GALLERY MEDIUM NAV (gallery.html sticky filter)
+   ------------------------------------------------------------- */
+.gallery-medium-nav,
+nav.gallery-medium-nav {
+    background-color: rgba(14, 14, 14, 0.95) !important;
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid rgba(229, 224, 213, 0.10) !important;
+    border-top: 1px solid rgba(229, 224, 213, 0.10) !important;
+}
+.gallery-medium-nav a {
+    color: rgba(229, 224, 213, 0.65) !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid transparent !important;
+}
+.gallery-medium-nav a:hover {
+    color: #B89B5E !important;
+}
+.gallery-medium-nav a.active,
+.gallery-medium-nav a[aria-current="page"],
+.gallery-medium-nav a[aria-current="true"] {
+    color: #B89B5E !important;
+    border-bottom-color: #B89B5E !important;
+}
+
+
+/* -------------------------------------------------------------
+   19. EXHIBITIONS TAB NAV (exhibitions.html sticky tabs)
+   ------------------------------------------------------------- */
+.ex-tab-nav,
+nav.ex-tab-nav {
+    background-color: rgba(14, 14, 14, 0.95) !important;
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid rgba(229, 224, 213, 0.10) !important;
+    border-top: 1px solid rgba(229, 224, 213, 0.10) !important;
+}
+.ex-tab-nav a {
+    color: rgba(229, 224, 213, 0.65) !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid transparent !important;
+}
+.ex-tab-nav a:hover {
+    color: #B89B5E !important;
+}
+.ex-tab-nav a.active,
+.ex-tab-nav a[aria-current="page"],
+.ex-tab-nav a[aria-current="true"] {
+    color: #B89B5E !important;
+    border-bottom-color: #B89B5E !important;
 }
 
 
 /* =============================================================
-   END OF THEME V5.1
+   END OF THEME V6 - Brass and Charcoal
    ============================================================= */
+
+
