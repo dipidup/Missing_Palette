@@ -1,50 +1,119 @@
-name: Rebuild Site
+name: Build site
 
-# Runs the gallery build script on every push, every hour, and on
-# manual trigger. The script appends sheet rows into gallery.html
-# without touching the static base cards.
+
+# Triggers:
+#   - push to main/master    -> rebuild after any code/image change
+#   - schedule (hourly)      -> pick up Google Sheet edits made through the day
+#   - workflow_dispatch      -> manual run from the Actions tab
+#
+# Steps the workflow does, in order:
+#   1. checkout
+#   2. set up python + install Pillow / pyyaml / markdown
+#   3. convert any new img/gallery/*.{jpg,jpeg,png} to .webp + .avif
+#   4. sync nav/footer from index.html into all other pages
+#   5. build gallery cards from the Google Sheet
+#   6. build blog/<slug>.html from posts/*.md
+#   7. regenerate the blog.html index
+#   8. commit + push back anything that changed
+#
+# If the GALLERY_SHEET_CSV_URL secret is unset, step 5 is skipped silently;
+# the rest of the build still runs. So the workflow stays useful even before
+# the sheet is wired up.
+
 
 on:
   push:
-    branches: [master, main]
-    paths:
-      - 'img/gallery/**'
-      - 'gallery.html'
-      - 'build_gallery.py'
-      - 'scripts/**'
-      - '.github/workflows/build-site.yml'
+    branches: [main, master]
+    # Skip CI minutes on doc-only changes.
+    paths-ignore:
+      - 'README.md'
+      - 'CONTENT_EDIT.md'
+      - 'Archive 01/**'
+      - '.gitignore'
   schedule:
-    - cron: '0 * * * *'
+    # Hourly. Cron is UTC. :05 dodges the top-of-hour spike on GitHub-hosted runners.
+    - cron: '5 * * * *'
   workflow_dispatch:
 
+
+# Required so the job can push regenerated files back into the repo.
 permissions:
   contents: write
+
+
+# Avoid overlapping runs writing to the same files.
+concurrency:
+  group: build-site-${{ github.ref }}
+  cancel-in-progress: false
+
+
+# Opt into Node 24 for the JS-based actions (checkout, setup-python).
+# Silences the "Node.js 20 actions are deprecated" warning. Required by
+# June 2026 anyway; doing it now means we're forward-compatible already.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
 
-      - name: Build gallery (Sheet -> gallery.html)
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install Pillow pillow-avif-plugin pyyaml markdown
+
+
+      - name: Convert new gallery images to WebP + AVIF
+        run: python scripts/convert_gallery_images.py
+
+
+      - name: Sync nav + footer from index.html into all other pages
+        run: python scripts/sync_layout.py
+
+
+      - name: Build gallery cards from Google Sheet
+        # If the secret isn't set yet, the script no-ops and exits 0.
         env:
           GALLERY_SHEET_CSV_URL: ${{ secrets.GALLERY_SHEET_CSV_URL }}
-        run: python3 build_gallery.py
+        run: python scripts/build_gallery.py
 
-      - name: Commit changes (if any)
+
+      - name: Build blog posts from markdown
+        run: python scripts/build_post.py
+
+
+      - name: Rebuild blog index
+        run: python scripts/build_blog.py
+
+
+      - name: Commit and push if anything changed
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m "auto: rebuild gallery from sheet"
-            git push
-          else
-            echo "Nothing changed."
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add gallery.html blog.html blog/ img/gallery/*.webp img/gallery/*.avif 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+            exit 0
           fi
+          git commit -m "build: regenerate site [skip ci]"
+          git push
+
+
+
+
+
