@@ -6,7 +6,7 @@
 <!-- ============================================================
     MISSING PALETTE® - Homepage
     Designed: April 2026 · Aesthetic: Warm Cream gallery editorial
-    Typography: Fraunces (display) + Inter (body)
+    Typography: Newsreader (display) + Inter (body) + Tiro Devanagari Hindi
     ============================================================ -->
 
 
@@ -90,23 +90,98 @@
 }
 </script>
 
-
 <!-- Favicons -->
-<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="shortcut icon" href="/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Missing Palette">
+
+
+
+
 
 
 <!-- Typography -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/missingpalette.css">
 <link rel="stylesheet" href="/css/missingpalette_v2.css">
+<link rel="stylesheet" href="/css/missingpalette_v4.css">
 
+<!-- ============================================
+    PRELOADER · brand reveal on first load
+    Inlined so it paints before external CSS arrives.
+    Uses Newsreader italic (already in the font request above).
+    ============================================ -->
+<style>
+  .mp-preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #F5F0E6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: opacity 360ms ease;
+  }
+  .mp-preloader.is-hiding { opacity: 0; pointer-events: none; }
+  .mp-preloader-mark {
+      font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(2rem, 6.4vw, 3.6rem);
+      color: #1A1614;
+      letter-spacing: 0.005em;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      clip-path: inset(0 100% 0 0);
+      animation: mpWrite 900ms cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+  }
+  .mp-preloader-mark em {
+      font-style: italic;
+      font-weight: 400;
+  }
+  .mp-preloader-mark sup {
+      font-style: normal;
+      font-size: 0.32em;
+      vertical-align: super;
+      margin-left: 0.15em;
+      opacity: 0.55;
+  }
+  @keyframes mpWrite {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0% 0 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+      .mp-preloader-mark {
+          animation: none;
+          clip-path: none;
+      }
+  }
+  html.mp-preloading, html.mp-preloading body { overflow: hidden; }
+</style>
+<script>
+  (function() {
+      // Only show once per browser session
+      try {
+          if (sessionStorage.getItem('mp-preloader-shown')) return;
+      } catch (e) { /* storage blocked - still show preloader */ }
+      document.documentElement.classList.add('mp-preloading');
+  })();
+</script>
 </head>
 <body>
+
+
+<!-- Preloader (removed by JS after brand reveal) -->
+<div class="mp-preloader" id="mpPreloader" aria-hidden="true">
+    <div class="mp-preloader-mark">Missing <em>Palette</em><sup>&reg;</sup></div>
+</div>
 
 
 <!-- Scroll progress indicator -->
@@ -117,25 +192,24 @@
     NAVIGATION
     ============================================ -->
 <nav class="site-nav" id="siteNav">
-   <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
-   <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-           <line x1="3" y1="7" x2="21" y2="7"></line>
-           <line x1="3" y1="12" x2="21" y2="12"></line>
-           <line x1="3" y1="17" x2="21" y2="17"></line>
-       </svg>
-   </button>
-   <ul class="nav-links" id="navLinks">
-       <!-- <li><a href="/">Home</a></li> -->
-       <li><a href="/gallery.html">Gallery</a></li>
-       <li><a href="#about">About Me</a></li>
-       <!-- <li><a href="#testimonials">Testimonials</a></li> -->
-       <li><a href="#commissions">Commissions</a></li>
-       <li><a href="/blog.html">My Journal</a></li>
-       <li><a href="/exhibitions.html">Exhibitions & Press</a></li>
-       <li><a href="/products.html">Art Products</a></li>
-       <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-   </ul>
+  <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="3" y1="7" x2="21" y2="7"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="17" x2="21" y2="17"/>
+    </svg>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/gallery.html">Gallery</a></li>
+    <li><a href="/#about">About Me</a></li>
+    <li><a href="/#commissions">Commissions</a></li>
+    <li><a href="/blog.html">My Journal</a></li>
+    <li><a href="/exhibitions.html">Exhibitions &amp; Press</a></li>
+    <li><a href="/products.html">Art Products</a></li>
+    <li><a href="/events.html" class="nav-cta">Plan an Event</a></li>
+    <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
 </nav>
 
 
@@ -150,7 +224,7 @@
        <h1 class="hero-brand">Missing <em>Palette</em><sup class="tm">®</sup></h1>
        <div class="hero-name">Ankit Agrawal · Indian Artist</div>
        <p class="hero-tagline">
-           Working primarily in watercolor and oil. I paint people, places & emotions
+           Working primarily in watercolor, oil & sketch. I paint people, places & emotions
        </p>
        <div class="hero-meta">
            Featured: <strong><span class="hi">भण्डि बाबा</span></strong> - <em>Bhandi Baba</em>, watercolor on paper
@@ -158,7 +232,7 @@
    </div>
    <div class="hero-plate">
        <span class="hero-plate-credit">© Ankit Agrawal</span>
-       <img src="/thumb.jpg" alt="Bhandi Baba - watercolor portrait of a sadhu by Ankit Agrawal">
+       <img src="/thumb.jpg" alt="Bhandi Baba - watercolor portrait of a sadhu by Ankit Agrawal" fetchpriority="high">
        <div class="hero-plate-caption">
            <div class="hi-title">भण्डि बाबा</div>
            <div class="en-title">Bhandi Baba · Watercolor</div>
@@ -203,7 +277,7 @@
                    </svg>
                    <span class="platform-label">Upcoming Workshops/ Classes</span>
                </div>
-               <p class="happening-headline">Weekend workshop coming soon - Pune &amp; Ranchi</p>
+               <p class="happening-headline">Weekend art sessions - Pune, Mumbai &amp; Ranchi</p>
                <a href="https://missingpalette.com" target="_blank" rel="noopener noreferrer" class="happening-link">Coming Soon <span class="arrow">→</span></a>
            </div>
 
@@ -244,15 +318,15 @@
    <div class="container">
        <div class="section-header reveal">
            <div class="left">
-               <span class="section-num">02 - About</span>
+               <span class="section-num">About</span>
                <h2 class="section-title">Engineer by degree, <em>artist</em> by every other measure.</h2>
            </div>
            <div class="right">Based in India · Working in watercolor, oil, sketch, and acrylic</div>
        </div>
        <div class="about-grid reveal">
-           <div class="about-photo" role="img" aria-label="Portrait of Ankit Agrawal at Big Sur, California"></div>
+           <div class="about-photo" role="img" aria-label="Ankit Agrawal at Big Sur, California"></div>
            <div class="about-text">
-               <p>Missing Palette<sup class="tm">®</sup> is my studio practice. I'm an Indian artist working primarily in watercolor and oil. My subjects reflect my time in this world and are also pulled from a country I'm constantly travelling through, sketchbook in hand.</p>
+               <p>Missing Palette<sup class="tm">®</sup> is my studio practice. I'm an Indian artist working primarily in watercolor and oil. My subjects reflect my time in this world and are also pulled from a country I'm constantly travelling through, sometimes with a sketchbook in hand.</p>
                <p>By day I'm a management consultant; by every other measure, an artist. I paint from life, mentor emerging artists, and teach Hindi to non-Hindi-speakers, mostly foreigners curious about India through its language. The disciplines feed each other: structured thinking sharpens my teaching, and painting keeps the structure honest.</p>
                <p>I paint faces. I paint places. I paint what I see, what I want to remember and sometimes what I don't want to remember.</p>
                <p style="font-style: italic; color: var(--ink-mute); font-size: 0.9rem; margin-top: 1rem;">The name &ldquo;Missing Palette&rdquo; comes from a real palette of mine, ruined by paint left to dry on it.</p>
@@ -317,7 +391,7 @@
    <div class="container">
        <div class="section-header reveal">
            <div class="left">
-               <span class="section-num">03 - Selected Works</span>
+               <span class="section-num">Selected Works</span>
                <h2 class="section-title">A few <em>favourites</em>.</h2>
            </div>
            <div class="right">A small curation. The full body of work - <a href="/gallery.html" style="color: var(--ink); text-decoration: underline; text-underline-offset: 3px;">in the gallery →</a></div>
@@ -362,7 +436,7 @@
                </a>
                <div class="artwork-caption">
                    <div class="artwork-title-line"><span class="hi">हया</span><span class="translit">Hayaa</span></div>
-                   <div class="artwork-info">Oil on canvas · 2018</div>
+                   <div class="artwork-info">Oil on canvas · 2019</div>
                </div>
            </div>
            <div class="artwork-card reveal image-reveal">
@@ -372,7 +446,7 @@
                </a>
                <div class="artwork-caption">
                    <div class="artwork-title-line"><span class="hi">ढलती मुस्कान</span><span class="translit">Dhalti Muskaan</span></div>
-                   <div class="artwork-info">Watercolor on paper · 2017</div>
+                   <div class="artwork-info">Watercolor on paper · 2020</div>
                </div>
            </div>
            <div class="artwork-card reveal image-reveal">
@@ -427,7 +501,7 @@
  
       <div class="section-header reveal">
           <div class="left">
-              <span class="section-num">04 - Recognition</span>
+              <span class="section-num">Recognition</span>
               <h2 class="section-title">What's been recognised.</h2>
           </div>
           <div class="right">
@@ -466,7 +540,7 @@
           </div>
  
           <div class="exhibition-row reveal">
-              <div class="year">2023</div>
+              <div class="year">2018-2020</div>
               <div class="title-block">
                   <div class="name">D.A.V. Group Schools - Workshop Series</div>
                   <div class="desc">"The workshop witnessed huge participation. Students loved the sessions." - Dr. T.P. Pati, Former Regional Director.</div>
@@ -475,7 +549,7 @@
           </div>
  
           <div class="exhibition-row reveal">
-              <div class="year">2021</div>
+              <div class="year">2019</div>
               <div class="title-block">
                   <div class="name">Saansad Adarsh Gram Yojana, Mahilong</div>
                   <div class="desc">Painting workshop for children at a village school under a central government programme. Covered in regional press.</div>
@@ -515,7 +589,7 @@
           border-top: 1px solid var(--line);
       ">
           <p style="font-family: var(--font-body); font-size: 0.9rem; color: var(--ink-soft); margin: 0; max-width: 46ch;">
-              A fuller record - exhibition photographs, press clippings, and workshop documentation - lives on the dedicated page.
+              A fuller record - exhibition photographs, press clippings, and workshop documentation, lives on the dedicated page.
           </p>
           <a href="/exhibitions.html" class="btn">
               View exhibitions &amp; press
@@ -536,17 +610,17 @@
    <div class="container">
        <div class="section-header reveal">
            <div class="left">
-               <span class="section-num">06 - Commissions</span>
-               <h2 class="section-title">Commissioning a <em>custom piece</em>.</h2>
+               <span class="section-num">Commissions</span>
+               <h2 class="section-title">Commissioning a <em>custom piece</em> or <em>Plan an event</em></h2>
            </div>
-           <div class="right">A few each year.</div>
+           <div class="right"></div>
        </div>
        <div class="commissions-grid">
            <div class="commissions-text reveal">
-               <p>Commissions are accepted in limited number each year, with a focus on portraiture - in watercolor or oil, depending on the subject and the wish of the patron.</p>
+               <p>Commissions are accepted in limited number each year, with a focus on charcoal portrait and large paintings for that empty wall of yours - depending on the subject and the wish of the patron.</p>
                <p>Each commission begins with a conversation. Reference photographs are welcomed but not required. Final work is signed, dated, and dispatched in archival packaging.</p>
                <div class="process-list">
-                   <div class="step"><span class="num">i.</span><span class="text">Inquiry - you describe the subject, medium, size.</span></div>
+                   <div class="step"><span class="num">i.</span><span class="text">Enquiry - you describe the subject, medium, size.</span></div>
                    <div class="step"><span class="num">ii.</span><span class="text">Quote - pricing and timeline shared within 48 hours.</span></div>
                    <div class="step"><span class="num">iii.</span><span class="text">Half-payment confirms the slot. Painting begins.</span></div>
                    <div class="step"><span class="num">iv.</span><span class="text">Final work delivered, framed at request.</span></div>
@@ -587,7 +661,7 @@
            <div class="testimonial-mini">
                <div class="quote-mark">&ldquo;</div>
                <p class="mini-quote">Learning painting with Ankit Sir has truly been a beautiful journey. His classes are fun, engaging, and filled with techniques I had never explored before.</p>
-               <div class="mini-author"><img src="/img/testimonial/AISH.jpeg" alt="Aishwarya, art student" class="mini-avatar" loading="lazy"><div class="mini-meta"><div class="name">Aishwarya</div><div class="role">Art Student</div></div></div>
+               <div class="mini-author"><img src="/img/testimonia   l/AISH.jpeg" alt="Aishwarya, art student" class="mini-avatar" loading="lazy"><div class="mini-meta"><div class="name">Aishwarya</div><div class="role">Art Student</div></div></div>
            </div>
            <div class="testimonial-mini">
                <div class="quote-mark">&ldquo;</div>
@@ -712,26 +786,25 @@
                <p>I read every email personally and reply within 48 hours.</p>
                <a href="mailto:ankit@missingpalette.com" class="email">ankit@missingpalette.com</a>
            </div>
-           <form class="contact-form reveal" action="https://formspree.io/f/xqazoyol" method="POST" name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
-               <input type="hidden" name="form-name" value="contact">
-               <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+           <form class="contact-form reveal" action="https://formspree.io/f/xqazoyol" method="POST" name="contact">
+               <p style="display:none;" aria-hidden="true"><label>Don't fill this out: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
                <div class="form-group">
                    <label for="name">Your name</label>
-                   <input type="text" id="name" name="name" placeholder="Full name" required>
+                   <input type="text" id="name" name="name" placeholder="name" required>
                </div>
                <div class="form-group">
                    <label for="email">Your email</label>
                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
                </div>
                <div class="form-group">
-                   <label for="subject">Inquiry type</label>
-                   <input type="text" id="subject" name="subject" placeholder="Commission · Class · Press · Other" required>
+                   <label for="subject">enquiry type</label>
+                   <input type="text" id="subject" name="subject" placeholder="Commission · Class · Press · Event · Other" required>
                </div>
                <div class="form-group">
                    <label for="message">Message</label>
                    <textarea id="message" name="message" placeholder="Tell me about your project, deadline, and any references..." required></textarea>
                </div>
-               <button type="submit">Send inquiry <span class="arrow">→</span></button>
+               <button type="submit">Send enquiry <span class="arrow">→</span></button>
            </form>
        </div>
    </div>
@@ -741,19 +814,25 @@
 
 
 <!-- ============================================
-    11. QUIET PROMOS - Classes & Products
+    11. QUIET PROMOS - Events, Classes & Products
     ============================================ -->
 <section class="quiet-promos" id="other">
    <div class="quiet-promos-grid">
        <div class="quiet-promo">
+           <div class="eyebrow">Events</div>
+           <h3>Plan an <em>event</em>.</h3>
+           <p>Workshops for groups, art experiences for offices, and bespoke painting sessions at private gatherings. Tell me your brief and I'll shape an event around it.</p>
+           <a href="#contact" class="go">Plan an event <span class="arrow">→</span></a>
+       </div>
+       <div class="quiet-promo">
            <div class="eyebrow">Classes</div>
-           <h4>Learn to <em>paint</em>, in person or online.</h4>
-           <p>Small-batch classes in Pune and Ranchi, plus online sessions for international students. Beginner to advanced; watercolor, oil, sketching, and plein-air.</p>
+           <h3>Learn to <em>paint</em>, or plan an event with me.</h3>
+           <p>Small-batch personal classes in Pune and Ranchi, plus online sessions for international students. Beginner to advanced; watercolor, oil, sketching, and plein-air.</p>
            <a href="/register.html" class="go">Register for a class <span class="arrow">→</span></a>
        </div>
        <div class="quiet-promo">
            <div class="eyebrow">Products</div>
-           <h4>The <em>tools</em> I actually use.</h4>
+           <h3>The <em>tools</em> I actually use.</h3>
            <p>A curated list of brushes, paints, and papers I rely on - with notes on what each is good for and links to where I buy them.</p>
            <a href="/products.html" class="go">Browse the Products <span class="arrow">→</span></a>
        </div>
@@ -776,10 +855,12 @@
            <h5>Explore</h5>
            <ul>
                <li><a href="/gallery.html">Gallery</a></li>
-               <li><a href="#about">About</a></li>
-               <li><a href="#commissions">Commissions</a></li>
-               <li><a href="/blog.html">Journal</a></li>
-               <li><a href="/products.html">Products</a></li>
+               <li><a href="/#about">About Me</a></li>
+               <li><a href="/#commissions">Commissions</a></li>
+               <li><a href="/blog.html">My Journal</a></li>
+               <li><a href="/exhibitions.html">Exhibitions &amp; Press</a></li>
+               <li><a href="/products.html">Art Products</a></li>
+               <li><a href="/events.html">Plan an event</a></li>
            </ul>
        </div>
        <div class="footer-col">
@@ -797,10 +878,10 @@
            <h5>Write to Me</h5>
            <ul>
                <li><a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a></li>
-               <li><a href="#contact">Contact form</a></li>
+               <li><a href="/#contact">Contact form</a></li>
                <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer">Book a 1:1 call</a></li>
                <li><a href="/register.html">Register for class</a></li>
-               <li><a href="/2025_Ankit_K_Agrawal_Resume.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></li>
+               <li><a href="/2025_Ankit_K_Agrawal_Resume.pdf" target="_blank" rel="noopener noreferrer">My Resume</a></li>
            </ul>
        </div>
    </div>
@@ -847,6 +928,49 @@
     </div>
   </div>
 </div> -->
+
+
+<!-- Preloader dismiss · runs after DOM parse -->
+<script>
+  (function() {
+      var pre = document.getElementById('mpPreloader');
+      if (!pre) return;
+
+      var shown = false;
+      try { shown = !!sessionStorage.getItem('mp-preloader-shown'); } catch (e) {}
+
+      if (shown) {
+          // Remove instantly on subsequent navigations within the session
+          pre.parentNode && pre.parentNode.removeChild(pre);
+          document.documentElement.classList.remove('mp-preloading');
+          return;
+      }
+
+      // First-load reveal: 900ms write + ~250ms hold + 360ms fade-out
+      window.addEventListener('load', function() {
+          setTimeout(function() {
+              pre.classList.add('is-hiding');
+              try { sessionStorage.setItem('mp-preloader-shown', '1'); } catch (e) {}
+              setTimeout(function() {
+                  pre.parentNode && pre.parentNode.removeChild(pre);
+                  document.documentElement.classList.remove('mp-preloading');
+              }, 380);
+          }, 1150);
+      });
+
+      // Safety net: if `load` is delayed (slow image), dismiss anyway after 2.5s
+      setTimeout(function() {
+          if (!pre.classList.contains('is-hiding')) {
+              pre.classList.add('is-hiding');
+              try { sessionStorage.setItem('mp-preloader-shown', '1'); } catch (e) {}
+              setTimeout(function() {
+                  if (pre.parentNode) pre.parentNode.removeChild(pre);
+                  document.documentElement.classList.remove('mp-preloading');
+              }, 380);
+          }
+      }, 2500);
+  })();
+</script>
 
 
 </body>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Page not found · Missing Palette®</title>
+<meta name="description" content="The page you're looking for doesn't exist. Head back to the gallery or the journal.">
+<meta name="robots" content="noindex, follow">
+
+<meta property="og:title" content="Page not found · Missing Palette®">
+<meta property="og:description" content="That page wandered off. Find your way back to the gallery or the journal.">
+<meta property="og:image" content="https://missingpalette.com/thumb.jpg">
+<meta property="og:type" content="website">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="shortcut icon" href="/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Missing Palette">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/missingpalette.css">
+<link rel="stylesheet" href="/css/missingpalette_v2.css">
+<link rel="stylesheet" href="/css/missingpalette_v4.css">
+
+<style>
+.nf-wrap {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem var(--gutter) 4rem;
+    text-align: center;
+}
+.nf-inner {
+    max-width: 560px;
+}
+.nf-code {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(5rem, 14vw, 9rem);
+    line-height: 1;
+    color: var(--crimson);
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
+}
+.nf-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+}
+.nf-title em { font-style: italic; color: var(--crimson); }
+.nf-copy {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 46ch;
+    margin: 0 auto 2.4rem;
+}
+.nf-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+.nf-links .btn { min-width: 160px; }
+</style>
+
+</head>
+<body>
+
+<nav class="site-nav" id="siteNav">
+  <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="3" y1="7" x2="21" y2="7"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="17" x2="21" y2="17"/>
+    </svg>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/gallery.html">Gallery</a></li>
+    <li><a href="/#about">About Me</a></li>
+    <li><a href="/#commissions">Commissions</a></li>
+    <li><a href="/blog.html">My Journal</a></li>
+    <li><a href="/exhibitions.html">Exhibitions &amp; Press</a></li>
+    <li><a href="/products.html">Art Products</a></li>
+    <li><a href="/events.html" class="nav-cta">Plan an Event</a></li>
+    <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<main class="nf-wrap">
+  <div class="nf-inner">
+    <div class="nf-code">404</div>
+    <h1 class="nf-title">This page <em>wandered off.</em></h1>
+    <p class="nf-copy">The link you followed may be old, or the page may have moved. Try one of these instead.</p>
+    <div class="nf-links">
+      <a href="/" class="btn primary">Home <span class="arrow">→</span></a>
+      <a href="/gallery.html" class="btn">Gallery</a>
+      <a href="/blog.html" class="btn">Journal</a>
+      <a href="/#contact" class="btn">Write to me</a>
+    </div>
+  </div>
+</main>
+
+<script src="/js/missingpalette.js" defer></script>
+
+</body>
+</html>

@@ -29,15 +29,23 @@
 <meta name="twitter:title" content="Exhibitions & Press - Missing Palette®">
 <meta name="twitter:image" content="https://missingpalette.com/thumb.jpg">
 
-<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="shortcut icon" href="/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Missing Palette">
+
+
+
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/missingpalette.css">
 <link rel="stylesheet" href="/css/missingpalette_v2.css">
+<link rel="stylesheet" href="/css/missingpalette_v4.css">
 
 <style>
 
@@ -47,56 +55,77 @@
 
 /* --- Page Hero --- */
 .ex-page-hero {
-    background: var(--ink);
-    padding: calc(64px + 5rem) var(--gutter) 4rem;
+    background-color: #1A1410 !important;
+    padding: calc(64px + 6rem) var(--gutter) 5rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
     position: relative;
     overflow: hidden;
 }
+/* Anidra painting as the hero strip background */
 .ex-page-hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('/img/gallery/oil (3).jpg') center / cover no-repeat;
-    opacity: 0.08;
+    background: url('/img/gallery/water (2a).jpg') center 30% / cover no-repeat;
+    opacity: 0.7;
     z-index: 0;
+}
+/* Lighter scrim — painting more visible, text still legible */
+.ex-page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(20, 14, 8, 0.18) 0%,
+        rgba(20, 14, 8, 0.35) 60%,
+        rgba(20, 14, 8, 0.55) 100%
+    );
+    z-index: 1;
 }
 .ex-page-hero-inner {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: var(--max-width);
     margin: 0 auto;
+    width: 100%;
 }
 .ex-page-eyebrow {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 0.9rem;
-    color: var(--ochre-light);
+    font-size: 0.95rem;
+    color: #D9943A !important;
     letter-spacing: 0.04em;
     margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 .ex-page-eyebrow::before {
     content: "";
     display: inline-block;
     width: 32px;
     height: 1px;
-    background: var(--ochre-light);
+    background: #D9943A;
 }
 .ex-page-hero h1 {
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-size: clamp(2.6rem, 5.5vw, 4.6rem);
     line-height: 1.05;
     letter-spacing: -0.02em;
-    color: var(--paper);
+    color: #FFFFFF !important;
     margin-bottom: 1.2rem;
     max-width: 20ch;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
 }
-.ex-page-hero h1 em { font-style: italic; color: var(--ochre-light); }
+.ex-page-hero h1 em { font-style: italic; color: #D9943A !important; }
 .ex-page-hero p {
-    color: rgba(245,240,230,0.65);
+    color: rgba(255, 255, 255, 0.92) !important;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
     font-size: 1rem;
     line-height: 1.75;
     max-width: 52ch;
@@ -443,23 +472,24 @@
      NAVIGATION
 ============================================ -->
 <nav class="site-nav" id="siteNav">
-    <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
-        </svg>
-    </button>
-   <ul class="nav-links" id="navLinks">
-       <!-- <li><a href="/">Home</a></li> -->
-       <li><a href="/gallery.html">Gallery</a></li>
-       <li><a href="#about">About Me</a></li>
-       <!-- <li><a href="#testimonials">Testimonials</a></li> -->
-       <li><a href="#commissions">Commissions</a></li>
-       <li><a href="/blog.html">My Journal</a></li>
-       <li><a href="/exhibitions.html">Exhibitions & Press</a></li>
-       <li><a href="/products.html">Art Products</a></li>
-       <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-   </ul>
+  <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="3" y1="7" x2="21" y2="7"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="17" x2="21" y2="17"/>
+    </svg>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/gallery.html">Gallery</a></li>
+    <li><a href="/#about">About Me</a></li>
+    <li><a href="/#commissions">Commissions</a></li>
+    <li><a href="/blog.html">My Journal</a></li>
+    <li><a href="/exhibitions.html" aria-current="page">Exhibitions &amp; Press</a></li>
+    <li><a href="/products.html">Art Products</a></li>
+    <li><a href="/events.html" class="nav-cta">Plan an Event</a></li>
+    <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
 </nav>
 
 
@@ -495,7 +525,7 @@
 
         <div class="ex-section-header reveal">
             <div>
-                <span class="ex-section-num">01 - Recognition</span>
+                <span class="ex-section-num">Recognition</span>
                 <h2>Awards <em>&amp;</em> honours.</h2>
             </div>
             <p class="ex-section-desc">National and civic recognition for contributions to art, culture, and teaching.</p>
@@ -505,12 +535,12 @@
 
             <!-- FEATURED: Yuva Pratibha / Top 20 -->
             <div class="ex-card ex-card-featured reveal">
-                <div class="ex-card-img" data-lb-src="/img/coverage/collage.jpeg" data-lb-title="India's Top 20 Artists - Artist Talent Hunt 2023" data-lb-meta="National Recognition · 2023">
+                <div class="ex-card-img" data-lb-src="/img/coverage/4.jpeg" data-lb-title="India's Top 20 Artists - Artist Talent Hunt 2023" data-lb-meta="National Recognition · 2023">
                     <span class="ex-card-badge">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                         Drishti IAS Feature
                     </span>
-                    <img src="/img/coverage/collage.jpeg" alt="India Top 20 Artists - Ankit Agrawal" loading="eager">
+                    <img src="/img/coverage/4.jpeg" alt="India Top 20 Artists - Ankit Agrawal" loading="eager">
                 </div>
                 <div class="ex-card-body">
                     <span class="ex-card-year">2023</span>
@@ -525,8 +555,8 @@
 
             <!-- Card 2 -->
             <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/coverage/am.jpeg" data-lb-title="Noted by Dr. Abhas Mitra" data-lb-meta="BARC · 2019">
-                    <img src="/img/coverage/am.jpeg" alt="Recognised by Dr. Abhas Mitra, BARC" loading="lazy">
+                <div class="ex-card-img" data-lb-src="/img/coverage/7.jpeg" data-lb-title="Noted by Dr. Abhas Mitra" data-lb-meta="BARC · 2019">
+                    <img src="/img/coverage/7.jpeg" alt="Recognised by Dr. Abhas Mitra, BARC" loading="lazy">
                 </div>
                 <div class="ex-card-body">
                     <span class="ex-card-year">2018</span>
@@ -537,8 +567,8 @@
 
             <!-- Card 3 -->
             <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/coverage/jp.JPG" data-lb-title="Jharkhand Foundation Citizen Honour" data-lb-meta="Civic Honour">
-                    <img src="/img/coverage/jp.JPG" alt="Jharkhand Foundation Citizen Honour" loading="lazy">
+                <div class="ex-card-img" data-lb-src="/img/coverage/5.JPG" data-lb-title="Jharkhand Foundation Citizen Honour" data-lb-meta="Civic Honour">
+                    <img src="/img/coverage/5.JPG" alt="Jharkhand Foundation Citizen Honour" loading="lazy">
                 </div>
 
                 <div class="ex-card-body">
@@ -554,6 +584,24 @@
                 </div>
             </div>
 
+             <!-- Card 3 -->
+            <div class="ex-card reveal">
+                <div class="ex-card-img" data-lb-src="/img/coverage/9.JPG" data-lb-title="Jharkhand Foundation Citizen Honour" data-lb-meta="Civic Honour">
+                    <img src="/img/coverage/9.JPG" alt="Jharkhand Foundation Citizen Honour" loading="lazy">
+                </div>
+
+                <div class="ex-card-body">
+                    <span class="ex-card-year">Award Shows</span>
+
+                    <div class="ex-card-title">
+                        University talent recognition
+                    </div>
+
+                    <p class="ex-card-desc">
+                        Honoured to present the awards to young and talented fellow students and budding artists within the campus</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -566,7 +614,7 @@
 
         <div class="ex-section-header reveal">
             <div>
-                <span class="ex-section-num">01 - Exhibitions</span>
+                <span class="ex-section-num">Exhibitions</span>
                 <h2>Showing <em>work</em> in public spaces.</h2>
             </div>
             <p class="ex-section-desc">Group shows, solo exhibitions, and gallery appearances - from Ranchi to national platforms.</p>
@@ -574,79 +622,51 @@
 
         <div class="ex-grid">
 
-                    <div class="ex-card ex-card-featured reveal">
-                        <div class="ex-card-img" 
-                            data-lb-src="/img/gallery/water (1).jpg" 
-                            data-lb-title="Bitotsav Exhibition - BIT Mesra, Ranchi" 
-                            data-lb-meta="Campus Exhibition · 2018">
-
-                            <span class="ex-card-badge">
-                                Campus Feature
-                            </span>
-
-                            <img src="/img/gallery/water (1).jpg" 
-                                alt="Bitotsav Exhibition BIT Mesra Ranchi" 
-                                loading="eager">
-                        </div>
-
-                        <div class="ex-card-body">
-                            <span class="ex-card-year">2018</span>
-
-                            <div class="ex-card-title">
-                                Exhibition at Bitotsav - BIT Mesra, Ranchi
-                            </div>
-
-                            <p class="ex-card-desc">
-                                Exhibited works during Bitotsav, the annual cultural festival at Birla Institute of Technology, Mesra. Showcased watercolor paintings capturing campus life, everyday moments, and figurative studies.
-                            </p>
-                        </div>
-                    </div>
-
-            <!-- Card 2 -->
-            <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/gallery/water (13).jpg" data-lb-title="Banaras Plein-Air Exhibition" data-lb-meta="Group Show · 2019">
-                    <img src="/img/gallery/water (13).jpg" alt="Banaras Plein-Air Exhibition" loading="lazy">
+         <!-- FEATURED: BIT Mesra exhibitions / Top 20 -->
+            <div class="ex-card ex-card-featured reveal">
+                <div class="ex-card-img" data-lb-src="/img/coverage/88.png" data-lb-title="Exhibitions across India" data-lb-meta="National Recognition · 2023">
+                    <img src="/img/coverage/88.png" alt="India Top 20 Artists - Ankit Agrawal" loading="eager">
                 </div>
                 <div class="ex-card-body">
-                    <span class="ex-card-year">2019</span>
-                    <div class="ex-card-title">Banaras Plein-Air - Group Exhibition</div>
-                    <p class="ex-card-desc">Watercolors painted on the ghats of Banaras, shown as part of a group exhibition. Three works from the Banarasi dawn, dusk, and midday series.</p>
+                    <span class="ex-card-year">2025-Present</span>
+                    <div class="ex-card-title">Exhibitions across various places in India</div>
+                    <p class="ex-card-desc">Presented/ Exhibited artworks at various places across India and at International platforms</p>
                 </div>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Card 1 · Bitotsav -->
             <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/gallery/oil (11).jpg" data-lb-title="Portrait Study Exhibition" data-lb-meta="Solo Show · 2022">
-                    <img src="/img/gallery/oil (11).jpg" alt="Portrait Studies Exhibition" loading="lazy">
+                <div class="ex-card-img" data-lb-src="/img/gallery/water (10).jpg" data-lb-title="Exhibition at Bitotsav - BIT Mesra, Ranchi" data-lb-meta="Campus Exhibition">
+                    <img src="/img/gallery/water (10).jpg" alt="Exhibition at Bitotsav - BIT Mesra, Ranchi" loading="eager">
                 </div>
                 <div class="ex-card-body">
-                    <span class="ex-card-year">2022</span>
-                    <div class="ex-card-title">Portrait Studies - Solo Show</div>
-                    <p class="ex-card-desc">A selection of oil and watercolor portraits - figures from everyday India, painted from life and from memory. Shown in Ranchi.</p>
+                    <span class="ex-card-year">2015-2019</span>
+                    <div class="ex-card-title">Exhibition at Bitotsav - BIT Mesra, Ranchi</div>
+                    <p class="ex-card-desc">Exhibited at Bitotsav, the annual cultural festival of Birla Institute of Technology, Mesra. Watercolors of the campus and the years that turned a B.Tech student into a painter.</p>
                 </div>
             </div>
 
-            <!-- Card 4 -->
+            <!-- Card 2 · Artex, Kolkata -->
             <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/gallery/water (1).jpg" data-lb-title="BIT Mesra Art Exhibition" data-lb-meta="Campus Show · 2018">
-                    <img src="/img/gallery/water (1).jpg" alt="BIT Mesra Art Exhibition" loading="lazy">
+                <div class="ex-card-img" data-lb-src="/img/coverage/10.jpg" data-lb-title="Exhibition at Artex, Kolkata" data-lb-meta="Group Exhibition">
+                    <img src="/img/coverage/10.jpg" alt="Exhibition at Artex, Kolkata" loading="lazy">
                 </div>
                 <div class="ex-card-body">
-                    <span class="ex-card-year">2018</span>
-                    <div class="ex-card-title">BIT Mesra Campus Exhibition</div>
-                    <p class="ex-card-desc">Works shown during the annual cultural festival at Birla Institute of Technology, Mesra. Featured watercolors of the campus and figurative studies.</p>
+                    <span class="ex-card-year">2017</span>
+                    <div class="ex-card-title">Exhibition at Artex, Kolkata</div>
+                    <p class="ex-card-desc">Selected for Artex - the all-India art exhibition in Kolkata. Oil Paintings shown alongside artists from across the country.</p>
                 </div>
             </div>
 
-            <!-- Card 5 -->
+            <!-- Card 3 · Lalit Kala Academy, Delhi -->
             <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/gallery/acrylic (1).jpg" data-lb-title="Emerging Artists Group Show" data-lb-meta="Group Show · 2021">
-                    <img src="/img/gallery/acrylic (1).jpg" alt="Emerging Artists Group Show" loading="lazy">
+                <div class="ex-card-img" data-lb-src="/img/coverage/2.jpg" data-lb-title="Exhibition at Lalit Kala Academy, Delhi" data-lb-meta="National Exhibition">
+                    <img src="/img/coverage/2.jpg" alt="Exhibition at Lalit Kala Academy, Delhi" loading="lazy">
                 </div>
                 <div class="ex-card-body">
-                    <span class="ex-card-year">2021</span>
-                    <div class="ex-card-title">Emerging Artists - Group Show, Pune</div>
-                    <p class="ex-card-desc">Selected for a group show of emerging artists in Pune featuring acrylic and oil works. <em>Confusion</em> and <em>Hayaa</em> among the exhibited pieces.</p>
+                    <span class="ex-card-year">Year</span>
+                    <div class="ex-card-title">Exhibition at Lalit Kala Academy, Delhi</div>
+                    <p class="ex-card-desc">Shown at the Lalit Kala Academy - India's national academy of fine arts - in New Delhi. A national platform alongside contemporary artists from across the country.</p>
                 </div>
             </div>
 
@@ -662,84 +682,86 @@
 
         <div class="ex-section-header reveal">
             <div>
-                <span class="ex-section-num">03 - Press &amp; Media</span>
+                <span class="ex-section-num">Press &amp; Media</span>
                 <h2>In the <em>news</em>.</h2>
             </div>
             <p class="ex-section-desc">Newspaper features, online coverage, and interviews on the practice and workshops.</p>
         </div>
 
 
-            <!-- Press 1 - Drishti IAS -->
-            <div class="press-item reveal">
-                <div class="press-item-img" data-lb-src="/img/gallery/oil (3).jpg" data-lb-title="Drishti IAS - Ranchi: Ankit Selected Among Top 20" data-lb-meta="Drishti IAS · 2023">
-                    <img src="/img/gallery/oil (3).jpg" alt="Drishti IAS coverage of Ankit Agrawal" loading="lazy">
+             <div class="ex-grid">
+
+            <!-- FEATURED: Yuva Pratibha / Top 20 -->
+            <div class="ex-card ex-card-featured reveal">
+                <div class="ex-card-img" data-lb-src="/img/coverage/77.png" data-lb-title="India's Top 20 Artists - Artist Talent Hunt 2023" data-lb-meta="National Recognition · 2023">
+                    <span class="ex-card-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        Drishti IAS Feature
+                    </span>
+                    <img src="/img/coverage/77.png" alt="India Top 20 Artists - Ankit Agrawal" loading="eager">
                 </div>
-                <div class="press-item-body">
-                    <div class="press-item-meta">
-                        <span class="press-item-outlet">Drishti IAS</span>
-                        <span class="press-item-sep"></span>
-                        <span class="press-item-date">2023</span>
-                    </div>
-                    <div class="press-item-title">Ranchi: Ankit Selected Among Top 20 Participants</div>
-                    <p class="press-item-desc">Coverage of Ankit Agrawal's selection as one of India's Top 20 artists at the Yuva Pratibha Artist Talent Hunt - published as part of Jharkhand state current affairs. The article highlights his practice and the national significance of the recognition.</p>
-                    <a href="https://www.drishtiias.com/state-pcs-current-affairs/ranchi-ankit-selected-among-top-20-participants-of" target="_blank" rel="noopener noreferrer" class="press-item-link">
-                        Read the article
+                <div class="ex-card-body">
+                    <span class="ex-card-year">2023</span>
+                    <div class="ex-card-title">India's Top 20 Artists - Yuva Pratibha, Artist Talent Hunt</div>
+                    <p class="ex-card-desc">Featured on the BIT Mesra website while being covered by Dristi IAS as part of the Jharkhand State current affairs</p>
+                    <a href="https://www.drishtiias.com/state-pcs-current-affairs/ranchi-ankit-selected-among-top-20-participants-of" target="_blank" rel="noopener noreferrer" class="ex-card-link">
+                        Dristi IAS </a> <br>
+                    <a href="https://alumni.bitmesra.ac.in/f/congratulations-ankit-agrawal-btech-civil-enginering-2015---2019-25210" target="_blank" rel="noopener noreferrer" class="ex-card-link">
+                        BIT Mesra
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                     </a>
                 </div>
             </div>
 
-            <!-- Press 2 - Vishnu Rajgadia -->
-            <div class="press-item reveal">
-                <div class="press-item-img" data-lb-src="/img/gallery/water (13).jpg" data-lb-title="Jharkhand Foundation Feature" data-lb-meta="Press · 2019">
-                    <img src="/img/gallery/water (13).jpg" alt="Vishnu Rajgadia feature on Ankit Agrawal" loading="lazy">
+
+                        <!-- Card 3 -->
+            <div class="ex-card reveal">
+                <div class="ex-card-img" data-lb-src="/img/coverage/p1.png" data-lb-title="Newspaper Coverage" data-lb-meta="BARC · 2019">
+                    <img src="/img/coverage/p7.png" alt="Newspaper Coverage" loading="lazy">
                 </div>
-                <div class="press-item-body">
-                    <div class="press-item-meta">
-                        <span class="press-item-outlet">Jharkhand Foundation</span>
-                        <span class="press-item-sep"></span>
-                        <span class="press-item-date">2019</span>
-                    </div>
-                    <div class="press-item-title">Feature by Mr. Vishnu Rajgadia - Journalist &amp; Director</div>
-                    <p class="press-item-desc">"My good wishes to Ankit, an upright young artist, who is passionate not only for his own paintings but also for imparting his knowledge to others." A feature piece on the practice and community teaching work.</p>
+                <div class="ex-card-body">
+                    <!--<span class="ex-card-year">2018</span>-->
+                    <div class="ex-card-title">Covered in local newspaper</div>
+                    <p class="ex-card-desc">"Achievements over the years were covered in the local newspapers, reflecting efforts in the cultural upliftment</p>
                 </div>
             </div>
 
-            <!-- Press 3 - Regional newspaper -->
-            <div class="press-item reveal">
-                <div class="press-item-img" data-lb-src="/img/gallery/water (2a).jpg" data-lb-title="Regional Press Coverage" data-lb-meta="Print Media · 2021">
-                    <img src="/img/gallery/water (2a).jpg" alt="Regional press coverage of Missing Palette workshops" loading="lazy">
+                        <!-- Card 4 -->
+                  <div class="ex-card reveal">
+                <div class="ex-card-img" data-lb-src="/img/coverage/p1.png" data-lb-title="Newspaper Coverage" data-lb-meta="BARC · 2019">
+                    <img src="/img/coverage/p1.png" alt="Newspaper Coverage" loading="lazy">
                 </div>
-                <div class="press-item-body">
-                    <div class="press-item-meta">
-                        <span class="press-item-outlet">Regional Print</span>
-                        <span class="press-item-sep"></span>
-                        <span class="press-item-date">2021</span>
-                    </div>
-                    <div class="press-item-title">Workshop Coverage - Regional Newspaper, Jharkhand</div>
-                    <p class="press-item-desc">Newspaper coverage of the Saansad Adarsh Gram Yojana painting workshop conducted at Mahilong village - featuring photographs of children participating and a brief interview on the role of art in rural communities.</p>
+                <div class="ex-card-body">
+                    <!--<span class="ex-card-year">2018</span>-->
+                    <div class="ex-card-title">Covered in local newspaper</div>
+                    <p class="ex-card-desc">"School art workshop, covered in the news - local newspaper"</p>
                 </div>
             </div>
 
-            <!-- Press 4 - YouTube milestone -->
-            <div class="press-item reveal">
-                <div class="press-item-img" data-lb-src="/img/gallery/water (14).jpg" data-lb-title="YouTube - 1.2M+ Views" data-lb-meta="Online · Ongoing">
-                    <img src="/img/gallery/water (14).jpg" alt="Missing Palette YouTube channel" loading="lazy">
+                        <!-- Card 5 -->
+                  <div class="ex-card reveal">
+                <div class="ex-card-img" data-lb-src="/img/coverage/p2.png" data-lb-title="Newspaper Coverage" data-lb-meta="BARC · 2019">
+                    <img src="/img/coverage/p2.png" alt="Newspaper Coverage" loading="lazy">
                 </div>
-                <div class="press-item-body">
-                    <div class="press-item-meta">
-                        <span class="press-item-outlet">YouTube</span>
-                        <span class="press-item-sep"></span>
-                        <span class="press-item-date">Ongoing</span>
-                    </div>
-                    <div class="press-item-title">1.2 Million+ Views - Missing Palette on YouTube</div>
-                    <p class="press-item-desc">The Missing Palette YouTube channel documents the painting process - plein-air sessions, studio work, and technique breakdowns. Over 1.2 million views from audiences across India and internationally.</p>
-                    <a href="https://www.youtube.com/missingpalette" target="_blank" rel="noopener noreferrer" class="press-item-link">
-                        Visit the channel
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </a>
+                <div class="ex-card-body">
+                    <!--<span class="ex-card-year">2018</span>-->
+                    <div class="ex-card-title">Covered in local newspaper</div>
+                    <p class="ex-card-desc">"School art workshop, covered in the news - local newspaper"</p>
                 </div>
             </div>
+
+                                <!-- Card 5 -->
+                  <div class="ex-card reveal">
+                <div class="ex-card-img" data-lb-src="/img/coverage/p3.jpg" data-lb-title="Newspaper Coverage" data-lb-meta="BARC · 2019">
+                    <img src="/img/coverage/p3.jpg" alt="Newspaper Coverage" loading="lazy">
+                </div>
+                <div class="ex-card-body">
+                    <!--<span class="ex-card-year">2018</span>-->
+                    <div class="ex-card-title">Covered in local newspaper</div>
+                    <p class="ex-card-desc">"Pantheon - 2017, BIT Mesra, covered in the local newspaper"</p>
+                </div>
+            </div>
+
 
         </div>
     </div>
@@ -762,25 +784,29 @@
 
         <div class="ex-grid">
 
-            <!-- Featured: Saansad Adarsh Gram -->
+                        <!-- Feature -->
             <div class="ex-card ex-card-featured reveal">
-                <div class="ex-card-img" data-lb-src="/img/gallery/ws (1).jpg" data-lb-title="Saansad Adarsh Gram Yojana - Mahilong" data-lb-meta="Jharkhand · 2021">
-                    <img src="/img/gallery/ws (1).jpg" alt="Workshop at Mahilong village under Saansad Adarsh Gram Yojana" loading="eager">
+                <div class="ex-card-img" data-lb-src="/img/coverage/ws0.jpg" data-lb-title="Ranchi Art Classes" data-lb-meta="Ranchi · Ongoing">
+                    <img src="/img/coverage/ws0.jpg" alt="Missing Palette art classes in Ranchi" loading="lazy">
                 </div>
                 <div class="ex-card-body">
-                    <span class="ex-card-year">2021</span>
-                    <div class="ex-card-title">Saansad Adarsh Gram Yojana - Mahilong Village, Jharkhand</div>
-                    <p class="ex-card-desc">Conducted a painting workshop for children at a government primary school in Mahilong village under the Saansad Adarsh Gram Yojana programme. The session introduced watercolour basics and observational drawing to students who had never held a paintbrush.</p>
+                    <span class="ex-card-year">2015-2019</span>
+                    <div class="ex-card-title">BIT Mesra</div>
+                    <p class="ex-card-desc">Art workshops at BIT Mesra, full of charcoal, watercolor and sketching</p>
+                    <a href="/register.html" class="ex-card-link">
+                        Register for class
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
                 </div>
             </div>
 
             <!-- Card 2 -->
             <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/gallery/ws (2).jpg" data-lb-title="DAV Group Schools Workshop" data-lb-meta="Jharkhand · 2023">
-                    <img src="/img/gallery/ws (2).jpg" alt="DAV Group Schools Workshop" loading="lazy">
+                <div class="ex-card-img" data-lb-src="/img/gallery/ws (1).jpg" data-lb-title="DAV Group Schools Workshop" data-lb-meta="Jharkhand · 2023">
+                    <img src="/img/gallery/ws (1).jpg" alt="DAV Group Schools Workshop" loading="lazy">
                 </div>
                 <div class="ex-card-body">
-                    <span class="ex-card-year">2023</span>
+                    <span class="ex-card-year">2021</span>
                     <div class="ex-card-title">D.A.V. Group of Schools - Jharkhand</div>
                     <p class="ex-card-desc">Workshop series across D.A.V. schools, endorsed by Dr. T.P. Pati (Former Regional Director). "The workshop witnessed huge participation. Students loved the sessions."</p>
                 </div>
@@ -788,8 +814,8 @@
 
             <!-- Card 3 -->
             <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/gallery/ws (3).jpg" data-lb-title="Sri Agrasen School Workshop" data-lb-meta="2018">
-                    <img src="/img/gallery/ws (3).jpg" alt="Sri Agrasen School Workshop" loading="lazy">
+                <div class="ex-card-img" data-lb-src="/img/gallery/ws (2).jpg" data-lb-title="Sri Agrasen School Workshop" data-lb-meta="2018">
+                    <img src="/img/gallery/ws (2).jpg" alt="Sri Agrasen School Workshop" loading="lazy">
                 </div>
                 <div class="ex-card-body">
                     <span class="ex-card-year">2018</span>
@@ -800,35 +826,29 @@
 
             <!-- Card 4 -->
             <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/gallery/ws (4).jpg" data-lb-title="Pune Art Classes" data-lb-meta="Pune · Ongoing">
-                    <img src="/img/gallery/ws (4).jpg" alt="Missing Palette art classes in Pune" loading="lazy">
+                <div class="ex-card-img" data-lb-src="/img/gallery/ws (9).jpg" data-lb-title="Pune Art Classes" data-lb-meta="Pune · Ongoing">
+                    <img src="/img/gallery/ws (9).jpg" alt="Missing Palette art classes in Pune" loading="lazy">
                 </div>
                 <div class="ex-card-body">
                     <span class="ex-card-year">Ongoing</span>
-                    <div class="ex-card-title">Missing Palette Studio - Pune</div>
-                    <p class="ex-card-desc">Small-batch art classes in Pune covering watercolour, oil, sketching, and plein-air. Rated 4.7★ on Google. Beginner to advanced, with personal coaching sessions available.</p>
-                    <a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer" class="ex-card-link">
-                        Book a session
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </a>
+                    <div class="ex-card-title">Missing Palette Studio - India</div>
+                    <p class="ex-card-desc">Small-batch art classes in Pune covering watercolour, oil, sketching, and plein-air, for professionals and hobby artists</p>
+    
                 </div>
             </div>
 
-            <!-- Card 5 -->
+            <!-- Card: Saansad Adarsh Gram -->
             <div class="ex-card reveal">
-                <div class="ex-card-img" data-lb-src="/img/gallery/ws (7).jpg" data-lb-title="Ranchi Art Classes" data-lb-meta="Ranchi · Ongoing">
-                    <img src="/img/gallery/ws (7).jpg" alt="Missing Palette art classes in Ranchi" loading="lazy">
+                <div class="ex-card-img" data-lb-src="/img/gallery/ws (4).jpg" data-lb-title="Saansad Adarsh Gram Yojana - Mahilong" data-lb-meta="Jharkhand · 2021">
+                    <img src="/img/gallery/ws (4).jpg" alt="Workshop at Mahilong village under Saansad Adarsh Gram Yojana" loading="eager">
                 </div>
                 <div class="ex-card-body">
-                    <span class="ex-card-year">Ongoing</span>
-                    <div class="ex-card-title">Missing Palette Studio - Ranchi</div>
-                    <p class="ex-card-desc">Art classes in Ranchi across skill levels. Rated 4.9★ on Google and 4.9★ on JustDial. Oil painting, portraiture, and weekend watercolour batches.</p>
-                    <a href="/register.html" class="ex-card-link">
-                        Register for class
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </a>
+                    <span class="ex-card-year">2019</span>
+                    <div class="ex-card-title">Saansad Adarsh Gram Yojana - Mahilong Village, Jharkhand</div>
+                    <p class="ex-card-desc">Conducted a painting workshop for children at a government primary school in Mahilong village under the Saansad Adarsh Gram Yojana programme. The session introduced watercolour basics and observational drawing to students who had never held a paintbrush.</p>
                 </div>
             </div>
+
 
         </div>
     </div>
@@ -849,51 +869,56 @@
      FOOTER
 ============================================ -->
 <footer class="site-footer">
-    <div class="footer-grid">
-        <div>
-            <div class="footer-brand">Missing <em>Palette</em><sup class="tm">®</sup></div>
-            <p class="footer-tagline">Indian artist Ankit Agrawal. Watercolor and oil, mostly. Sketching and acrylic when the work asks for it.</p>
-        </div>
-        <div class="footer-col">
-            <h5>Explore</h5>
-            <ul>
-                <li><a href="/gallery.html">Gallery</a></li>
-                <li><a href="/#about">About</a></li>
-                <li><a href="/#commissions">Commissions</a></li>
-                <li><a href="/blog.html">Journal</a></li>
-                <li><a href="/products.html">Shop</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h5>Connect</h5>
-            <ul class="footer-social-list">
-                <li><a href="https://www.instagram.com/imankit_art" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a></li>
-                <li><a href="https://www.youtube.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>YouTube</a></li>
-                <li><a href="https://www.facebook.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
-                <li><a href="https://www.linkedin.com/in/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
-                <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Topmate · Book a call</a></li>
-                <li><a href="https://www.patreon.com/bePatron?u=15378539" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14.5" cy="9.5" r="6.5"/><line x1="4" y1="3" x2="4" y2="21"/></svg>Patreon</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h5>Inquire</h5>
-            <ul>
-                <li><a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a></li>
-                <li><a href="/#contact">Contact form</a></li>
-                <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer">Book a 1:1 call</a></li>
-                <li><a href="/register.html">Register for class</a></li>
-                <li><a href="/2025_Ankit_K_Agrawal_Resume.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-legal">
-        <div class="copyright-line">
-            <p>© 2019-2026 Missing Palette<sup class="tm">®</sup> · All Rights Reserved.</p>
-            <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal - unauthorized reproduction is prohibited.</p>
-        </div>
-        <div class="right"><a href="/privacy.html">Privacy</a><a href="/legal.html">Legal</a></div>
-    </div>
-    <p class="made-with">Made with <span class="heart">❤</span> by <span class="aka">AKA</span></p>
+   <div class="footer-grid">
+       <div>
+           <div class="footer-brand">Missing <em>Palette</em><sup class="tm">®</sup></div>
+           <p class="footer-tagline">Indian artist Ankit Agrawal. Watercolor and oil, mostly. Sketching and acrylic when the work asks for it.</p>
+       </div>
+       <div class="footer-col">
+           <h5>Explore</h5>
+           <ul>
+               <li><a href="/gallery.html">Gallery</a></li>
+               <li><a href="/#about">About Me</a></li>
+               <li><a href="/#commissions">Commissions</a></li>
+               <li><a href="/blog.html">My Journal</a></li>
+               <li><a href="/exhibitions.html">Exhibitions &amp; Press</a></li>
+               <li><a href="/products.html">Art Products</a></li>
+               <li><a href="/events.html">Plan an event</a></li>
+           </ul>
+       </div>
+       <div class="footer-col">
+           <h5>Connect</h5>
+           <ul class="footer-social-list">
+               <li><a href="https://www.instagram.com/imankit_art" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a></li>
+               <li><a href="https://www.youtube.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>YouTube</a></li>
+               <li><a href="https://www.facebook.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
+               <li><a href="https://www.linkedin.com/in/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
+               <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Topmate · Book a call</a></li>
+               <li><a href="https://www.patreon.com/bePatron?u=15378539" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14.5" cy="9.5" r="6.5"/><line x1="4" y1="3" x2="4" y2="21"/></svg>Patreon</a></li>
+           </ul>
+       </div>
+       <div class="footer-col">
+           <h5>Write to Me</h5>
+           <ul>
+               <li><a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a></li>
+               <li><a href="/#contact">Contact form</a></li>
+               <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer">Book a 1:1 call</a></li>
+               <li><a href="/register.html">Register for class</a></li>
+               <li><a href="/2025_Ankit_K_Agrawal_Resume.pdf" target="_blank" rel="noopener noreferrer">My Resume</a></li>
+           </ul>
+       </div>
+   </div>
+   <div class="footer-legal">
+       <div class="copyright-line">
+           <p>© 2019-2026 Missing Palette<sup class="tm">®</sup> · All Rights Reserved.</p>
+           <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal - unauthorized reproduction is prohibited.</p>
+       </div>
+       <div class="right">
+           <a href="/privacy.html">Privacy</a>
+           <a href="/legal.html">Legal</a>
+       </div>
+   </div>
+   <p class="made-with">Made with <span class="heart">❤</span> by <span class="aka">AKA</span></p>
 </footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">

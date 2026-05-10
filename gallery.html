@@ -38,15 +38,23 @@
 {"@context":"https://schema.org","@type":"ImageGallery","name":"Missing Palette Gallery","url":"https://missingpalette.com/gallery.html","creator":{"@type":"Person","name":"Ankit Agrawal","url":"https://missingpalette.com/"},"copyrightHolder":{"@type":"Person","name":"Ankit Agrawal"},"copyrightYear":"2019","license":"https://missingpalette.com/legal.html"}
 </script>
 
-<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="shortcut icon" href="/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Missing Palette">
+
+
+
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/missingpalette.css">
 <link rel="stylesheet" href="/css/missingpalette_v2.css">
+<link rel="stylesheet" href="/css/missingpalette_v4.css">
 
 <style>
 
@@ -72,6 +80,40 @@
     animation: gallery-hero-pan 18s ease-in-out infinite alternate;
 }
 .gallery-hero-bg-img.active { opacity: 1; }
+
+/* ── Manual prev-slide button (subtle, left edge of hero) ───────────────── */
+.gallery-hero-prev {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20,17,15,0.35);
+    border: 1px solid rgba(245,240,230,0.25);
+    border-radius: 50%;
+    color: rgba(245,240,230,0.85);
+    cursor: pointer;
+    transition: background 220ms ease, border-color 220ms ease, color 220ms ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.gallery-hero-prev:hover {
+    background: rgba(20,17,15,0.55);
+    border-color: rgba(245,240,230,0.5);
+    color: var(--paper, #F5F0E6);
+}
+.gallery-hero-prev:focus-visible {
+    outline: 2px solid var(--ochre-light, #D9A25A);
+    outline-offset: 2px;
+}
+@media (max-width: 600px) {
+    .gallery-hero-prev { left: 0.6rem; width: 32px; height: 32px; }
+}
 
 /* ── VIDEO / GIF support inside hero bg slides ──────────────────────────────
    When you swap a slide div for a <video> tag, these rules kick in.
@@ -487,23 +529,24 @@
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <nav class="site-nav" id="siteNav">
-    <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
-        </svg>
-    </button>
-   <ul class="nav-links" id="navLinks">
-       <!-- <li><a href="/">Home</a></li> -->
-       <li><a href="/gallery.html">Gallery</a></li>
-       <li><a href="#about">About Me</a></li>
-       <!-- <li><a href="#testimonials">Testimonials</a></li> -->
-       <li><a href="#commissions">Commissions</a></li>
-       <li><a href="/blog.html">My Journal</a></li>
-       <li><a href="/exhibitions.html">Exhibitions & Press</a></li>
-       <li><a href="/products.html">Art Products</a></li>
-       <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
-   </ul>
+  <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="3" y1="7" x2="21" y2="7"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="17" x2="21" y2="17"/>
+    </svg>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/gallery.html" aria-current="page">Gallery</a></li>
+    <li><a href="/#about">About Me</a></li>
+    <li><a href="/#commissions">Commissions</a></li>
+    <li><a href="/blog.html">My Journal</a></li>
+    <li><a href="/exhibitions.html">Exhibitions &amp; Press</a></li>
+    <li><a href="/products.html">Art Products</a></li>
+    <li><a href="/events.html" class="nav-cta">Plan an Event</a></li>
+    <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
 </nav>
 
 
@@ -513,11 +556,15 @@
 <section class="gallery-page-hero">
     <div class="gallery-hero-bg" id="galleryHeroBg" aria-hidden="true">
 
-        <!-- ── CURRENT: static image slides (active) ────────────────────── -->
+        <!-- ── Slide order: image · video · image · image ─────────────── -->
         <div class="gallery-hero-bg-img active" style="background-image:url('img/gallery/Slide 1.jpg');"></div>
+        <div class="gallery-hero-bg-img">
+            <video autoplay muted loop playsinline preload="metadata" poster="img/gallery/Slider 4.jpg">
+                <source src="video/1.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="gallery-hero-bg-img" style="background-image:url('img/gallery/Slider 2.jpg');"></div>
         <div class="gallery-hero-bg-img" style="background-image:url('img/gallery/Slider 3.jpg');"></div>
-        <div class="gallery-hero-bg-img" style="background-image:url('img/gallery/Slider 4.jpg');"></div>
 
         <!--
         ── OPTION A: Replace any slide above with a GIF ─────────────────────
@@ -549,10 +596,15 @@
         -->
 
     </div>
+    <button class="gallery-hero-prev" id="galleryHeroPrev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+    </button>
     <div class="gallery-hero-content">
         <div class="gallery-hero-eyebrow">- The full body of work -</div>
         <h1>Eighty+ <em>pieces</em>, in watercolor, oil, sketch, and acrylic.</h1>
-        <p>A growing collection of original works - portraits painted from life, plein-air watercolors of Banaras and BIT Mesra, oils of Indian villagers and tribals, and the workshops where many of these techniques were taught.</p>
+        <p>A growing collection of my Art works - portraits painted from life, plein-air watercolors of live spots, oils of Indian expressions, and the workshops where many of these techniques were taught.</p>
         <a href="https://www.youtube.com/missingpalette" target="_blank" rel="noopener noreferrer" class="hero-yt-btn" aria-label="Watch on YouTube">
             <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FF0000"/>
@@ -604,11 +656,11 @@
         <span class="ex-img-credit">© Ankit Agrawal</span>
         </div>
         <div class="medium-exhibition-text">
-            <span class="ex-num">01 - Watercolor</span>
+            <span class="ex-num">Watercolor</span>
             <p class="ex-featured-title">ढलती मुस्कान &nbsp;· Dhalti Muskaan, 2018</p>
             <h2>Painted in <em>water</em> and light.</h2>
             <p>
-                Watercolor has been my primary medium since 2016 - transparent, unforgiving, and alive. These works span portraits painted from life, plein-air studies from Banaras and Jharkhand, and quiet still-life observations. The sadhu with the smoke, the grandmother's laugh, three dawns on the same ghat.
+                Watercolor has been my primary medium since 2016 - transparent, unforgiving, and alive. These works span portraits painted from life, plein-air studies, and quiet still-life observations. The sadhu with the smoke, the grandmother's laugh, the eyes that need some rest, three dawns on the same ghat.
             </p>
 
             <!-- CTA (this is the only addition) -->
@@ -632,7 +684,13 @@
         <div class="medium-strip" id="watercolor-strip">
 
             <a class="strip-card" data-lb-src="img/gallery/water (1).jpg" data-lb-title="भण्डि बाबा" data-lb-meta="Watercolor on paper · 2017" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (1).jpg" alt="भण्डि बाबा" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (1).avif" type="image/avif">
+                        <source srcset="img/gallery/water (1).webp" type="image/webp">
+                        <img src="img/gallery/water (1).jpg" alt="भण्डि बाबा" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">भण्डि बाबा</span></span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2017</span></span>
@@ -642,7 +700,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (2).jpg" data-lb-title="ढलती मुस्कान" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (2).jpg" alt="ढलती मुस्कान" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (2).avif" type="image/avif">
+                        <source srcset="img/gallery/water (2).webp" type="image/webp">
+                        <img src="img/gallery/water (2).jpg" alt="ढलती मुस्कान" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">ढलती मुस्कान</span></span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
@@ -657,16 +721,28 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (3).jpg" data-lb-title="पगडण्डी" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (3).jpg" alt="पगडण्डी" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (3).avif" type="image/avif">
+                        <source srcset="img/gallery/water (3).webp" type="image/webp">
+                        <img src="img/gallery/water (3).jpg" alt="पगडण्डी" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">पगडण्डी</span></span>
-                    <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2020</span></span>
                     <span class="strip-card-oneliner">A village trail, painted from memory.</span>
                 </div>
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (2a).jpg" data-lb-title="अनिद्रा" data-lb-meta="Watercolor on paper · 2020" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (2a).jpg" alt="अनिद्रा" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (2a).avif" type="image/avif">
+                        <source srcset="img/gallery/water (2a).webp" type="image/webp">
+                        <img src="img/gallery/water (2a).jpg" alt="अनिद्रा" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">अनिद्रा</span></span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2020</span></span>
@@ -675,52 +751,88 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (3a).jpg" data-lb-title="केतली" data-lb-meta="Watercolor on paper · 2021" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (3a).jpg" alt="केतली" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (3a).avif" type="image/avif">
+                        <source srcset="img/gallery/water (3a).webp" type="image/webp">
+                        <img src="img/gallery/water (3a).jpg" alt="केतली" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">केतली</span></span>
-                    <span class="strip-card-meta">Watercolor · <span class="year">2021</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2019</span></span>
                     <span class="strip-card-oneliner">The chai kettle - copper and steam.</span>
                 </div>
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (3b).jpg" data-lb-title="Frooty" data-lb-meta="Watercolor on paper · 2022" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (3b).jpg" alt="Frooty" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (3b).avif" type="image/avif">
+                        <source srcset="img/gallery/water (3b).webp" type="image/webp">
+                        <img src="img/gallery/water (3b).jpg" alt="Frooty" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Frooty</span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2022</span></span>
-                    <span class="strip-card-oneliner">A late-90s mango juice carton. Pure nostalgia.</span>
+                    <span class="strip-card-oneliner">A small basket of fruits.</span>
                 </div>
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (3c).jpeg" data-lb-title="Rings" data-lb-meta="Watercolor on paper · 2024" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (3c).jpeg" alt="Rings" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (3c).avif" type="image/avif">
+                        <source srcset="img/gallery/water (3c).webp" type="image/webp">
+                        <img src="img/gallery/water (3c).jpeg" alt="Rings" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Rings</span>
-                    <span class="strip-card-meta">Watercolor · <span class="year">2024</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2023</span></span>
                     <span class="strip-card-oneliner">A watercolor study of light on metal.</span>
                 </div>
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (4).jpg" data-lb-title="गजराज" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (4).jpg" alt="गजराज" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (4).avif" type="image/avif">
+                        <source srcset="img/gallery/water (4).webp" type="image/webp">
+                        <img src="img/gallery/water (4).jpg" alt="गजराज" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">गजराज</span></span>
-                    <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2020</span></span>
                     <span class="strip-card-oneliner">The elephant king, charcoal on paper.</span>
                 </div>
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (5).jpg" data-lb-title="Hey Birdy" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (5).jpg" alt="Hey Birdy" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (5).avif" type="image/avif">
+                        <source srcset="img/gallery/water (5).webp" type="image/webp">
+                        <img src="img/gallery/water (5).jpg" alt="Hey Birdy" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Hey Birdy</span>
-                    <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2019</span></span>
                     <span class="strip-card-oneliner">A quick watercolor of a resting bird.</span>
                 </div>
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (6).jpg" data-lb-title="Hey Birdy" data-lb-meta="Watercolor on paper · 2017" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (6).jpg" alt="Hey Birdy II" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (6).avif" type="image/avif">
+                        <source srcset="img/gallery/water (6).webp" type="image/webp">
+                        <img src="img/gallery/water (6).jpg" alt="Hey Birdy II" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Hey Birdy II</span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2017</span></span>
@@ -729,7 +841,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (6a).jpeg" data-lb-title="Hey Birdy" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (6a).jpeg" alt="Hey Birdy III" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (6a).avif" type="image/avif">
+                        <source srcset="img/gallery/water (6a).webp" type="image/webp">
+                        <img src="img/gallery/water (6a).jpeg" alt="Hey Birdy III" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Hey Birdy III</span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
@@ -738,7 +856,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (7).jpg" data-lb-title="Landscape" data-lb-meta="Watercolor on paper · 2017" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (7).jpg" alt="Landscape" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (7).avif" type="image/avif">
+                        <source srcset="img/gallery/water (7).webp" type="image/webp">
+                        <img src="img/gallery/water (7).jpg" alt="Landscape" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Landscape</span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2017</span></span>
@@ -747,7 +871,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (8).jpg" data-lb-title="Landscape II" data-lb-meta="Watercolor on paper · 2017" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (8).jpg" alt="Landscape II" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (8).avif" type="image/avif">
+                        <source srcset="img/gallery/water (8).webp" type="image/webp">
+                        <img src="img/gallery/water (8).jpg" alt="Landscape II" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Landscape II</span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2017</span></span>
@@ -756,7 +886,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (9).jpg" data-lb-title="Landscape III" data-lb-meta="Watercolor on paper · 2021" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (9).jpg" alt="Landscape III" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (9).avif" type="image/avif">
+                        <source srcset="img/gallery/water (9).webp" type="image/webp">
+                        <img src="img/gallery/water (9).jpg" alt="Landscape III" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Landscape III</span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2021</span></span>
@@ -765,7 +901,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (10).jpg" data-lb-title="BIT Mesra" data-lb-meta="Watercolor on paper · 2018" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (10).jpg" alt="BIT Mesra" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (10).avif" type="image/avif">
+                        <source srcset="img/gallery/water (10).webp" type="image/webp">
+                        <img src="img/gallery/water (10).jpg" alt="BIT Mesra" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">BIT Mesra</span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2018</span></span>
@@ -774,16 +916,28 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (11).jpg" data-lb-title="Sky" data-lb-meta="Watercolor on paper · 2022" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (11).jpg" alt="Sky" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (11).avif" type="image/avif">
+                        <source srcset="img/gallery/water (11).webp" type="image/webp">
+                        <img src="img/gallery/water (11).jpg" alt="Sky" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Sky</span>
-                    <span class="strip-card-meta">Watercolor · <span class="year">2022</span></span>
+                    <span class="strip-card-meta">Watercolor · <span class="year">2017</span></span>
                     <span class="strip-card-oneliner">A sky study - cloud and diffused light.</span>
                 </div>
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (12).jpg" data-lb-title="Hey Hyderabad" data-lb-meta="Watercolor on paper · 2020" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (12).jpg" alt="Hey Hyderabad" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (12).avif" type="image/avif">
+                        <source srcset="img/gallery/water (12).webp" type="image/webp">
+                        <img src="img/gallery/water (12).jpg" alt="Hey Hyderabad" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Hey Hyderabad</span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2020</span></span>
@@ -792,7 +946,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (13).jpg" data-lb-title="बनारसी सुबह" data-lb-meta="Watercolor on paper · 2019" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (13).jpg" alt="बनारसी सुबह" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (13).avif" type="image/avif">
+                        <source srcset="img/gallery/water (13).webp" type="image/webp">
+                        <img src="img/gallery/water (13).jpg" alt="बनारसी सुबह" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">बनारसी सुबह</span></span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2019</span></span>
@@ -801,7 +961,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (14).jpg" data-lb-title="बनारसी शाम" data-lb-meta="Watercolor on paper · 2019" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (14).jpg" alt="बनारसी शाम" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (14).avif" type="image/avif">
+                        <source srcset="img/gallery/water (14).webp" type="image/webp">
+                        <img src="img/gallery/water (14).jpg" alt="बनारसी शाम" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">बनारसी शाम</span></span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2019</span></span>
@@ -810,7 +976,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/water (15).jpg" data-lb-title="बनारसी धूप" data-lb-meta="Watercolor on paper · 2019" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/water (15).jpg" alt="बनारसी धूप" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/water (15).avif" type="image/avif">
+                        <source srcset="img/gallery/water (15).webp" type="image/webp">
+                        <img src="img/gallery/water (15).jpg" alt="बनारसी धूप" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">बनारसी धूप</span></span>
                     <span class="strip-card-meta">Watercolor · <span class="year">2019</span></span>
@@ -853,7 +1025,7 @@
         <span class="ex-img-credit">© Ankit Agrawal</span>
         </div>
         <div class="medium-exhibition-text">
-            <span class="ex-num">02 - Oil</span>
+            <span class="ex-num">Oil</span>
             <p class="ex-featured-title">शागिर्द &nbsp;· Shagird, 2021</p>
             <h2>Painted in <em>depth</em> and time.</h2>
             <p>
@@ -878,7 +1050,13 @@
         <div class="medium-strip" id="oil-strip">
 
             <a class="strip-card" data-lb-src="img/gallery/oil (1).jpg" data-lb-title="आँचल" data-lb-meta="Oil on canvas · 2020" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (1).jpg" alt="आँचल" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (1).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (1).webp" type="image/webp">
+                        <img src="img/gallery/oil (1).jpg" alt="आँचल" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">आँचल</span></span>
                     <span class="strip-card-meta">Oil · <span class="year">2020</span></span>
@@ -887,7 +1065,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (2).jpg" data-lb-title="शागिर्द" data-lb-meta="Oil on canvas · 2021" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (2).jpg" alt="शागिर्द" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (2).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (2).webp" type="image/webp">
+                        <img src="img/gallery/oil (2).jpg" alt="शागिर्द" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">शागिर्द</span></span>
                     <span class="strip-card-meta">Oil · <span class="year">2021</span></span>
@@ -896,7 +1080,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (3).jpg" data-lb-title="चिंतन" data-lb-meta="Oil on canvas · 2022" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (3).jpg" alt="चिंतन" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (3).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (3).webp" type="image/webp">
+                        <img src="img/gallery/oil (3).jpg" alt="चिंतन" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">चिंतन</span></span>
                     <span class="strip-card-meta">Oil · <span class="year">2022</span></span>
@@ -905,7 +1095,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (4).jpg" data-lb-title="बनारसी दर्शन" data-lb-meta="Oil on canvas · 2019" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (4).jpg" alt="बनारसी दर्शन" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (4).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (4).webp" type="image/webp">
+                        <img src="img/gallery/oil (4).jpg" alt="बनारसी दर्शन" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">बनारसी दर्शन</span></span>
                     <span class="strip-card-meta">Oil · <span class="year">2019</span></span>
@@ -914,7 +1110,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (5).jpg" data-lb-title="Omran Daqneesh" data-lb-meta="Oil on canvas · 2017" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (5).jpg" alt="Omran Daqneesh" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (5).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (5).webp" type="image/webp">
+                        <img src="img/gallery/oil (5).jpg" alt="Omran Daqneesh" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Omran Daqneesh</span>
                     <span class="strip-card-meta">Oil · <span class="year">2017</span></span>
@@ -923,7 +1125,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (6).jpg" data-lb-title="Tulip Buddha" data-lb-meta="Oil on canvas · 2022" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (6).jpg" alt="Tulip Buddha" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (6).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (6).webp" type="image/webp">
+                        <img src="img/gallery/oil (6).jpg" alt="Tulip Buddha" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Tulip Buddha</span>
                     <span class="strip-card-meta">Oil · <span class="year">2022</span></span>
@@ -932,7 +1140,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (7).jpg" data-lb-title="रफ़्तार" data-lb-meta="Oil on canvas · 2020" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (7).jpg" alt="रफ़्तार" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (7).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (7).webp" type="image/webp">
+                        <img src="img/gallery/oil (7).jpg" alt="रफ़्तार" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">रफ़्तार</span></span>
                     <span class="strip-card-meta">Oil · <span class="year">2020</span></span>
@@ -941,7 +1155,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (8).jpg" data-lb-title="रफ़्तार II" data-lb-meta="Oil on canvas · 2020" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (8).jpg" alt="रफ़्तार II" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (8).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (8).webp" type="image/webp">
+                        <img src="img/gallery/oil (8).jpg" alt="रफ़्तार II" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">रफ़्तार II</span></span>
                     <span class="strip-card-meta">Oil · <span class="year">2020</span></span>
@@ -950,7 +1170,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (9).jpg" data-lb-title="Freedom" data-lb-meta="Oil on canvas · 2021" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (9).jpg" alt="Freedom" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (9).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (9).webp" type="image/webp">
+                        <img src="img/gallery/oil (9).jpg" alt="Freedom" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Freedom</span>
                     <span class="strip-card-meta">Oil · <span class="year">2021</span></span>
@@ -959,7 +1185,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (10).jpg" data-lb-title="हया" data-lb-meta="Oil on canvas · 2022" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (10).jpg" alt="हया" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (10).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (10).webp" type="image/webp">
+                        <img src="img/gallery/oil (10).jpg" alt="हया" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">हया</span></span>
                     <span class="strip-card-meta">Oil · <span class="year">2022</span></span>
@@ -968,7 +1200,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (11).jpg" data-lb-title="हया II" data-lb-meta="Oil on canvas · 2023" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (11).jpg" alt="हया II" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (11).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (11).webp" type="image/webp">
+                        <img src="img/gallery/oil (11).jpg" alt="हया II" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">हया II</span></span>
                     <span class="strip-card-meta">Oil · <span class="year">2023</span></span>
@@ -977,7 +1215,13 @@
             </a>
 
             <a class="strip-card" data-lb-src="img/gallery/oil (12).jpg" data-lb-title="Radha Krishna" data-lb-meta="Oil on canvas · 2023" href="#" onclick="return false;">
-                <div class="strip-card-img"><img src="img/gallery/oil (12).jpg" alt="Radha Krishna" loading="lazy"></div>
+                <div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/oil (12).avif" type="image/avif">
+                        <source srcset="img/gallery/oil (12).webp" type="image/webp">
+                        <img src="img/gallery/oil (12).jpg" alt="Radha Krishna" loading="lazy">
+                    </picture>
+                </div>
                 <div class="strip-card-caption">
                     <span class="strip-card-title">Radha Krishna</span>
                     <span class="strip-card-meta">Oil · <span class="year">2023</span></span>
@@ -1020,7 +1264,7 @@
         <span class="ex-img-credit">© Ankit Agrawal</span>
         </div>
         <div class="medium-exhibition-text">
-            <span class="ex-num">03 - Sketch</span>
+            <span class="ex-num">Sketch</span>
             <p class="ex-featured-title">Portrait Study · Charcoal, 2020</p>
             <h2>Drawn in <em>charcoal</em> and observation.</h2>
             <p>
@@ -1038,7 +1282,7 @@
 
     <div class="medium-strip-wrap">
         <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div class="medium-strip-label">All sketches</div>
+            <div class="medium-strip-label">All sketches &amp; Pastels</div>
             <div class="strip-nav">
                 <button class="strip-arrow" data-strip="sketch-strip" data-dir="-1" aria-label="Scroll left">&#8592;</button>
                 <button class="strip-arrow" data-strip="sketch-strip" data-dir="1" aria-label="Scroll right">&#8594;</button>
@@ -1046,123 +1290,303 @@
         </div>
         <div class="medium-strip" id="sketch-strip">
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (1a).jpg" data-lb-title="Portrait Study 1" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (1a).jpg" alt="Portrait Study 1" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
-                    <span class="strip-card-oneliner">A charcoal study from life.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (1a).jpg" data-lb-title="Portrait Study 1" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (1a).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (1a).webp" type="image/webp">
+                        <img src="img/gallery/sketch (1a).jpg" alt="Portrait Study 1" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">A charcoal study of a baby who is now all grown up.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (1b).jpg" data-lb-title="Portrait Study 2" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (1b).jpg" alt="Portrait Study 2" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
-                    <span class="strip-card-oneliner">Eyes, charcoal, and patience.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (1b).jpg" data-lb-title="Portrait Study 2" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (1b).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (1b).webp" type="image/webp">
+                        <img src="img/gallery/sketch (1b).jpg" alt="Portrait Study 2" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Eyes, charcoal, and patience of a little girl.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (1c).jpg" data-lb-title="Portrait Study 3" data-lb-meta="Charcoal sketch · 2017" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (1c).jpg" alt="Portrait Study 3" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2017</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (1c).jpg" data-lb-title="Portrait Study 3" data-lb-meta="Charcoal sketch · 2017" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (1c).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (1c).webp" type="image/webp">
+                        <img src="img/gallery/sketch (1c).jpg" alt="Portrait Study 3" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2017</span></span>
                     <span class="strip-card-oneliner">Learning to see before learning to draw.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (2a).jpg" data-lb-title="Portrait Study 4" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2a).jpg" alt="Portrait Study 4" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
-                    <span class="strip-card-oneliner">A study in shadow and structure.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2a).jpg" data-lb-title="Portrait Study 4" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (2a).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (2a).webp" type="image/webp">
+                        <img src="img/gallery/sketch (2a).jpg" alt="Portrait Study 4" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">A study in shadow and structure of a lovely couple.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (2a1).jpeg" data-lb-title="Portrait Study 5" data-lb-meta="Charcoal sketch · 2017" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2a1).jpeg" alt="Portrait Study 5" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2017</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2a1).jpeg" data-lb-title="Portrait Study 5" data-lb-meta="Charcoal sketch · 2017" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (2a1).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (2a1).webp" type="image/webp">
+                        <img src="img/gallery/sketch (2a1).jpeg" alt="Portrait Study 5" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2017</span></span>
                     <span class="strip-card-oneliner">Quick marks, slow looking.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (2a2) (2).jpeg" data-lb-title="Portrait Study 6" data-lb-meta="Charcoal sketch · 2015" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2a2) (2).jpeg" alt="Portrait Study 6" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2015</span></span>
-                    <span class="strip-card-oneliner">Early work - the beginning of a practice.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2a2) (2).jpeg" data-lb-title="Portrait Study 6" data-lb-meta="Charcoal sketch · 2015" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (2a2) (2).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (2a2) (2).webp" type="image/webp">
+                        <img src="img/gallery/sketch (2a2) (2).jpeg" alt="Portrait Study 6" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2015</span></span>
+                    <span class="strip-card-oneliner">Well this one has respect - family.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (2a2).jpeg" data-lb-title="Portrait Study 7" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2a2).jpeg" alt="Portrait Study 7" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
-                    <span class="strip-card-oneliner">The face as a problem to solve.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2a2).jpeg" data-lb-title="Portrait Study 7" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (2a2).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (2a2).webp" type="image/webp">
+                        <img src="img/gallery/sketch (2a2).jpeg" alt="Portrait Study 7" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">The lovely couple sharing emotions.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (2b).jpg" data-lb-title="Portrait Study 8" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2b).jpg" alt="Portrait Study 8" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
-                    <span class="strip-card-oneliner">A study in chiaroscuro.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2b).jpg" data-lb-title="Portrait Study 8" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (2b).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (2b).webp" type="image/webp">
+                        <img src="img/gallery/sketch (2b).jpg" alt="Portrait Study 8" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
+                    <span class="strip-card-oneliner">The lovely couple sharing emotions.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (2c).jpeg" data-lb-title="Portrait Study 9" data-lb-meta="Charcoal sketch · 2017" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (2c).jpeg" alt="Portrait Study 9" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2017</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (2c).jpeg" data-lb-title="Portrait Study 9" data-lb-meta="Charcoal sketch · 2017" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (2c).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (2c).webp" type="image/webp">
+                        <img src="img/gallery/sketch (2c).jpeg" alt="Portrait Study 9" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2017</span></span>
                     <span class="strip-card-oneliner">Charcoal on cartridge paper, from life.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (3a).jpg" data-lb-title="Portrait Study 10" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3a).jpg" alt="Portrait Study 10" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
-                    <span class="strip-card-oneliner">A face remembered from a bus journey.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3a).jpg" data-lb-title="Portrait Study 10" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (3a).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (3a).webp" type="image/webp">
+                        <img src="img/gallery/sketch (3a).jpg" alt="Portrait Study 10" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">A face seen in a country's journey.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (3b).jpg" data-lb-title="Portrait Study 11" data-lb-meta="Charcoal sketch · 2016" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3b).jpg" alt="Portrait Study 11" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2016</span></span>
-                    <span class="strip-card-oneliner">Form without colour.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3b).jpg" data-lb-title="Portrait Study 11" data-lb-meta="Charcoal sketch · 2016" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (3b).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (3b).webp" type="image/webp">
+                        <img src="img/gallery/sketch (3b).jpg" alt="Portrait Study 11" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2016</span></span>
+                    <span class="strip-card-oneliner">We all know 'Thala'.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (3c).jpg" data-lb-title="Portrait Study 12" data-lb-meta="Charcoal sketch · 2016" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3c).jpg" alt="Portrait Study 12" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2016</span></span>
-                    <span class="strip-card-oneliner">Charcoal on newsprint.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3c).jpg" data-lb-title="Portrait Study 12" data-lb-meta="Charcoal sketch · 2016" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (3c).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (3c).webp" type="image/webp">
+                        <img src="img/gallery/sketch (3c).jpg" alt="Portrait Study 12" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Hey Tanmay, how are you?.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (3c1).jpg" data-lb-title="Portrait Study 13" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3c1).jpg" alt="Portrait Study 13" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
-                    <span class="strip-card-oneliner">Drawn in one unbroken hour.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3c1).jpg" data-lb-title="Portrait Study 13" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (3c1).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (3c1).webp" type="image/webp">
+                        <img src="img/gallery/sketch (3c1).jpg" alt="Portrait Study 13" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+                    <span class="strip-card-oneliner">Drawn in one unbroken hour for a team member.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (3d).jpg" data-lb-title="Portrait Study 14" data-lb-meta="Charcoal sketch · 2016" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (3d).jpg" alt="Portrait Study 14" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2016</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (3d).jpg" data-lb-title="Portrait Study 14" data-lb-meta="Charcoal sketch · 2016" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (3d).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (3d).webp" type="image/webp">
+                        <img src="img/gallery/sketch (3d).jpg" alt="Portrait Study 14" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2016</span></span>
                     <span class="strip-card-oneliner">A study in stillness.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4a).jpg" data-lb-title="Portrait Study 15" data-lb-meta="Charcoal sketch · 2015" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4a).jpg" alt="Portrait Study 15" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2015</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4a).jpg" data-lb-title="Portrait Study 15" data-lb-meta="Charcoal sketch · 2015" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4a).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4a).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4a).jpg" alt="Portrait Study 15" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2015</span></span>
                     <span class="strip-card-oneliner">The earliest work in this series.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4b).jpg" data-lb-title="Portrait Study 16" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4b).jpg" alt="Portrait Study 16" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4b).jpg" data-lb-title="Portrait Study 16" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4b).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4b).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4b).jpg" alt="Portrait Study 16" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
                     <span class="strip-card-oneliner">Charcoal portrait from a photograph.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4c).jpg" data-lb-title="Portrait Study 17" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4c).jpg" alt="Portrait Study 17" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4c).jpg" data-lb-title="Portrait Study 17" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4c).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4c).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4c).jpg" alt="Portrait Study 17" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
                     <span class="strip-card-oneliner">Loose marks, tight observation.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4d).jpg" data-lb-title="Portrait Study 18" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4d).jpg" alt="Portrait Study 18" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4d).jpg" data-lb-title="Portrait Study 18" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4d).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4d).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4d).jpg" alt="Portrait Study 18" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
                     <span class="strip-card-oneliner">A figure study at BIT Mesra.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4f).jpeg" data-lb-title="Portrait Study 19" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4f).jpeg" alt="Portrait Study 19" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4f).jpeg" data-lb-title="Portrait Study 19" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4f).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4f).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4f).jpeg" alt="Portrait Study 19" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
                     <span class="strip-card-oneliner">Rendered with compressed charcoal.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4g).jpeg" data-lb-title="Portrait Study 20" data-lb-meta="Charcoal sketch · 2022" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g).jpeg" alt="Portrait Study 20" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2022</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g).jpeg" data-lb-title="Portrait Study 20" data-lb-meta="Charcoal sketch · 2022" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4g).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4g).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4g).jpeg" alt="Portrait Study 20" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2022</span></span>
                     <span class="strip-card-oneliner">A recent study - more confidence, less fear.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4g1).jpeg" data-lb-title="Portrait Study 21" data-lb-meta="Charcoal sketch · 2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g1).jpeg" alt="Portrait Study 21" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2021</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g1).jpeg" data-lb-title="Portrait Study 21" data-lb-meta="Charcoal sketch · 2021" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4g1).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4g1).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4g1).jpeg" alt="Portrait Study 21" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2021</span></span>
                     <span class="strip-card-oneliner">Soft charcoal, soft light.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4g2).jpeg" data-lb-title="Portrait Study 22" data-lb-meta="Charcoal sketch · 2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g2).jpeg" alt="Portrait Study 22" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2021</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g2).jpeg" data-lb-title="Portrait Study 22" data-lb-meta="Charcoal sketch · 2021" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4g2).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4g2).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4g2).jpeg" alt="Portrait Study 22" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2021</span></span>
                     <span class="strip-card-oneliner">A study in contour.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4g3).jpeg" data-lb-title="Portrait Study 23" data-lb-meta="Charcoal sketch · 2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g3).jpeg" alt="Portrait Study 23" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2021</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g3).jpeg" data-lb-title="Portrait Study 23" data-lb-meta="Charcoal sketch · 2021" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4g3).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4g3).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4g3).jpeg" alt="Portrait Study 23" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2021</span></span>
                     <span class="strip-card-oneliner">The last in this portrait sequence.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (4g6).jpg" data-lb-title="Portrait Study 24" data-lb-meta="Charcoal sketch · 2022" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (4g6).jpg" alt="Portrait Study 24" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2022</span></span>
-                    <span class="strip-card-oneliner">A loose sketch from a workshop session.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (4g6).jpg" data-lb-title="Portrait Study 24" data-lb-meta="Charcoal sketch · 2022" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (4g6).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (4g6).webp" type="image/webp">
+                        <img src="img/gallery/sketch (4g6).jpg" alt="Portrait Study 24" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2022</span></span>
+                    <span class="strip-card-oneliner">Gifted by a lovely lady to her parents.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (5).jpeg" data-lb-title="Portrait Study 25" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (5).jpeg" alt="Portrait Study 25" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charcoal · <span class="year">2019</span></span>
-                    <span class="strip-card-oneliner">Quick charcoal - five minutes, no eraser.</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (5).jpeg" data-lb-title="Portrait Study 25" data-lb-meta="Charcoal sketch · 2019" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (5).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (5).webp" type="image/webp">
+                        <img src="img/gallery/sketch (5).jpeg" alt="Portrait Study 25" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Portrait Study</span><span class="strip-card-meta">Charocoal · <span class="year">2021</span></span>
+                    <span class="strip-card-oneliner">Quick - fifteen minutes, no eraser.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (5a).jpg" data-lb-title="गजराज" data-lb-meta="Charcoal sketch" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (5a).jpg" alt="गजराज" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">गजराज</span></span><span class="strip-card-meta">Charcoal</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (5a).jpg" data-lb-title="गजराज" data-lb-meta="Charcoal sketch" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (5a).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (5a).webp" type="image/webp">
+                        <img src="img/gallery/sketch (5a).jpg" alt="गजराज" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">गजराज</span></span><span class="strip-card-meta">Pen Scribble</span>
                     <span class="strip-card-oneliner">The elephant king, charcoal on paper.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (5b).jpg" data-lb-title="Quick Sketch" data-lb-meta="Charcoal sketch" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (5b).jpg" alt="Quick Sketch" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Quick Sketch</span><span class="strip-card-meta">Charcoal</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (5b).jpg" data-lb-title="Quick Sketch" data-lb-meta="Charcoal sketch" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (5b).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (5b).webp" type="image/webp">
+                        <img src="img/gallery/sketch (5b).jpg" alt="Quick Sketch" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Quick Sketch</span><span class="strip-card-meta">Pen Sketch</span>
                     <span class="strip-card-oneliner">A five-minute sketch from life.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (11).jpeg" data-lb-title="Maata Ji" data-lb-meta="Charcoal sketch" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (11).jpeg" alt="Maata Ji" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Maata Ji</span><span class="strip-card-meta">Charcoal</span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (11).jpeg" data-lb-title="Maata Ji" data-lb-meta="Charcoal sketch" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (11).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (11).webp" type="image/webp">
+                        <img src="img/gallery/sketch (11).jpeg" alt="Maata Ji" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Maata Ji</span><span class="strip-card-meta">Soft Pastels</span>
                     <span class="strip-card-oneliner">An elderly woman, drawn from a photograph.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (12).jpg" data-lb-title="रफ़्तार" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (12).jpg" alt="रफ़्तार" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">रफ़्तार</span></span><span class="strip-card-meta">Charcoal · <span class="year">2020</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (12).jpg" data-lb-title="रफ़्तार" data-lb-meta="Charcoal sketch · 2020" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (12).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (12).webp" type="image/webp">
+                        <img src="img/gallery/sketch (12).jpg" alt="रफ़्तार" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">रफ़्तार</span></span><span class="strip-card-meta">Soft Pastels · <span class="year">2019</span></span>
                     <span class="strip-card-oneliner">Speed - gestural, restless, unresolved.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/sketch (13).jpg" data-lb-title="BIT Mesra" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/sketch (13).jpg" alt="BIT Mesra" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">BIT Mesra</span><span class="strip-card-meta">Charcoal · <span class="year">2018</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/sketch (13).jpg" data-lb-title="BIT Mesra" data-lb-meta="Charcoal sketch · 2018" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/sketch (13).avif" type="image/avif">
+                        <source srcset="img/gallery/sketch (13).webp" type="image/webp">
+                        <img src="img/gallery/sketch (13).jpg" alt="BIT Mesra" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">BIT Mesra</span><span class="strip-card-meta">Soft Pastels · <span class="year">2018</span></span>
                     <span class="strip-card-oneliner">Painted on campus during my undergraduate years.</span>
                 </div></a>
 
@@ -1201,11 +1625,11 @@
         <span class="ex-img-credit">© Ankit Agrawal</span>
         </div>
         <div class="medium-exhibition-text">
-            <span class="ex-num">04 - Acrylic</span>
-            <p class="ex-featured-title">Confusion · Acrylic, 2018</p>
+            <span class="ex-num">Acrylic</span>
+            <p class="ex-featured-title">Confusion · Acrylic, 2019</p>
             <h2>Painted in <em>colour</em> and experiment.</h2>
             <p>
-                Acrylic is my most experimental medium - fast, opaque, and forgiving of risk. These nine pieces range from abstract gesture to figurative studies: a Hercules series, mini canvases, and the chaotic energy of Confusion, painted in one sitting in 2018.
+                Acrylic is my most experimental medium - fast, opaque, and forgiving of risk. These nine pieces range from abstract gesture to figurative studies: a Hercules series, mini canvases, and the chaotic energy of Confusion, painted in one sitting in 2019.
             </p>
 
                         <!-- CTA (this is the only addition) -->
@@ -1227,27 +1651,63 @@
         </div>
         <div class="medium-strip" id="acrylic-strip">
 
-            <a class="strip-card" data-lb-src="img/gallery/acrylic (1).jpg" data-lb-title="Confusion" data-lb-meta="Acrylic · 2018" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (1).jpg" alt="Confusion" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Confusion</span><span class="strip-card-meta">Acrylic · <span class="year">2018</span></span>
-                    <span class="strip-card-oneliner">Painted in one sitting in 2018. Still unresolved.</span>
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (1).jpg" data-lb-title="Confusion" data-lb-meta="Acrylic · 2018" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/acrylic (1).avif" type="image/avif">
+                        <source srcset="img/gallery/acrylic (1).webp" type="image/webp">
+                        <img src="img/gallery/acrylic (1).jpg" alt="Confusion" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Confusion</span><span class="strip-card-meta">Acrylic · <span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">Painted in one sitting. Still unresolved.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/acrylic (2).jpg" data-lb-title="अमृतांजलि" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (2).jpg" alt="अमृतांजलि" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">अमृतांजलि</span></span><span class="strip-card-meta">Acrylic</span>
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (2).jpg" data-lb-title="अमृतांजलि" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/acrylic (2).avif" type="image/avif">
+                        <source srcset="img/gallery/acrylic (2).webp" type="image/webp">
+                        <img src="img/gallery/acrylic (2).jpg" alt="अमृतांजलि" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title"><span class="hi">अमृतांजलि</span></span><span class="strip-card-meta">Acrylic - <span class="year">2020</span></span>
                     <span class="strip-card-oneliner">A devotional gesture - colour and form.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/acrylic (3).jpg" data-lb-title="Shadow" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (3).jpg" alt="Shadow" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Shadow</span><span class="strip-card-meta">Acrylic</span>
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (3).jpg" data-lb-title="Shadow" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/acrylic (3).avif" type="image/avif">
+                        <source srcset="img/gallery/acrylic (3).webp" type="image/webp">
+                        <img src="img/gallery/acrylic (3).jpg" alt="Shadow" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Shadow</span><span class="strip-card-meta">Acrylic</span>
                     <span class="strip-card-oneliner">An acrylic study in negative space.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/acrylic (3a).jpg" data-lb-title="Hercules I" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (3a).jpg" alt="Hercules I" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Hercules I</span><span class="strip-card-meta">Acrylic</span>
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (3a).jpg" data-lb-title="Hercules I" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/acrylic (3a).avif" type="image/avif">
+                        <source srcset="img/gallery/acrylic (3a).webp" type="image/webp">
+                        <img src="img/gallery/acrylic (3a).jpg" alt="Hercules I" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Hercules I</span><span class="strip-card-meta">Acrylic</span>
                     <span class="strip-card-oneliner">First pass at a figurative acrylic series.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/acrylic (3b).jpg" data-lb-title="Hercules II" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (3b).jpg" alt="Hercules II" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Hercules II</span><span class="strip-card-meta">Acrylic</span>
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (3b).jpg" data-lb-title="Hercules II" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/acrylic (3b).avif" type="image/avif">
+                        <source srcset="img/gallery/acrylic (3b).webp" type="image/webp">
+                        <img src="img/gallery/acrylic (3b).jpg" alt="Hercules II" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Hercules II</span><span class="strip-card-meta">Acrylic</span>
                     <span class="strip-card-oneliner">The second study - more controlled.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/acrylic (3c).jpg" data-lb-title="Hercules III" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/acrylic (3c).jpg" alt="Hercules III" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Hercules III</span><span class="strip-card-meta">Acrylic</span>
+            <a class="strip-card" data-lb-src="img/gallery/acrylic (3c).jpg" data-lb-title="Hercules III" data-lb-meta="Acrylic" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/acrylic (3c).avif" type="image/avif">
+                        <source srcset="img/gallery/acrylic (3c).webp" type="image/webp">
+                        <img src="img/gallery/acrylic (3c).jpg" alt="Hercules III" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Hercules III</span><span class="strip-card-meta">Acrylic</span>
                     <span class="strip-card-oneliner">The final piece in the Hercules series.</span>
                 </div></a>
 
@@ -1280,8 +1740,8 @@
         </div>
 
         <div class="medium-exhibition-text">
-            <span class="ex-num">05 - Out of the box</span>
-            <p class="ex-featured-title">Starry Night Sneaker · 2024</p>
+            <span class="ex-num">Out of the box</span>
+            <p class="ex-featured-title">Starry Night Sneaker · 2026</p>
 
             <h2>Painted on <em>something you can wear</em>.</h2>
 
@@ -1384,7 +1844,7 @@
                 <div class="strip-card-caption">
                     <span class="strip-card-title"><span class="hi">Let's run</span></span>
                     <span class="strip-card-meta">Acrylic · 2026</span>
-                    <span class="strip-card-oneliner">Something you can walk on</span>
+                    <span class="strip-card-oneliner">Something you can walk on - Anime Fans</span>
                 </div>
             </a>
 
@@ -1422,11 +1882,11 @@
         <span class="ex-img-credit">© Ankit Agrawal</span>
         </div>
         <div class="medium-exhibition-text">
-            <span class="ex-num">06 - Workshop</span>
+            <span class="ex-num">Workshop</span>
             <p class="ex-featured-title">Teaching workshop, 2021</p>
             <h2>Taught in <em>studios</em> and village schools.</h2>
             <p>
-                Since 2016, Missing Palette has run workshops in Pune, Ranchi, and rural Jharkhand - including a session for children at Mahilong village under the Saansad Adarsh Gram Yojana. These photographs are from those sessions: students, canvases, and the particular quiet of a room learning to look.
+                Since 2016, Missing Palette has run workshops in Ranchi, Pune, Kolkata and rural Jharkhand - including a session for children at Mahilong village under the Saansad Adarsh Gram Yojana. These photographs are from those sessions: students, canvases, and the particular quiet of a room learning to look. I spent a lot of time conducting sessions for university students during my UG years
             </p>
             <span class="ex-count">9 photographs · 2019 - 2024</span>
         </div>
@@ -1442,41 +1902,106 @@
         </div>
         <div class="medium-strip" id="workshop-strip">
 
-            <a class="strip-card" data-lb-src="img/gallery/ws (1).jpg" data-lb-title="Workshop Session 1" data-lb-meta="2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (1).jpg" alt="Workshop 1" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2021</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/ws (1).jpg" data-lb-title="Workshop Session 1" data-lb-meta="2021" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws (1).avif" type="image/avif">
+                        <source srcset="img/gallery/ws (1).webp" type="image/webp">
+                        <img src="img/gallery/ws (1).jpg" alt="Workshop 1" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2021</span></span>
                     <span class="strip-card-oneliner">Mahilong village - children and watercolour.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/ws (2).jpg" data-lb-title="Workshop Session 2" data-lb-meta="2024" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (2).jpg" alt="Workshop 2" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2024</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/ws (2).jpg" data-lb-title="Workshop Session 2" data-lb-meta="2024" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws (2).avif" type="image/avif">
+                        <source srcset="img/gallery/ws (2).webp" type="image/webp">
+                        <img src="img/gallery/ws (2).jpg" alt="Workshop 2" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2019</span></span>
                     <span class="strip-card-oneliner">Students at work, Pune.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/ws (3).jpg" data-lb-title="Workshop Session 3" data-lb-meta="2021" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (3).jpg" alt="Workshop 3" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2021</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/ws (3).jpg" data-lb-title="Workshop Session 3" data-lb-meta="2021" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws (3).avif" type="image/avif">
+                        <source srcset="img/gallery/ws (3).webp" type="image/webp">
+                        <img src="img/gallery/ws (3).jpg" alt="Workshop 3" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2019</span></span>
                     <span class="strip-card-oneliner">A plein-air session on location.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/ws (4).jpg" data-lb-title="Workshop Session 4" data-lb-meta="2020" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (4).jpg" alt="Workshop 4" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2020</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/ws (4).jpg" data-lb-title="Workshop Session 4" data-lb-meta="2020" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws (4).avif" type="image/avif">
+                        <source srcset="img/gallery/ws (4).webp" type="image/webp">
+                        <img src="img/gallery/ws (4).jpg" alt="Workshop 4" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2018</span></span>
                     <span class="strip-card-oneliner">Group class - the quiet before a brushstroke.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/ws (7).jpg" data-lb-title="Workshop Session 5" data-lb-meta="2022" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (7).jpg" alt="Workshop 5" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2022</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/ws (7).jpg" data-lb-title="Workshop Session 5" data-lb-meta="2022" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws (7).avif" type="image/avif">
+                        <source srcset="img/gallery/ws (7).webp" type="image/webp">
+                        <img src="img/gallery/ws (7).jpg" alt="Workshop 5" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2017</span></span>
                     <span class="strip-card-oneliner">A demonstration in progress.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/ws (8).jpg" data-lb-title="Workshop Session 6" data-lb-meta="2024" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (8).jpg" alt="Workshop 6" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2024</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/ws (8).jpg" data-lb-title="Workshop Session 6" data-lb-meta="2024" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws (8).avif" type="image/avif">
+                        <source srcset="img/gallery/ws (8).webp" type="image/webp">
+                        <img src="img/gallery/ws (8).jpg" alt="Workshop 6" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2019</span></span>
                     <span class="strip-card-oneliner">Ranchi batch - oil on canvas.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/ws (9).jpg" data-lb-title="Workshop Session 7" data-lb-meta="2022" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (9).jpg" alt="Workshop 7" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2022</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/ws (9).jpg" data-lb-title="Workshop Session 7" data-lb-meta="2022" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws (9).avif" type="image/avif">
+                        <source srcset="img/gallery/ws (9).webp" type="image/webp">
+                        <img src="img/gallery/ws (9).jpg" alt="Workshop 7" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2019</span></span>
                     <span class="strip-card-oneliner">Students painting from life.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/ws (10).jpg" data-lb-title="Workshop Session 8" data-lb-meta="2023" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (10).jpg" alt="Workshop 8" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2023</span></span>
+            <a class="strip-card" data-lb-src="img/gallery/ws (10).jpg" data-lb-title="Workshop Session 8" data-lb-meta="2023" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws (10).avif" type="image/avif">
+                        <source srcset="img/gallery/ws (10).webp" type="image/webp">
+                        <img src="img/gallery/ws (10).jpg" alt="Workshop 8" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2018</span></span>
                     <span class="strip-card-oneliner">An outdoor session - natural light.</span>
                 </div></a>
 
-            <a class="strip-card" data-lb-src="img/gallery/ws (11).jpg" data-lb-title="Workshop Session 9" data-lb-meta="2019" href="#" onclick="return false;"><div class="strip-card-img"><img src="img/gallery/ws (11).jpg" alt="Workshop 9" loading="lazy"></div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2019</span></span>
-                    <span class="strip-card-oneliner">The first workshop photo. 2019.</span>
+            <a class="strip-card" data-lb-src="img/gallery/ws (11).jpg" data-lb-title="Workshop Session 9" data-lb-meta="2019" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws (11).avif" type="image/avif">
+                        <source srcset="img/gallery/ws (11).webp" type="image/webp">
+                        <img src="img/gallery/ws (11).jpg" alt="Workshop 9" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">The first kids' workshop photo. 2019.</span>
                 </div></a>
+
+                    <a class="strip-card" data-lb-src="img/gallery/ws(12).png" data-lb-title="Workshop Session 9" data-lb-meta="2019" href="#" onclick="return false;"><div class="strip-card-img">
+                    <picture>
+                        <source srcset="img/gallery/ws(12).avif" type="image/avif">
+                        <source srcset="img/gallery/ws(12).webp" type="image/webp">
+                        <img src="img/gallery/ws(12).png" alt="Workshop 9" loading="lazy">
+                    </picture>
+                </div><div class="strip-card-caption"><span class="strip-card-title">Workshop</span><span class="strip-card-meta"><span class="year">2019</span></span>
+                    <span class="strip-card-oneliner">Sketching basics at BIT Mesra</span>
+                </div></a>
+
 
         
             <!-- AUTO:STRIP-APPEND workshop -->
@@ -1496,51 +2021,56 @@
 
 <!-- Footer (unchanged) -->
 <footer class="site-footer">
-    <div class="footer-grid">
-        <div>
-            <div class="footer-brand">Missing <em>Palette</em><sup class="tm">®</sup></div>
-            <p class="footer-tagline">Indian artist Ankit Agrawal. Watercolor and oil, mostly. Sketching and acrylic when the work asks for it.</p>
-        </div>
-        <div class="footer-col">
-            <h5>Explore</h5>
-            <ul>
-                <li><a href="/gallery.html">Gallery</a></li>
-                <li><a href="/#about">About</a></li>
-                <li><a href="/#commissions">Commissions</a></li>
-                <li><a href="/blog.html">Journal</a></li>
-                <li><a href="/products.html">Shop</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h5>Connect</h5>
-            <ul class="footer-social-list">
-                <li><a href="https://www.instagram.com/imankit_art" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a></li>
-                <li><a href="https://www.youtube.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>YouTube</a></li>
-                <li><a href="https://www.facebook.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
-                <li><a href="https://www.linkedin.com/in/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
-                <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Topmate · Book a call</a></li>
-                <li><a href="https://www.patreon.com/bePatron?u=15378539" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14.5" cy="9.5" r="6.5"/><line x1="4" y1="3" x2="4" y2="21"/></svg>Patreon</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h5>Write to Me</h5>
-            <ul>
-                <li><a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a></li>
-                <li><a href="/#contact">Contact form</a></li>
-                <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer">Book a 1:1 call</a></li>
-                <li><a href="/register.html">Register for class</a></li>
-                <li><a href="/2025_Ankit_K_Agrawal_Resume.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-legal">
-        <div class="copyright-line">
-            <p>© 2019-2026 Missing Palette<sup class="tm">®</sup> · All Rights Reserved.</p>
-            <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal - unauthorized reproduction is prohibited.</p>
-        </div>
-        <div class="right"><a href="/privacy.html">Privacy</a><a href="/legal.html">Legal</a></div>
-    </div>
-    <p class="made-with">Made with <span class="heart">❤</span> by <span class="aka">AKA</span></p>
+   <div class="footer-grid">
+       <div>
+           <div class="footer-brand">Missing <em>Palette</em><sup class="tm">®</sup></div>
+           <p class="footer-tagline">Indian artist Ankit Agrawal. Watercolor and oil, mostly. Sketching and acrylic when the work asks for it.</p>
+       </div>
+       <div class="footer-col">
+           <h5>Explore</h5>
+           <ul>
+               <li><a href="/gallery.html">Gallery</a></li>
+               <li><a href="/#about">About Me</a></li>
+               <li><a href="/#commissions">Commissions</a></li>
+               <li><a href="/blog.html">My Journal</a></li>
+               <li><a href="/exhibitions.html">Exhibitions &amp; Press</a></li>
+               <li><a href="/products.html">Art Products</a></li>
+               <li><a href="/events.html">Plan an event</a></li>
+           </ul>
+       </div>
+       <div class="footer-col">
+           <h5>Connect</h5>
+           <ul class="footer-social-list">
+               <li><a href="https://www.instagram.com/imankit_art" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a></li>
+               <li><a href="https://www.youtube.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>YouTube</a></li>
+               <li><a href="https://www.facebook.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
+               <li><a href="https://www.linkedin.com/in/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
+               <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Topmate · Book a call</a></li>
+               <li><a href="https://www.patreon.com/bePatron?u=15378539" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14.5" cy="9.5" r="6.5"/><line x1="4" y1="3" x2="4" y2="21"/></svg>Patreon</a></li>
+           </ul>
+       </div>
+       <div class="footer-col">
+           <h5>Write to Me</h5>
+           <ul>
+               <li><a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a></li>
+               <li><a href="/#contact">Contact form</a></li>
+               <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer">Book a 1:1 call</a></li>
+               <li><a href="/register.html">Register for class</a></li>
+               <li><a href="/2025_Ankit_K_Agrawal_Resume.pdf" target="_blank" rel="noopener noreferrer">My Resume</a></li>
+           </ul>
+       </div>
+   </div>
+   <div class="footer-legal">
+       <div class="copyright-line">
+           <p>© 2019-2026 Missing Palette<sup class="tm">®</sup> · All Rights Reserved.</p>
+           <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal - unauthorized reproduction is prohibited.</p>
+       </div>
+       <div class="right">
+           <a href="/privacy.html">Privacy</a>
+           <a href="/legal.html">Legal</a>
+       </div>
+   </div>
+   <p class="made-with">Made with <span class="heart">❤</span> by <span class="aka">AKA</span></p>
 </footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -1573,13 +2103,30 @@
     const heroBg = document.getElementById('galleryHeroBg');
     if (heroBg) {
         const slides = heroBg.querySelectorAll('.gallery-hero-bg-img');
+        const prevBtn = document.getElementById('galleryHeroPrev');
         let cur = 0;
-        if (slides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            setInterval(() => {
-                slides[cur].classList.remove('active');
-                cur = (cur + 1) % slides.length;
-                slides[cur].classList.add('active');
-            }, 5500);
+        let rotationTimer = null;
+        const ROTATE_MS = 3000;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function goTo(next) {
+            slides[cur].classList.remove('active');
+            cur = (next + slides.length) % slides.length;
+            slides[cur].classList.add('active');
+        }
+        function startRotation() {
+            if (rotationTimer) clearInterval(rotationTimer);
+            if (slides.length > 1 && !reduceMotion) {
+                rotationTimer = setInterval(() => goTo(cur + 1), ROTATE_MS);
+            }
+        }
+        startRotation();
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                goTo(cur - 1);
+                startRotation(); // reset auto-advance timer so user-click isn't immediately overridden
+            });
         }
     }
 

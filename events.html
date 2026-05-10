@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFGSTZXF57"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HFGSTZXF57');
+</script>
+
+<title>Plan an Event | Missing Palette® - Art Workshops &amp; Private Sessions</title>
+<meta name="description" content="Host a private art party, corporate workshop, café collaboration, or university session with Missing Palette. Customized art experiences for every occasion.">
+<meta name="author" content="Ankit Agrawal">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://missingpalette.com/events.html">
+<meta property="og:title" content="Plan an Event | Missing Palette®">
+<meta property="og:description" content="Art workshops for private parties, corporates, cafés, and universities - personally facilitated by Ankit Agrawal.">
+<meta property="og:image" content="https://missingpalette.com/thumb.jpg">
+<meta property="og:url" content="https://missingpalette.com/events.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="shortcut icon" href="/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Missing Palette">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/missingpalette.css">
+<link rel="stylesheet" href="/css/missingpalette_v2.css">
+<link rel="stylesheet" href="/css/missingpalette_v4.css">
+
+<style>
+/* ================================================================
+   EVENTS PAGE - card = Option D structure + Option C typography
+   Gap between cards: 20px (breathable, not cramped)
+   ================================================================ */
+
+/* ── HERO ── */
+.ev-hero {
+    position: relative;
+    overflow: hidden;
+    padding: calc(64px + 6rem) var(--gutter) 5rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    background-color: #1A1410 !important;
+    border-bottom: 1px solid var(--line);
+}
+/* Sneaker painting as background - positioned to show the shoes
+   (which sit in the bottom half of the source image) */
+.ev-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/img/gallery/shoe1.jpg') center 70% / cover no-repeat;
+    opacity: 0.65;
+    z-index: 0;
+}
+/* Soft dark scrim so the headline reads cleanly */
+.ev-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(20, 14, 8, 0.25) 0%,
+        rgba(20, 14, 8, 0.45) 60%,
+        rgba(20, 14, 8, 0.65) 100%
+    );
+    z-index: 1;
+}
+.ev-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+    width: 100%;
+}
+.ev-hero h1 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+    font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.2rem;
+}
+.ev-hero h1 em { font-style: italic; color: #D9943A !important; }
+.ev-hero p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.88) !important;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    line-height: 1.75;
+    max-width: 50ch;
+    margin-bottom: 2rem;
+}
+.ev-hero .section-num {
+    color: #D9943A !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+.ev-hero .btn.primary {
+    background-color: #B85F32 !important;
+    color: #FAF4E2 !important;
+    border-color: #B85F32 !important;
+}
+.ev-hero .btn.primary:hover {
+    background-color: transparent !important;
+    color: #F2E8D0 !important;
+    border-color: #F2E8D0 !important;
+}
+
+/* ── SECTION ── */
+.ev-section {
+    padding: 5rem var(--gutter);
+    border-bottom: 1px solid var(--line);
+}
+
+/* ── CARD GRID - gap gives breathing room ── */
+.ev-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 3rem;
+}
+@media (max-width: 960px) {
+    .ev-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+    .ev-grid { grid-template-columns: 1fr; }
+}
+
+/* ── CARD
+   Structure: Option D - border box, 4px colour band on top
+   Interior:  Option C - Newsreader, italic desc, generous padding,
+              quiet footer, hover fills card
+── */
+.ev-card {
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.22s ease, border-color 0.22s ease;
+}
+.ev-card:hover {
+    background: var(--paper-deep);
+    border-color: var(--ink-mute);
+}
+
+/* 4px colour band - category coded */
+.ev-card-band {
+    height: 4px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Generous interior padding - Option C feel */
+.ev-card-body {
+    padding: 1.8rem 1.6rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Small category + number label */
+.ev-card-num {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 1rem;
+}
+
+/* Session name - Newsreader, light weight, Option C scale */
+.ev-card-name {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.22rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+}
+
+/* Italic description - quiet, editorial */
+.ev-card-desc {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.84rem;
+    color: var(--ink-mute);
+    line-height: 1.65;
+    margin-bottom: 1.6rem;
+    flex: 1;
+}
+
+/* Footer - Option C: thin rule, meta left, small link right */
+.ev-card-footer {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+}
+.ev-card-meta {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    color: var(--ink-mute);
+    line-height: 1.55;
+}
+.ev-card-link {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-bottom: 1px;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s, border-color 0.2s;
+}
+.ev-card-link:hover {
+    color: var(--crimson);
+    border-color: var(--crimson);
+}
+
+/* ── HOW IT WORKS ── */
+.how-strip {
+    padding: 5rem var(--gutter);
+    background: var(--paper-deep);
+    border-bottom: 1px solid var(--line);
+}
+.how-strip h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.how-strip h2 em { font-style: italic; color: var(--crimson); }
+.how-steps {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.how-step {
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 2rem 1.6rem;
+}
+.how-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 2.2rem;
+    color: var(--crimson);
+    display: block;
+    margin-bottom: 0.8rem;
+    line-height: 1;
+    opacity: 0.65;
+}
+.how-step h3 {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+.how-step p {
+    font-size: 0.82rem;
+    color: var(--ink-mute);
+    line-height: 1.65;
+}
+
+/* ── BOTTOM CTA ── */
+.ev-cta {
+    padding: 5.5rem var(--gutter);
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+}
+.ev-cta h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(1.7rem, 3.2vw, 2.8rem);
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+}
+.ev-cta h2 em { font-style: italic; color: var(--crimson); }
+.ev-cta p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-mute);
+    margin-bottom: 2rem;
+}
+
+/* ================================================================
+   EVENT CARDS - quiet, transparent, hover-revealed
+   3 per row. Sienna outline, no fill at rest. On hover the active
+   card shows description + meta + ORGANIZE pill, border lights up,
+   soft shadow lifts it. Card size is the same - no horizontal
+   expansion, no displaced siblings.
+   ================================================================ */
+.ev-row-h {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    padding: 0.5rem 0 1.5rem;
+    counter-reset: ev-card;
+}
+
+.ev-card-h {
+    counter-increment: ev-card;
+    position: relative;
+    aspect-ratio: 1.5 / 1;
+    border-radius: 12px;
+    background: rgba(184, 95, 50, 0.06) !important;   /* default: ochre tint */
+    border: 1px solid rgba(184, 95, 50, 0.28);
+    color: #1F1810 !important;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 320ms ease, background 320ms ease,
+                box-shadow 360ms ease, transform 360ms ease;
+}
+.ev-card-h:hover {
+    border-color: rgba(184, 95, 50, 0.6);
+    background: rgba(184, 95, 50, 0.10) !important;
+    box-shadow: 0 10px 30px rgba(31, 24, 16, 0.10);
+    transform: translateY(-2px);
+}
+
+/* Per-card tint rotation - pulls from the painting palette. Three
+   tints rotate so each row has variety without losing cohesion. */
+.ev-card-h:nth-of-type(3n + 2) {
+    background: rgba(79, 90, 58, 0.08) !important;        /* moss */
+    border-color: rgba(79, 90, 58, 0.30);
+}
+.ev-card-h:nth-of-type(3n + 2):hover {
+    background: rgba(79, 90, 58, 0.14) !important;
+    border-color: rgba(79, 90, 58, 0.6);
+}
+.ev-card-h:nth-of-type(3n + 3) {
+    background: rgba(139, 40, 32, 0.06) !important;       /* crimson */
+    border-color: rgba(139, 40, 32, 0.28);
+}
+.ev-card-h:nth-of-type(3n + 3):hover {
+    background: rgba(139, 40, 32, 0.10) !important;
+    border-color: rgba(139, 40, 32, 0.6);
+}
+
+/* Title - caps Inter with auto-numbered "01 - " prefix */
+.ev-card-h-title {
+    position: absolute;
+    top: 1.4rem;
+    left: 1.4rem;
+    right: 1.4rem;
+    z-index: 2;
+    font-family: 'Inter', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1F1810 !important;
+    margin: 0 !important;
+}
+.ev-card-h-title::before {
+    content: counter(ev-card, decimal-leading-zero) " - ";
+    color: rgba(31, 24, 16, 0.45);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+}
+
+/* Subtitle - italic serif, sits below title, fades out on hover */
+.ev-card-h-subtitle {
+    position: absolute;
+    top: 4rem;
+    left: 1.4rem;
+    right: 1.4rem;
+    z-index: 2;
+    font-family: var(--font-display, 'Newsreader', Georgia, serif) !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.35 !important;
+    color: #5C3D2E !important;
+    margin: 0 !important;
+    transition: opacity 240ms ease;
+}
+.ev-card-h:hover .ev-card-h-subtitle { opacity: 0; }
+
+/* Description - replaces subtitle on hover, same position */
+.ev-card-h-desc {
+    position: absolute;
+    top: 4rem;
+    left: 1.4rem;
+    right: 1.4rem;
+    z-index: 2;
+    font-family: var(--font-body) !important;
+    font-size: 0.78rem !important;
+    line-height: 1.55 !important;
+    color: #5C3D2E !important;
+    margin: 0 !important;
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity 320ms ease 160ms, transform 320ms ease 160ms;
+}
+.ev-card-h:hover .ev-card-h-desc {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Meta - duration line, only on hover */
+.ev-card-h-meta {
+    position: absolute;
+    left: 1.4rem;
+    right: 1.4rem;
+    bottom: 3.2rem;
+    z-index: 2;
+    font-family: var(--font-body) !important;
+    font-size: 0.68rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.04em;
+    color: #9C7E62 !important;
+    margin: 0 !important;
+    opacity: 0;
+    transition: opacity 280ms ease 200ms;
+}
+.ev-card-h:hover .ev-card-h-meta { opacity: 1; }
+
+/* ORGANIZE link - bottom-left, fades in on hover */
+.ev-card-h-cta {
+    position: absolute;
+    left: 1.4rem;
+    bottom: 1.2rem;
+    z-index: 3;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.62rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    color: #B85F32 !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(184, 95, 50, 0.5) !important;
+    padding-bottom: 2px !important;
+    border-radius: 0 !important;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-4px);
+    transition: opacity 280ms ease 240ms, transform 280ms ease 240ms,
+                color 200ms ease, border-color 200ms ease;
+}
+.ev-card-h:hover .ev-card-h-cta {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+.ev-card-h-cta:hover {
+    color: #1F1810 !important;
+    border-bottom-color: #1F1810 !important;
+}
+
+/* + button no longer used in hover-driven design - hide it */
+.ev-card-h-plus { display: none !important; }
+
+/* Tablet: 2 columns */
+@media (max-width: 900px) {
+    .ev-row-h { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile: single column, taller, all info always visible */
+@media (max-width: 540px) {
+    .ev-row-h { grid-template-columns: 1fr; }
+    .ev-card-h { aspect-ratio: 2.2 / 1; }
+    .ev-card-h-subtitle { opacity: 0; }
+    .ev-card-h-desc, .ev-card-h-meta, .ev-card-h-cta {
+        opacity: 1; transform: none; pointer-events: auto;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<nav class="site-nav" id="siteNav">
+  <a href="/" class="brand">Missing <em>Palette</em><sup class="tm">®</sup></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="3" y1="7" x2="21" y2="7"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="17" x2="21" y2="17"/>
+    </svg>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/gallery.html">Gallery</a></li>
+    <li><a href="/#about">About Me</a></li>
+    <li><a href="/#commissions">Commissions</a></li>
+    <li><a href="/blog.html">My Journal</a></li>
+    <li><a href="/exhibitions.html">Exhibitions &amp; Press</a></li>
+    <li><a href="/products.html">Art Products</a></li>
+    <li><a href="/events.html" aria-current="page" class="nav-cta">Plan an Event</a></li>
+    <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+</nav>
+
+
+<!-- HERO -->
+<section class="ev-hero">
+  <div class="ev-hero-inner">
+    <span class="section-num" style="display:block;margin-bottom:1rem;">Missing Palette® · Art Experiences</span>
+    <h1>Plan an event worth <em>remembering.</em></h1>
+    <p>Private parties, corporate sessions, café pop-ups, university workshops, every event personally facilitated and crafted around your people.</p>
+    <a href="/#contact" class="btn primary">Start planning <span class="arrow">→</span></a>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     01  PRIVATE ART PARTIES
+     Band: ochre  #B5773A
+════════════════════════════════════ -->
+<section class="ev-section">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="left">
+        <span class="section-num">Private Parties</span>
+        <h2 class="section-title">Private art <em>parties.</em></h2>
+      </div>
+      <div class="right">Celebrations · Bachelorette · Wedding · Mandala nights · Paint Your Pet</div>
+    </div>
+
+    <div class="ev-row-h" data-ev-row>
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Birthday Party</h3>
+        <p class="ev-card-h-subtitle">Themed group canvas night</p>
+        <p class="ev-card-h-desc">Themed canvas, glow-in-the-dark with UV-reactive paints, or fluid acrylic pouring. Step-by-step guided - no experience needed. Harry Potter, Superhero, or any custom theme.</p>
+        <p class="ev-card-h-meta">1.5–2 hrs · Min. 10 folks · Age 8+</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Anniversary &amp; Celebrations</h3>
+        <p class="ev-card-h-subtitle">Couple's portrait night</p>
+        <p class="ev-card-h-desc">Each person paints their partner's portrait, or share one canvas, two people, one painting. Matching split-canvases that connect together. Compatible with sip &amp; paint.</p>
+        <p class="ev-card-h-meta">2–2.5 hrs · 2–20 people</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Bachelorette Party</h3>
+        <p class="ev-card-h-subtitle">Pre-wedding paint party</p>
+        <p class="ev-card-h-desc">Fluid pour painting, sneaker customization, group canvas, paint each other's portraits. Life drawing with a live model available on request. Completely customizable to the theme.</p>
+        <p class="ev-card-h-meta">2–3 hrs · Min. 8 people</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Wedding Art Event</h3>
+        <p class="ev-card-h-subtitle">Live wedding painting</p>
+        <p class="ev-card-h-desc">Live wedding painting, guest contribution canvas, watercolor postcard station for guests, custom keepsake artwork for the couple.</p>
+        <p class="ev-card-h-meta">2–4 hrs · Any size · Your venue</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Mandala &amp; Zen Night</h3>
+        <p class="ev-card-h-subtitle">Guided meditative drawing</p>
+        <p class="ev-card-h-desc">Guided mandala drawing using dotting tools, no drawing skill required. Zentangle and meditative doodling extensions available. Finished pieces make great Diwali gifting artworks.</p>
+        <p class="ev-card-h-meta">1.5–2 hrs · Min. 8 people</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Paint Your Pet</h3>
+        <p class="ev-card-h-subtitle">Watercolor pet portrait</p>
+        <p class="ev-card-h-desc">Bring a photo of your pet, leave with a guided watercolor portrait. Step-by-step from pencil sketch to final painting. Works for dogs, cats, birds, any beloved pet.</p>
+        <p class="ev-card-h-meta">2–2.5 hrs · Min. 6 people</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     02  CORPORATE WORKSHOPS
+     Band: moss  #4F5A3A
+════════════════════════════════════ -->
+<section class="ev-section">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="left">
+        <span class="section-num">Corporate</span>
+        <h2 class="section-title">Corporate <em>workshops.</em></h2>
+      </div>
+      <div class="right">Team building · Off-sites · Wellness programs · Milestone celebrations</div>
+    </div>
+
+    <div class="ev-row-h" data-ev-row>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Canvas / Watercolor / Charcoal</h3>
+        <p class="ev-card-h-subtitle">Individual canvas painting</p>
+        <p class="ev-card-h-desc">Individual canvases - one per participant. Medium your choice: watercolor, acrylic, or charcoal. Theme customized to your company, event, or left completely open.</p>
+        <p class="ev-card-h-meta">1.5–2 hrs · Min. 10 people</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Team Mural</h3>
+        <p class="ev-card-h-subtitle">Collaborative wall canvas</p>
+        <p class="ev-card-h-desc">One large canvas - every team member paints their section. Theme and layout briefed in advance. Finished mural framed and permanently displayed in your office.</p>
+        <p class="ev-card-h-meta">1–2 hrs · Min. 5 people</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Moodboard Collage</h3>
+        <p class="ev-card-h-subtitle">Vision-board reflection</p>
+        <p class="ev-card-h-desc">Cut, paste, and paint a personal or team vision board. Facilitator leads a reflection conversation at the end. Works as individual boards or one collective team board for quarterly planning.</p>
+        <p class="ev-card-h-meta">1-1.5 hrs · Any size</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Blind Contour Portrait</h3>
+        <p class="ev-card-h-subtitle">Hilarious icebreaker</p>
+        <p class="ev-card-h-desc">Pairs draw each other without lifting the pen, or looking at the paper. Hilarious results, zero pressure. The best icebreaker there is. Works standalone or as a warm-up to any session.</p>
+        <p class="ev-card-h-meta">1 hr · Any size</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Abstract Emotion Painting</h3>
+        <p class="ev-card-h-subtitle">Music-led wellness session</p>
+        <p class="ev-card-h-desc">Music-guided sessionm- prompts, not instructions. Every piece is uniquely personal. 20-minute facilitated debrief follows. Used widely in corporate wellness and leadership programs.</p>
+        <p class="ev-card-h-meta">1.5 hrs · 10+ people</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Sneaker Painting</h3>
+        <p class="ev-card-h-subtitle">Custom canvas sneakers</p>
+        <p class="ev-card-h-desc">Each participant paints a pair of plain canvas sneakers to keep. Theme can be freestyle or aligned to your brand palette. The most memorable off-site activity, everyone wears the evidence home.</p>
+        <p class="ev-card-h-meta">2 hrs · 15–30 people</p>
+        <a href="/#contact" class="ev-card-h-cta">Organize</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     03  CAFÉ COLLABS
+     Band: crimson  #8B2820
+════════════════════════════════════ -->
+<section class="ev-section">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="left">
+        <span class="section-num">Café Collabs</span>
+        <h2 class="section-title">Workshops at a <em>café.</em></h2>
+      </div>
+      <div class="right">Sip &amp; paint · Pop-ups · Date nights · Community events that drive footfall</div>
+    </div>
+
+    <div class="ev-row-h" data-ev-row>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Couple Painting</h3>
+        <p class="ev-card-h-subtitle">Date-night canvas</p>
+        <p class="ev-card-h-desc">Shared canvas: both people paint one connected image. Or matching half-canvases that form a single picture together. Valentine's, anniversary, and date-night format. Café keeps all F&amp;B revenue.</p>
+        <p class="ev-card-h-meta">1.5–2 hrs · 5–10 couples · At your café</p>
+        <a href="/#contact" class="ev-card-h-cta">Collaborate</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Coffee Mug Painting</h3>
+        <p class="ev-card-h-subtitle">Painted ceramic keepsake</p>
+        <p class="ev-card-h-desc">Plain ceramic mugs painted with ceramic paint. Durable and dishwasher-safe after air-curing. Open freestyle or a guided theme - participants take their mug home as a keepsake.</p>
+        <p class="ev-card-h-meta">1.5 hrs · 10–25 people · At your café</p>
+        <a href="/#contact" class="ev-card-h-cta">Collaborate</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Blind Date with Art</h3>
+        <p class="ev-card-h-subtitle">Mystery-theme paint night</p>
+        <p class="ev-card-h-desc">Theme kept completely secret until a sealed envelope reveal at the start. Creates buzz before the event and a natural reel moment on the night. Great for repeat visitors and social media.</p>
+        <p class="ev-card-h-meta">1.5–2 hrs · 10–25 people · At your café</p>
+        <a href="/#contact" class="ev-card-h-cta">Collaborate</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Fluid Art Sip &amp; Pour</h3>
+        <p class="ev-card-h-subtitle">Pour-painting party</p>
+        <p class="ev-card-h-desc">Puddle pour, dirty pour, swipe - all techniques demonstrated live. Every single canvas comes out uniquely beautiful. No experience required. A crowd favourite, and perfect paired with beverages.</p>
+        <p class="ev-card-h-meta">1.5 hrs · 10–20 people · At your café</p>
+        <a href="/#contact" class="ev-card-h-cta">Collaborate</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Sneaker / Tote Pop-Up</h3>
+        <p class="ev-card-h-subtitle">Drop-in painting slots</p>
+        <p class="ev-card-h-desc">Drop-in format with back-to-back slots of 4–6 people each. Participants choose sneakers or tote bags. They post finished work tagging the café - organic social reach, and you keep all F&amp;B revenue.</p>
+        <p class="ev-card-h-meta">2 hrs / slot · 4–6 / slot · At your café</p>
+        <a href="/#contact" class="ev-card-h-cta">Collaborate</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Paint Your Pet</h3>
+        <p class="ev-card-h-subtitle">Pet portrait night</p>
+        <p class="ev-card-h-desc">Guided watercolor pet portrait from a phone photo. Extremely popular with pet-owner communities. Dog-friendly cafés can invite guests to bring their pets along on the night.</p>
+        <p class="ev-card-h-meta">2 hrs · 10–20 people · At your café</p>
+        <a href="/#contact" class="ev-card-h-cta">Collaborate</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     04  UNIVERSITY & SCHOOL
+     Band: ink-soft  #4A3F37
+════════════════════════════════════ -->
+<section class="ev-section">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="left">
+        <span class="section-num">Universities &amp; Schools</span>
+        <h2 class="section-title">Campus art <em>events.</em></h2>
+      </div>
+      <div class="right">One-off workshops · Wellness programs · Semester series · Zero admin burden on the institution</div>
+    </div>
+
+    <div class="ev-row-h" data-ev-row>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Watercolor Workshop</h3>
+        <p class="ev-card-h-subtitle">Hands-on watercolor session</p>
+        <p class="ev-card-h-desc">Wet-on-wet, dry brush, and layering techniques. Landscapes, botanicals, or abstract - your choice. Works in classrooms, seminar halls, or open campus spaces. All materials managed.</p>
+        <p class="ev-card-h-meta">2 hrs · 20–40 students · Your campus</p>
+        <a href="/#contact" class="ev-card-h-cta">Invite me</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Art &amp; Wellness</h3>
+        <p class="ev-card-h-subtitle">Mindful drawing workshop</p>
+        <p class="ev-card-h-desc">Zentangle, meditative doodling, and intuitive watercolor. Facilitated conversation on creativity as a coping tool. Ideal for exam season, orientation week, or student wellness drives.</p>
+        <p class="ev-card-h-meta">1.5–2 hrs · 15–30 students · Your campus</p>
+        <a href="/#contact" class="ev-card-h-cta">Invite me</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Sketch Journal Workshop</h3>
+        <p class="ev-card-h-subtitle">Illustrated journal building</p>
+        <p class="ev-card-h-desc">Perspective, line weight, and quick-sketch basics. Students build a 4-page illustrated journal spread in one sitting. Sketchbook and watercolor kit included. Ideal for design, architecture, humanities, MBA.</p>
+        <p class="ev-card-h-meta">2–2.5 hrs · 15–25 students · Your campus</p>
+        <a href="/#contact" class="ev-card-h-cta">Invite me</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Charcoal Portrait Workshop</h3>
+        <p class="ev-card-h-subtitle">Sketching and shading</p>
+        <p class="ev-card-h-desc">Shading, textures, contrast, and still-life sketching for all levels. Advanced portrait module available for students 15 years and older. Can be structured as a 2-session basics and advanced module.</p>
+        <p class="ev-card-h-meta">2–3 hrs · 15–35 students · Your campus</p>
+        <a href="/#contact" class="ev-card-h-cta">Invite me</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+      <article class="ev-card-h">
+        <h3 class="ev-card-h-title">Semester Workshop Series</h3>
+        <p class="ev-card-h-subtitle">Multi-session art curriculum</p>
+        <p class="ev-card-h-desc">Progressive curriculum: sketching → ink → watercolor → mixed media. Students build a portfolio of 6–8 works across the semester. Can be structured as a formal credit course or elective.</p>
+        <p class="ev-card-h-meta">1.5 hrs / session · Every 2 weeks · Your campus</p>
+        <a href="/#contact" class="ev-card-h-cta">Invite me</a>
+        <button class="ev-card-h-plus" aria-label="Toggle details">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<div class="how-strip">
+  <div class="container">
+    <h2>How it <em>works.</em></h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <!--<span class="how-num">i.</span>-->
+        <h3>Pick a session</h3>
+        <p>Browse the formats above and find what fits your occasion, group size, and vibe.</p>
+      </div>
+      <div class="how-step">
+       <!-- <span class="how-num">ii.</span>-->
+        <h3>Write to me</h3>
+        <p>Drop a message with your date, group size, and preferred session. Reply within 48 hours.</p>
+      </div>
+      <div class="how-step">
+      <!--    <span class="how-num">iii.</span>-->
+        <h3>We customize</h3>
+        <p>I'll share a tailored proposal - theme, pricing, and material details for your event.</p>
+      </div>
+      <div class="how-step">
+       <!-- <span class="how-num">iv.</span>-->
+        <h3>We create</h3>
+        <p>I show up with everything. You and your guests bring curiosity and good energy.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- BOTTOM CTA -->
+<div class="ev-cta">
+  <div class="container">
+    <h2>Don't see exactly what you're <em>looking for?</em></h2>
+    <p>Every session is customizable. Describe your occasion and I'll build something around it.</p>
+    <a href="/#contact" class="btn primary">Write to me <span class="arrow">→</span></a>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+   <div class="footer-grid">
+       <div>
+           <div class="footer-brand">Missing <em>Palette</em><sup class="tm">®</sup></div>
+           <p class="footer-tagline">Indian artist Ankit Agrawal. Watercolor and oil, mostly. Sketching and acrylic when the work asks for it.</p>
+       </div>
+       <div class="footer-col">
+           <h5>Explore</h5>
+           <ul>
+               <li><a href="/gallery.html">Gallery</a></li>
+               <li><a href="/#about">About Me</a></li>
+               <li><a href="/#commissions">Commissions</a></li>
+               <li><a href="/blog.html">My Journal</a></li>
+               <li><a href="/exhibitions.html">Exhibitions &amp; Press</a></li>
+               <li><a href="/products.html">Art Products</a></li>
+               <li><a href="/events.html">Plan an event</a></li>
+           </ul>
+       </div>
+       <div class="footer-col">
+           <h5>Connect</h5>
+           <ul class="footer-social-list">
+               <li><a href="https://www.instagram.com/imankit_art" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a></li>
+               <li><a href="https://www.youtube.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>YouTube</a></li>
+               <li><a href="https://www.facebook.com/missingpalette" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
+               <li><a href="https://www.linkedin.com/in/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
+               <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Topmate · Book a call</a></li>
+               <li><a href="https://www.patreon.com/bePatron?u=15378539" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14.5" cy="9.5" r="6.5"/><line x1="4" y1="3" x2="4" y2="21"/></svg>Patreon</a></li>
+           </ul>
+       </div>
+       <div class="footer-col">
+           <h5>Write to Me</h5>
+           <ul>
+               <li><a href="mailto:ankit@missingpalette.com">ankit@missingpalette.com</a></li>
+               <li><a href="/#contact">Contact form</a></li>
+               <li><a href="https://topmate.io/akaankit" target="_blank" rel="noopener noreferrer">Book a 1:1 call</a></li>
+               <li><a href="/register.html">Register for class</a></li>
+               <li><a href="/2025_Ankit_K_Agrawal_Resume.pdf" target="_blank" rel="noopener noreferrer">My Resume</a></li>
+           </ul>
+       </div>
+   </div>
+   <div class="footer-legal">
+       <div class="copyright-line">
+           <p>© 2019-2026 Missing Palette<sup class="tm">®</sup> · All Rights Reserved.</p>
+           <p class="tm-notice">Missing Palette<sup class="tm">®</sup> is a registered trademark. Artworks © Ankit Agrawal - unauthorized reproduction is prohibited.</p>
+       </div>
+       <div class="right">
+           <a href="/privacy.html">Privacy</a>
+           <a href="/legal.html">Legal</a>
+       </div>
+   </div>
+   <p class="made-with">Made with <span class="heart">❤</span> by <span class="aka">AKA</span></p>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="19" x2="12" y2="5"/>
+    <polyline points="5 12 12 5 19 12"/>
+  </svg>
+</button>
+
+<script src="/js/missingpalette.js" defer></script>
+
+<script>
+/* Click an event card -> activates it. Active card spans 2 cols.
+   – If clicked card is the LAST in its row (3rd, 6th...), it spans
+     leftward (active-end) so it doesn't wrap into row 2.
+   – The sibling occupying the slot the active card grew into is
+     hidden (.displaced) so the layout doesn't shove row 2 down. */
+(function() {
+    const COLS = 3;
+    document.querySelectorAll('[data-ev-row]').forEach(row => {
+        row.addEventListener('click', e => {
+            const card = e.target.closest('.ev-card-h');
+            if (!card || !row.contains(card)) return;
+
+            const cards = Array.from(row.querySelectorAll('.ev-card-h'));
+            const idx = cards.indexOf(card);
+            const wasActive = card.classList.contains('active');
+
+            cards.forEach(c => c.classList.remove('active', 'active-end', 'displaced'));
+            if (wasActive) return;  // collapsing - leave all reset
+
+            card.classList.add('active');
+            const colInRow = (idx % COLS) + 1;     // 1, 2, or 3
+
+            if (colInRow === COLS) {
+                // Last in row -> grow left, hide previous sibling
+                card.classList.add('active-end');
+                if (cards[idx - 1]) cards[idx - 1].classList.add('displaced');
+            } else if (cards[idx + 1]) {
+                // Grow right, hide next sibling (always same row since
+                // we're not the last in the row)
+                cards[idx + 1].classList.add('displaced');
+            }
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

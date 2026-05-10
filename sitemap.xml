@@ -621,6 +621,18 @@
     </url>
 
     <url>
+        <loc>https://missingpalette.com/exhibitions.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://missingpalette.com/events.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
         <loc>https://missingpalette.com/products.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

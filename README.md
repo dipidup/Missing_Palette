@@ -49,7 +49,14 @@ posts/
 scripts/
   build_post.py                  - converts posts/*.md -> blog/*.html
   build_blog.py                  - regenerates the cards in blog.html
+  build_gallery.py               - regenerates the gallery grid in gallery.html
+  sync_layout.py                 - propagates <nav> + <footer> from index.html
+                                   into every other page (run after editing nav/footer)
+  convert_gallery_images.py      - emits .webp + .avif siblings for img/gallery/*.jpg
+                                   (run after dropping in new gallery images)
+  cleanup_pass.py                - one-off site-wide content sanitizer
   _add_blog_markers.py           - one-time setup (adds AUTO:POSTS markers)
+  _add_gallery_markers.py        - one-time setup (adds AUTO:GALLERY markers)
   _convert_existing_html_to_md.py - one-time setup (already run for you)
 
 .github/workflows/
@@ -277,3 +284,97 @@ Edit `POST_TEMPLATE.html`. The build script uses it as the wrapper. Run
 The build script uses POST_TEMPLATE.html as the wrapper. If POST_TEMPLATE has
 LLM-template phrases in it, every post inherits them. Edit POST_TEMPLATE.html
 once, rerun build_post.py, all posts update.
+
+---
+
+## SITE MAP
+
+Top-level pages (hand-coded HTML, edit directly):
+
+```
+index.html         - homepage (hero + about + commissions + contact)
+gallery.html       - full artwork grid (auto-regenerated; see AUTO:GALLERY markers)
+blog.html          - journal index (auto-regenerated; see AUTO:POSTS markers)
+events.html        - workshops & private sessions (Plan an Event)
+exhibitions.html   - exhibitions, press, awards
+products.html      - art materials I recommend (Amazon affiliate links)
+register.html      - class registration (embedded form)
+legal.html         - terms, copyright, DMCA
+privacy.html       - privacy policy
+```
+
+Blog posts live in `blog/` and are generated from `posts/*.md`. Don't hand-edit
+the `blog/*.html` files — re-run `scripts/build_post.py` instead.
+
+`POST_TEMPLATE.html` is the wrapper used by the build script; edit it to change
+the look of every post at once.
+
+The whole site shares three CSS files (`missingpalette.css`, `_v2`, `_v4`) and
+one JS file (`missingpalette.js`).
+
+`index.html` is the source of truth for the `<nav>` and `<footer>` blocks.
+After editing either one, run `python scripts/sync_layout.py` to propagate
+the change into every other page in one go. Add `--check` to dry-run (exits
+non-zero if anything is out of sync — useful in CI).
+
+`404.html` is a stripped-down page (no footer) so GitHub Pages can serve it
+on any unknown URL. It's intentionally excluded from `sync_layout.py`.
+
+---
+
+## LOCAL DEVELOPMENT
+
+Serve the site over `http://localhost` so root-relative paths (`/img/...`,
+`/css/...`) resolve. From the repo root:
+
+```bash
+# Python 3 (no install needed)
+python -m http.server 8000
+
+# then visit http://localhost:8000
+```
+
+The build scripts need Python 3 and a couple of small libs:
+
+```bash
+pip install pyyaml markdown
+pip install Pillow                  # for scripts/convert_gallery_images.py
+pip install pillow-avif-plugin      # optional, enables AVIF output
+```
+
+After dropping new images into `img/gallery/`, run:
+
+```bash
+python scripts/convert_gallery_images.py
+```
+
+This generates `.webp` and `.avif` siblings next to each `.jpg`. The
+`<picture>` tags in `gallery.html` automatically serve the modern format to
+browsers that support it (most do), and fall back to the JPEG on the rest.
+
+---
+
+## CRAWLERS & AI
+
+`robots.txt` blocks the major AI training crawlers (GPTBot, ClaudeBot, CCBot,
+Google-Extended, PerplexityBot, Bytespider, Diffbot, FacebookBot, etc.). If you
+notice a new one in your access logs, add it as another `User-agent: <name>` /
+`Disallow: /` block.
+
+`sitemap.xml` is hand-maintained for top-level pages and includes per-page
+`<image:image>` annotations for SEO. When you add a new gallery image, update
+the corresponding entries here too — there is no automation for the sitemap
+yet.
+
+---
+
+## REPO HYGIENE
+
+- `Archive 01/` holds the previous version of the site. Don't edit; it's kept
+  for reference only and is excluded from `robots.txt`.
+- `.DS_Store` files (macOS metadata) get re-created automatically on macOS.
+  Add them to `.gitignore` if you haven't already.
+- `thumb.jpg` is the canonical social/open-graph image referenced from every
+  page. Replace it (keep the same filename) to update social previews
+  site-wide.
+
