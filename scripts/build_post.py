@@ -21,9 +21,11 @@ ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = ROOT / 'posts'
 OUTPUT_DIR = ROOT / 'blog'
 
-# ✅ FIXED: template is inside blog/
+# Try both locations (robust for CI + local)
 TEMPLATE = ROOT / 'blog' / 'POST_TEMPLATE.html'
 
+if not TEMPLATE.exists():
+    TEMPLATE = ROOT / 'POST_TEMPLATE.html'
 # ----------------------------------------------------------------------------
 # Markdown setup
 # ----------------------------------------------------------------------------
