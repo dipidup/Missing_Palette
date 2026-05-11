@@ -74,7 +74,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install Pillow pillow-avif-plugin pyyaml markdown
+          pip install Pillow pillow-avif-plugin pyyaml markdown markdown-it-py
 
 
       - name: Convert new gallery images to WebP + AVIF
