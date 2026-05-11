@@ -38,11 +38,12 @@ jobs:
         with:
           python-version: '3.12'
 
-      # ✅ FIXED INSTALL
+      # Install everything using the exact same python binary that will run the scripts.
+      # Using ${{ env.pythonLocation }} guarantees pip and python point to the same env.
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install \
+          "${{ env.pythonLocation }}/bin/python" -m pip install --upgrade pip
+          "${{ env.pythonLocation }}/bin/python" -m pip install \
             Pillow \
             pillow-avif-plugin \
             pyyaml \
@@ -50,29 +51,32 @@ jobs:
             markdown-it-py \
             mdit-py-plugins
 
-      # ✅ VERIFY (prevents silent failures)
+      # Verify imports using the same interpreter — catches path mismatches before scripts run
       - name: Verify dependencies
         run: |
-          python -c "from markdown_it import MarkdownIt; print('markdown_it OK')"
+          "${{ env.pythonLocation }}/bin/python" -c "
+          from markdown_it import MarkdownIt
+          import PIL, yaml, markdown, mdit_py_plugins
+          print('All dependencies OK')
+          "
 
       - name: Convert new gallery images to WebP + AVIF
-        run: python scripts/convert_gallery_images.py
+        run: "${{ env.pythonLocation }}/bin/python" scripts/convert_gallery_images.py
 
       - name: Sync nav + footer from index.html into all other pages
-        run: python scripts/sync_layout.py
+        run: "${{ env.pythonLocation }}/bin/python" scripts/sync_layout.py
 
       - name: Build gallery cards from Google Sheet
         env:
           GALLERY_SHEET_CSV_URL: ${{ secrets.GALLERY_SHEET_CSV_URL }}
-        run: python scripts/build_gallery.py
+        run: "${{ env.pythonLocation }}/bin/python" scripts/build_gallery.py
 
       - name: Build blog posts from markdown
-        run: python scripts/build_post.py
+        run: "${{ env.pythonLocation }}/bin/python" scripts/build_post.py
 
       - name: Rebuild blog index
-        run: python scripts/build_blog.py
+        run: "${{ env.pythonLocation }}/bin/python" scripts/build_blog.py
 
-      # ✅ SAFE COMMIT (fixed edge cases)
       - name: Commit and push if anything changed
         run: |
           git config user.name  'github-actions[bot]'
@@ -87,3 +91,4 @@ jobs:
 
           git commit -m "build: regenerate site [skip ci]"
           git push
+
