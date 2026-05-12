@@ -1083,6 +1083,45 @@ footer.site-footer,
 
 
 
+/* ==========================================
+   MOBILE NAV — opaque drawer, scrim, X close
+   ========================================== */
+@media (max-width: 860px) {
+  /* Solid opaque drawer */
+  nav.site-nav#siteNav .nav-links {
+    background: #0E0D0C !important;
+    z-index: 1000;
+  }
+  /* Dim the rest of the page behind the drawer */
+  nav.site-nav#siteNav.menu-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 999;
+  }
+  /* Keep the hamburger above the drawer so it's tappable to close */
+  nav.site-nav#siteNav .menu-toggle {
+    position: relative;
+    z-index: 1001;
+  }
+  /* Morph the three hamburger lines into an X when menu is open */
+  nav.site-nav#siteNav .menu-toggle svg line {
+    transition: transform 220ms ease, opacity 220ms ease;
+    transform-origin: center;
+  }
+  nav.site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+  nav.site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(2) {
+    opacity: 0;
+  }
+  nav.site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+}
+
+
 
 /* =============================================================
    END OF THEME V4 - Banaras at Dusk (DARK)
