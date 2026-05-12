@@ -1,89 +1,104 @@
 /* =============================================================
-   THEME V4 - "Banaras at Dusk" (DARK)
-   =============================================================
-   Dark counterpart to v4_light ("Sienna and Sketchbook"). Same
-   selector skeleton, every cream value flipped to deep umber,
-   every dark ink flipped to warm cream.
+   THEME V4 - "Banaras at Dusk" (DARK)
+   =============================================================
+   Dark counterpart to v4_light ("Sienna and Sketchbook"). Same
+   selector skeleton, every cream value flipped to deep umber,
+   every dark ink flipped to warm cream.
 
-   To switch back to the light theme:
-     mv css/missingpalette_v4.css         css/missingpalette_v4_dark.css
-     mv css/missingpalette_v4_light.css   css/missingpalette_v4.css
 
-   Palette draws from the same paintings as the light theme but
-   uses the colors that already worked dark there:
-     Bhandi Baba   - sienna, crimson, saffron
-     Aanchal       - umber-black body
-     Banarasi Shaam - night-water grays, cream highlight
-     Hayaa         - midnight blue accents
+   To switch back to the light theme:
+     mv css/missingpalette_v4.css         css/missingpalette_v4_dark.css
+     mv css/missingpalette_v4_light.css   css/missingpalette_v4.css
 
-   Loads AFTER missingpalette.css and missingpalette_v2.css in
-   the <link> order, so it has the final say in the cascade.
-   ============================================================= */
+
+   Palette draws from the same paintings as the light theme but
+   uses the colors that already worked dark there:
+     Bhandi Baba   - sienna, crimson, saffron
+     Aanchal       - umber-black body
+     Banarasi Shaam - night-water grays, cream highlight
+     Hayaa         - midnight blue accents
+
+
+   Loads AFTER missingpalette.css and missingpalette_v2.css in
+   the <link> order, so it has the final say in the cascade.
+   ============================================================= */
+
+
 
 
 /* -------------------------------------------------------------
-   1. PALETTE OVERRIDE (root vars)
-   ------------------------------------------------------------- */
+   1. PALETTE OVERRIDE (root vars)
+   ------------------------------------------------------------- */
 :root,
 html,
 body {
-    --paper:         #0E0D0C !important;   /* deep umber body */
-    --paper-deep:    #050505 !important;   /* deepest - footer, CTA bands */
-    --paper-soft:    #161514 !important;   /* card / floating panel */
+    --paper:         #0E0D0C !important;   /* deep umber body */
+    --paper-deep:    #050505 !important;   /* deepest - footer, CTA bands */
+    --paper-soft:    #161514 !important;   /* card / floating panel */
 
-    --ink:           #F2E8D0 !important;   /* warm cream text */
-    --ink-soft:      rgba(242, 232, 208, 0.78) !important;
-    --ink-mute:      rgba(242, 232, 208, 0.48) !important;
 
-    --crimson:       #C8463E !important;   /* brighter for dark */
-    --ochre:         #D9943A !important;   /* saffron - main accent on dark */
-    --ochre-light:   #E8B373 !important;   /* bright saffron highlight */
-    --moss:          #6B7A4C !important;   /* plein-air green, lighter for dark */
-    --banaras-blue:  #3A4D74 !important;   /* Hayaa midnight, lifted */
+    --ink:           #F2E8D0 !important;   /* warm cream text */
+    --ink-soft:      rgba(242, 232, 208, 0.78) !important;
+    --ink-mute:      rgba(242, 232, 208, 0.48) !important;
 
-    --line:          rgba(242, 232, 208, 0.12) !important;
+
+    --crimson:       #C8463E !important;   /* brighter for dark */
+    --ochre:         #D9943A !important;   /* saffron - main accent on dark */
+    --ochre-light:   #E8B373 !important;   /* bright saffron highlight */
+    --moss:          #6B7A4C !important;   /* plein-air green, lighter for dark */
+    --banaras-blue:  #3A4D74 !important;   /* Hayaa midnight, lifted */
+
+
+    --line:          rgba(242, 232, 208, 0.12) !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   2. DARK BODY
-   ------------------------------------------------------------- */
+   2. DARK BODY
+   ------------------------------------------------------------- */
 html, body {
-    background-color: #0E0D0C !important;
-    color: #F2E8D0 !important;
+    background-color: #0E0D0C !important;
+    color: #F2E8D0 !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   3. CATCH INLINE LIGHT-CREAM COLORS
-   index.html preloader and a handful of other places hardcode
-   cream hex values inline. Flip them to deep umber.
-   ------------------------------------------------------------- */
+   3. CATCH INLINE LIGHT-CREAM COLORS
+   index.html preloader and a handful of other places hardcode
+   cream hex values inline. Flip them to deep umber.
+   ------------------------------------------------------------- */
 [style*="#F5F0E6"], [style*="#f5f0e6"],
 [style*="#ECE4D4"], [style*="#ece4d4"],
 [style*="#FBF8F1"], [style*="#fbf8f1"],
 [style*="#EAE0CC"], [style*="#eae0cc"],
 [style*="#F2E8D0"], [style*="#f2e8d0"],
 [style*="#FAF4E2"], [style*="#faf4e2"] {
-    background-color: #0E0D0C !important;
-    color: #F2E8D0 !important;
+    background-color: #0E0D0C !important;
+    color: #F2E8D0 !important;
 }
 
+
 /* index.html preloader is inline-styled .mp-preloader; force dark.
-   Higher specificity beats the same-named rule in <style> via tag prefix. */
+   Higher specificity beats the same-named rule in <style> via tag prefix. */
 html .mp-preloader,
 body .mp-preloader {
-    background: #0E0D0C !important;
+    background: #0E0D0C !important;
 }
 html .mp-preloader-mark,
 body .mp-preloader-mark {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   4. SECTIONS - dark paper
-   ------------------------------------------------------------- */
+   4. SECTIONS - dark paper
+   ------------------------------------------------------------- */
 section, main, article, aside, header, footer,
 .section, .hero, .post-hero, .post-page, .blog-hero,
 .posts-section, .post-end-cta, .post-image,
@@ -96,529 +111,577 @@ section, main, article, aside, header, footer,
 .shop-hero, .policy-section, .policy-content,
 .s-pagewrap, .s-content, .s-footer, .s-header, .s-pageheader,
 .row, .column {
-    background-color: transparent !important;
-    color: #F2E8D0 !important;
+    background-color: transparent !important;
+    color: #F2E8D0 !important;
 }
+
 
 body, .s-pagewrap, main {
-    background-color: #0E0D0C !important;
+    background-color: #0E0D0C !important;
 }
 
+
 /* Hero / post-hero / blog-hero - the "floating paper card" panels
-   were cream in light mode; on dark they become soft umber. */
+   were cream in light mode; on dark they become soft umber. */
 .hero, .post-hero, .blog-hero, .post-end-cta,
 .stats, .stats-band, .stats-section {
-    background-color: #161514 !important;
-    border-color: rgba(242, 232, 208, 0.10) !important;
+    background-color: #161514 !important;
+    border-color: rgba(242, 232, 208, 0.10) !important;
 }
+
 
 /* Cards / frames / form wrappers */
 .post-card, .gallery-card, .medium-strip article,
 .frame, .card, .testimonial, .testimonial-card,
 .post-image, .post-hero-caption,
 .contact-form, .inquiry-form, form {
-    background-color: #161514 !important;
-    border: 1px solid rgba(242, 232, 208, 0.10) !important;
-    color: #F2E8D0 !important;
+    background-color: #161514 !important;
+    border: 1px solid rgba(242, 232, 208, 0.10) !important;
+    color: #F2E8D0 !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   5. ALL TEXT - warm cream
-   ------------------------------------------------------------- */
+   5. ALL TEXT - warm cream
+   ------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6,
 p, li, dd, dt, span, div,
 blockquote, figcaption, label,
 .section-title, .post-card-title, .gallery-card-title,
 .brand, .brand em,
 .testimonial p, .testimonial blockquote {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
+
 
 .post-card-excerpt, .gallery-card-meta,
 .post-meta, .post-subtitle, .lede, .byline,
 .stat-label, .post-image-caption,
 .footer-col p, .footer-col li, small {
-    color: rgba(242, 232, 208, 0.72) !important;
+    color: rgba(242, 232, 208, 0.72) !important;
 }
+
 
 h1 em, h2 em, h3 em, h4 em,
 .tm {
-    color: #D9943A !important;   /* saffron emphasis pops on dark */
-    font-style: italic !important;
+    color: #D9943A !important;   /* saffron emphasis pops on dark */
+    font-style: italic !important;
 }
 
+
 .brand, .brand em {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 .brand .tm, .tm {
-    color: #E8B373 !important;
+    color: #E8B373 !important;
 }
+
+
 
 
 /* -------------------------------------------------------------
-   6. NAV + FILTER BAR
-   ------------------------------------------------------------- */
+   6. NAV + FILTER BAR
+   ------------------------------------------------------------- */
 header.s-header, .main-nav-wrap,
 .filter-bar, .medium-nav {
-    background-color: rgba(14, 13, 12, 0.94) !important;
-    backdrop-filter: saturate(140%) blur(10px);
-    -webkit-backdrop-filter: saturate(140%) blur(10px);
-    border-bottom: 1px solid rgba(242, 232, 208, 0.10) !important;
+    background-color: rgba(14, 13, 12, 0.94) !important;
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid rgba(242, 232, 208, 0.10) !important;
 }
 
+
 /* Site nav:
-   - top of page: fully transparent
-   - scrolled: dark translucent veil
-   - hover-scrolled or menu-open: deeper black */
+   - top of page: fully transparent
+   - scrolled: dark translucent veil
+   - hover-scrolled or menu-open: deeper black */
 nav.site-nav#siteNav,
 .site-nav#siteNav {
-    background-color: transparent !important;
-    background-image: none !important;
-    border-bottom-color: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    transition: background-color 260ms ease, border-color 260ms ease,
-                backdrop-filter 260ms ease;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-bottom-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transition: background-color 260ms ease, border-color 260ms ease,
+                backdrop-filter 260ms ease;
 }
 nav.site-nav#siteNav.scrolled,
 .site-nav#siteNav.scrolled {
-    background-color: rgba(0, 0, 0, 0.45) !important;
-    border-bottom: 1px solid rgba(242, 232, 208, 0.10) !important;
-    backdrop-filter: saturate(135%) blur(8px) !important;
-    -webkit-backdrop-filter: saturate(135%) blur(8px) !important;
+    background-color: rgba(0, 0, 0, 0.45) !important;
+    border-bottom: 1px solid rgba(242, 232, 208, 0.10) !important;
+    backdrop-filter: saturate(135%) blur(8px) !important;
+    -webkit-backdrop-filter: saturate(135%) blur(8px) !important;
 }
 nav.site-nav#siteNav.scrolled:hover,
 .site-nav#siteNav.scrolled:hover,
 nav.site-nav#siteNav.menu-open,
 .site-nav#siteNav.menu-open {
-    background-color: rgba(0, 0, 0, 0.78) !important;
-    border-bottom: 1px solid rgba(242, 232, 208, 0.14) !important;
-    backdrop-filter: saturate(140%) blur(10px) !important;
-    -webkit-backdrop-filter: saturate(140%) blur(10px) !important;
+    background-color: rgba(0, 0, 0, 0.78) !important;
+    border-bottom: 1px solid rgba(242, 232, 208, 0.14) !important;
+    backdrop-filter: saturate(140%) blur(10px) !important;
+    -webkit-backdrop-filter: saturate(140%) blur(10px) !important;
 }
 nav.site-nav#siteNav.scrolled a,
 .site-nav#siteNav.scrolled a,
 nav.site-nav#siteNav.menu-open a,
 .site-nav#siteNav.menu-open a {
-    color: rgba(245, 240, 230, 0.88) !important;
+    color: rgba(245, 240, 230, 0.88) !important;
 }
 nav.site-nav#siteNav.scrolled a:hover,
 .site-nav#siteNav.scrolled a:hover,
 nav.site-nav#siteNav.menu-open a:hover,
 .site-nav#siteNav.menu-open a:hover {
-    color: #E8B373 !important;
+    color: #E8B373 !important;
 }
 /* Brand wordmark stays cream against the scrolled veil */
 nav.site-nav#siteNav .brand,
 nav.site-nav#siteNav .brand em,
 .site-nav#siteNav .brand,
 .site-nav#siteNav .brand em {
-    color: rgba(245, 240, 230, 0.92) !important;
+    color: rgba(245, 240, 230, 0.92) !important;
 }
 nav.site-nav#siteNav .brand .tm,
 .site-nav#siteNav .brand .tm {
-    color: #E8B373 !important;
+    color: #E8B373 !important;
 }
 .site-nav a, .nav-links a, .main-nav a,
 .filter-btn, .medium-nav a, nav a {
-    color: rgba(242, 232, 208, 0.82) !important;
+    color: rgba(242, 232, 208, 0.82) !important;
 }
 .site-nav a:hover, .nav-links a:hover, .main-nav a:hover,
 .filter-btn:hover, .filter-btn.active,
 .medium-nav a:hover, .medium-nav a.active,
 nav a:hover, .main-nav .current a {
-    color: #E8B373 !important;
+    color: #E8B373 !important;
 }
 .nav-cta {
-    color: #F2E8D0 !important;
-    border: 1px solid rgba(242, 232, 208, 0.30) !important;
+    color: #F2E8D0 !important;
+    border: 1px solid rgba(242, 232, 208, 0.30) !important;
 }
 .nav-cta:hover {
-    background-color: #D9943A !important;
-    color: #0E0D0C !important;
-    border-color: #D9943A !important;
+    background-color: #D9943A !important;
+    color: #0E0D0C !important;
+    border-color: #D9943A !important;
 }
+
+
 
 
 /* -------------------------------------------------------------
-   7. LINKS
-   ------------------------------------------------------------- */
+   7. LINKS
+   ------------------------------------------------------------- */
 a {
-    color: #D9943A !important;
-    text-decoration: none !important;
+    color: #D9943A !important;
+    text-decoration: none !important;
 }
 a:hover {
-    color: #E8B373 !important;
+    color: #E8B373 !important;
 }
 .brand, .brand:hover {
-    color: #F2E8D0 !important;
-    text-decoration: none !important;
+    color: #F2E8D0 !important;
+    text-decoration: none !important;
 }
+
 
 .post-body a:hover,
 .about p a:hover,
 main p a:hover {
-    text-decoration: underline !important;
-    text-underline-offset: 4px;
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   8. BUTTONS - sienna fill, on dark
-   ------------------------------------------------------------- */
+   8. BUTTONS - sienna fill, on dark
+   ------------------------------------------------------------- */
 .btn, button.btn, a.btn, .btn.primary,
 button[type="submit"], input[type="submit"] {
-    background-color: #B85F32 !important;
-    color: #FAF4E2 !important;
-    border: 1px solid #B85F32 !important;
+    background-color: #B85F32 !important;
+    color: #FAF4E2 !important;
+    border: 1px solid #B85F32 !important;
 }
 .btn:hover, .btn.primary:hover, button.btn:hover, a.btn:hover,
 button[type="submit"]:hover, input[type="submit"]:hover {
-    background-color: transparent !important;
-    color: #E8B373 !important;
-    border-color: #E8B373 !important;
+    background-color: transparent !important;
+    color: #E8B373 !important;
+    border-color: #E8B373 !important;
 }
 .btn-secondary, .btn-outline {
-    background-color: transparent !important;
-    color: #F2E8D0 !important;
-    border: 1px solid rgba(242, 232, 208, 0.30) !important;
+    background-color: transparent !important;
+    color: #F2E8D0 !important;
+    border: 1px solid rgba(242, 232, 208, 0.30) !important;
 }
 .btn-secondary:hover, .btn-outline:hover {
-    background-color: #F2E8D0 !important;
-    color: #0E0D0C !important;
-    border-color: #F2E8D0 !important;
+    background-color: #F2E8D0 !important;
+    color: #0E0D0C !important;
+    border-color: #F2E8D0 !important;
 }
+
+
 
 
 /* -------------------------------------------------------------
-   9. FORMS
-   ------------------------------------------------------------- */
+   9. FORMS
+   ------------------------------------------------------------- */
 input[type="text"], input[type="email"], input[type="tel"],
 input[type="url"],
 input:not([type="submit"]):not([type="button"]),
 textarea, select {
-    background-color: rgba(242, 232, 208, 0.05) !important;
-    color: #F2E8D0 !important;
-    border: 1px solid rgba(242, 232, 208, 0.18) !important;
+    background-color: rgba(242, 232, 208, 0.05) !important;
+    color: #F2E8D0 !important;
+    border: 1px solid rgba(242, 232, 208, 0.18) !important;
 }
 input:focus, textarea:focus, select:focus {
-    border-color: #D9943A !important;
-    outline: none !important;
+    border-color: #D9943A !important;
+    outline: none !important;
 }
 input::placeholder, textarea::placeholder {
-    color: rgba(242, 232, 208, 0.42) !important;
+    color: rgba(242, 232, 208, 0.42) !important;
 }
 label, .form-label {
-    color: #D9943A !important;
-    font-size: 0.85rem !important;
-    letter-spacing: 0.05em !important;
+    color: #D9943A !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.05em !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   10. STATS
-   ------------------------------------------------------------- */
+   10. STATS
+   ------------------------------------------------------------- */
 .stat-value, .stat-num, .stat .num {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .stat-label, .stat .label {
-    color: rgba(242, 232, 208, 0.72) !important;
+    color: rgba(242, 232, 208, 0.72) !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   11. SCROLL + BACK-TO-TOP + LIGHTBOX
-   ------------------------------------------------------------- */
+   11. SCROLL + BACK-TO-TOP + LIGHTBOX
+   ------------------------------------------------------------- */
 .scroll-progress {
-    background-color: #D9943A !important;
+    background-color: #D9943A !important;
 }
 .back-to-top {
-    background-color: #161514 !important;
-    color: #F2E8D0 !important;
-    border: 1px solid rgba(242, 232, 208, 0.18) !important;
+    background-color: #161514 !important;
+    color: #F2E8D0 !important;
+    border: 1px solid rgba(242, 232, 208, 0.18) !important;
 }
 .back-to-top:hover {
-    background-color: #D9943A !important;
-    color: #0E0D0C !important;
-    border-color: #D9943A !important;
+    background-color: #D9943A !important;
+    color: #0E0D0C !important;
+    border-color: #D9943A !important;
 }
 .lightbox, .lightbox-bg {
-    background-color: rgba(8, 5, 3, 0.96) !important;
+    background-color: rgba(8, 5, 3, 0.96) !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   12. DIVIDERS + SELECTION
-   ------------------------------------------------------------- */
+   12. DIVIDERS + SELECTION
+   ------------------------------------------------------------- */
 hr, .divider, .post-divider {
-    border-color: rgba(242, 232, 208, 0.12) !important;
-    background-color: rgba(242, 232, 208, 0.12) !important;
+    border-color: rgba(242, 232, 208, 0.12) !important;
+    background-color: rgba(242, 232, 208, 0.12) !important;
 }
 ::selection {
-    background-color: #D9943A !important;
-    color: #0E0D0C !important;
+    background-color: #D9943A !important;
+    color: #0E0D0C !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   13. RESTORE EYEBROWS
-   ------------------------------------------------------------- */
+   13. RESTORE EYEBROWS
+   ------------------------------------------------------------- */
 .eyebrow,
 .post-eyebrow,
 .post-card-eyebrow,
 .section-eyebrow,
 .eyebrow-line {
-    display: revert !important;
-    color: #D9943A !important;
+    display: revert !important;
+    color: #D9943A !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   14. RECOG-HIGHLIGHT (Top 20 Artists block)
-   ------------------------------------------------------------- */
+   14. RECOG-HIGHLIGHT (Top 20 Artists block)
+   ------------------------------------------------------------- */
 .recog-highlight {
-    background-color: #161514 !important;
-    border: 1px solid rgba(242, 232, 208, 0.10) !important;
+    background-color: #161514 !important;
+    border: 1px solid rgba(242, 232, 208, 0.10) !important;
 }
 .recog-highlight-num {
-    border-right: 1px solid rgba(242, 232, 208, 0.10);
+    border-right: 1px solid rgba(242, 232, 208, 0.10);
 }
 .recog-num {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .recog-num-label {
-    color: rgba(242, 232, 208, 0.72) !important;
+    color: rgba(242, 232, 208, 0.72) !important;
 }
 .recog-name {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 .recog-name em {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .recog-desc {
-    color: rgba(242, 232, 208, 0.78) !important;
+    color: rgba(242, 232, 208, 0.78) !important;
 }
 .recog-link {
-    color: #D9943A !important;
-    border-bottom: 1px solid rgba(217, 148, 58, 0.5);
+    color: #D9943A !important;
+    border-bottom: 1px solid rgba(217, 148, 58, 0.5);
 }
 .recog-link:hover {
-    color: #E8B373 !important;
-    border-bottom-color: #E8B373;
+    color: #E8B373 !important;
+    border-bottom-color: #E8B373;
 }
+
 
 @media (max-width: 720px) {
-    .recog-highlight-num {
-        border-right: none;
-        border-bottom: 1px solid rgba(242, 232, 208, 0.10);
-    }
+    .recog-highlight-num {
+        border-right: none;
+        border-bottom: 1px solid rgba(242, 232, 208, 0.10);
+    }
 }
 
 
+
+
 /* -------------------------------------------------------------
-   15. PRINTS-AVAILABLE TAG
-   ------------------------------------------------------------- */
+   15. PRINTS-AVAILABLE TAG
+   ------------------------------------------------------------- */
 .strip-card .prints-tag {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .strip-card .prints-tag:hover {
-    color: #E8B373 !important;
+    color: #E8B373 !important;
 }
+
+
 
 
 /* -------------------------------------------------------------
-   16. GALLERY MEDIUM NAV
-   ------------------------------------------------------------- */
+   16. GALLERY MEDIUM NAV
+   ------------------------------------------------------------- */
 .gallery-medium-nav,
 nav.gallery-medium-nav {
-    background-color: rgba(14, 13, 12, 0.95) !important;
-    border-bottom: 1px solid rgba(242, 232, 208, 0.10) !important;
-    border-top: 1px solid rgba(242, 232, 208, 0.10) !important;
+    background-color: rgba(14, 13, 12, 0.95) !important;
+    border-bottom: 1px solid rgba(242, 232, 208, 0.10) !important;
+    border-top: 1px solid rgba(242, 232, 208, 0.10) !important;
 }
 .gallery-medium-nav a {
-    color: rgba(242, 232, 208, 0.72) !important;
-    background-color: transparent !important;
-    border-bottom: 2px solid transparent !important;
+    color: rgba(242, 232, 208, 0.72) !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid transparent !important;
 }
 .gallery-medium-nav a:hover {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .gallery-medium-nav a.active,
 .gallery-medium-nav a[aria-current="page"],
 .gallery-medium-nav a[aria-current="true"] {
-    color: #D9943A !important;
-    border-bottom-color: #D9943A !important;
+    color: #D9943A !important;
+    border-bottom-color: #D9943A !important;
 }
+
+
 
 
 /* -------------------------------------------------------------
-   17. EXHIBITIONS TAB NAV
-   ------------------------------------------------------------- */
+   17. EXHIBITIONS TAB NAV
+   ------------------------------------------------------------- */
 .ex-tab-nav,
 nav.ex-tab-nav {
-    background-color: rgba(14, 13, 12, 0.95) !important;
-    border-bottom: 1px solid rgba(242, 232, 208, 0.10) !important;
-    border-top: 1px solid rgba(242, 232, 208, 0.10) !important;
+    background-color: rgba(14, 13, 12, 0.95) !important;
+    border-bottom: 1px solid rgba(242, 232, 208, 0.10) !important;
+    border-top: 1px solid rgba(242, 232, 208, 0.10) !important;
 }
 .ex-tab-nav a {
-    color: rgba(242, 232, 208, 0.72) !important;
-    background-color: transparent !important;
-    border-bottom: 2px solid transparent !important;
+    color: rgba(242, 232, 208, 0.72) !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid transparent !important;
 }
 .ex-tab-nav a:hover {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .ex-tab-nav a.active,
 .ex-tab-nav a[aria-current="page"],
 .ex-tab-nav a[aria-current="true"] {
-    color: #D9943A !important;
-    border-bottom-color: #D9943A !important;
+    color: #D9943A !important;
+    border-bottom-color: #D9943A !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   18. NAV CTA HOVER
-   ------------------------------------------------------------- */
+   18. NAV CTA HOVER
+   ------------------------------------------------------------- */
 .site-nav .nav-cta,
 nav.site-nav .nav-cta,
 .nav-links .nav-cta {
-    color: #F2E8D0 !important;
-    border: 1px solid rgba(242, 232, 208, 0.30) !important;
+    color: #F2E8D0 !important;
+    border: 1px solid rgba(242, 232, 208, 0.30) !important;
 }
 .site-nav .nav-cta:hover,
 nav.site-nav .nav-cta:hover,
 .nav-links .nav-cta:hover {
-    background-color: #D9943A !important;
-    color: #0E0D0C !important;
-    border-color: #D9943A !important;
+    background-color: #D9943A !important;
+    color: #0E0D0C !important;
+    border-color: #D9943A !important;
 }
+
+
 
 
 /* -------------------------------------------------------------
-   19. PROCESS BAND - deepest umber (was already dark in light mode)
-   On dark theme this becomes a "near-black gallery wall" pause,
-   slightly deeper than the body.
-   ------------------------------------------------------------- */
+   19. PROCESS BAND - deepest umber (was already dark in light mode)
+   On dark theme this becomes a "near-black gallery wall" pause,
+   slightly deeper than the body.
+   ------------------------------------------------------------- */
 .process,
 section.process {
-    background-color: #050505 !important;
-    color: #F2E8D0 !important;
+    background-color: #050505 !important;
+    color: #F2E8D0 !important;
 }
 .process-grid {
-    background-color: transparent !important;
+    background-color: transparent !important;
 }
 .process-text {
-    background-color: transparent !important;
-    color: #F2E8D0 !important;
+    background-color: transparent !important;
+    color: #F2E8D0 !important;
 }
 .process-text h3,
 .process-text p,
 .process-eyebrow,
 .process-caption {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 .process-text h3 em {
-    color: #D9943A !important;
-    font-style: italic !important;
+    color: #D9943A !important;
+    font-style: italic !important;
 }
 .process-text .btn.light {
-    background-color: transparent !important;
-    color: #F2E8D0 !important;
-    border: 1px solid rgba(242, 232, 208, 0.4) !important;
+    background-color: transparent !important;
+    color: #F2E8D0 !important;
+    border: 1px solid rgba(242, 232, 208, 0.4) !important;
 }
 .process-text .btn.light:hover {
-    background-color: #F2E8D0 !important;
-    color: #0E0D0C !important;
-    border-color: #F2E8D0 !important;
+    background-color: #F2E8D0 !important;
+    color: #0E0D0C !important;
+    border-color: #F2E8D0 !important;
 }
+
+
 
 
 /* -------------------------------------------------------------
-   20. TEXT OVER PAINTINGS - already light, stays light
-   Hero plate (homepage) and gallery hero have image/video
-   backgrounds with dark gradient overlays. No change needed
-   beyond ensuring our cream-text rules don't override hero copy.
-   ------------------------------------------------------------- */
+   20. TEXT OVER PAINTINGS - already light, stays light
+   Hero plate (homepage) and gallery hero have image/video
+   backgrounds with dark gradient overlays. No change needed
+   beyond ensuring our cream-text rules don't override hero copy.
+   ------------------------------------------------------------- */
 .hero-plate-credit,
 .hero-plate-caption,
 .hero-plate-caption .hi-title,
 .hero-plate-caption .en-title,
 .hero-plate-story-link {
-    color: rgba(245, 240, 230, 0.92) !important;
+    color: rgba(245, 240, 230, 0.92) !important;
 }
 .hero-plate-story-link:hover {
-    color: #FFFFFF !important;
+    color: #FFFFFF !important;
 }
+
 
 .gallery-page-hero,
 .gallery-page-hero h1,
 .gallery-hero-content,
 .gallery-hero-content h1 {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 .gallery-page-hero h1 em,
 .gallery-hero-content h1 em {
-    color: #D9943A !important;
-    font-style: italic !important;
+    color: #D9943A !important;
+    font-style: italic !important;
 }
 .gallery-page-hero p,
 .gallery-hero-content p {
-    color: rgba(242, 232, 208, 0.80) !important;
+    color: rgba(242, 232, 208, 0.80) !important;
 }
 .gallery-hero-eyebrow {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
+
 
 .hero-yt-btn {
-    color: #F2E8D0 !important;
-    background-color: rgba(8, 7, 6, 0.55) !important;
-    border: 1px solid rgba(242, 232, 208, 0.30) !important;
+    color: #F2E8D0 !important;
+    background-color: rgba(8, 7, 6, 0.55) !important;
+    border: 1px solid rgba(242, 232, 208, 0.30) !important;
 }
 .hero-yt-btn:hover {
-    background-color: rgba(8, 7, 6, 0.78) !important;
-    color: #FFFFFF !important;
-    border-color: rgba(242, 232, 208, 0.55) !important;
+    background-color: rgba(8, 7, 6, 0.78) !important;
+    color: #FFFFFF !important;
+    border-color: rgba(242, 232, 208, 0.55) !important;
 }
+
 
 .gallery-hero-prev {
-    color: rgba(242, 232, 208, 0.85) !important;
+    color: rgba(242, 232, 208, 0.85) !important;
 }
 .gallery-hero-prev:hover {
-    color: #FFFFFF !important;
+    color: #FFFFFF !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   21. GALLERY THUMBNAILS - same grayscale-on-hover behaviour
-   Behavior identical to v4_light. Mood works equally well dark.
-   ------------------------------------------------------------- */
+   21. GALLERY THUMBNAILS - same grayscale-on-hover behaviour
+   Behavior identical to v4_light. Mood works equally well dark.
+   ------------------------------------------------------------- */
 @media (hover: hover) {
-    .artwork-card img,
-    .strip-card-img img {
-        filter: grayscale(100%);
-        transition: filter 600ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .artwork-card:hover img,
-    .artwork-card .img-wrap:hover img,
-    .strip-card:hover .strip-card-img img,
-    .strip-card-img:hover img {
-        filter: grayscale(0%);
-    }
+    .artwork-card img,
+    .strip-card-img img {
+        filter: grayscale(100%);
+        transition: filter 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .artwork-card:hover img,
+    .artwork-card .img-wrap:hover img,
+    .strip-card:hover .strip-card-img img,
+    .strip-card-img:hover img {
+        filter: grayscale(0%);
+    }
 }
 @media (prefers-reduced-motion: reduce) {
-    .artwork-card img,
-    .strip-card-img img {
-        transition: none !important;
-    }
+    .artwork-card img,
+    .strip-card-img img {
+        transition: none !important;
+    }
 }
 
 
+
+
 /* -------------------------------------------------------------
-   22. DARK CTA BANDS — even deeper than body
-   These were already dark on the light theme. On the dark theme
-   they go one shade deeper so the visual rhythm survives.
-   ------------------------------------------------------------- */
+   22. DARK CTA BANDS — even deeper than body
+   These were already dark on the light theme. On the dark theme
+   they go one shade deeper so the visual rhythm survives.
+   ------------------------------------------------------------- */
 .contact,
 section.contact,
 #contact,
@@ -633,16 +696,18 @@ section.ex-contact-strip,
 .commissions,
 section.commissions,
 #commissions {
-    background-color: #050505 !important;
-    color: #F2E8D0 !important;
+    background-color: #050505 !important;
+    color: #F2E8D0 !important;
 }
+
 
 /* Section numbering kept hidden, same as v4_light */
 .section-num,
 .ev-card-num,
 .ev-card-h-num {
-    display: none !important;
+    display: none !important;
 }
+
 
 /* All text inside these sections - cream */
 .contact h1, .contact h2, .contact h3, .contact h4,
@@ -656,8 +721,9 @@ section.commissions,
 .ex-contact-strip p, .ex-contact-strip span, .ex-contact-strip div,
 .commissions h1, .commissions h2, .commissions h3, .commissions h4,
 .commissions p, .commissions span, .commissions div {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
+
 
 /* <em> emphasis in saffron */
 .contact h2 em, .contact h3 em,
@@ -666,72 +732,79 @@ section.commissions,
 .post-end-cta h2 em, .post-end-cta h3 em,
 .ex-contact-strip h2 em, .ex-contact-strip h3 em,
 .commissions h2 em, .commissions h3 em {
-    color: #D9943A !important;
-    font-style: italic !important;
+    color: #D9943A !important;
+    font-style: italic !important;
 }
+
 
 /* Commissions process list */
 .commissions .process-list .step .num {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .commissions .process-list .step .text {
-    color: rgba(242, 232, 208, 0.82) !important;
+    color: rgba(242, 232, 208, 0.82) !important;
 }
 .commissions .process-list .step {
-    border-color: rgba(242, 232, 208, 0.10) !important;
+    border-color: rgba(242, 232, 208, 0.10) !important;
 }
 .commissions .commission-prints-note {
-    color: rgba(242, 232, 208, 0.65) !important;
+    color: rgba(242, 232, 208, 0.65) !important;
 }
 .commissions .commission-prints-note a {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .commissions .commission-prints-note a:hover {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 .commissions .commissions-image-caption,
 .commissions .commissions-image-caption .hi,
 .commissions .commissions-image-caption .sep {
-    color: rgba(242, 232, 208, 0.78) !important;
+    color: rgba(242, 232, 208, 0.78) !important;
 }
+
 
 .commissions .btn,
 .commissions .btn.primary {
-    background-color: #B85F32 !important;
-    color: #FAF4E2 !important;
-    border-color: #B85F32 !important;
+    background-color: #B85F32 !important;
+    color: #FAF4E2 !important;
+    border-color: #B85F32 !important;
 }
 .commissions .btn:hover,
 .commissions .btn.primary:hover {
-    background-color: transparent !important;
-    color: #E8B373 !important;
-    border-color: #E8B373 !important;
+    background-color: transparent !important;
+    color: #E8B373 !important;
+    border-color: #E8B373 !important;
 }
 
+
 .commissions .section-header .right {
-    color: rgba(242, 232, 208, 0.65) !important;
+    color: rgba(242, 232, 208, 0.65) !important;
 }
+
 
 .contact .eyebrow,
 .contact .contact-shy,
 .contact-left > p {
-    color: rgba(242, 232, 208, 0.78) !important;
+    color: rgba(242, 232, 208, 0.78) !important;
 }
 
+
 .contact .email {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .contact .email:hover {
-    color: #E8B373 !important;
+    color: #E8B373 !important;
 }
+
 
 /* Contact form on the deep band */
 .contact .contact-form,
 .contact form {
-    background-color: transparent !important;
-    border: none !important;
-    color: #F2E8D0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: #F2E8D0 !important;
 }
+
 
 .contact .contact-form input[type="text"],
 .contact .contact-form input[type="email"],
@@ -742,39 +815,41 @@ section.commissions,
 .contact form input[type="text"],
 .contact form input[type="email"],
 .contact form textarea {
-    background-color: rgba(242, 232, 208, 0.05) !important;
-    color: #F2E8D0 !important;
-    border: 1px solid rgba(242, 232, 208, 0.18) !important;
+    background-color: rgba(242, 232, 208, 0.05) !important;
+    color: #F2E8D0 !important;
+    border: 1px solid rgba(242, 232, 208, 0.18) !important;
 }
 .contact .contact-form input:focus,
 .contact .contact-form textarea:focus,
 .contact form input:focus,
 .contact form textarea:focus {
-    border-color: #D9943A !important;
-    outline: none !important;
+    border-color: #D9943A !important;
+    outline: none !important;
 }
 .contact .contact-form input::placeholder,
 .contact .contact-form textarea::placeholder,
 .contact form input::placeholder,
 .contact form textarea::placeholder {
-    color: rgba(242, 232, 208, 0.42) !important;
+    color: rgba(242, 232, 208, 0.42) !important;
 }
 .contact .contact-form label,
 .contact form label {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
+
 
 .contact .contact-form button[type="submit"],
 .contact form button[type="submit"] {
-    background-color: #B85F32 !important;
-    color: #FAF4E2 !important;
-    border-color: #B85F32 !important;
+    background-color: #B85F32 !important;
+    color: #FAF4E2 !important;
+    border-color: #B85F32 !important;
 }
 .contact .contact-form button[type="submit"]:hover,
 .contact form button[type="submit"]:hover {
-    background-color: #D9943A !important;
-    border-color: #D9943A !important;
+    background-color: #D9943A !important;
+    border-color: #D9943A !important;
 }
+
 
 .ev-cta .btn,
 .ev-cta .btn.primary,
@@ -784,9 +859,9 @@ section.commissions,
 .post-end-cta .btn.primary,
 .ex-contact-strip .btn,
 .ex-contact-strip .btn.primary {
-    background-color: #B85F32 !important;
-    color: #FAF4E2 !important;
-    border-color: #B85F32 !important;
+    background-color: #B85F32 !important;
+    color: #FAF4E2 !important;
+    border-color: #B85F32 !important;
 }
 .ev-cta .btn:hover,
 .ev-cta .btn.primary:hover,
@@ -796,106 +871,113 @@ section.commissions,
 .post-end-cta .btn.primary:hover,
 .ex-contact-strip .btn:hover,
 .ex-contact-strip .btn.primary:hover {
-    background-color: transparent !important;
-    color: #E8B373 !important;
-    border-color: #E8B373 !important;
+    background-color: transparent !important;
+    color: #E8B373 !important;
+    border-color: #E8B373 !important;
 }
 
+
 .post-end-cta .btn:not(.primary) {
-    background-color: transparent !important;
-    color: #F2E8D0 !important;
-    border: 1px solid rgba(242, 232, 208, 0.4) !important;
+    background-color: transparent !important;
+    color: #F2E8D0 !important;
+    border: 1px solid rgba(242, 232, 208, 0.4) !important;
 }
 .post-end-cta .btn:not(.primary):hover {
-    background-color: #F2E8D0 !important;
-    color: #0E0D0C !important;
-    border-color: #F2E8D0 !important;
+    background-color: #F2E8D0 !important;
+    color: #0E0D0C !important;
+    border-color: #F2E8D0 !important;
 }
+
+
 
 
 /* -------------------------------------------------------------
-   23. EVENTS CARDS (.ev-card-h) — flip text to cream
-   The cards on events.html have inline styles hardcoding dark
-   text colors that worked on cream tints but become invisible on
-   dark. Higher specificity (html prefix) beats the inline rules.
-   The card tint backgrounds get a slight bump so the warm hint
-   actually shows on dark paper.
-   ------------------------------------------------------------- */
+   23. EVENTS CARDS (.ev-card-h) — flip text to cream
+   The cards on events.html have inline styles hardcoding dark
+   text colors that worked on cream tints but become invisible on
+   dark. Higher specificity (html prefix) beats the inline rules.
+   The card tint backgrounds get a slight bump so the warm hint
+   actually shows on dark paper.
+   ------------------------------------------------------------- */
 html .ev-card-h {
-    color: #F2E8D0 !important;
-    background: rgba(184, 95, 50, 0.14) !important;
-    border-color: rgba(184, 95, 50, 0.30) !important;
+    color: #F2E8D0 !important;
+    background: rgba(184, 95, 50, 0.14) !important;
+    border-color: rgba(184, 95, 50, 0.30) !important;
 }
 html .ev-card-h:hover {
-    background: rgba(184, 95, 50, 0.20) !important;
-    border-color: rgba(184, 95, 50, 0.55) !important;
+    background: rgba(184, 95, 50, 0.20) !important;
+    border-color: rgba(184, 95, 50, 0.55) !important;
 }
 html .ev-card-h:nth-of-type(3n + 2) {
-    background: rgba(107, 122, 76, 0.16) !important;
-    border-color: rgba(107, 122, 76, 0.34) !important;
+    background: rgba(107, 122, 76, 0.16) !important;
+    border-color: rgba(107, 122, 76, 0.34) !important;
 }
 html .ev-card-h:nth-of-type(3n + 2):hover {
-    background: rgba(107, 122, 76, 0.22) !important;
-    border-color: rgba(107, 122, 76, 0.55) !important;
+    background: rgba(107, 122, 76, 0.22) !important;
+    border-color: rgba(107, 122, 76, 0.55) !important;
 }
 html .ev-card-h:nth-of-type(3n + 3) {
-    background: rgba(200, 70, 62, 0.12) !important;
-    border-color: rgba(200, 70, 62, 0.32) !important;
+    background: rgba(200, 70, 62, 0.12) !important;
+    border-color: rgba(200, 70, 62, 0.32) !important;
 }
 html .ev-card-h:nth-of-type(3n + 3):hover {
-    background: rgba(200, 70, 62, 0.18) !important;
-    border-color: rgba(200, 70, 62, 0.55) !important;
+    background: rgba(200, 70, 62, 0.18) !important;
+    border-color: rgba(200, 70, 62, 0.55) !important;
 }
+
 
 html .ev-card-h-title,
 html .ev-card-h .ev-card-h-title {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 html .ev-card-h-title::before {
-    color: rgba(242, 232, 208, 0.45) !important;
+    color: rgba(242, 232, 208, 0.45) !important;
 }
 html .ev-card-h-subtitle,
 html .ev-card-h .ev-card-h-subtitle {
-    color: rgba(242, 232, 208, 0.78) !important;
+    color: rgba(242, 232, 208, 0.78) !important;
 }
 html .ev-card-h-desc,
 html .ev-card-h .ev-card-h-desc {
-    color: rgba(242, 232, 208, 0.85) !important;
+    color: rgba(242, 232, 208, 0.85) !important;
 }
 html .ev-card-h-meta,
 html .ev-card-h .ev-card-h-meta {
-    color: rgba(242, 232, 208, 0.55) !important;
+    color: rgba(242, 232, 208, 0.55) !important;
 }
 html .ev-card-h-cta,
 html .ev-card-h .ev-card-h-cta {
-    color: #E8B373 !important;
-    border-bottom-color: rgba(232, 179, 115, 0.5) !important;
+    color: #E8B373 !important;
+    border-bottom-color: rgba(232, 179, 115, 0.5) !important;
 }
 html .ev-card-h-cta:hover,
 html .ev-card-h .ev-card-h-cta:hover {
-    color: #F2E8D0 !important;
-    border-bottom-color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
+    border-bottom-color: #F2E8D0 !important;
 }
 
+
 /* The .ev-section "containers" already use --paper-deep through the
-   var system; nothing extra needed. The .ev-hero is already a dark
-   hardcoded #0E0D0C with white/saffron text — already on-brand. */
+   var system; nothing extra needed. The .ev-hero is already a dark
+   hardcoded #0E0D0C with white/saffron text — already on-brand. */
+
+
 
 
 /* -------------------------------------------------------------
-   24. SITE FOOTER — deepest umber
-   ------------------------------------------------------------- */
+   24. SITE FOOTER — deepest umber
+   ------------------------------------------------------------- */
 footer.site-footer,
 .site-footer {
-    background-color: #050505 !important;
-    background-image: none !important;
-    color: rgba(245, 240, 230, 0.78) !important;
-    border-top: 1px solid rgba(245, 240, 230, 0.10) !important;
+    background-color: #050505 !important;
+    background-image: none !important;
+    color: rgba(245, 240, 230, 0.78) !important;
+    border-top: 1px solid rgba(245, 240, 230, 0.10) !important;
 }
 .site-footer .footer-brand,
 .site-footer .footer-brand em,
 .site-footer .footer-col h5 {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 .site-footer .footer-tagline,
 .site-footer .footer-col p,
@@ -906,184 +988,201 @@ footer.site-footer,
 .site-footer li,
 .site-footer span:not(.heart):not(.aka):not(.tm),
 .site-footer div {
-    color: rgba(245, 240, 230, 0.72) !important;
+    color: rgba(245, 240, 230, 0.72) !important;
 }
 .site-footer a,
 .site-footer .footer-col a,
 .site-footer .footer-legal a {
-    color: rgba(245, 240, 230, 0.72) !important;
-    background-color: transparent !important;
-    border-color: transparent !important;
+    color: rgba(245, 240, 230, 0.72) !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
 }
 .site-footer a:hover,
 .site-footer .footer-col a:hover,
 .site-footer .footer-legal a:hover {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 .site-footer .footer-col svg,
 .site-footer .footer-col .icon {
-    stroke: rgba(245, 240, 230, 0.72) !important;
-    color: rgba(245, 240, 230, 0.72) !important;
+    stroke: rgba(245, 240, 230, 0.72) !important;
+    color: rgba(245, 240, 230, 0.72) !important;
 }
 .site-footer .tm,
 .site-footer sup.tm,
 .site-footer .footer-brand .tm {
-    color: #E8B373 !important;
+    color: #E8B373 !important;
 }
 .site-footer .footer-legal {
-    border-top: 1px solid rgba(245, 240, 230, 0.10) !important;
+    border-top: 1px solid rgba(245, 240, 230, 0.10) !important;
 }
+
 
 /* "Made with ❤ by AKA" — heart in red, AKA in warm brass */
 .site-footer .made-with {
-    color: rgba(245, 240, 230, 0.45) !important;
-    border-top-color: rgba(245, 240, 230, 0.06) !important;
+    color: rgba(245, 240, 230, 0.45) !important;
+    border-top-color: rgba(245, 240, 230, 0.06) !important;
 }
 .site-footer .made-with .heart,
 .made-with .heart {
-    color: #E63946 !important;
-    font-style: normal !important;
+    color: #E63946 !important;
+    font-style: normal !important;
 }
 .site-footer .made-with .aka,
 .made-with .aka {
-    color: #E8B373 !important;
+    color: #E8B373 !important;
 }
 
 
+
+
 /* -------------------------------------------------------------
-   25. 404 PAGE
-   ------------------------------------------------------------- */
+   25. 404 PAGE
+   ------------------------------------------------------------- */
 .nf-code {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .nf-title {
-    color: #F2E8D0 !important;
+    color: #F2E8D0 !important;
 }
 .nf-title em {
-    color: #D9943A !important;
+    color: #D9943A !important;
 }
 .nf-copy {
-    color: rgba(242, 232, 208, 0.78) !important;
+    color: rgba(242, 232, 208, 0.78) !important;
 }
+
+
 
 
 /* -------------------------------------------------------------
-   26. TESTIMONIAL MARQUEE CARDS — no box, hairline between
-   Strips the surrounding 1px frame from each card and replaces it
-   with a thin vertical hairline sitting in the gap between cards.
-   The line uses --line so it sits at the right opacity for dark.
-   ------------------------------------------------------------- */
+   26. TESTIMONIAL MARQUEE CARDS — no box, hairline between
+   Strips the surrounding 1px frame from each card and replaces it
+   with a thin vertical hairline sitting in the gap between cards.
+   The line uses --line so it sits at the right opacity for dark.
+   ------------------------------------------------------------- */
 .testimonial-mini {
-    border: none !important;
-    background: transparent !important;
-    padding: 1.4rem 1.8rem !important;
-    position: relative !important;
-    transition: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 1.4rem 1.8rem !important;
+    position: relative !important;
+    transition: none !important;
 }
 .testimonial-mini:hover {
-    background: transparent !important;
-    border-color: transparent !important;
+    background: transparent !important;
+    border-color: transparent !important;
 }
 .testimonial-mini + .testimonial-mini::before {
-    content: "";
-    position: absolute;
-    left: -0.6rem;   /* sit in the middle of the marquee-track gap */
-    top: 1.4rem;
-    bottom: 1.4rem;
-    width: 1px;
-    background: rgba(242, 232, 208, 0.16);
+    content: "";
+    position: absolute;
+    left: -0.6rem;   /* sit in the middle of the marquee-track gap */
+    top: 1.4rem;
+    bottom: 1.4rem;
+    width: 1px;
+    background: rgba(242, 232, 208, 0.16);
 }
 
 
+
+
 /* =============================================================
-   27. MOBILE NAV — FULL-SCREEN OPAQUE OVERLAY
-   ============================================================= */
+   27. MOBILE NAV — FULL-SCREEN OPAQUE OVERLAY (iOS-safe)
+   No 100vh (iOS chrome breaks it), no :has() (iOS 15.4+), no inset.
+   Drawer = the .nav-links element itself, expanded to fill viewport.
+   ============================================================= */
 @media (max-width: 860px) {
-    /* When menu is open, the <nav> itself becomes a full-viewport
-       opaque dark overlay covering everything below it. */
-    nav.site-nav#siteNav.menu-open,
-    .site-nav#siteNav.menu-open {
-        position: fixed !important;
-        inset: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        background-color: #0E0D0C !important;
-        background-image: none !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        z-index: 9999 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        justify-content: flex-start !important;
-        padding: 1.2rem 1.5rem !important;
-        overflow-y: auto !important;
-    }
+    /* .nav-links is already position:fixed in the base stylesheet.
+       Here we expand it to cover the entire viewport with a solid
+       dark background. It still slides in from the right via the
+       existing transform: translateX(100%) -> 0 transition. */
+    nav.site-nav#siteNav ul.nav-links,
+    .site-nav#siteNav ul.nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 5rem 1.5rem 2rem !important;
+        background-color: #0E0D0C !important;
+        background-image: none !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 1.5rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transition: transform 320ms ease, -webkit-transform 320ms ease;
+    }
+    nav.site-nav#siteNav.menu-open ul.nav-links,
+    .site-nav#siteNav.menu-open ul.nav-links {
+        transform: translateX(0) !important;
+        -webkit-transform: translateX(0) !important;
+    }
 
-    /* Menu list fills the overlay, items stacked and centered. */
-    nav.site-nav#siteNav.menu-open ul.nav-links,
-    .site-nav#siteNav.menu-open ul.nav-links {
-        position: static !important;
-        top: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        left: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
-        transform: none !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 1.6rem !important;
-        padding: 4rem 0 2rem !important;
-        margin: 0 !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        flex: 1 1 auto !important;
-    }
 
-    /* Hamburger sits in the top-right and stays clickable to close. */
-    nav.site-nav#siteNav .menu-toggle,
-    .site-nav#siteNav .menu-toggle {
-        position: absolute !important;
-        top: 1rem !important;
-        right: 1rem !important;
-        z-index: 10000 !important;
-        background: transparent !important;
-        border: none !important;
-    }
+    /* Hamburger / close button — fixed top-right, above overlay. */
+    nav.site-nav#siteNav .menu-toggle,
+    .site-nav#siteNav .menu-toggle {
+        position: fixed !important;
+        top: 1rem !important;
+        right: 1rem !important;
+        z-index: 10000 !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0.6rem !important;
+        cursor: pointer;
+    }
+    /* When menu is open the bg behind toggle is dark, so use cream. */
+    nav.site-nav#siteNav.menu-open .menu-toggle,
+    .site-nav#siteNav.menu-open .menu-toggle {
+        color: #F2E8D0 !important;
+    }
 
-    /* Morph the hamburger lines into an X when menu-open. */
-    nav.site-nav#siteNav .menu-toggle svg line,
-    .site-nav#siteNav .menu-toggle svg line {
-        transition: transform 220ms ease, opacity 220ms ease;
-        transform-origin: center;
-    }
-    nav.site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(1),
-    .site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(1) {
-        transform: translateY(5px) rotate(45deg);
-    }
-    nav.site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(2),
-    .site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(2) {
-        opacity: 0;
-    }
-    nav.site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(3),
-    .site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(3) {
-        transform: translateY(-5px) rotate(-45deg);
-    }
 
-    /* Lock background scroll while menu is open. */
-    body:has(nav.site-nav#siteNav.menu-open) {
-        overflow: hidden !important;
-    }
+    /* Morph the three hamburger lines into an X when menu-open. */
+    nav.site-nav#siteNav .menu-toggle svg line,
+    .site-nav#siteNav .menu-toggle svg line {
+        transition: transform 220ms ease, opacity 220ms ease,
+                    -webkit-transform 220ms ease;
+        transform-origin: center;
+        -webkit-transform-origin: center;
+    }
+    nav.site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(1),
+    .site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(1) {
+        transform: translateY(5px) rotate(45deg);
+        -webkit-transform: translateY(5px) rotate(45deg);
+    }
+    nav.site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(2),
+    .site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(2) {
+        opacity: 0;
+    }
+    nav.site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(3),
+    .site-nav#siteNav.menu-open .menu-toggle svg line:nth-child(3) {
+        transform: translateY(-5px) rotate(-45deg);
+        -webkit-transform: translateY(-5px) rotate(-45deg);
+    }
 }
 
 
+
+
 /* =============================================================
-   END OF THEME V4 - Banaras at Dusk (DARK)
-   ============================================================= */
+   END OF THEME V4 - Banaras at Dusk (DARK)
+   ============================================================= */
+
+
+
 
 
